@@ -83,3 +83,37 @@ El plan detallado (fechas, horarios, enfoque por sesión y cierre final tipo Mis
 	https://code.visualstudio.com/docs/copilot/customization/agent-skills
 - **Agent Skills standard**: especificación abierta de skills y portabilidad entre agentes/herramientas.  
 	https://agentskills.io/
+
+## Commits (buenas prácticas profesionales)
+
+### Principios recomendados
+
+- Hacer commits pequeños y atómicos (un objetivo claro por commit).
+- Escribir mensajes claros y consistentes (preferible estilo Conventional Commits).
+- Evitar mezclar cambios no relacionados en el mismo commit.
+- Revisar antes de confirmar (`git status` y `git diff`).
+- Incluir contexto útil en el cuerpo del commit cuando haga falta (qué y por qué).
+
+### Formato sugerido de mensaje
+
+`tipo(alcance): resumen corto en imperativo`
+
+Tipos comunes:
+- `feat`: nueva funcionalidad.
+- `fix`: corrección de error.
+- `docs`: cambios de documentación.
+- `refactor`: mejora interna sin cambiar comportamiento.
+- `chore`: tareas de mantenimiento.
+
+Ejemplos:
+- `docs(jp): agrega guía de IA y referencias oficiales`
+- `feat(skills): crea skill revision-ejercicios-alumno`
+- `fix(roadmap): corrige bloque horario y receso`
+
+### Flujo mínimo recomendado
+
+1. Revisar cambios: `git status`.
+2. Revisar diff: `git diff`.
+3. Añadir archivos concretos: `git add <archivo1> <archivo2>`.
+4. Crear commit: `git commit -m "tipo(alcance): resumen"`.
+5. Verificar historial: `git log --oneline -n 5`.

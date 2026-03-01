@@ -48,3 +48,34 @@ Estas instrucciones aplican a todo el repositorio y son la fuente principal para
 - No crear archivos o secciones fuera del alcance sin confirmación explícita.
 - Si un requisito es ambiguo, proponer primero la opción mínima.
 - Evitar funcionalidades extra no solicitadas.
+
+## Commits (buenas prácticas)
+- Hacer commits pequeños y atómicos (un objetivo por commit).
+- Revisar cambios antes de confirmar: `git status` y `git diff`.
+- No mezclar cambios no relacionados en un mismo commit.
+- Usar mensajes claros y consistentes (estilo Conventional Commits recomendado).
+
+Formato sugerido:
+- `tipo(alcance): resumen corto`
+
+Tipos frecuentes:
+- `feat`, `fix`, `docs`, `refactor`, `chore`.
+
+Flujo mínimo:
+1. `git status`
+2. `git diff`
+3. `git add <archivos>`
+4. `git commit -m "tipo(alcance): resumen"`
+5. `git log --oneline -n 5`
+
+## Skills disponibles para agentes
+
+| Skill | Comando | Uso principal |
+|---|---|---|
+| `experto-html` | `/experto-html` | Crear/revisar HTML semántico y formularios básicos. |
+| `experto-css` | `/experto-css` | Crear/revisar estilos, layout y responsive. |
+| `diseno-ejercicios-sin-ia` | `/diseno-ejercicios-sin-ia` | Diseñar ejercicios guiados y progresivos para `sin-ia`. |
+| `diseno-ejercicios-con-ia` | `/diseno-ejercicios-con-ia` | Diseñar ejercicios más avanzados con prompts para `con-ia`. |
+| `guia-avance-clase` | `/guia-avance-clase` | Crear guía de sesión con tiempos, receso y entregables. |
+| `revision-ejercicios-alumno` | `/revision-ejercicios-alumno` | Revisar entregas y dar feedback técnico + motivación. |
+| `commit-profesional` | `/commit-profesional` | Proponer commits atómicos y mensajes profesionales. |
