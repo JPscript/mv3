@@ -1,0 +1,1 @@
+En esta carpeta encontraremos proyectos generados manualmente sin IA.
