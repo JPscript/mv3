@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20vh;
+            cursor: pointer;
+            display: inline-block;
+        }
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6f61;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff3b2f;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-20px); }
+            50% { transform: translateY(0); }
+        }
+        .jumping {
+            animation: jump 0.5s ease;
+        }
+    </style>
+    <script>
+        let clickCount = 0;
+
+        function makeItJump(element) {
+            element.classList.add('jumping');
+            element.addEventListener('animationend', () => {
+                element.classList.remove('jumping');
+            }, { once: true });
+        }
+
+        function incrementCounter() {
+            const userConfirmed = confirm(`Has hecho clic ${clickCount} veces. ¿Quieres sumar otro clic?`);
+            if (userConfirmed) {
+                clickCount++;
+                document.getElementById('counter').innerText = `Has hecho clic ${clickCount} veces.`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="makeItJump(this)">Hola Mundo</h1>
+    <p>hola teacher</p>
+    <button onclick="incrementCounter()">¡Haz click aquí!</button>
+    <p id="counter">Has hecho clic 0 veces.</p>
+</body>
+</html>
