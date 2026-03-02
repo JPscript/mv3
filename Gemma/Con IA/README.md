@@ -1,0 +1,1 @@
+--En esta carpeta encontraremos proyectos que crearemos con ayuda de COPILOT.
