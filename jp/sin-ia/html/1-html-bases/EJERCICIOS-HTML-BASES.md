@@ -5,25 +5,35 @@ Nivel: inicial.
 Duración sugerida: 16:30 - 20:30.
 
 ## Mini guía de trabajo (orden y tiempo)
-- Ejercicio 1: 25 min
-- Ejercicio 2: 35 min
-- Ejercicio 3: 40 min
-- Ejercicio 4: 40 min
+- Ejercicio 1: 15 min
+- Ejercicio 1.1: 15 min
+- Ejercicio 2: 25 min
+- Ejercicio 3: 30 min
+- Ejercicio 4: 30 min
 - Revisión final y ajustes: 20 min
 
 ## Ejercicio 1 — Estructura semántica guiada
-**Objetivo:** reforzar la estructura base usando etiquetas semánticas.
+**Objetivo:** reforzar la estructura base usando las etiquetas más básicas de html.
 
 **Requisitos mínimos:**
-- Crear `index.html` con `header`, `main`, `section` y `footer`.
-- Incluir un `h1`, dos `h2` y al menos dos párrafos.
+- Crear `index.html` con `html`, `head`, `title`, `body`.
+- Incluir un `h1`, dos `h2`, al menos dos párrafos `p`, una anchor tag `a` y una imagen con la etiqueta `img`.
 
 **Pistas:**
-- Piensa en la página como: cabecera, contenido principal y pie.
 - Usa títulos para separar ideas.
 
 **Criterio de finalización:**
 - El documento abre sin errores y se entiende claramente su estructura.
+
+## Ejercicio 1.1 — Estructura semántica guiada, etiquetas de sección
+**Objetivo:** reforzar la estructura base usando etiquetas de sección semántica.
+**Requisitos mínimos:**
+- Crear `index.html` con `html`, `head`, `title`, `body`.
+- Incluir un `header` con un `h1`, un `main` con dos `section` con `h2` y párrafos, y un `footer` con información de contacto.  
+**Pistas:**
+- Usa `header` para la introducción, `main` para el contenido principal y `footer` para el cierre.
+**Criterio de finalización:**
+- El documento abre sin errores y se entiende claramente su estructura semántica.
 
 ## Ejercicio 2 — Listas y navegación interna
 **Objetivo:** practicar organización de contenido y enlaces internos.
