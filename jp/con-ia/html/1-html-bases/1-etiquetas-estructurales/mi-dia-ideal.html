@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- <!DOCTYPE html> indica al navegador que este documento usa HTML5 -->
+<html lang="es">
+<!-- <html> es la raíz del documento; lang="es" define el idioma principal para accesibilidad y SEO -->
+<head>
+  <!-- <head> contiene metadatos: información para navegador y buscadores (no se ve como contenido principal) -->
+  <meta charset="UTF-8" />
+  <!-- charset="UTF-8" permite usar tildes, eñes y símbolos correctamente -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- viewport adapta la página al ancho del dispositivo; ideal para móviles -->
+  <title>Mi día ideal</title>
+  <!-- <title> es el texto de la pestaña del navegador -->
+</head>
+<body>
+  <!-- <body> contiene todo el contenido visible de la página -->
+  <header id="inicio">
+    <!-- <header> agrupa la cabecera de la página -->
+    <!-- id="inicio" crea un ancla para enlazar con href="#inicio" -->
+    <h1>Mi día ideal</h1>
+    <!-- <h1> es el título principal de TODO el documento (debe haber uno principal) -->
+    <p>Una rutina sencilla para disfrutar, aprender y descansar.</p>
+    <!-- <p> representa un párrafo de texto -->
+    <nav>
+      <!-- <nav> contiene enlaces de navegación -->
+      <a href="#manana">Mañana</a> |
+      <!-- <a> crea enlaces; href="#manana" apunta al elemento con id="manana" -->
+      <a href="#tarde">Tarde</a> |
+      <a href="#noche">Noche</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- <main> agrupa el contenido principal (evita repetir cabecera/pie) -->
+    <section >
+      <!-- <section> separa bloques temáticos; id permite navegación interna -->
+      <h2>Mañana</h2>
+      <!-- <h2> es subtítulo dentro de la estructura del documento -->
+      <p id="manana">Empiezo el día con energía y organización.</p>
+      <img src="https://images.unsplash.com/photo-1458640904116-093b74971de9?auto=format&fit=crop&w=900&q=80" alt="Mesa de desayuno saludable" width="350" />
+      <!-- <img> inserta una imagen -->
+      <!-- src: URL de la imagen -->
+      <!-- alt: texto alternativo (clave para accesibilidad y cuando la imagen no carga) -->
+      <!-- width: ancho visual de la imagen en píxeles -->
+      <ul>
+        <!-- <ul> lista no ordenada (viñetas) -->
+        <li>Desayunar fruta y tostadas.</li>
+        <!-- <li> elemento individual de lista -->
+        <li>Caminar 20 minutos.</li>
+        <li>Revisar objetivos del día.</li>
+      </ul>
+    </section>
+
+    <section id="tarde">
+      <h2>Tarde</h2>
+      <p>Dedico la tarde a estudiar y avanzar en mis proyectos.</p>
+      <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80" alt="Persona estudiando con portátil" width="350" />
+      <ol>
+        <!-- <ol> lista ordenada (números) -->
+        <li>Practicar HTML y CSS.</li>
+        <li>Hacer una pausa corta.</li>
+        <li>Completar ejercicios pendientes.</li>
+      </ol>
+      <p>
+        Recurso recomendado:
+        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener noreferrer">Guía de HTML en MDN</a>.
+        <!-- href: destino del enlace -->
+        <!-- target="_blank": abre en pestaña nueva -->
+        <!-- rel="noopener noreferrer": mejora seguridad y privacidad al abrir nueva pestaña -->
+      </p>
+    </section>
+
+    <section id="noche">
+      <h2>Noche</h2>
+      <p>Cierro el día con actividades tranquilas para descansar mejor.</p>
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Ambiente relajado por la noche" width="350" />
+      <ul>
+        <li>Cenar ligero.</li>
+        <li>Leer 15 minutos.</li>
+        <li>Planificar el día siguiente.</li>
+      </ul>
+      <p><a href="#inicio">Volver arriba</a></p>
+      <!-- Este enlace usa un ancla interna para volver al header con id="inicio" -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- <footer> contiene información final de la página -->
+    <p>Autor: Estudiante Front-end · Ejercicio de HTML bases</p>
+  </footer>
+</body>
+</html>
