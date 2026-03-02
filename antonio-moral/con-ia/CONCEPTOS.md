@@ -1,0 +1,1 @@
+Para anotar conceptos clave con definición y metáfora.
