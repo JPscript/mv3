@@ -8,3 +8,6 @@ Cada concepto debe incluir:
 ## Ejemplo inicial
 - CSS Box Model: contenido, padding, borde y margen forman la caja de un elemento.
   Metáfora: como una caja de envío con objeto, relleno, cartón y espacio exterior.
+- Etiqueta de html.
+- Atributo de html.
+- Varias etiquetas a, img, section, h1, h2...
