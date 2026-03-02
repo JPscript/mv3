@@ -1,7 +1,7 @@
 # Instalación y configuración rápida
 
 ## 1) NVM
-1. Instalar `nvm` para Windows.
+1. Instalar `nvm` para Mac.
 2. Verificar: `nvm version`.
 
 ## 2) Node.js
