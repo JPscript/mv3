@@ -1,0 +1,39 @@
+html {
+    background-color: lightblue;
+}
+
+#infoextra {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: lightgray;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 3em;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(66, 3, 94);
+    font-weight: bold;
+    text-align: center;
+    font-size: 2em;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-transform: uppercase;
+}
