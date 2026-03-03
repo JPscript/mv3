@@ -1,19 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Práctica guíada clase 2</title>
-    </head>
-    <body>
-        <h1>Ejercicio clase 2</h1>
-        <p>Crear un programa que solicite al usuario su nombre y luego lo salude con un mensaje personalizado.</p>
-        <script>
-            // Solicitar al usuario su nombre
-            const nombre = prompt("Por favor, ingresa tu nombre:");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica guiada clase 2</title>
+</head>
+<body>
 
-            // Saludar al usuario con un mensaje personalizado
+    <header>
+        <h1>Ejercicio clase 2</h1>
+
+        <img src="/Users/carlosparejocambron/Documents/Python/assets/unnamed.jpg" alt="Imagen de cabecera" width="300">
+
+        <h2>Parte de la navegación</h2>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobremi">Sobre mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <a href="/Users/carlosparejocambron/Documents/Python/mv3/carlos/sin-ia/html/Ejercicios/index.html">Volver al inicio</a>
+
+    <h2>lista ordenada</h2>
+    <ol>
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+    </ol>
+
+    <h3>Lista desordenada</h3>
+    <ul>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+        <li>Primer elemento</li>
+    </ul>
+
+    <h4>Formulario de relleno</h4>
+
+    <form action="procesar.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+    
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email"><br><br>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+    <main>
+        <script>
+            const nombre = prompt("Por favor, ingresa tu nombre:");
             alert(`¡Hola, ${nombre}! Bienvenido a la clase de programación.`);
         </script>
-    </body>
+    </main>
+
+</body>
 </html>
