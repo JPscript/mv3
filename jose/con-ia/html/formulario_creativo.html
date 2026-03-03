@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro - Club Creativo</title>
+</head>
+<body>
+	<header>
+		<h1>Club Creativo</h1>
+		<p>Formulario de registro para nuevas personas interesadas.</p>
+	</header>
+
+	<main>
+		<section aria-labelledby="registro">
+			<h2 id="registro">Registro de participante</h2>
+
+			<form>
+				<fieldset>
+					<legend>Datos de registro</legend>
+
+					<p>
+						<label for="nombre">Nombre completo</label><br>
+						<input type="text" id="nombre" name="nombre" required>
+					</p>
+
+					<p>
+						<label for="correo">Correo electrónico</label><br>
+						<input type="email" id="correo" name="correo" required>
+					</p>
+
+					<p>
+						<label for="edad">Edad</label><br>
+						<input type="number" id="edad" name="edad" min="10" max="120" required>
+					</p>
+
+					<p>
+						<label for="interes">Interés principal</label><br>
+						<select id="interes" name="interes" required>
+							<option value="">Selecciona una opción</option>
+							<option value="dibujo">Dibujo</option>
+							<option value="fotografia">Fotografía</option>
+							<option value="escritura">Escritura</option>
+							<option value="manualidades">Manualidades</option>
+						</select>
+					</p>
+
+					<p>
+						<label for="mensaje">Mensaje</label><br>
+						<textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Cuéntanos qué te gustaría aprender"></textarea>
+					</p>
+				</fieldset>
+
+				<button type="submit">Enviar</button>
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<p>Gracias por querer formar parte del Club Creativo.</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!--## Ejercicio 2 — Listas y navegación interna
+**Objetivo:** practicar organización de contenido y enlaces internos.
+
+**Requisitos mínimos:**
+- Crear un índice al inicio con 3 enlaces internos.
+- Añadir 3 secciones con `id` para que el índice funcione.
+- Incluir al menos una lista ordenada y una desordenada.
+
+**Pistas:**
+- Usa `href="#seccion-x"` para saltar dentro de la misma página.
+- Define `id` únicos en cada sección.
+
+**Criterio de finalización:**
+- Todos los enlaces del índice llevan a la sección correcta. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protocolo de Emergencia Espacial</title>
+</head>
+<body>
+
+    <header>
+        <h1>GUÍA DE SUPERVIVENCIA INTERGALÁCTICA</h1>
+        <p>Actualización del 2 de marzo de 2026</p>
+        
+        
+        <nav>
+            <h2>Índice de Navegación</h2>
+            <ul>
+                <li><a href="#suministros">1. Suministros Necesarios</a></li>
+                <li><a href="#protocolo">2. Protocolo de Contacto</a></li>
+                <li><a href="#bases">3. Ubicación de Bases Seguras</a></li>
+            </ul>
+        </nav>
+         <img src="https://cdn.eso.org/images/screen/eso1625a.jpg" 
+             alt="Vista profunda de la Nebulosa de Orión, origen de la señal" width="800" height="400">
+
+    </header>
+
+    <main>
+       
+
+        <div id="suministros">
+            <h2>1. Suministros Necesarios</h2>
+            
+            <p>Todo ciudadano debe tener preparado su kit de emergencia cuántica:</p>
+            <ul>
+                <li>Oxígeno líquido embotellado.</li>
+                <li>Raciones de comida deshidratada sabor nebulosa.</li>
+                <li>Traductor universal (frecuencia Gamma).</li>
+                <li>Mapa estelar actualizado del sector 7.</li>
+            </ul>
+        </div>
+
+
+        <div id="protocolo">
+            <h2>2. Protocolo de Contacto</h2>
+            <p>Si visualizas una nave de origen desconocido, sigue estos pasos estrictamente:</p>
+            <ol>
+                <li>No emitas señales de radio potentes.</li>
+                <li>Activa el escudo de camuflaje de tu vivienda.</li>
+                <li>Sintoniza la frecuencia 144.1 para instrucciones.</li>
+                <li>Espera a que los oficiales de la Base Lunar lleguen a tu zona.</li>
+            </ol>
+        </div>
+
+        <div id="bases">
+            <h2>3. Ubicación de Bases Seguras</h2>
+            
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEXdy7BX-qDArZFrNACFILq4XPC2hX8O9vYQ&s" 
+                 alt="Estación espacial futurista en la superficie lunar" width="600" height="300">
+            
+            <p>
+                En caso de evacuación planetaria, dirígete a los siguientes puntos de encuentro. 
+                Los radares de la <a href="https://www.sciencedirect.com/topics/engineering/moon-bases">base lunar</a> estarán guiando a las naves civiles.
+            </p>
+        </div>
+    </main>
+
+    <br><br>
+    <footer>
+        <p><a href="#top">Volver al inicio del boletín</a></p>
+        <hr>
+        <p>Transmisión finalizada - Departamento de Exopolítica</p>
+    </footer>
+
+</body>
+</html>
