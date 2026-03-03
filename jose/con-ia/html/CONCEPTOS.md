@@ -13,3 +13,17 @@ En este ejercicio de nivel inicial se trabajaron varias etiquetas HTML semántic
 - **`<footer>`**: pie de página con información secundaria, como derechos de autor y contacto.
 
 Estos conceptos refuerzan la organización semántica, la accesibilidad y la claridad del documento.
+
+## Nuevos conceptos vistos en "Guía de hobbies para principiantes"
+
+- **`<meta name="viewport" content="width=device-width, initial-scale=1.0">`**: ayuda a que la página se adapte mejor en móviles y pantallas pequeñas.
+- **`<article>`**: bloque semántico para agrupar contenido independiente dentro de una sección (por ejemplo, cada categoría de hobby).
+- **`<h3>`**: subtítulo de tercer nivel para organizar subtemas dentro de una misma sección.
+- **`aria-labelledby`**: atributo de accesibilidad que vincula una sección con su título mediante un `id`, mejorando la lectura por tecnologías de asistencia.
+- **`<table>`**: estructura para mostrar datos en filas y columnas de forma clara.
+- **`<caption>`**: título descriptivo de la tabla para dar contexto rápido al contenido.
+- **`<thead>` y `<tbody>`**: separan la cabecera del cuerpo de la tabla y mejoran la semántica.
+- **`<th scope="col">`**: define encabezados de columna y facilita interpretar la tabla, especialmente para accesibilidad.
+- **Enlaces externos con `target="_blank"` y `rel="noopener noreferrer"`**: abren enlaces en nueva pestaña con una configuración más segura.
+- **`aria-label` en `<nav>`**: aporta una descripción clara de la navegación (por ejemplo, índice de preguntas frecuentes) para mejorar accesibilidad.
+- **FAQ con anclas internas (`href="#faq-x"` + `id="faq-x"`)**: permite saltar rápido desde un índice de preguntas a cada respuesta dentro de la misma página.
