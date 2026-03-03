@@ -11,10 +11,10 @@
  <!-- Otras funciones -->
     "a" para poner un enlace
     "ul" para crear el bloque
-    "li" para poner cada punto
+         "li" para poner cada punto del bloque
     "p" para poner texto
     "a" para poner un enlace
     "img" puedes añadir imagenes a la pagina
-    "br" lo uso para hacer espaciados entre lineas
+    "br" para hacer espaciados entre lineas
     "hr" es para poner lineas divisorias
     "b" es para poner el texto en negrita
