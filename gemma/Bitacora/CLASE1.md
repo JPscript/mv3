@@ -1,1 +1,1 @@
-Instalacion del software
+<!-- 2 de marzo: Hemos creado el repositorio compartido de clase en GITHUB. Hemos visto los primeros conceptos y ejercicios de HTML a traves de w3school y como ejercicio de práctica tenemos que hacer los primeros pasos de titulos, H1, H2... los cuales estan en ejercicios de HTML->sin ia->html->1-estructura-basica. -->

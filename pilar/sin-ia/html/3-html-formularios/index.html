@@ -1,0 +1,69 @@
+<!-- ## Ejercicio 3 — Formularios básicos (inicio)
+**Objetivo:** introducir formularios HTML simples con buena estructura.
+
+**Requisitos mínimos:**
+- Crear un formulario con campos: nombre, correo y mensaje.
+- Asociar cada campo con su `label`.
+- Añadir botón de envío.
+
+**Pistas:**
+- Usa `for` en `label` y `id` en cada campo.
+- Usa `type="email"` para el correo.
+
+**Criterio de finalización:**
+- El formulario es legible, semántico y cada campo tiene etiqueta correcta. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Ciudadanos - Protocolo Espacial</title>
+</head>
+<body>
+
+    <header>
+        <h1>REGISTRO DE REFUGIADOS ESTELARES</h1>
+        <p>Por favor, completa tus datos para recibir las coordenadas de evacuación.</p>
+     
+    </header>
+
+    <main>
+        <section id="registro">
+            <h2>Formulario de Contacto Oficial</h2>
+            
+            <form action="#" method="post">
+                
+                <div>
+                    <label for="nombre">Nombre Completo (o ID Galáctico):</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Commander Shepard" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="correo">Canal de Comunicación (Email):</label><br>
+                    <input type="email" id="correo" name="correo" placeholder="usuario@sistema-solar.com" required>
+                </div>
+
+                <br>
+
+                <div>
+                    <label for="mensaje">Estado de su sector o mensaje de auxilio:</label><br>
+                    <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Describa su situación..."></textarea>
+                </div>
+
+                <br>
+
+                <button type="submit">Enviar al Departamento de Exopolítica</button>
+
+            </form>
+        </section>
+    </main>
+
+    <br>
+    <footer>
+        <hr>
+        <p><a href="index-apoyo.html">Información de contacto</a></p>
+    </footer>
+
+</body>
+</html>
