@@ -1,1 +1,1 @@
-Cómo crear Skills y entender para qué sirven.
+Cómo crear Skills y entender para qué sirven --> pregunto en clase. Pendiente leer documento SKILLS.md 
