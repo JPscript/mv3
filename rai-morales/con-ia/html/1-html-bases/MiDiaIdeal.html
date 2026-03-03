@@ -1,0 +1,213 @@
+<!-- 
+  ESTRUCTURA BÁSICA HTML
+  =====================
+  Todo documento HTML debe comenzar con <!DOCTYPE html> para indicar que es HTML5
+  <html lang="es"> define el idioma de la página (español)
+  <head> contiene información que NO se ve en la página (metadatos, título, etc)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta charset: especifica que usamos caracteres UTF-8 (incluyendo acentos, ñ, etc) -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta viewport: hace que el sitio se adapte a dispositivos móviles (responsive) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title: el título que aparece en la pestaña del navegador -->
+    <title>Mi día ideal</title>
+</head>
+<body>
+<body>
+    <!-- 
+      HEADER: Encabezado de la página
+      Aquí va toda la información de introducción: título principal, logo, menú de navegación
+      Lo usamos porque es semántico (busca Google entiende que es el inicio del sitio)
+    -->
+    <header>
+        <!-- h1: Título principal de la página (debe haber solo UNO por página) -->
+        <!-- Es el título más importante para SEO y accesibilidad, por eso lo usamos aquí -->
+        <h1>Mi día ideal</h1>
+        
+        <!-- Párrafo introductorio que describe el contenido -->
+        <p>Un viaje a través de las actividades y momentos que hacen mi día perfecto</p>
+        
+        <!-- 
+          NAV: Navegación (menú de links)
+          Lo usamos en el header para que sea clara la intención: son enlaces para navegar
+          El navegador y lectores de pantalla entienden que aquí hay navegación
+        -->
+        <nav>
+            <!-- Lista desordenada (ul) para los items del menú -->
+            <ul>
+                <!-- Cada <li> es un elemento de la lista -->
+                <!-- Los <a> con href="#id" crean vínculos internos que llevan a secciones de la misma página -->
+                <!-- El # significa: busca dentro de esta misma página el elemento con id="manana" -->
+                <li><a href="#manana">La mañana</a></li>
+                <li><a href="#tarde">La tarde</a></li>
+                <li><a href="#noche">La noche</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 
+      MAIN: Contenido principal de la página
+      Aquí va TODO el contenido importante que NO es header ni footer
+      Lo usamos porque es semántico: le dice a navegadores y buscadores dónde está el contenido central
+    -->
+    <main>
+        <!-- 
+          SECTION: Sección temática
+          Agrupa contenido relacionado sobre un tema (en este caso, la mañana)
+          Lo usamos para organizar el contenido en bloques temáticos claros
+          id="manana" permite que otros elementos hagan link aquí con href="#manana"
+        -->
+        <section id="manana">
+            <!-- 
+              ARTICLE: Un artículo independiente dentro de la sección
+              Contiene un contenido que podría existir por sí solo (como en un blog)
+              Lo usamos para encapsular el contenido de este período del día
+            -->
+            <article>
+                <!-- 
+                  h2: Subtítulo de nivel 2 (viene después del h1 principal)
+                  Jerarquía: h1 > h2 > h3
+                  Lo usamos aquí porque es el título principal de esta sección
+                -->
+                <h2>La mañana</h2>
+                
+                <!-- Párrafo descriptivo del tema -->
+                <p>Inicio mi día ideal despertándome temprano, frescos y con mucha energía. La tranquilidad de las primeras horas es fundamental para prepararme mentalmente.</p>
+                
+                <!-- h3: Subtitle de nivel 3 (jerárquicamente menor que h2) -->
+                <!-- Lo usamos para un subtema dentro de "La mañana" -->
+                <h3>Actividades matutinas</h3>
+                
+                <!-- 
+                  ul: Lista desordenada (sin números)
+                  Lo usamos cuando el orden NO importa (no es un proceso paso a paso)
+                  En este caso, son actividades que se pueden hacer en cualquier orden
+                -->
+                <ul>
+                    <!-- li: Cada elemento de la lista -->
+                    <li>Desayuno saludable con frutas y café</li>
+                    <li>Ejercicio ligero o yoga</li>
+                    <li>Ducha refrescante</li>
+                    <li>Lectura de un artículo interesante</li>
+                </ul>
+                
+                <!-- 
+                  FIGURE: Contenedor para una imagen con leyenda
+                  Lo usamos porque la imagen no es solo decorativa: tiene significado (la desayuno de la mañana)
+                  figure + figcaption es semántico: entiende que la imagen y texto están vinculados
+                -->
+                <figure>
+                    <!-- 
+                      img: Imagen
+                      src="..." es la ubicación/URL de la imagen
+                      alt="..." es el texto alternativo (aparece si la imagen no carga, y ayuda a ciegos con lectores de pantalla)
+                      El alt SIEMPRE debe ser descriptivo, no dejes en blanco
+                    -->
+                    <img src="https://picsum.photos/400/250?random=1" alt="Desayuno saludable en una mesa de madera">
+                    
+                    <!-- 
+                      FIGCAPTION: Leyenda de la figura
+                      Explica qué es o significa la imagen
+                      Lo usamos para contextualizar la imagen dentro del contenido
+                    -->
+                    <figcaption>Inicio del día con energía y tranquilidad</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Otra sección temática sobre la tarde - estructura similar a "La mañana" -->
+        <section id="tarde">
+            <article>
+                <h2>La tarde</h2>
+                <p>La tarde es momento productivo, donde me dedico a trabajar en proyectos que me apasionan y luego disfruto de un descanso merecido.</p>
+                
+                <h3>Tareas principales</h3>
+                
+                <!-- 
+                  ol: Lista ORDENADA (con números 1, 2, 3...)
+                  Lo usamos cuando el orden y secuencia SÍ importan
+                  En este caso son tareas que suelen seguir un orden de prioridad o temporal
+                -->
+                <ol>
+                    <!-- Cada li dentro de ol se numera automáticamente -->
+                    <li>Trabajar en proyectos personales</li>
+                    <li>Reuniones o colaboración con colegas</li>
+                    <li>Pausa para almorzar y relajarme</li>
+                    <li>Actividades creativas o de aprendizaje</li>
+                </ol>
+                
+                <figure>
+                    <img src="https://picsum.photos/400/250?random=2" alt="Persona trabajando en una computadora portátil">
+                    <figcaption>Tiempo de productividad y creatividad</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Tercera sección temática: La noche - misma estructura que las anteriores -->
+        <section id="noche">
+            <article>
+                <h2>La noche</h2>
+                <p>Al anochecer, me dedico a actividades de ocio y descanso, compartiendo tiempo con personas queridas y preparándome para una buena noche de sueño.</p>
+                
+                <h3>Rutina nocturna</h3>
+                
+                <!-- Lista desordenada nuevamente porque estas actividades no requieren un orden específico -->
+                <ul>
+                    <li>Cena en compañía de familia o amigos</li>
+                    <li>Ver películas o series interesantes</li>
+                    <li>Paseo ligero al aire libre</li>
+                    <li>Lectura relajante antes de dormir</li>
+                </ul>
+                
+                <figure>
+                    <img src="https://picsum.photos/400/250?random=3" alt="Puesta de sol con colores naranjas y púrpuras">
+                    <figcaption>Relax y descanso al anochecer</figcaption>
+                </figure>
+            </article>
+        </section>
+
+        <!-- Última sección: Recursos - también es una sección pero diferente en propósito -->
+        <section id="recursos">
+            <h2>Recursos relacionados</h2>
+            <p>Si deseas conocer más sobre hábitos saludables y productividad, te recomiendo estos enlaces:</p>
+            
+            <!-- 
+              NAV secundaria: navegación a sitios externos
+              Lo usamos aquí porque aunque está dentro de main, estos son enlaces de navegación
+              Mejora la semántica: busca Google entiende que aquí hay navegación
+            -->
+            <nav>
+                <ul>
+                    <!-- 
+                      ENLACES EXTERNOS:
+                      href="https://..." lleva a un sitio externo (comenzar con https://)
+                      target="_blank" abre el enlace en una pestaña nueva (no cierra la actual)
+                      Lo usamos para que el usuario no pierda su lugar en OUR sitio
+                    -->
+                    <li><a href="https://www.exemplo.com/habitos" target="_blank">Guía de hábitos saludables</a></li>
+                    <li><a href="https://www.exemplo.com/productividad" target="_blank">Tips de productividad diaria</a></li>
+                    <li><a href="https://www.exemplo.com/bienestar" target="_blank">Recursos de bienestar personal</a></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <!-- 
+      FOOTER: Pie de página
+      Va siempre al final del documento
+      Aquí va info de copyright, links legales, autor, fecha, redes sociales, etc
+      Lo usamos porque es semántico: busca Google entiende que es el final del sitio
+    -->
+    <footer>
+        <!-- & es una entidad HTML que representa el símbolo © (copyright) -->
+        <p>&copy; 2026 Mi día ideal. Todos los derechos reservados.</p>
+        <p>Última actualización: 2 de marzo de 2026</p>
+    </footer>
+</body>
+</html>
