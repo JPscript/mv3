@@ -1,0 +1,1 @@
+- Diferencia entre div, section, main, header, footer... Son contenedores similares? Solo cambia el nombre?
