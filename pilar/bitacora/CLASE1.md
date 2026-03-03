@@ -17,7 +17,7 @@
 
 ## Predicción próxima clase
 
-- Solventar las dificultades en la instalación de Postgre.
+- Resolución de incidencias en la instalación de PostgreSQL.
 - Comienzar a profundizar en el Fronted (conceptos, práctica)
 
 ## Entregables del día

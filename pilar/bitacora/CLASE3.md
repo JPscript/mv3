@@ -14,6 +14,10 @@
 - Identificación de los componentes básicos relacionados con IA (ventana contextual, skills, agents.md, readme.md). - Dificultad baja
 - Creación de una página HTML con sintaxis básica. - Dificultad baja
 
+## Conocimientos adquiridos en con los ejercicios de la sesión
+
+He aprendido que una página no es solo texto, sino una estructura lógica. Las etiquetas semánticas no solo sirven para ordenar, sino para que las "inteligencias externas" (Ejemplo: SEO) entiendan el contenido.
+
 ## Actividades sin-ia
 
 - Crear `index.html` con estructura base correcta. - Dificultad baja
