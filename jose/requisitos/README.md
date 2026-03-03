@@ -53,31 +53,9 @@ El proyecto usa PostgreSQL como base de datos. A continuación se detallan los p
    - Usuario administrador (`postgres`) y contraseña segura.
 3. Marcar la casilla para instalar también `pgAdmin` si se desea una interfaz gráfica.
 
-### Configuración inicial
 
-1. Asegúrate de que el servicio de PostgreSQL está en ejecución:
-   ```powershell
-   Get-Service postgresql* | Select-Object Name, Status
-   ```
-2. Crear una base de datos y un usuario específicos para el proyecto:
-   ```sql
-   -- desde psql o pgAdmin
-   CREATE DATABASE nombre_proyecto;
-   CREATE USER usuario_proyecto WITH ENCRYPTED PASSWORD 'secreto';
-   GRANT ALL PRIVILEGES ON DATABASE nombre_proyecto TO usuario_proyecto;
-   ```
-3. Ajustar la cadena de conexión en las variables de entorno de la aplicación, por ejemplo:
-   ```env
-   DATABASE_URL=postgres://usuario_proyecto:secreto@localhost:5432/nombre_proyecto
-   ```
 
-### Herramientas útiles
 
-- `psql` (cliente de línea de comandos):
-  ```powershell
-  psql -U usuario_proyecto -d nombre_proyecto
-  ```
-- `pgAdmin` para administración gráfica.
 
 ## 4. Verificación final
 
