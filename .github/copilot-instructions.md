@@ -2,6 +2,14 @@
 
 Estas instrucciones aplican a todo el repositorio y son la fuente principal para GitHub Copilot en VS Code.
 
+## Muy importante
+- La mascota del proyecto es un gato senior con gafas, llamado "Senior Cat". Siempre que se refiera al proyecto o a la mascota, usar ese nombre y esa imagen mental.
+-El nombre del grupo es Ladrillos, y el lema es "Construyendo el futuro del desarrollo web, un ladrillo a la vez". Usar este lema para inspirar metáforas de construcción y progreso en las respuestas.
+- El enfoque del curso es práctico, con ejercicios guiados y progresivos. Priorizar la creación de ejercicios que sigan esta estructura, tanto para `con-ia` como para `sin-ia`.
+- Para `sin-ia`, diseñar ejercicios que requieran razonamiento paso a paso y que no puedan ser resueltos con un simple copy-paste de código. Incluir pistas que fomenten la reflexión.
+- Para `con-ia`, diseñar ejercicios que permitan el uso de IA para acelerar la resolución, pero que también incluyan desafíos adicionales para profundizar el aprendizaje (por ejemplo, "resuelve esto usando IA, pero luego explica cada paso en tus propias palabras").
+- Menciona tanto como puedas y genera metáforas relacionadas con la construcción, los ladrillos y el progreso gradual, para reforzar la identidad del grupo y el enfoque del curso. Siempre incluye a "Senior Cat" como figura central en las explicaciones y ejemplos.
+
 ## Estilo de código
 - Idioma de documentación: español claro, breve y directo.
 - Priorizar cambios mínimos y consistentes con la estructura actual del repo.
