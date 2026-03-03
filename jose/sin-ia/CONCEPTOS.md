@@ -24,3 +24,18 @@ Etiquetas semánticas de sección vistas en el ejercicio 1.1:
 - **`<footer>`**: pie de página con información de contacto, autor, copyright o enlaces secundarios.
 
 Estas etiquetas hacen que el código sea más fácil de leer, accesible y preparado para mantener a medida que la página crece.
+
+Más estructuras aprendidas en el ejercicio 2:
+
+- **`<nav>`**: contenedor semántico para bloques de navegación. Agrupa enlaces que permiten moverse dentro o fuera de la página.
+- **`<ul>`**: lista desordenada (viñetas). Ideal para colecciones sin orden específico, como menús o listas de elementos.
+- **`<ol>`**: lista ordenada (numerada). Se usa cuando el orden importa, por ejemplo pasos secuenciales.
+- **`<li>`**: elemento de lista, va dentro de `<ul>` o `<ol>` para representar cada ítem.
+
+Elementos de formulario introducidos en el ejercicio 3:
+
+- **`<form>`**: contenedor de un formulario. Agrupa controles de entrada y suele tener atributos como `action` y `method` (aunque no se usan en la práctica básica).
+- **`<label>`**: etiqueta que describe un campo de formulario. El atributo `for` debe coincidir con el `id` del control asociado para mejorar la accesibilidad.
+- **`<input>`**: campo de entrada. Se usa con diferentes `type` (`text`, `email`, etc.).
+- **`<textarea>`**: campo ampliado para texto multilinea (mensaje, comentarios).
+- **`<button type="submit">`**: botón que envía el formulario. También puede usarse `input type="submit"`.
