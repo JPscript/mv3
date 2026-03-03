@@ -48,3 +48,4 @@ __pycache__/
 # Bases de datos locales
 *.sqlite
 *.sqlite3
+.DS_Store
