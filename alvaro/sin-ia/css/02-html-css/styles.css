@@ -37,3 +37,14 @@ nav ul {
     gap: 20px;
     text-transform: uppercase;
 }
+
+.boton {
+    background-color: transparent;
+    border: 2px solid purple;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.boton:hover {
+    background-color: black;
+    color: white;
+}
