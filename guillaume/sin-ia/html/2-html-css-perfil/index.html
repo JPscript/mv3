@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- <link rel="stylesheet" href="style.css"> -->
+     <link rel="stylesheet" href="style.css">
     <title>GuillaumePerfil</title>
 </head>
 <body>
     <header>
-        <h1>Guillaume Even</h1>
-        <h2>The future of development</h2>
+        <div class="left">
+            <h1>Guillaume Even</h1>
+            <h2>The future of development</h2>
+        </div>
+        <div class="right">
+            <img
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.cZBpueqS5gyFrkowjcYRvwHaOo%3Fpid%3DApi&f=1&ipt=62ddd545d3a157e643215a34aeebb4fcb05a6ecff8989adebf6be0a9e296c3c1&ipo=images"
+                alt="retrato"
+            >
+        </div>
     </header>
     <nav>
         <ul>
@@ -29,42 +37,58 @@
     </nav>
     <main>
         <section id="quien_soy">
-            <h3>Guillaume Even, el perfecto desarrollador</h3>
-            <img
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.cZBpueqS5gyFrkowjcYRvwHaOo%3Fpid%3DApi&f=1&ipt=62ddd545d3a157e643215a34aeebb4fcb05a6ecff8989adebf6be0a9e296c3c1&ipo=images"
-                alt="retrato"
-                >
-            <p>Con tanta experiencia que cualquier va a flipar</p>
+            <div class="title">
+                <h3>Guillaume Even</h3>
+                <h4>el perfecto desarrollador</h4>
+            </div>
+            <div class="content">
+                <p>Con tanta experiencia que cualquier va a flipar</p>
+            </div>
         </section>
         <section id="mis_proyectos">
-            <h3>Cuantas cosas ya hechas !</h3>
-            <ul>
-                <li>Este proyecto</li>
-                <li>O este</li>
-                <li>O también este, que los supera a todos</li>
-            </ul>
+            <div class="title">
+                <h3>Cuantas cosas</h3>
+                <h4>ya hechas !</h4>
+            </div>
+            <div class="content">
+                <ul>
+                    <li>Este proyecto</li>
+                    <li>O este</li>
+                    <li>O también este, que los supera a todos</li>
+                </ul>
+            </div>
         </section>
         <section id="mis_intereses">
-            <h3>Mis centros de intereses</h3>
-            <p>Me gusta mucho :</p>
-            <ul>
-                <li>Las esponjas</li>
-                <li>Los discos duros</li>
-                <li>Las canciones que hablan de bisagras de puertas</li>
-                <li>Las bacterias</li>
-            </ul>
+            <div class="title">
+                <h3>Mis centros</h3>
+                <h4> de intereses</h4>
+            </div>
+            <div class="content">
+                <p>Me gusta mucho :</p>
+                <ul>
+                    <li>Las esponjas</li>
+                    <li>Los discos duros</li>
+                    <li>Las canciones que hablan de bisagras de puertas</li>
+                    <li>Las bacterias</li>
+                </ul>
+            </div>
         </section>
         <section id="contacto">
-            <h3>Contacto</h3>
-            <form action="enviar">
-                <label for="nombre">Tu nombre</label><br>
-                <input type="text" name="nombre" id="nombre"><br>
-                <label for="email">Tu correo, sino como te voy a responder ?</label><br>
-                <input type="email" name="email" id="email"><br>
-                <label for="contenido">Tu mensaje para mi</label><br>
-                <textarea name="contenido" id="contenido"></textarea><br>
-                <input type="submit" value="Enviar">
-            </form>
+            <div class="title">
+                <h3>Contacto</h3>
+                <h4>No dudes ni un segundo !</h4>
+            </div>
+            <div class="content">
+                <form action="enviar">
+                    <label for="nombre">Tu nombre</label><br>
+                    <input type="text" name="nombre" id="nombre"><br>
+                    <label for="email">Tu correo, sino como te voy a responder ?</label><br>
+                    <input type="email" name="email" id="email"><br>
+                    <label for="contenido">Tu mensaje para mi</label><br>
+                    <textarea name="contenido" id="contenido"></textarea><br>
+                    <input class="btn" type="submit" value="Enviar">
+                </form>
+            </div>
         </section>
     </main>
     <footer>
