@@ -1,3 +1,79 @@
-html{
+html {
+    /* Color de fondo de la pagina */
     background-color: bisque;
+}
+
+
+body {
+    /* Cambio de fuente del body */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    /* Color y subrayado de los títulos */
+    color: #000000;
+    text-decoration: underline;
+}
+
+.cuadroperf {
+    /* Cuadro del perfil */
+    background-color: #d69e7e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+.menu {
+    /* Opciones de Inicio, sobre mi, etc  */
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cuadromenu {
+    /* Cuadro del menú */
+    background-color: #d69e7e;
+    padding: 10px;
+}
+
+.menu li {
+    margin-right: 30px;
+}
+
+.gif {
+    /* Gif del inicio de la página */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.skills {
+    /* Habilidades */
+    display: flex;
+    list-style: none;
+    padding: 20px;
+}
+
+.html-icon,
+.css-icon,
+.javascript-icon {
+    /* Iconos de habilidades */
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.contacto {
+    /* Contacto */
+    background-color: #d69e7e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
 }
