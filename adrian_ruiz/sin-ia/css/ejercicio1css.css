@@ -4,7 +4,9 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 20px;
-    background-color: #a9a9fa; /* azul sólido */
+    background-color: #a9a9fa; 
+    border-radius: 30px;
+    border: #2c3e50 solid 12px;
 }
 
 
@@ -16,6 +18,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
+    border-radius: 8px;
 }
 
 table, th, td {
@@ -41,8 +44,8 @@ th, td {
 }
 
 textarea {
-    width: 100%;
-    height: 100px;
+    width: 80%;
+    height: 80px;
     margin-top: 10px;
     padding: 5px;
 }
