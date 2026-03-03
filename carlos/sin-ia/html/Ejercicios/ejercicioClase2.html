@@ -22,9 +22,35 @@
         </nav>
     </header>
 
-    <main>
-        <p>Crear un programa que solicite al usuario su nombre y luego lo salude con un mensaje personalizado.</p>
+    <a href="/Users/carlosparejocambron/Documents/Python/mv3/carlos/sin-ia/html/Ejercicios/index.html">Volver al inicio</a>
 
+    <h2>lista ordenada</h2>
+    <ol>
+        <li>Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+    </ol>
+
+    <h3>Lista desordenada</h3>
+    <ul>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+        <li>Primer elemento</li>
+    </ul>
+
+    <h4>Formulario de relleno</h4>
+
+    <form action="procesar.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+    
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email"><br><br>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+    <main>
         <script>
             const nombre = prompt("Por favor, ingresa tu nombre:");
             alert(`¡Hola, ${nombre}! Bienvenido a la clase de programación.`);
