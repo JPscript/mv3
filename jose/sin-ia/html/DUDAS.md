@@ -1,4 +1,4 @@
-El body, main, section, footer no son visuales simplemente para ordenar codigo?
+
 ¿Como puedo editar el tamaño de la letra?
 
-¿Necesito añadir un formulario con nombre, correo y mensaje? ¿Cómo va el <label> para cada campo?
+¿porque se usa h1 solo como titulo de la pagina, porque no puedo usar h1 al inicio de cada seccion si las estoy dividiendo?
