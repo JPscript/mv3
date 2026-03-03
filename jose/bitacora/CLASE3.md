@@ -13,3 +13,5 @@
 
 ## Predicción para la siguiente clase
 - Continuar con el siguiente ejercicio de `con-ia` y avanzar con nuevos ejercicios de `sin-ia`, priorizando práctica constante y menos errores por descuido.
+
+Una vez acabado los 4 ejercicios del apartado sin-ia de html he aprendido como organizar una pagina, dandole un orden coherente y tambien sobre las diversas etiquetas basicas de html
