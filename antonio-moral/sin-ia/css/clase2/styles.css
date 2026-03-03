@@ -25,7 +25,11 @@ form {
   padding: 50px;
   margin: 20px;
 }
-
+.logo {
+    transition: transform 0.3s ease;
+    position: fixed;
+    left: 10px;
+    top: 10px;}
 img {
     transition: transform 0.3s ease;
 }
