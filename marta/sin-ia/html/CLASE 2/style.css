@@ -1,0 +1,99 @@
+
+body{background-color:#b2a3ea;
+    
+}
+header{
+    background-color: #E0B0FF;
+    padding: 20px;
+    text-align: center;
+}
+
+
+h1{
+    font-size: 36px;
+    font-family: arial, sans-serif;
+}
+h2{
+    font-size: 25px;
+      text-align: center;
+    font-family: arial, sans-serif;
+     background-color: #E0B0FF;
+    padding: 1%;
+}
+   
+
+.sobre-mi-contenedor{
+    display: flex;
+    align-items:center;
+    gap: 10px;
+    max-width: 900px;
+    margin: auto;
+    
+}
+
+.info-sobre-mi {
+    flex: 1;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    
+}
+
+.imagen-vida {
+    width: 400px;
+    height: 200px;
+    object-fit: contain;
+    justify-content: space-between;
+}
+.lista-habilidades {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: auto;
+}
+
+.item-habilidad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: rgb(93, 143, 217);
+    
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(120, 9, 109, 0.829);
+    
+}
+
+.item-habilidad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.item-habilidad span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.item-habilidad img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    
+}
+
+.item-habilidad img:hover {
+    transform: scale(1.05);
+}
+
+  .boton:hover{
+    background-color: #E0B0FF;
+    color: #6240DB;
+    padding: 10px 20px;
+    border: 2px solid #afb4a7;
+ 
+    transform: scale(1.05);
+}
