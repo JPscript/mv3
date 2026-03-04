@@ -1,19 +1,30 @@
 <!DOCTYPE html>
+<!-- Documento HTML5 -->
 <html lang="es">
 <head>
+    <!-- Enlace a la hoja de estilos externa -->
     <link rel="stylesheet" href="estilos.css">
+    <!-- Metadatos: codificación de caracteres -->
     <meta charset="UTF-8">
+    <!-- Metadatos: viewport para diseño responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Práctica guiada clase 2</title>
 </head>
 <body>
 
+    <!-- Cabecera principal de la página: suele contener logo y navegación -->
     <header>
+        <!-- Título principal -->
         <h1>Ejercicio clase 2</h1>
 
+        <!-- Imagen de cabecera: actualmente usa una ruta absoluta local -->
         <img src="/Users/carlosparejocambron/Documents/Python/assets/unnamed.jpg" alt="Imagen de cabecera" width="300">
 
+        <!-- Subtítulo para la sección de navegación -->
         <h2>Parte de la navegación</h2>
+
+        <!-- Navegación principal: lista de enlaces a secciones internas -->
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -23,8 +34,10 @@
         </nav>
     </header>
 
+    <!-- Enlace de regreso al índice del proyecto -->
     <a href="/Users/carlosparejocambron/Documents/Python/mv3/carlos/sin-ia/html/Ejercicios/index.html">Volver al inicio</a>
 
+    <!-- Sección con lista ordenada: usar cuando el orden es importante -->
     <h2>lista ordenada</h2>
     <ol>
         <li>Primer elemento</li>
@@ -32,6 +45,7 @@
         <li>Tercer elemento</li>
     </ol>
 
+    <!-- Sección con lista desordenada: viñetas para elementos sin orden -->
     <h3>Lista desordenada</h3>
     <ul>
         <li>Segundo elemento</li>
@@ -39,19 +53,27 @@
         <li>Primer elemento</li>
     </ul>
 
+    <!-- Encabezado de la sección del formulario -->
     <h4>Formulario de relleno</h4>
 
+    <!-- Formulario: envía datos por POST a procesar.php -->
     <form action="procesar.php" method="post">
+        <!-- Campo de texto para el nombre -->
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre"><br><br>
     
+        <!-- Campo de correo con validación básica del navegador -->
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email"><br><br>
     
+        <!-- Botón de envío -->
         <input type="submit" value="Enviar">
     </form>
     
+    <!-- Contenido principal del documento -->
     <main>
+        <!-- Script que solicita el nombre al usuario y muestra una alerta.
+             Nota: prompt/alert son bloqueantes y poco recomendados en producción. -->
         <script>
             const nombre = prompt("Por favor, ingresa tu nombre:");
             alert(`¡Hola, ${nombre}! Bienvenido a la clase de programación.`);
