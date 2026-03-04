@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional | Pilar Salvador</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4f46e5;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4f46e5;
+            font-size: 1.2rem;
+            border-left: 4px solid #4f46e5;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* El truco para ponerlos en paralelo */
+        .habilidades-wrapper {
+            display: flex;
+            align-items: center; /* Alinea verticalmente al centro */
+            justify-content: space-between; /* Separa los elementos a los extremos */
+            gap: 30px;
+        }
+
+        .lista-habilidades {
+            flex: 1; /* El texto ocupa el espacio que sobra */
+        }
+
+        .cat-img {
+            width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3b31c1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header id="top">
+            <img class="avatar" src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\foto-pilar.jpg" alt="Pilar Salvador">
+            <h1>Pilar Salvador</h1>
+            <p>SEO Specialist & Frontend Learner</p>
+            <nav>
+                <a href="#presentacion">Inicio</a>
+                <a href="#habilidades">Aptitudes</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="presentacion">
+                <h2>Presentación</h2>
+                <p>¡Hola! Soy Pilar. Mi perfil profesional une el mundo del <strong>SEO y Marketing Digital</strong> con el desarrollo técnico de interfaces. Estoy enfocada en aprender cómo el código influye en la experiencia del usuario.</p>
+            </section>
+
+            <section id="habilidades">
+                <h2>Habilidades e Intereses</h2>
+                <div class="habilidades-wrapper">
+                    <div class="lista-habilidades">
+                        <ul>
+                            <li>Estrategias SEO avanzadas</li>
+                            <li>Análisis de UX y comportamiento</li>
+                            <li>Pasión por la lectura y el aprendizaje</li>
+                            <li>Amante de los animales y la vida activa</li>
+                        </ul>
+                    </div>
+                    <img class="cat-img" src="https://static.vecteezy.com/system/resources/thumbnails/028/607/729/small/funny-surprised-cat-with-a-questioning-pose-a-cute-kitten-asks-in-surprise-where-the-treats-are-generated-ai-photo.jpg" alt="Gato">
+                </div>
+            </section>
+
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Email</label>
+                        <input type="email" id="correo" name="correo" placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                    </div>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p><a href="#top" style="color:#4f46e5; text-decoration: none;">↑ Volver arriba</a></p>
+            <p>&copy; 2026 Pilar Salvador</p>
+        </footer>
+    </div>
+
+</body>
+</html>

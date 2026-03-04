@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Mi página personal</title>
+    </head>
+    <body>
+        <h1>Página personal de Raimundo</h1>
+        <nav class="indice">
+            <ul>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#intereses">Mis intereses principales</a></li>
+                <li><a href="#mi-hija">Mi hija</a></li>
+                <li><a href="#música">Mi música favorita</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <p>Bienvenidos todos a mi página personal, ¡es un gusto tenerlos aquí!, espero que os guste.</p>
+        <section id="sobre-mi">
+            <h2>Sobre mí</h2>
+                <div class="yo">
+                    <img src="https://picsum.photos/300/200" alt="foto de perfil" class="foto-perfil">
+                    <p>Me llamo Raimundo, tengo 29 años y ¡soy un apasionado de los gatos!. A nivel académico estoy terminando el 
+                        grado de Matemáticas y también estoy cursando el master de Programación y Desarrollo de Aplicaciones.
+                        En mi tiempo libre me gusta jugar a videojuegos, salir a pasear y pasar tiempo con mis amigos. Me encanta viajar
+                        y mi meta es realizar un viaje a Japón en el futuro cercano. Además, soy un gran aficionado a la música y disfruto 
+                        de una amplia variedad de géneros, desde el rock hasta la música electrónica.</p>
+                </div>
+        </section>
+        <section id="intereses" class ="interesesC">
+            <h2>Mis intereses principales</h2>
+                <ul>
+                    <li>Videojuegos: Me encanta pasar tiempo jugando online con mis amigos, sobre todo me gusta jugar al LoL.</li>
+                    <li>Gastronomía: Me encanta probar sitios nuevos de comida en la ciudad, y más si son de comida asiática (aunque he de admitir qu eno me gusta el picante)</li>
+                    <li>Viajar: Me apasiona viajar y descubrir nuevas culturas. Japón es uno de mis destinos soñados.</li>
+                    <li>Música: La música es una parte importante de mi vida, me gusta escuchar una amplia variedad de géneros y asistir a conciertos siempre que puedo. Mi género más escuchado es el indie español.</li>
+                </ul>
+        </section>
+        <section id="mi-hija">
+            <h2>Mi hija</h2>
+                <img src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg" alt="Imagen de trufa" width="300">
+                <p>Os voy a presentar a mi hija, la niña de mis ojos, a mi bebé. Se llama Trufa y es una gatita de tres colores parda preciosa (Aunque he de admitir
+                    que la tía tiene un maullido muy potente).</p>
+                <button onclick="alert('¡Hola! Soy Trufa, la gatita de Raimundo. ¡Encantada de conocerte!')">Saluda a Trufa</button>
+                    <h3>Candidatos para ser novios de trufa</h3>
+                        <form>
+                        <label for="fname">Nombre del candidato:</label><br>
+                        <input type="text" id="fname" name="nombre" value="Zapatitos"><br>
+                        <label for="age">Edad:</label><br>
+                        <input type="number" id="age" name="edad" value="2" min="0" max="99"><br><br>
+                        <input type="submit" value="Registrar candidato">
+                        </form>
+        </section> 
+        <section id="música">
+            <h2>Mi música favorita</h2>
+                <p>La música es una parte fundamental de mi vida, y me encanta descubrir nuevos artistas y géneros. Mi género favorito es el indie español, aunque 
+                    también disfruto de otros estilos como el rock alternativo y la música electrónica. Aquí tenéis un top 5 de mis canciones favoritas actuales:</p>
+                <ol>
+                    <li><a href="https://www.youtube.com/watch?v=kFSrwav583o&list=RDkFSrwav583o&start_radio=1">"Yo pensaba que me había tocado Dios"</a> de Carolina Durante y Barry B</li>
+                    <li><a href="https://www.youtube.com/watch?v=5dIRPEPR9xA&list=RD5dIRPEPR9xA&start_radio=1">"Johnny Glamour"</a> de Rusowsky y Las Keptchup </li>
+                    <li><a href="https://www.youtube.com/watch?v=dE3r8_FHGCw&list=RDdE3r8_FHGCw&start_radio=1">"BABIECA!"</a> de Guitarricadelafuente</li>
+                    <li><a href="https://www.youtube.com/watch?v=rT-lwJSX8FA&list=RDrT-lwJSX8FA&start_radio=1">"Sin volverme loco"</a> de Depresión Sonora</li>
+                    <li><a href="https://www.youtube.com/watch?v=FMvv4fbDmcA&list=RDFMvv4fbDmcA&start_radio=1">"Terapia"</a> de Stivijoes</li>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+                <p>Si quieres ponerte en contacto conmigo puedes dejar tu nombre, email y tendrás noticias mias pronto. </p>
+                <form>
+                    <label for="name">Nombre:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Tu email"><br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+        </section>
+    </body>
+    <footer>
+        <p>&copy; 2026 Raimundo Morales. Todos los derechos reservados por los ladrillos.</p>
+        <p>Última actualización: 4 de marzo de 2026</p>
+    </footer>
+</html>

@@ -1,0 +1,155 @@
+html {
+    /* Color de fondo de la pagina */
+    background-color: bisque;
+}
+
+
+body {
+    /* Cambio de fuente del body */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    margin: 3;
+    padding: 0;
+}
+
+a {
+    /* quitar lineas a los enlaces */
+    text-decoration: none;
+    background-color: antiquewhite;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    /* Efecto hover en los enlaces */
+    color: #cca26a;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+h1,
+h2 {
+    /* Color y subrayado de los títulos */
+    color: #000000;
+    text-decoration: underline;
+}
+
+.titulo {
+    /* Título del perfil */
+    text-align: left;
+    text-decoration: none;
+    font-size: 50px;
+    color: #000000;
+    display: inline-block;
+}
+
+.cuadroperf {
+    /* Cuadro del perfil */
+    background-color: #d69e7e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+.menu {
+    /* Opciones de Inicio, sobre mi, etc  */
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cuadromenu {
+    /* Cuadro del menú */
+    background-color: #d69e7e;
+    padding: 10px;
+}
+
+.menu li {
+    margin-right: 30px;
+}
+
+.gif {
+    /* Gif del inicio de la página */
+    border-radius: 50%;
+    margin-left: 40px;
+    display: inline-block;
+    vertical-align: middle;
+
+
+}
+
+.profile {
+    /* Perfil */
+    background-color: #d69e7e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    border-radius: 40px;
+
+}
+
+.fotochad {
+    /* Foto del perfil */
+    vertical-align: right;
+    margin-left: 70%;
+    border-radius: 20%;
+    width: 202px;
+    /* opcional, para controlarlo mejor */
+
+}
+
+.skills {
+    /* Habilidades */
+    display: flex;
+    list-style: none;
+    padding: 30px;
+}
+
+.html-icon,
+.css-icon,
+.javascript-icon {
+    /* Iconos de habilidades */
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.html-icon {
+    padding: 10px;
+}
+
+.css-icon {
+    padding: 10px;
+}
+
+.javascript-icon {
+    padding: 10px;
+}
+
+.contacto {
+    /* Contacto */
+    background-color: #d69e7e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.skillscuadro {
+    /* Cuadro de habilidades */
+    background-color: #d69e7e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.finaltext {
+    /* Texto final */
+    text-align: left;
+    margin-top: 20px;
+}
