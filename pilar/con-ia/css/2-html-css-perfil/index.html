@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- declaración de tipo y codificación -->
+    <meta charset="UTF-8">
+    <!-- viewport para tamaños responsivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profesional - Pilar Salvador</title>
+    <style>
+        /* raíces de variables CSS para mantener colores y medidas coherentes */
+        :root{
+            --background:#fafafa;
+            --card:#ffffff;
+            --accent:#4f46e5;
+            --max-width:900px;
+            --radius:12px;
+            --gap:18px;
+            --shadow: 0 6px 18px rgba(15,23,42,0.08);
+            --font-size:16px;
+        }
+        *{box-sizing:border-box} /* evita que el padding afecte al ancho total */
+        body{
+            margin:0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg,#f7f7fb,var(--bg));
+            color:#111827;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.5;
+            padding:24px;
+            display:flex;
+            justify-content:center;
+        }
+        .container{
+            width:100%;
+            max-width:var(--max-width);
+        }
+        header{
+            background:linear-gradient(90deg,#fff,#f8f9ff);
+            padding:24px;
+            border-radius:var(--radius);
+            box-shadow:var(--shadow);
+            text-align:center;
+        }
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:16px;
+            justify-content:center;
+        }
+        .avatar{
+            width:96px;
+            height:96px;
+            border-radius:50%;
+            object-fit:cover;
+            border:4px solid #fff;
+            box-shadow:0 6px 16px rgba(79,70,229,0.12);
+            background:#eee;
+        }
+        header h1{margin:0; font-size:1.4rem}
+        header p{margin:6px 0 0; color:var(--muted); font-size:0.95rem}
+        nav{
+            margin-top:18px;
+            display:flex;
+            justify-content:center;
+        }
+        .nav-list{
+            list-style:none;
+            padding:0;
+            margin:0;
+            display:flex;
+            gap:12px;
+        }
+        .nav-list a{
+            text-decoration:none;
+            color:var(--accent);
+            padding:8px 12px;
+            border-radius:8px;
+            transition:background .15s, color .15s;
+            font-weight:600;
+        }
+        .nav-list a:hover{background:rgba(79,70,229,0.08)}
+        main{margin-top:22px; display:grid; gap:var(--gap)}
+        .card{
+            background:var(--card);
+            border-radius:12px;
+            padding:18px;
+            box-shadow:var(--shadow);
+        }
+        .grid-2{
+            display:grid;
+            grid-template-columns:1fr 320px;
+            gap:18px;
+        }
+        @media (max-width:840px){
+            .grid-2{grid-template-columns:1fr}
+            .avatar{width:120px;height:120px}
+        }
+        h2{margin-top:0}
+        ul{padding-left:1.2rem}
+        .cat-img{width:100%; border-radius:10px; object-fit:cover}
+        form label{display:block; font-weight:600; margin-bottom:6px}
+        input[type="text"], input[type="email"], textarea{
+            width:100%;
+            padding:10px 12px;
+            border-radius:8px;
+            border:1px solid #e6e7ee;
+            background:#fbfbff;
+            font-size:0.98rem;
+        }
+        textarea{min-height:100px; resize:vertical}
+        .form-row{margin-bottom:12px}
+        .btn{
+            background:var(--accent);
+            color:#fff;
+            border:none;
+            padding:10px 16px;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:700;
+        }
+        footer{
+            margin-top:18px;
+            text-align:center;
+            color:var(--muted);
+            font-size:0.9rem;
+        }
+        .meta{color:var(--muted); font-size:0.95rem}
+    </style>
+</head>
+<body>
+    <!-- contenedor principal que centra el contenido y limita ancho -->
+    <div class="container">
+        <!-- cabecera del sitio con foto y título -->
+        <header id="top" class="card">
+            <div class="brand">
+                <img class="avatar" src="foto-pilar.jpg" alt="Avatar de Pilar">
+                <div>
+                    <h1>Perfil Profesional - Pilar Salvador</h1>
+                    <p class="meta">Desarrollo Frontend en proceso</p>
+                </div>
+            </div>
+
+            <!-- barra de navegación interna con anclas a secciones -->
+            <nav aria-label="Índice de navegación">
+                <ul class="nav-list">
+                    <li><a href="#trayectoria">Resumen profesional</a></li>
+                    <li><a href="#aptitudes">Aptitudes e intereses</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- sección de trayectoria profesional (primer bloque de contenido) -->
+            <section id="trayectoria" class="card">
+                <h2>I. RESUMEN PROFESIONAL</h2>
+                <p>Estudiante del master de programación y desarrollo de aplicaciones. 
+                Con experiencia en seo y marketing digital, con un enfoque en la optimización 
+                de contenido para motores de búsqueda. Mi trayectoria profesional se ha centrado 
+                en la creación de estrategias de contenido y análisis de datos para mejorar la 
+                visibilidad online de diversas marcas.</p>
+            </section>
+
+            <!-- sección con dos columnas: habilidades y una imagen complementaria -->
+            <section class="grid-2">
+                <article id="aptitudes" class="card">
+                    <h2>II. APTITUDES E INTERESES</h2>
+                    <p><strong>Competencias profesionales:</strong></p>
+                    <ul>
+                        <li>Seo</li>
+                        <li>Gestión de clientes</li>
+                        <li>Análisis de experiencia de usuario (UX)</li>
+                    </ul>
+                    <p><strong>Intereses personales:</strong></p>
+                    <ul>
+                        <li>Me gusta leer.</li>
+                        <li>Me gustan los gatos.</li>
+                    </ul>
+                    <p class="meta">Siempre dispuesta a practicar y mejorar en frontend.</p>
+                </article>
+
+                <!-- imagen de mascota o ilustración -->
+                <aside class="card" aria-labelledby="foto-gato">
+                    <h3 id="foto-gato" style="margin-top:0">Mascota</h3>
+                    <img class="cat-img" 
+                         src="https://static.vecteezy.com/system/resources/thumbnails/028/607/729/small/funny-surprised-cat-with-a-questioning-pose-a-cute-kitten-asks-in-surprise-where-the-treats-are-generated-ai-photo.jpg" 
+                         alt="Gato sorprendido">
+                </aside>
+            </section>
+
+            <!-- formulario de contacto similar al básico, con estilo añadido -->
+            <section id="contacto" class="card">
+                <h2>III. FORMULARIO DE CONTACTO</h2>
+                <p class="meta">Para consultas profesionales o colaboraciones, por favor&nbsp;complete el siguiente formulario:</p>
+
+                <form action="#" method="post" novalidate>
+                    <div class="form-row">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Pilar Salvador" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="usuario@gmail.com" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu mensaje..."></textarea>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <button class="btn" type="submit">Enviar Solicitud</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- pie de página con enlace para volver arriba -->
+        <footer>
+            <p><a href="#top" style="color:var(--accent)">Volver al inicio</a></p>
+            <p>© 2026 Pilar Salvador</p>
+        </footer>
+    </div>
+</body>
+</html>

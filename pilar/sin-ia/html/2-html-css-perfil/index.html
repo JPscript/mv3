@@ -2,103 +2,116 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil personal con zona de contacto</title>
+    <title>Perfil Profesional - Pilar Salvador</title>
 </head>
 <body>
 
-    <header>
-
-        <nav> 
-            
-                <a href="#presentacion">1. Presentación | </a>
-                <a href="#habilidades e intereses">2. Habilidades e Intereses | </a>
-                <a href="#contacto">3. Formulario de contacto</a>
-            
+    <center>
+        <nav>
+            <p>
+                <a href="#trayectoria">Resumen profesional</a> | 
+                <a href="#aptitudes">Aptitudes e intereses</a> | 
+                <a href="#contacto">Contacto</a>
+            </p>
         </nav>
+    </center>
 
-        <h1>Perfil personal para asignatura Fronted </h1>
+    <hr>
 
-        <br><br>
-
-             <div>
-                <img src="https://cdn.create.vista.com/api/media/small/102684970/stock-vector-smiling-emoticon-with-sunglasses" 
-                 alt="Emogi sonriente con gafas de sol" style="width:150px; height:150px;">
-       
-            </div> 
-
-        
-
+    <header>
+        <center>
+            <h1>Perfil Profesional - Pilar Salvador</h1>
+            <h3>Desarrollo Frontend en proceso</h3>
+            <img src="foto-pilar.jpg" 
+                 alt="Fotografía de perfil" width="120">
+        </center>
     </header>
 
+    <br>
+
     <main>
-    <section>
-       
-        <div  id="presentacion">
-
         
-            <h2>1. Presentación personal</h2>
-            
-            <p>¡Hola! Me llamo Pilar y esta es mi página de perfil personal con HTML para la asignatura de Frontend.</p>
-            <p>No sé que más poner así que paso al siguiente apartado.</p>
-           
-    </section>
-    <section>
-        <div id="habilidades e intereses">
-            <h2>2. Habilidades e Intereses</h2>
-            <p>Ahora te coy a contar algo más sobre mí:</p>
-            <ul>
-                <li>Soy algo torpe asi que de habilidades pocas</li>
-                <li>Me gustan los deportes... o no</li>
-                <li>Me gustan gatos, supongo que eso cuenta</li>
-                  <br><br>
-
-                <div>
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/028/607/729/small/funny-surprised-cat-with-a-questioning-pose-a-cute-kitten-asks-in-surprise-where-the-treats-are-generated-ai-photo.jpg" 
-                 alt="Gato sorprendido" style="width:200px; height:200px;">
-        </div> 
-
-            </ul>
-        </div>
-    </section>
-        <section id="contacto">
-            <h2>3. Formulario de contacto</h2>
-            <p>Puedes dejar tus datos de contacto y ya hablaremos si eso</p>
-            <form action="#" method="post">
-                
-                <div>
-                    <label for="nombre">Nombre Completo:</label><br>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Pilar Salvador" required>
-                </div>
-
-                <br>
-
-                <div>
-                    <label for="correo"> Correo Electrónico:</label><br>
-                    <input type="email" id="correo" name="correo" placeholder="usuario@gmail.com" required>
-                </div>
-
-                <br>
-
-                <div>
-                    <label for="mensaje">Mensaje:</label><br>
-                    <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Escribe aquí tu mensaje..."></textarea>
-                </div>
-
-                <br>
-
-                <button type="submit">Enviar</button>
-
-            </form>
+        <section id="trayectoria">
+            <center>
+                <h2>I. RESUMEN PROFESIONAL</h2>
+            </center>
+            <p align="justify">
+                Estudiante del master de progrmación y desarrollo de apliaciones. 
+                Con experiencia en seo y marketing digital, con un enfoque en la optimización de contenido para motores de búsqueda.
+                Mi trayectoria profesional se ha centrado en la creación de estrategias de contenido y análisis de datos para mejorar la visibilidad online de diversas marcas.
+            </p>
         </section>
+
+        <br>
+        <hr>
+
+        <section id="aptitudes">
+           
+                <h2>II. APTITUDES E INTERESES</h2>
+           
+            <p><strong>Competencias profesionales:</strong></p>
+            <ul>
+                <li>Seo</li>
+                <li>Gestión de clientes</li>
+                <li>Análisis de experiencia de usuario (UX)</li>
+            </ul>
+            
+            <p><strong>Intereses Personales:</strong></p>
+            <ul>
+                <li>Me gusta leer.</li>
+                <li>Me gustan los gatos</li>
+            </ul>
+
+
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/028/607/729/small/funny-surprised-cat-with-a-questioning-pose-a-cute-kitten-asks-in-surprise-where-the-treats-are-generated-ai-photo.jpg" 
+                     alt="Gato sorprendido" width="200">
+              
+            
+        </section>
+
+        <br>
+        <hr>
+
+        <section id="contacto">
+            <center>
+                <h2>III. FORMULARIO DE CONTACTO</h2>
+            </center>
+            <p align="center">Para consultas profesionales o colaboraciones, por favor complete el siguiente formulario:</p>
+            
+            <center>
+                <form action="#" method="post">
+                    <table border="0" cellpadding="5">
+                        <tr>
+                            <td align="right"><label for="nombre">Nombre Completo:</label></td>
+                            <td><input type="text" id="nombre" name="nombre" size="30" required></td>
+                        </tr>
+                        <tr>
+                            <td align="right"><label for="correo">Email:</label></td>
+                            <td><input type="email" id="correo" name="correo" size="30" required></td>
+                        </tr>
+                        <tr>
+                            <td align="right" valign="top"><label for="mensaje">Mensaje:</label></td>
+                            <td><textarea id="mensaje" name="mensaje" rows="6" cols="32"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Enviar Solicitud"></td>
+                        </tr>
+                    </table>
+                </form>
+            </center>
+        </section>
+
     </main>
 
-    <br>
-    <hr>
+    <br><br>
+
     <footer>
-        <p><a href="#top">Volver al inicio del perfil </a></p>
         <hr>
-        <p > Copyright © 2024 Pilar.</p>
+        <center>
+            <p><small><a href="#">VOLVER AL INICIO</a></small></p>
+            <p><strong>&copy; 2026 Pilar Salvador</strong></p>
+        </center>
     </footer>
 
 </body>
