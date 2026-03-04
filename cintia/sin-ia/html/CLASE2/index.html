@@ -1,32 +1,60 @@
+<!-- <html> es la raíz del documento: todo el contenido web va dentro -->
 <html>
+    <!-- <head> contiene metadatos e información para el navegador -->
     <head>
+        <!-- <title> define el título que aparece en la pestaña del navegador -->
         <title>Perfil Personal con Zona de Contacto</title>
     </head>
+
+    <!-- <body> agrupa todo el contenido visible de la página -->
     <body>
+        <!-- <h1> es el título principal de la página (se recomienda uno por página) -->
         <h1>Perfil Personal de Cinti</h1>
+
+        <!-- <p> se usa para párrafos de texto -->
         <p>Bienvenido a mi perfil personal.</p>
 
+        <!-- <section> agrupa un bloque temático de contenido -->
         <section>
+            <!-- <nav> es la zona de navegación con enlaces importantes -->
             <nav>
+<<<<<<< HEAD
                 <a href="#Informacion Personal">Informacion Personal</a> |
                 <a href="#Alias">Alias</a> |
                 <a href="#Lista de cosillas que me gusta hacer">Lista de cosillas que me gusta hacer</a>
                 <a href="#Fotito fav">Fotito fav</a>
+=======
+            <!-- <a> crea enlaces; aquí se usan anclas internas con #id -->
+            <!-- Buena práctica: los id no deben llevar espacios para evitar problemas -->
+            <a href="#informacion-personal">Informacion Personal</a> |
+            <a href="#alias">Alias</a> |
+            <a href="#lista-gustos">Lista de cosillas que me gusta hacer</a> |
+            <a href="#fotito-fav">Fotito fav</a>
+>>>>>>> 56640ff6ee0b84920cc81375f7aaa801c5564786
             </nav>
         </section>
 
         <section>
-            <h2 id="Informacion Personal">Información Personal</h2>
+            <!-- id permite que el enlace del menú "salte" a esta parte -->
+            <h2 id="informacion-personal">Información Personal</h2>
             <p>Nombre: Cintia Jiménez</p>
         </section>
 
         <section>
-            <h2 id="Alias">Alias</h2>        
-            <p>El primer botón, envía tu alias al servidor, el segundo botón, borra tu alias.</p>
-            <form></form>>
-            Alias: <input type="text" name="fname"><br><br>
-            <button type="primerBoton">Primer Boton</button>
-            <button type="segundoBoton">Segundo Boton</button>
+            <h2 id="alias">Alias</h2>
+            <p>El primer botón envía tu alias y el segundo limpia el campo.</p>
+
+            <!-- <form> agrupa controles de entrada (inputs y botones) -->
+            <form>
+                <!-- <label> describe el input para mejorar accesibilidad -->
+                <label for="alias-input">Alias:</label>
+                <input id="alias-input" type="text" name="alias"><br><br>
+
+                <!-- type="submit" envía el formulario -->
+                <button type="submit">Primer Boton</button>
+
+                <!-- type="reset" limpia los campos del formulario -->
+                <button type="reset">Segundo Boton</button>
             </form>
         </section>
 
@@ -37,20 +65,34 @@
         </section>
 
         <section>
+<<<<<<< HEAD
             <h2 id="Lista de cosillas que me gusta hacer">Lista de cosillas que me gusta hacer</h2>
                 <ul>
                 <li>Estar con mis gatitos</li>
+=======
+            <h2 id="lista-gustos">Lista de cosillas que me gusta hacer</h2>
+            <!-- <ul> crea una lista no ordenada; <li> es cada elemento -->
+            <ul>
+                <li>Estar con tus gatitos</li>
+>>>>>>> 56640ff6ee0b84920cc81375f7aaa801c5564786
                 <li>Hacer manualidades</li>
                 <li>Crosfaito</li>
-                </ul> 
+            </ul>
         </section>
-        
-        <h2 id="Fotito fav">Fotito fav</h2>
-        <img src="C:\Users\Pato\Desktop\Master Programacion\FrontEnd\mv3\cintia\assets\kittysinty.jpg" alt="Foto de un gatito tuxedo">
 
-    <button>Click Me</button>
+        <section>
+            <h2 id="fotito-fav">Fotito fav</h2>
+            <!-- <img> inserta una imagen; alt describe la imagen para accesibilidad -->
+            <!-- Recomendación: usar rutas relativas dentro del proyecto -->
+            <img src="../../assets/kittysinty.jpg" alt="Foto de un gatito tuxedo">
+        </section>
 
-    <footer>
-        <p>© 2026 Kitty Sinty. Todos los derechos are reserved.</p>
-    </body>   
+        <!-- Botón suelto de ejemplo -->
+        <button>Click Me</button>
+
+        <!-- <footer> contiene información final de la página -->
+        <footer>
+            <p>© 2026 Kitty Sinty. Todos los derechos reservados.</p>
+        </footer>
+    </body>
 </html>

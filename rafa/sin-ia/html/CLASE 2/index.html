@@ -1,29 +1,75 @@
+<!-- DOCTYPE declara que este es un documento HTML5, el estándar moderno de internet -->
 <!DOCTYPE html>
+
+<!-- <html> es la etiqueta raíz; lang="es" indica que el contenido está en español (importante para navegadores y lectores de pantalla) -->
 <html lang="es">
+
+<!-- <head> contiene información sobre la página (metadatos) que NO se ve en pantalla, como título, estilos y enlaces a recursos -->
 <head>
-    <h1 style="background-color:#8fd593;">Una vida escrita</h1>
+    <!-- Aquí irían metadatos como <title> (título de la pestaña del navegador) y <meta> (información de la página) -->
+    <!-- IMPORTANTE: <h1>, <hr> NO van en <head>; pertenecen al <body> porque son contenido visible -->
+    
+    <!-- <link> conecta un archivo CSS externo para dar estilos a la página -->
+    <!-- rel="stylesheet" indica que el recurso es una hoja de estilos -->
+    <!-- href especifica la ruta del archivo -->
     <link rel="stylesheet" href="styles.css">
-    <hr>
 </head>
+
+<!-- <body> contiene todo el contenido visible de la página: texto, imágenes, enlaces, etc. -->
+<body>
+    <!-- <h1> es el encabezado principal de la página; solo debe haber UNO por página (para SEO y accesibilidad) -->
+    <h1 style="background-color:#8fd593;">Una vida escrita</h1>
+    
+    <!-- <hr> crea una línea horizontal divisoria; sirve para separar secciones visualmente -->
+    <hr>
+
+<!-- <header> representa el encabezado de la página; típicamente contiene títulos, navi o logo -->
 <header>
+    <!-- <div> es un contenedor genérico sin significado semántico; se usa para agrupar elementos para estilos o estructura -->
     <div>
+        <!-- <h2> es un encabezado de nivel 2 (subordinado a <h1>); lo usamos aquí para una sección dentro del header -->
         <h2>¿Qué puedo decir?</h2>
-        <p> Proveniente de un pequeño pueblo de casas blancas, vine a la gran ciudad a buscar mi futuro.</p>
+        
+        <!-- <p> es un párrafo; agrupa texto en un bloque separado con espacios arriba y abajo -->
+        <p>Proveniente de un pequeño pueblo de casas blancas, vine a la gran ciudad a buscar mi futuro.</p>
     </div>
 
+    <!-- Otro <div> para agrupar la imagen -->
     <div>
+      <!-- <img> inserta una imagen; necesita atributos obligatorios:
+           - src: ruta o URL de la imagen
+           - alt: texto alternativo si la imagen no carga (importante para ciegos y accesibilidad)
+           - width, height: dimensiones en píxeles
+           - class: nombre de clase CSS para aplicar estilos personalizados -->
       <img src="https://preview.redd.it/poiwvnzmpkr31.jpg?width=1080&crop=smart&auto=webp&s=cc26e5de07becda399a5add9ff0a179b60756ea0" alt="simplemente yo" width="300" height="200" class="image">
     </div>
 </header>
+
+<!-- <main> contiene el contenido principal de la página; debe haber solo un <main> por página -->
 <main>
-    <div alt="Informacion personal">
+    <!-- <div alt="..."> INCORRECTO: los <div> no tienen atributo 'alt'; 'alt' solo va en <img> -->
+    <!-- Solución: usar comentario en CSS o renombrar con 'id' o 'class' si se necesita describir el propósito -->
+    <div>
+    <!-- <h3> es un encabezado de nivel 3; lo usamos para subsecciones dentro de <main> -->
     <h3>¿Qué deseas saber de mí?</h3>
-    <a href="pueblo.html">Pueblo</a><br>
-    <a href="edad.html">edad</a><br>
+    
+    <!-- <a> es un hipervínculo (ancla); el atributo href especifica la URL o archivo destino -->
+    <a href="pueblo.html">Pueblo</a>
+    <!-- <br> crea un salto de línea; útil para separar elementos en línea -->
+    <br>
+    
+    <!-- Otro enlace -->
+    <a href="edad.html">edad</a>
+    <br>
     </div>
 
+    <!-- <section> agrupa contenido temático relacionado; ayuda a organizar y darle significado semántico a la página -->
     <section>
+        <!-- <h3> encabezado de subsección dentro de esta sección -->
         <h3>Estado actual de felicidad</h3>
+        
+        <!-- <blockquote> represent un bloque de cita; indica que el texto está citado de otra fuente -->
+        <!-- Los <br> fuerzan saltos de línea para mantener el formato del poema -->
         <blockquote>
                     Y nada de eso importa. El resignado<br>
                     ejercicio del verso no te salva<br>
@@ -32,24 +78,40 @@
         </blockquote>
     </section>
 
+    <!-- Nueva sección temática -->
     <section>
+        <!-- <h3> encabezado de nivel 3 para esta sección -->
         <h3>Leches favoritas a lo largo de los años</h3>
+        
+        <!-- <ol> es una lista ORDENADA (con números); el atributo start="2024" comienza la numeración en 2024 -->
+        <!-- NOTA: Usar 'start' con años así puede resultar confuso; considera usar números normales (1, 2, 3) -->
+        <!-- class="center" aplica estilos CSS para centrar la lista -->
             <ol start="2024" class="center">
+                <!-- <li> es un elemento de lista; cada uno representa un ítem dentro de <ol> -->
                 <li>Leche de soja</li>
                 <li>Leche de almendras</li>
                 <li>Leche sabor vainilla del mercadona</li>
             </ol>
     </section>
+    
+    <!-- Otra sección temática -->
     <section>
         <h3>Mis alergias</h3>
+        
+        <!-- <table> crea una tabla; se compone de filas (<tr>), encabezados (<th>) y datos (<td>) -->
         <table>
+            <!-- Primera fila <tr> que contiene encabezados -->
             <tr>
+                <!-- <th> es una celda de encabezado; generalmente se muestra en negrita y centrada -->
                 <th>Febrero-Abril</th>
                 <th>Abril-Mayo</th>
                 <th>Mayo-Agosto</th>
                 <th>Agosto-Febrero</th>
             </tr>
+            
+            <!-- Segunda fila <tr> con datos -->
             <tr>
+                <!-- <td> es una celda de datos normal (no encabezado) -->
                 <td>Ciprés</td>
                 <td>Descanso</td>
                 <td>Todo lo imaginable</td>
@@ -58,35 +120,90 @@
         </table>
     </section>
 
-    <footer>
+    <!-- <footer> representa el pie de página; generalmente contiene contacto, información legal, etc. -->
+    <!-- NOTA: <footer> aquí está DENTRO de <main>; esto es técnicamente correcto pero no es lo más semántico -->
+    <!-- Lo ideal es que <footer> esté al final, fuera de <main>, como hermano del <main> -->
+
+</main>
+   <footer>
         <h3>Si quieres contactarme, primero tendré que sopesarlo. Mete tus feos datos:</h3>
+        
+        <!-- <form> es un contenedor para elementos de entrada (inputs); sirve para enviar datos -->
+        <!-- NOTA: Esta forma no tiene atributo 'action' ni 'method', por lo que no enviará datos a ningún lugar -->
+        <!-- Debería ser algo como: <form action="procesar.php" method="POST"> -->
         <form>
-            <label for="fname">Tu nombre</label><br>
-            <input type="text" id="fname" name="fname" placeholder="Nombre..." style="color:tomato"><br>
+            <!-- <label> es una etiqueta que describe un campo de entrada; el atributo 'for' conecta la etiqueta con el input -->
+            <!-- Las labels mejoran la accesibilidad y hacen más fácil hacer clic en campos pequeños -->
+            <label for="fname">Tu nombre</label>
+            <br>
+            
+            <!-- <input type="text"> crea un campo de texto de una línea -->
+            <!-- id="fname" identifica este campo de forma única (debe coincidir con el 'for' de la label) -->
+            <!-- name="fname" es el nombre del campo cuando se envía el formulario -->
+            <!-- placeholder="Nombre..." muestra un texto de ayuda que desaparece cuando escribes -->
+            <!-- style="color:tomato" aplica un color personalizado al texto (mejor usar CSS externo) -->
+            <input type="text" id="fname" name="fname" placeholder="Nombre..." style="color:tomato">
+            <br>
 
-            <label for="lname">Tu feléfono</label><br>
-            <input type="number" id="num" name="número de contacto" placeholder="Teléfono..." style="color:tomato"><br>
+            <!-- Label para el segundo campo -->
+            <label for="num">Tu teléfono</label>
+            <!-- NOTA: El 'for' apunta a "num", pero el <label> dice "Tu feléfono" (typo) -->
+            <br>
+            
+            <!-- <input type="number"> crea un campo que solo acepta números -->
+            <!-- id="num" coincide con el 'for' de la label anterior -->
+            <input type="number" id="num" name="número de contacto" placeholder="Teléfono..." style="color:tomato">
+            <br>
 
+            <!-- <p> párrafo con texto -->
             <p>Tu edad</p>
-            <input type="radio" id = "age1" name="age" value="25">
-            <label for age1>0-25</label>
-            <input type="radio" id = "age2" name="age" value="25">
-            <label for age1>26-100</label><br> 
+            
+            <!-- <input type="radio"> crea un botón de radio (selección única dentro de un grupo) -->
+            <!-- El atributo 'name' agrupa los radios; solo uno con el mismo 'name' puede estar seleccionado -->
+            <!-- id="age1" identifica este radio de forma única -->
+            <!-- value="25" es el valor que se enviará si este radio está seleccionado -->
+            <input type="radio" id="age1" name="age" value="0-25">
+            
+            <!-- <label> conectada a "age1" mediante 'for' -->
+            <!-- NOTA: Hay un error de sintaxis aquí: 'for age1' debería ser 'for="age1"' (falta el igual) -->
+            <label for="age1">0-25</label>
+            
+            <!-- Segundo radio button -->
+            <input type="radio" id="age2" name="age" value="26-100">
+            <!-- NOTA: Este label apunta a 'age1' (debería apuntar a 'age2') y el value anterior es inconsistente -->
+            <label for="age1">26-100</label>
+            <br>
+            
+            <!-- <input type="submit"> crea un botón de envío; al hacer clic, envía el formulario -->
+            <!-- value="Submit" es el texto que aparece en el botón -->
             <input type="submit" value="Submit">
         </form>
+        
+        <!-- <hr> línea divisoria -->
         <hr>
+        
+        <!-- <section> dentro de <footer>; agrupa contenido (en este caso, botón de acción) -->
         <section>
-            <p> Si pulsas este botón, te querré mucho</p><br>
+            <!-- <p> párrafo con texto motivacional -->
+            <p>Si pulsas este botón, te querré mucho</p>
+            <br>
+            
+            <!-- <button> crea un botón que el usuario puede hacer clic; sin 'type', es type="submit" y enviaría un formulario si está dentro de uno -->
             <button>Apriétame</button>
         </section>
     </footer>
-</main>
 
+<!-- <aside> representa contenido complementario, secundario o aparte del contenido principal -->
+<!-- Se usa para barras laterales, aclaraciones, etc. -->
 <aside>
+     <!-- <p> párrafo -->
      <p>
-        Este es tan solo un pequeño ejercicio de clase.<br>
-        Espero poder mejorarlo algún día.<br>
+        Este es tan solo un pequeño ejercicio de clase.
+        <br>
+        Espero poder mejorar algún día.
+        <br>
      </p>   
 </aside>
 
+<!-- Etiqueta </html> de cierre; marca el final del documento HTML -->
 </html>
