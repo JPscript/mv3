@@ -3,7 +3,7 @@ name: comentador-html
 description: Explica el código HTML al detalle para nivel principiante. 
 user-invokable: true
 disable-model-invocation: false
-argument-hint: "<codigo_html>"
+argument-hint: "<documento HTML sin comentarios>"
 ---
 
 # Skill: Comentador de HTML para principiantes
@@ -17,7 +17,7 @@ elemento, atributo, estructura y por qué se utiliza.
 
 ## ¿Qué hace el skill?
 
-1. Recibe un bloque de código HTML (puede ser una página completa o un snippet-fragmento de código reutilizable).
+1. Recibe un bloque de código HTML o accede a un documento de HTML (puede ser una página completa o un snippet-fragmento de código reutilizable).
 2. Recorre el código y, etiqueta por etiqueta, inserta comentarios HTML
    (`<!-- ... -->`) que:
    * Definen la función de la etiqueta.
