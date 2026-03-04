@@ -1,4 +1,4 @@
-# Bitácora de Clase - Eduardo
+# Bitácora de Clase - 1
 
 ## Sesión 1: Introducción a HTML y Flujo de Trabajo
 
