@@ -153,3 +153,19 @@ button:hover {
 button:active {
   transform: translateY(0);  /* Vuelve a su sitio al presionar */
 }
+
+.temitas{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+.temitas a{
+    text-decoration: none;   /* Quita el subrayado */
+    color: rgb(175, 113, 193);
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transición suave para el cambio*/
+}
+.temitas a:hover{
+    color: rgb(165, 57, 196);
+    transform: scale(1.1); /* Agranda el enlace al pasar el mouse */
+}
+
