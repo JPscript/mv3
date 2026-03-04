@@ -12,17 +12,27 @@
 
     <header>
         <nav>
-            <a href="#datosPersonales">Datos Personales</a> |
-            <a href="#habilidades">Intereses</a> |
-            <a href="#contacto">Contacto</a>
+            <a href="#datosPersonales" class="menu">Datos Personales</a>
+            <a href="#habilidades" class="menu">Intereses</a>
+            <a href="#contacto" class="menu">Contacto</a>
         </nav>
-        <h1>Pagina de presentacion</h1>
+        <h1>Página de presentación</h1>
     </header>
-    
-    
+
+
     <main>
+        <aside>
+            <img src="perfil.jpg" alt="foto de perfil" id="perfil">
+            <br>
+            <div id="enlacesAside">
+                <a href="https://github.com/AntonioPando">Github</a>
+                <br>
+                <a href="https://www.linkedin.com/in/antonio-garc%C3%ADa-pando/">Linkedin</a>
+            </div>
+        </aside>
         <div>
-            <h2>Informacion</h2>
+            <h2>Información</h2>
+
             <section id="datosPersonales">
                 <h3>Datos personales</h3>
                 <h4>Nombre</h4>
@@ -32,24 +42,29 @@
                 <h4>Profesion</h4>
                 <p>Desarrollador de software</p>
             </section>
-            <section id="habilidades">
+
+            <section>
                 <h3>Habilidades o intereses</h3>
-                <h4>Lenguajes de programacion</h4>
-                <ul>
-                    <li>Java</li>
-                    <li>Python</li>
-                    <li>Javascript</li>
-                </ul>
-                <h4>Bases de datos</h4>
-                <ul>
-                    <li>MySQL</li>
-                </ul>
+                <div id="habilidades">
+                    <div>
+                        <h4>Lenguajes de programacion</h4>
+                        <ul>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>Javascript</li>
+                        </ul>
+                    </div>
+                    <div id="bd">
+                        <h4>Bases de datos</h4>
+                        <ul>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+
             </section>
-            <aside>
-                <img src="perfil.jpg" alt="foto de perfil" width="200px" height="200px">
-                <a href="github.com">Github</a>
-                <a href="linkedin.com">Linkedin</a>
-            </aside>
+
         </div>
         <div>
             <h2 id="contacto">Contacto</h2>
@@ -58,7 +73,7 @@
                 <input type="text" id="nombre" name="nombre"><br>
                 <label for="correo">Correo Electronico</label>
                 <input type="text" id="correo" name="correo"><br>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Enviar" id="submit">
             </form>
         </div>
     </main>
