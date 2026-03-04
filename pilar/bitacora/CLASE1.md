@@ -14,6 +14,8 @@
 - Instalación y configuración de las herramientas necesarias con apoyo de IA (Node.js, NVM, PostgreSQL). – Dificultad alta  
 - Documentación del proceso de instalación y registro en la carpeta de requisitos del proyecto. – Dificultad baja  
 
+## Conocimientos adquiridos en con los ejercicios de la sesión
+
 
 ## Predicción próxima clase
 
