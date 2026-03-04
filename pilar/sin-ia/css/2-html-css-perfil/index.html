@@ -35,6 +35,8 @@
             border-radius: 50%;
             border: 3px solid #4f46e5;
             margin-bottom: 10px;
+            object-fit: cover;
+
         }
 
         nav a {
@@ -56,16 +58,16 @@
             margin-bottom: 20px;
         }
 
-        /* El truco para ponerlos en paralelo */
+       
         .habilidades-wrapper {
             display: flex;
-            align-items: center; /* Alinea verticalmente al centro */
-            justify-content: space-between; /* Separa los elementos a los extremos */
+            align-items: center; 
+            justify-content: space-between;
             gap: 30px;
         }
 
         .lista-habilidades {
-            flex: 1; /* El texto ocupa el espacio que sobra */
+            flex: 1; 
         }
 
         .cat-img {
@@ -159,7 +161,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        <textarea  resize: none; id="mensaje" name="mensaje" rows="4"></textarea>
                     </div>
                     <button type="submit">Enviar Mensaje</button>
                 </form>
