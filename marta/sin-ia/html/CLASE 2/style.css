@@ -45,6 +45,32 @@ h2{
     object-fit: contain;
     justify-content: space-between;
 }
+
+
+.contenedor-videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.video-miniatura{
+    display: flex;
+    justify-content: center;
+}
+
+.video-miniatura img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-miniatura img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
 .lista-habilidades {
     list-style: none;
     padding: 0;
@@ -89,11 +115,22 @@ h2{
     transform: scale(1.05);
 }
 
-  .boton:hover{
-    background-color: #E0B0FF;
-    color: #6240DB;
+  button:hover {
+    background-color: #9fb0ed;
+    color: #000000;
     padding: 10px 20px;
-    border: 2px solid #afb4a7;
+    border: 1px solid #afb4a7;
+    cursor:pointer;
  
-    transform: scale(1.05);
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    background-color: #a3c3eb;
+    padding: 9px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(120, 9, 109, 0.829);
 }
