@@ -1,22 +1,26 @@
 body {
   background-color: rgb(173, 230, 208);
-    display: flex;             
-  flex-direction: column;    
-  justify-content: center;   
-  align-items: center;       
+  margin: 0;
+  padding-top: 50px;
+}
+header {
+  background-color: aquamarine;
+  color: black;
+  text-align: center;
+  padding: 50px;
 }
 
-h1 {
-  color: white;
-}
 h2 {
   color: navy;
-  margin-left: 20px;
   background-color: aquamarine; 
-  width: 25%;
   text-align: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 form {
   background-color: rgb(255, 255, 255);
@@ -25,19 +29,71 @@ form {
   padding: 50px;
   margin: 20px;
 }
-.logo {
-    transition: transform 0.3s ease;
-    position: fixed;
-    left: 10px;
-    top: 10px;}
+
 img {
     transition: transform 0.3s ease;
+    width: 200px;
+    border-radius: 10px;          
+    margin-bottom: 15px;
+    justify-content: center;
 }
 img:hover {
     transform: scale(1.9);
 }
-
+#perfil {
+  background-color: white;     
+  padding: 30px;               
+  border-radius: 15px;        
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  width: 350px;                
+  text-align: center;          
+}
 p {
   font-family: verdana;
   font-size: 20px;
+}
+nav {
+  position: fixed;     
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  padding: 15px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+
+}
+
+nav ol {
+  margin: 0;
+  padding: 0;
+  display: flex;        
+  justify-content: center; 
+  gap: 40px;     
+}
+
+nav a {
+  text-decoration: none; 
+  color: white;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #00bfff;      
+}
+
+#habilidades ol {
+  display: flex;      
+  gap: 30px;          
+  padding: 0;
+  text-align: space-between;
+  justify-content: center; 
+
+}
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  bottom: 0;
+  width: 100%;
 }
