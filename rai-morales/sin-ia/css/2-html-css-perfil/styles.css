@@ -1,0 +1,74 @@
+html{
+    background-color: rgb(175, 113, 193);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.8;
+}
+
+h1{
+    color: rgb(255, 255, 255);
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+p{
+    color: rgb(255, 255, 255);
+    margin: 20px auto;
+    width: 60%;
+}
+
+h2{
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+.indice{
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 8px;
+}
+.indice ul{
+    display: flex;           /* Alinea los hijos en fila */
+    list-style: none;        /* Quita los puntitos de la lista */
+    padding: 0;
+    gap: 25px;               /* Espacio entre los enlaces */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+}
+.indice a{
+    text-decoration: none;   /* Quita el subrayado */
+    color: rgb(175, 113, 193);
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transición suave para el cambio*/
+}
+.indice a:hover{
+    color: rgb(165, 57, 196);
+    transform: scale(1.1); /* Agranda el enlace al pasar el mouse */
+}
+
+.foto-perfil{
+    border-radius: 50%; /* Hace la imagen circular */
+    width: 200px;       /* Ancho fijo para mantener proporción */
+    height: 200px;      /* Alto fijo para mantener proporción */
+    object-fit: cover;  /* Asegura que la imagen cubra el área sin distorsión */
+    margin-left: 100px;
+}
+
+.yo{
+    display: flex;           /* Alinea la imagen y el texto en fila */
+    gap: 10px;              /* Espacio entre la imagen y el texto */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px;
+}
+.yo p{
+    margin-left: 20px;;
+}
+.interesesC ul{
+    list-style: square; /* Cambia el estilo de los puntos a cuadrados */
+    color: rgb(255, 255, 255);
+    text-align: left;
+    display: inline-block; /* Hace que la lista ocupe solo el espacio necesario */
+    margin-top: 10px;
+}
