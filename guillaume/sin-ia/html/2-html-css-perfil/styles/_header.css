@@ -1,0 +1,17 @@
+
+header {
+    display: flex;
+    padding: 50px 0;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background-color: var(--primary-bg-color);
+}
+
+header img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 130px;
+    height: 130px;
+    object-position: -1px -4px;
+}
