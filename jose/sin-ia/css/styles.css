@@ -1,13 +1,180 @@
+:root {
+    /* Escala única de separación (ladrillo base de espaciado) */
+    --espacio-pequeno: 8px;
+    --espacio-medio: 16px;
+    --espacio-grande: 32px;
+}
+
 html {
     font-family: Arial, sans-serif;
-    background-color: #FCF8F7;
-    color: #6F0000;
-    margin: 0;
-    padding: 0;
+    background-color: #E4E1E0;
+    color: #691210;
+    margin: 10px;
+    padding: 5px;
 }
 header {
-    background-color: #EEF9FF;
-    color: #1E1F24;
-    padding: 20px;
+    background-color: #E4E1E0;
+    color: #691210;
+    padding: 0px;
     text-align: center;
+    /* Separa el bloque header del borde superior de la página */
+    margin-top: 50px;
+    
+}
+nav {
+    /* Coloca los enlaces del menú en una fila */
+    display: flex;
+    /* Ajusta el ancho del recuadro al contenido sin ocupar todo el ancho */
+    width: fit-content;
+    /* Centra horizontalmente los enlaces dentro del recuadro */
+    justify-content: center;
+        /* Crea espacio uniforme entre cada enlace del menú */
+        gap: 16px;
+    /* Deja aire entre el título/imagen y el menú y centra el bloque */
+    margin: 30px auto 0 auto;
+    /* Crea el recuadro del menú */
+    padding: 10px 16px;
+    border: 1px solid #691210;
+    border-radius: 8px;
+    background-color: #ffffff;
+    }
+
+a {
+    /* quitar lineas a los enlaces */
+    text-decoration: none;
+    background-color: #E4E1E0;
+    padding: 0px;
+    border-radius: 5px;
+}
+
+a:hover {
+    /* Efecto hover en los enlaces */
+    color: #cca26a;
+    font-size: 20px;
+    text-decoration: none;
+}
+main {
+    /* Cambio de fuente del main */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    /* Separación general del bloque principal respecto al resto */
+    margin: var(--espacio-grande);
+    padding: 0;
+    text-align: left;
+}
+
+main section {
+    /* Misma distancia entre secciones para ritmo visual consistente */
+    margin-bottom: var(--espacio-grande);
+}
+
+main h2 {
+    /* Espacio entre título de sección y su contenido */
+    margin-top: 0;
+    margin-bottom: var(--espacio-medio);
+}
+
+main p,
+main ul,
+main ol,
+main form,
+main img {
+    /* Espacio corto y uniforme entre elementos internos */
+    margin-bottom: var(--espacio-pequeno);
+}
+ul {
+    /* Lista con viñetas cuadradas */
+    list-style-type: square;
+    /* Mete viñeta/número dentro del bloque del texto */
+    list-style-position: inside;
+    /* Quita sangría por defecto del navegador */
+    padding-left: 0;
+    /* Alinea texto de los ítems a la izquierda */
+    text-align: left;
+    /* Mantiene la lista compacta dentro del main centrado */
+    display: inline-block;
+}
+
+ol {
+    /* Igual que ul: número y texto juntos */
+    list-style-position: inside;
+    /* Quita sangría lateral automática */
+    padding-left: 0;
+    /* Evita efecto visual de números separados */
+    text-align: left;
+    /* Permite que el bloque no ocupe todo el ancho */
+    display: inline-block;
+}
+
+li > ul,
+li > ol {
+    /* La sublista se muestra debajo del texto del item padre */
+    display: block;
+    /* Recupera sangría para marcar jerarquía visual */
+    margin-left: 20px;
+    padding-left: 12px;
+    margin-top: 4px;
+}
+
+li > ul {
+    /* Diferencia visual para sublistas con viñetas */
+    list-style-type: circle;
+}
+label {
+    /* Muestra cada etiqueta en su propia línea, encima del campo */
+    display: block;
+    /* Hace la etiqueta más visible que el texto normal */
+    font-weight: 600;
+    /* Mantiene la etiqueta dentro de la paleta del proyecto */
+    color: #A70000;
+    /* Separa la etiqueta del campo de abajo */
+    margin-bottom: var(--espacio-pequeno);
+    /* Evita empujar hacia abajo cada fila del formulario */
+    margin-top: 0;
+}
+/* form: selecciona el formulario completo */
+form {
+    /* Coloca los bloques de campo en fila */
+    display: flex;
+    /* Permite que bajen de línea en pantallas pequeñas */
+    flex-wrap: wrap;
+    /* Espacio uniforme entre bloques del formulario */
+    gap: var(--espacio-medio);
+}
+
+/* .campo: selecciona cualquier elemento con class="campo" */
+.campo {
+    /* Cada campo funciona como bloque vertical: label + input */
+    display: flex;
+    flex-direction: column;
+    /* Base más corta para que los campos no se vean tan anchos */
+    flex: 0 1 220px;
+    /* Límite máximo visual de ancho por campo */
+    max-width: 260px;
+}
+
+/* .campo input: selecciona los input que están dentro de .campo */
+/* .campo textarea: selecciona los textarea que están dentro de .campo */
+.campo input,
+.campo textarea {
+    /* Iguala el ancho del control al bloque de campo */
+    width: 100%;
+}
+
+/* .campo-mensaje: selecciona el bloque del mensaje (class="campo-mensaje") */
+.campo-mensaje {
+    /* El mensaje mantiene fila propia pero con ancho controlado */
+    flex: 0 1 420px;
+    max-width: 420px;
+}
+
+/* .acciones-formulario: contenedor del botón de envío */
+.acciones-formulario {
+    /* El botón se mantiene como bloque separado al final */
+    flex-basis: 100%;
+}
+
+/* .acciones-formulario input[type="submit"]: botón submit dentro del contenedor de acciones */
+.acciones-formulario input[type="submit"] {
+    /* Da aire superior al botón de envío */
+    margin-top: var(--espacio-pequeno);
 }
