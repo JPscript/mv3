@@ -1,0 +1,48 @@
+header {
+  background-color: lightseagreen;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+}
+body {
+  background: linear-gradient(135deg, #e0f2f1 0%, #f3739d 100%);
+  margin: 20px;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  background-color: palevioletred;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container div {
+  background: linear-gradient(135deg, #e0f2f1 0%, #fce4ec 100%);
+  padding: 10px;
+  margin: 10px;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: row;
+}
+.container3 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+}
+
+.boton {
+  background-color: #e9e0f2;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+p {
+  background-color: lightpink;
+}
+li {
+  color: black;
+  background-color: rgb(23, 183, 175);
+}
+button {
+  background-color: rgb(180, 217, 215);
+}
