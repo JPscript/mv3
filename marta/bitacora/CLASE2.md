@@ -1,0 +1,2 @@
+Hemos estado repasando conceptos de la clase anterior y nos hemos puesto con la creación de nuestra página web.
+En la parte de HTML más o menos me he apañado bien pero si que es cierto que con el CSS me he estado peleando un poco más porque hay alguna parte como el botón que quiero que cambie bien de color y aún no lo consigo, espero que con la clase 3 me quede algo más claro y pueda terminar la página web y ver si me surgen más problemas o dudas.
