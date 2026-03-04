@@ -1,77 +1,132 @@
-html{
- background-color:aquamarine;
- text-align: center;
- font-family:Arial, Helvetica, sans-serif;
-   line-height: 1.8;
+/* ----- Estilos base y accesibilidad (explicación: estos estilos configuran la tipografía,
+   espaciado y comportamiento básico de la página; usar `body` en lugar de `html` es más habitual) */
+*{
+  /* box-sizing hace que padding y border se incluyan en el ancho total del elemento */
+  box-sizing: border-box;
 }
 
+/* El <body> contiene el contenido visible; aquí definimos fondo, tipografía y espaciado global */
+body{
+  background-color: aquamarine; /* color de fondo de la página */
+  text-align: center; /* centra texto en elementos en línea, útil para ejercicios sencillos */
+  font-family: Arial, Helvetica, sans-serif; /* tipografía legible */
+  line-height: 1.8; /* espacio entre líneas para mejorar lectura */
+  margin: 0; /* eliminar margen por defecto del navegador */
+  padding: 0 12px; /* espacio lateral para que no pegue en los bordes */
+}
+
+/* Clase utilidad para centrar listas o contenido pequeño */
 .center {
   text-align: center;
-  list-style-position: inside;
+  list-style-position: inside; /* hace que la numeración/viñetas estén dentro del contenido */
 }
 
+/* Clase para hacer imágenes redondas: aplica un radio del 50% */
 .image {
-border-radius: 50%;
+  border-radius: 50%;
 }
 
+/* Aside: contenido complementario; se alinea a la izquierda para distinguirlo del body centrado */
 aside{
-  text-align:left;
+  text-align: left;
   font-size: small;
+  max-width: 320px; /* limitar ancho para que sea realmente una barra lateral */
+  margin: 1rem auto; /* centrar horizontalmente en pantallas pequeñas */
 }
 
+/* Blockquote: caja para citas. Comentario: usar display:block en lugar de inline-flex
+   para que ocupe su propio espacio y no rompa el flujo del documento. */
 blockquote{
-  border-style: solid;
-  border-color: #8fd593;
+  border: 1px solid #8fd593;
   background-color: #8fd593;
   border-radius: 6px;
   padding: 20px;
-  display:inline-flex;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: block;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff; /* alto contraste sobre el fondo verde */
+  max-width: 900px; /* prevenir que la caja sea demasiado ancha en pantallas grandes */
+  margin: 1rem auto;
 }
 
+/* Tablas: separamos selectores porque CSS no permite anidado como en un preprocesador */
 table {
-  margin-left: auto;
-  margin-right: auto;
-  border-collapse: collapse;
+  margin: 0 auto; /* centra la tabla */
+  border-collapse: collapse; /* elimina espacios entre bordes de celdas */
   width: 70%;
-  td, th {
+}
+
+/* Celdas y encabezados: borde y padding para legibilidad */
+table td, table th {
   border: 1px solid #3b3779;
   padding: 10px;
-  }
-  tr:nth-child(even){background-color: #afe4e6;}
-  td:hover {background-color:darkcyan;}
-  th {
-  background-color: #04AA6D;
-  color:white
-  }
 }
 
+/* Filas pares con color de fondo suave para facilitar lectura de filas */
+table tr:nth-child(even){
+  background-color: #afe4e6;
+}
+
+/* Hover en celdas para retroalimentación visual */
+table td:hover {
+  background-color: darkcyan;
+  color: #fff;
+}
+
+/* Estilo para cabeceras de tabla */
+table th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Footer: contenedor del formulario y contacto. Explicación: separa visualmente el pie de página */
 footer{
   border-radius: 5px;
   background-color: #ccdff5;
   padding: 20px;
-  margin-top: 30px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 30px 40px;
+}
 
-  input[type=text], input[type=number]{
-    width: 100%;
-    border-radius: 4px;
-    padding: 8px;
-    border: none;
-  }
+/* Inputs dentro del footer: selector descendiente correcto en CSS puro */
+footer input[type="text"], footer input[type="number"]{
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #ccc; /* mejor usar borde para accesibilidad y contraste */
+  background: #fff;
+}
 
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Indicador visible cuando un campo está enfocado (teclear/tab) - mejora accesibilidad */
+footer input[type="text"]:focus, footer input[type="number"]:focus{
+  outline: 3px solid rgba(143,213,147,0.35);
 }
-  input[type=submit]:hover {
-  
+
+/* Botón de envío: ocupa todo el ancho y tiene contraste */
+footer input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
+footer input[type="submit"]:hover {
+  background-color: #29ac2f;
 }
+
+/* Botón genérico dentro del footer (no confundir con submit) */
+footer section button{
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive básico: mejorar visual en móviles */
+@media (max-width: 600px){
+  table { width: 100%; }
+  footer { margin: 20px 12px; }
+  .image { max-width: 300px; width: 80%; height: auto; }
+}
+
+/* Fin de archivo: los comentarios anteriores explican decisiones y buenas prácticas */
