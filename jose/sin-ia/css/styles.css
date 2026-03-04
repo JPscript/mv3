@@ -41,10 +41,12 @@ nav {
 
 a {
     /* quitar lineas a los enlaces */
-    text-decoration: none;
-    background-color: #E4E1E0;
-    padding: 0px;
-    border-radius: 5px;
+   display: inline-block;
+    margin-top: var(--espacio-medio);
+    padding: 8px 16px;
+    background-color: #691210;
+    color: #ffffff;
+    border-radius: 4px;
 }
 
 a:hover {
@@ -177,4 +179,29 @@ form {
 .acciones-formulario input[type="submit"] {
     /* Da aire superior al botón de envío */
     margin-top: var(--espacio-pequeno);
+}
+aside {
+    background-color: #E4E1E0;
+    border  : 1px solid #691210;
+    padding: var(--espacio-medio);
+    margin-top: var(--espacio-medio);
+    border-radius: 8px;
+    margin-top : var(--espacio-medio);
+}
+footer {
+    background-color: #E4E1E0;
+     
+    font-size: 14px;
+    padding: var(--espacio-medio);
+    margin-top: var(--espacio-medio);
+    border-radius: 8px;
+    margin-top : var(--espacio-medio);
+}
+.enlace-github {
+    display: inline-block;
+    margin-top: var(--espacio-medio);
+    padding: 8px 16px;
+    background-color: #691210;
+    color: #ffffff;
+    border-radius: 4px;
 }
