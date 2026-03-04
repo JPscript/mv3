@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Este link conecta este HTML con tu archivo CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
     <title>Perfil personal</title>
     <style>
         #toastman {
@@ -14,26 +16,32 @@
         #gif {
             width: 100px;
             height: auto;
-            float: top;
+            display: block;
+            margin: 0 auto;
             
         }
     </style>
 </head>
 <body>
+    <!-- header: cabecera principal de la página -->
     <header>
         
         
     <h1>Mi perfil</h1>
+    <!-- id="gif": este nombre lo usa el CSS para estilizar esta imagen concreta -->
     <img id="gif" src="200w.gif" alt="toastman volando, un meme de clase">
+    <!-- nav: menú de navegación de la página -->
     <nav>
-        <a href="#¿Quien soy?"><b>¿Quien soy?</b></a><div>
-        <a href="#Habilidades"><b>Habilidades</b></a></div>
-        <a href="#Intereses"><b>Intereses</b></a><div>
-        <a href="#Contacto"><b>Contacto</b></a></div>
+        <!-- href="#..." apunta al id de cada sección dentro de la misma página -->
+        <a href="#¿Quien soy?"><b>¿Quien soy?</b></a>
+        <a href="#Habilidades"><b>Habilidades</b></a>
+        <a href="#Intereses"><b>Intereses</b></a>
+        <a href="#Contacto"><b>Contacto</b></a>
     </nav>
     </header>
 
     <main>
+    <!-- id de sección: sirve para que los enlaces del nav lleguen aquí -->
     <section id="¿Quien soy?"> 
     <h2> <em>Jose Sanchez Rodriguez</em></h2>
     <p> <b>Soy estudiante de programacion y estoy aprendiendo frontend</b></p>
@@ -42,24 +50,27 @@
         <li>Los deportes</li>
         <li>Los videojuegos</li>
         <li>La musica</li>
-        <li>La lectura</li>
-        <ul>
-            <li>Novelas de ciencia ficción</li>
-            <li>Novelas de fantasía</li>
-            
-        </ul>
+        <li>La lectura
+            <!-- Sublista dentro del mismo tema (estructura correcta) -->
+            <ul>
+                <li>Novelas de ciencia ficción</li>
+                <li>Novelas de fantasía</li>
+            </ul>
+        </li>
     </ul>
     </section>
     <section id="Habilidades">
        <h2>Skills</h2>
        <p> Mis habilidades en programacion no son muchas pero algunas tengo</p>     
        <ol>
-           <li>Java nivel iniciado</li>
-           <ul>
-            <li> Polimorfia</li>
-            <li>Herencia</li>
-            <li>Encapsulamiento</li>
-           </ul>
+           <li>Java nivel iniciado
+            <!-- Detalle de Java como sublista del punto anterior -->
+            <ul>
+                <li>Polimorfia</li>
+                <li>Herencia</li>
+                <li>Encapsulamiento</li>
+            </ul>
+           </li>
            <li>SQL nivel iniciado</li>
            <li>Conceptos de backend</li>
            <li>HTML básicos</li>
@@ -73,18 +84,39 @@
     </section>
     <section id="Contacto">
         <h2>Contacto</h2>
-        <p> Si quieres contactar conmigo puedes hacerlo a traves de mi correo.<div> 
-            Tambien puedes entrar en mi perfil de github</div></p>
+        <p>Si quieres contactar conmigo puedes hacerlo a traves de mi correo.</p>
+        <p>Tambien puedes entrar en mi perfil de github.</p>
+            <!-- form: bloque que agrupa todos los campos del formulario -->
             <form>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre"><br>
-                <label for="correo">Correo electrónico:</label><br>
-                <input type="email" id="correo" name="correo"><br>
-                <label for="mensaje">Opinion:</label><br>
-                <textarea id="mensaje" name="mensaje"></textarea><br>
-                <input type="submit" value="Submit">
+                <!-- class="campo": clase reutilizable para cada grupo label + input -->
+                <div class="campo">
+                    <!-- for="nombre" se conecta con id="nombre" del input -->
+                    <label for="nombre">Nombre:</label>
+                    <!-- name es el nombre del dato que se enviaría al mandar el formulario -->
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+                <!-- Repetimos la misma clase "campo" para mantener el mismo estilo -->
+                <div class="campo">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo">
+                </div>
+                <!-- class="campo-mensaje" añade ajustes especiales al campo de texto largo -->
+                <div class="campo campo-mensaje">
+                    <label for="mensaje">Opinion:</label>
+                    <textarea id="mensaje" name="mensaje"></textarea>
+                </div>
+                <!-- class="acciones-formulario" agrupa la zona de botones -->
+                <div class="acciones-formulario">
+                    <input type="submit" value="Enviar">
+                </div>
             </form>
-            <a href="https://github.com/josemsr98">Mi perfil de gitHub</a>
+            <aside>
+                <h3>Información adicional</h3>
+                <p>Actualmente estoy formando en Frontend y reforzando bases de HTML y CSS</p>
+                <p>Estoy interesado en aprender nuevas tecnologías y mejorar mis habilidades en programación.</p>
+                <p>Poniendo el foco en profundizar Java, SQL y fundamentos de desarrollo web</p>
+            </aside>
+            <a class="enlace-github" href="https://github.com/josemsr98">Mi perfil de gitHub</a>
 
         </section>
     </main>
@@ -92,3 +124,5 @@
         <p>Por ahora esto es todo. Gracias por visitar mi perfil</p>
         <img id="toastman" src= "descarga.jpg" alt="toastman, un meme de clase">
     </footer>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <body>
     <h1>Indio Nieto</h1>
     <div>
-        <img src="img/diseño clases.png" alt="Indio Nieto" width="300">
+        <img src="img/diseño clases.png" id="diseñoClases" class="diseñoclases" alt="Indio Nieto" width="300">
     </div>
     <div>
     <p>
@@ -40,9 +40,16 @@
 </table>
 
    
-    <button class="mytestbtn">Si te flipa pulsa aqui!!</button>
+    <button class="mytestbtn">Si te flipa pulsa en la foto!!</button>
     <textarea placeholder="Deja tu comentario aquí"></textarea>
+<script>
+    const imagen = document.getElementById("diseñoClases");
 
+    imagen.addEventListener("click", function() {
+      imagen.classList.toggle("girar");
+    });
+  </script>
     
 </body>
+
 </html>

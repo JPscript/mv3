@@ -12,6 +12,10 @@
 - Instalación y configuración de herramientas de desarrollo con ayuda de la IA: PostgreSQL y Angular. – Dificultad alta
 - Documentar cómo se realizan las instalaciones y dejarlo registrado en la carpeta de requisitos.
 
+## Conocimientos adquiridos en con los ejercicios de la sesión
+
+
+
 ## Predicción próxima clase
 
 - Comenzar con la parte de HTML.

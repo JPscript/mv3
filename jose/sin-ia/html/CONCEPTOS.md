@@ -536,3 +536,84 @@ El `name` es la clave, el valor es lo que escribiste.
 ```
 
 El atributo `required` hace que el campo sea obligatorio (el navegador no permite enviar el formulario si está vacío).
+
+---
+
+## Conceptos vistos en `indexclase2.html` (Clase 2)
+
+### Ruta relativa en `<link rel="stylesheet">`
+
+**Definición**: Una ruta relativa conecta archivos usando la posición de carpetas, sin depender del nombre del ordenador ni del disco.
+
+**Metáfora**: Senior Cat lo explica como moverte por un edificio con planos: "sube dos pisos y entra a CSS" (`../../css/...`) en vez de memorizar una dirección completa que cambia en cada ciudad.
+
+**Ejemplo de tu código**:
+```html
+<link rel="stylesheet" href="../../css/styles.css">
+```
+
+---
+
+### `id` para navegación interna
+
+**Definición**: El atributo `id` identifica de forma única una sección. Los enlaces del menú usan `href="#id"` para saltar a ese bloque.
+
+**Metáfora**: Es como ponerle nombre a cada habitación de la casa: luego el menú funciona como un cartel que te lleva directo a "Contacto" o "Habilidades".
+
+**Ejemplo de tu código**:
+```html
+<a href="#Contacto"><b>Contacto</b></a>
+...
+<section id="Contacto">
+```
+
+---
+
+### `class` para reutilizar estilos
+
+**Definición**: `class` agrupa elementos para aplicarles el mismo estilo desde CSS. A diferencia de `id`, una clase se puede repetir muchas veces.
+
+**Metáfora**: Si `id` es una puerta con nombre único, `class` es un tipo de ladrillo que puedes usar en muchas zonas de la obra.
+
+**Ejemplo de tu código**:
+```html
+<div class="campo">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+</div>
+
+<div class="campo">
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo">
+</div>
+```
+
+---
+
+### `for` (label) + `id` (input)
+
+**Definición**: `for` en `<label>` debe coincidir con el `id` del campo para mejorar accesibilidad y usabilidad.
+
+**Metáfora**: Es como una etiqueta con el nombre exacto del cajón. Si coincide, siempre abres el cajón correcto.
+
+**Ejemplo de tu código**:
+```html
+<label for="correo">Correo electrónico:</label>
+<input type="email" id="correo" name="correo">
+```
+
+---
+
+### Varias clases en un mismo elemento
+
+**Definición**: Puedes poner varias clases separadas por espacios para combinar estilos base + estilos especiales.
+
+**Metáfora**: Un mismo ladrillo puede ser "ladrillo base" y además "ladrillo de esquina" para añadir un comportamiento extra.
+
+**Ejemplo de tu código**:
+```html
+<div class="campo campo-mensaje">
+    <label for="mensaje">Opinion:</label>
+    <textarea id="mensaje" name="mensaje"></textarea>
+</div>
+```

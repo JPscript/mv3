@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de presentación</title>
+    <meta charset="UTF-8">
+    <meta name="viewpoert" content="width=device-width">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#datosPersonales" class="menu">Datos Personales</a>
+            <a href="#habilidades" class="menu">Intereses</a>
+            <a href="#contacto" class="menu">Contacto</a>
+        </nav>
+        <h1>Página de presentación</h1>
+    </header>
+
+
+    <main>
+        <aside>
+            <img src="perfil.jpg" alt="foto de perfil" id="perfil">
+            <br>
+            <div id="enlacesAside">
+                <a href="https://github.com/AntonioPando">Github</a>
+                <br>
+                <a href="https://www.linkedin.com/in/antonio-garc%C3%ADa-pando/">Linkedin</a>
+            </div>
+        </aside>
+        <div>
+            <h2>Información</h2>
+
+            <section id="datosPersonales">
+                <h3>Datos personales</h3>
+                <h4>Nombre</h4>
+                <p>Antonio Garcia Pando</p>
+                <h4>Edad</h4>
+                <p>27 años</p>
+                <h4>Profesion</h4>
+                <p>Desarrollador de software</p>
+            </section>
+
+            <section>
+                <h3>Habilidades o intereses</h3>
+                <div id="habilidades">
+                    <div>
+                        <h4>Lenguajes de programacion</h4>
+                        <ul>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>Javascript</li>
+                        </ul>
+                    </div>
+                    <div id="bd">
+                        <h4>Bases de datos</h4>
+                        <ul>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </section>
+
+        </div>
+        <div>
+            <h2 id="contacto">Contacto</h2>
+            <form action="">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="correo">Correo Electronico</label>
+                <input type="text" id="correo" name="correo"><br>
+                <input type="submit" value="Enviar" id="submit">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Gracias por contactar con nosotros</p>
+    </footer>
+
+</body>
+
+</html>
