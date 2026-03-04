@@ -1,5 +1,5 @@
 html{
-    background-color: #F7F9FF;
+    background-color: #d9e2fc;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -12,9 +12,10 @@ footer{
 }
 
 nav{
-    background-color: #3D63DD;
+    background-color: #4a6fea;
     padding: 1%;
     border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 .menu {
@@ -26,6 +27,7 @@ nav{
 
 h1{
     text-align: center;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);;
 }
 
 h3{
@@ -44,8 +46,9 @@ img{
     border: 9px solid #3D63DD;
     border-radius: 100%;
     width: 200px;
-    margin-right: 5vw;
+    margin-right: vw;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    margin: 2vw
 }
 
 #nombre{
@@ -64,10 +67,16 @@ img{
 
 aside{
     float:right;
+    margin-right: 2vw;
+    background-color:#92c8f1;
+    border-radius: 8px;
+    padding-bottom: 3vh;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 aside a{
-    margin-left: 6vw;
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: blue;
 }
@@ -86,6 +95,6 @@ aside a{
 
 
 a:hover{
-    color:blue;
+    color:white;
     font-size: larger;
 }
