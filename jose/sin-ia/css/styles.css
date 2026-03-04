@@ -1,0 +1,13 @@
+html {
+    font-family: Arial, sans-serif;
+    background-color: #FCF8F7;
+    color: #6F0000;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #EEF9FF;
+    color: #1E1F24;
+    padding: 20px;
+    text-align: center;
+}
