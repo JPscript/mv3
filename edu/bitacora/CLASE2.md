@@ -1,4 +1,4 @@
-# Bitácora de Clase - Sesión 2
+# Bitácora de Clase - 2
 
 ## ¿Qué he hecho hoy?
 * **HTML Semántico:** He estructurado mi perfil personal usando etiquetas de HTML5 (`header`, `main`, `section`, `footer`).

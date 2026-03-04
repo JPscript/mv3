@@ -1,12 +1,12 @@
 ## Tema y objetivo del día
-- **Tema:** HTML bases.
-- **Fecha:** 2026-03-02.
+- **Tema:** CSS básico.
+- **Fecha:** 2026-03-04.
 - **Horario:** 16:30 - 20:30.
-- **Objetivo:** comprender la estructura básica de un documento HTML y construir páginas simples con semántica inicial.
+- **Objetivo:** comprender la estructura básica de un documento CSS.
 
 ## Plan por bloques de tiempo
-- **16:30 - 17:00 (Inicio):** comenzamos la clase hablando sobre las skills.
-- **17:00 - 17:30 (Repaso y explicación de nuevos conceptos):** usando w3school hacemos un repaso de conceptos ya vistos como las etiquetas div y button, además de ver el nuevo concepto de formularios.
+- **16:30 - 17:00 (Inicio):** comenzamos la clase hablando sobre las skills viendo la nueva skill de Cintia y haciendo un breve repaso de la calse anterior.
+- **17:00 - 17:30 (Explicación de nuevos conceptos):** usando w3school hacemos una revisión de nuevos conceptos de CSS.
 - **17:30 - 18:00 (Practica guiada html):** crear una pagina personal como indica el ejercicio para hoy.
 - **18:00 - 18:30 (Receso):** descanso.
 - **18:30 - 19:00 (Práctica guiada html):** seguidmos con la resolución del ejercicio de la página.
