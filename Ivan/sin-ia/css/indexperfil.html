@@ -1,14 +1,21 @@
 <!DOCTYPE html>
+<!-- <!DOCTYPE html> indica el tipo de documento HTML5. -->
 <html>
 
+<!-- <head> contiene metadatos, enlaces a estilos y el título de la página -->
 <head>
+    <!-- <meta charset="UTF-8"> define la codificación de caracteres (UTF-8 es la recomendada) -->
     <meta charset="UTF-8">
+    <!-- <meta name="viewport"> hace la página responsiva en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title> texto que aparece en la pestaña del navegador -->
     <title>Perfil de Ivan</title>
+    <!-- <link rel="stylesheet"> enlaza un archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Estilos en línea: se usan aquí para ejemplos rápidos; en producción conviene moverlos a style.css -->
     <style>
-        /* Foto de perfil */
+        /* Foto de perfil: reglas para un elemento con id="foto" */
         #foto {
             float: right;
             margin-right: 400px;
@@ -17,7 +24,7 @@
         }
     </style>
     <style>
-        /* Gif toastman */
+        /* Gif toastman: reglas para un elemento con id="gif" */
         #gif {
             float: right;
             margin-right: 1120px;
@@ -26,9 +33,8 @@
         }
     </style>
 
-    <!-- LOGOS -->
-
-    <!-- Java -->
+    <!-- LOGOS: estilos para iconos identificados por id -->
+    <!-- JavaScript icon -->
     <style>
         #javascript-icon {
             margin-right: 150px;
@@ -36,7 +42,7 @@
             height: 55px;
         }
     </style>
-    <!-- HTML -->
+    <!-- HTML icon -->
     <style>
         #html-icon {
             margin-right: 150px;
@@ -44,7 +50,7 @@
             height: 50px;
         }
     </style>
-    <!-- css -->
+    <!-- CSS icon -->
     <style>
         #css-icon {
             margin-right: 150px;
@@ -54,10 +60,15 @@
     </style>
 </head>
 
+<!-- <body> contiene el contenido visible de la página -->
 <body>
+    <!-- .cuadromenu: contenedor para la barra de navegación -->
     <div class="cuadromenu">
+        <!-- <nav> elemento semántico para navegación principal -->
         <nav>
+            <!-- <ul> lista no ordenada que agrupa los enlaces del menú -->
             <ul class="menu">
+                <!-- <li> cada elemento de lista contiene un enlace <a> -->
                 <li><a href="#Perfil de Ivan">Inicio</a></li>
                 <li><a href="#Sobre mí">Sobre mí</a></li>
                 <li><a href="#Habilidades">Habilidades</a></li>
@@ -66,26 +77,36 @@
         </nav>
     </div>
 
+    <!-- .cuadroperf: sección principal del perfil con encabezado -->
     <div class="cuadroperf">
+        <!-- <header> contiene el título principal y elementos introductorios -->
         <header>
+            <!-- <h1> título principal de la página; debe ser único -->
             <h1 class="titulo">Perfil de Ivan</h1>
+            <!-- <img> imagen; usa el atributo src para la ruta y alt para accesibilidad -->
             <img class="gif"
                 src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4de125fd-9bea-4c3d-85a9-d435be728bba/daameal-e5123244-0975-4ea5-b72c-b405a50fcc6e.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi80ZGUxMjVmZC05YmVhLTRjM2QtODVhOS1kNDM1YmU3MjhiYmEvZGFhbWVhbC1lNTEyMzI0NC0wOTc1LTRlYTUtYjcyYy1iNDA1YTUwZmNjNmUuZ2lmIn1dXX0.hss1IiXWOoe5m46336cXyvtpwbuZ-wpcyDr5yMCI2as"
-                alt="" width="100" height="100">
+                alt="GIF decorativo" width="100" height="100">
         </header>
     </div>
+    <!-- <br> saltos de línea (mejor evitar uso excesivo; usar margenes en CSS) -->
     <br>
     <br>
     <br>
     <hr>
+    <!-- .profile: contenedor del bloque "Sobre mí" -->
     <div class="profile">
+        <!-- <section> elemento semántico para una sección independiente -->
         <section class="Sobre mí">
+            <!-- <h2> subtítulo de sección -->
             <h2 class=boutme>Sobre mí<img class="fotochad" src=https://i.pinimg.com/originals/20/1b/5f/201b5f9022d55d50a5082be4af26ed22.jpg
                     alt="Mi foto de perfil" width="154" height="252"></h2>
 
+            <!-- <p> párrafo de introducción sobre la persona -->
             <p class="textoperfil">Hola, soy <b>Ivan</b>, un apasionado de la tecnología y el desarrollo web. Me encanta aprender nuevas
                 habilidades y
                 compartir mis conocimientos con los demás.
+                <!-- <a> enlace externo al perfil de GitHub -->
                 <a href="https://github.com/notevan404">Mi GitHub</a>
             </p>
         </section>
@@ -95,46 +116,60 @@
     <br>
     <br>
     <hr>
+    <!-- .skillscuadro: bloque con la lista de habilidades -->
     <div class="skillscuadro">
     <section id="Habilidades">
         <h2>Habilidades</h2>
+        <!-- <ul> lista de habilidades; cada <li> es una habilidad -->
         <ul class="skills">
             <li><b>HTML</b>
                 <p>Desarrollo web en HTML </p>
-            </li> <img class="html-icon" src="https://img.icons8.com/color/1200/html-5.jpg" alt="Icono HTML">
+            </li>
+            <!-- Icono relacionado a HTML (imagen decorativa) -->
+            <img class="html-icon" src="https://img.icons8.com/color/1200/html-5.jpg" alt="Icono HTML">
             <br>
             <br>
             <li><b>CSS</b>
                 <p>Desarrollo web con CSS</p>
-            </li> <img class="css-icon"
+            </li>
+            <!-- Icono relacionado a CSS -->
+            <img class="css-icon"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJDwBd9LoQzBAZigXXxzQ0kKn6TwyrE0Y7Rg&s"
                 alt="Icono CSS">
             <br>
             <br>
             <li><b>JavaScript</b>
                 <p>Desarrollo web con JavaScript</p>
-            </li> <img class="javascript-icon"
+            </li>
+            <!-- Icono relacionado a JavaScript -->
+            <img class="javascript-icon"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTBC5gNDwM-238kK17e8fiv5YfA8AmJf2BQw&s"
                 alt="Icono JavaScript">
         </ul>
     </section>
     </div>
     <hr>
+    <!-- .contacto: sección con campos para que un visitante deje sus datos -->
     <div class="contacto">
         <section id="Contacto">
             <h2>Contacto</h2>
+            <!-- <label> describe un control de formulario; el atributo for apunta al id del input -->
             <label for="nombre">Nombre:</label><br>
+            <!-- <input> campo de texto; type define el tipo de dato esperado -->
             <input type="text" id="nombre" name="nombre"><br>
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="mensaje">Mensaje:</label><br>
+            <!-- <textarea> campo de texto multilínea -->
             <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br>
+            <!-- <button type="submit"> botón para enviar el formulario (aún falta el <form> si se quiere procesar) -->
             <button type="submit">Enviar</button>
         </section>
     </div>
 
     <div class="finaltext">
     <section>
+        <!-- Texto de pie de página -->
         <p>Todos los derechos reservados© <b>(que va lol)</b></p>
     </section>
     </div>
