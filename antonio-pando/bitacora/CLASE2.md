@@ -1,0 +1,3 @@
+- Hemos repasado skill y uso de IA (skills) 
+- Hemos realizado un ejercicio de creacion de una pagina personal (estructura html)
+- Hemos completado el ejercicio con css

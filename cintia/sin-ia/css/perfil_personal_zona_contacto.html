@@ -1,10 +1,57 @@
 <html>
     <head>
         <title>Perfil Personal con Zona de Contacto</title>
+    <style>
+        html{
+            align-items: center;
+            text-align: center;
+        }
+
+        body {
+            font-family: Cambria, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            color: rgb(119, 5, 94);
+        }
+
+        h2 {
+            color: rgb(119, 5, 94);
+        }
+
+        nav a {
+            margin-right: 2px;
+            text-decoration: none;
+            color: rgb(163, 11, 130);
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100px;
+            height: 60px;
+            background-color: rgb(119, 5, 94);
+            font-size: 18px;
+            color: rgb(255, 253, 144);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .cosillas {
+            list-style-type: circle;
+            text-align: center;
+            display: inline-block;
+        }
+
+    </style>
     </head>
-    <body style="background-color:rgb(203, 233, 230);">
-        <h1 style="color:rgb(119, 5, 94);">Perfil Personal de Cinti</h1>
-        <p>Bienvenido a mi perfil personal.</p>
+    <body style="background-color:rgb(255, 253, 144);">
+        <h1 style="font-size: 90px;">Perfil Personal de Cinti</h1>
+        <p style="font-size: 45px; color: rgb(119, 5, 94);">Welcome to my perfil personal</p>
 
         <section>
             <nav>
@@ -16,7 +63,7 @@
         </section>
 
         <section>
-            <h2 style="color:rgb(75, 21, 173);">Información Personal</h2>
+            <h2>Información Personal</h2>
             <p>Nombre: Cintia Jiménez</p>
         </section>
 
@@ -38,7 +85,7 @@
 
         <section>
             <h2 id="Lista de cosillas que me gusta hacer">Lista de cosillas que me gusta hacer</h2>
-                <ul>
+                <ul class="cosillas">
                 <li>Estar con tus gatitos</li>
                 <li>Hacer manualidades</li>
                 <li>Crosfaito</li>
@@ -48,7 +95,7 @@
         <h2 id="Fotito fav">Fotito fav</h2>
         <img src="C:\Users\Pato\Desktop\Master Programacion\FrontEnd\mv3\cintia\assets\kittysinty.jpg" alt="Foto de un gatito tuxedo">
 
-    <button>Click Me</button>
+    <p><button>Click Me</button></p>   
 
     <footer>
         <p>© 2026 Kitty Sinty. Todos los derechos are reserved.</p>
