@@ -66,3 +66,60 @@ Luego aplicar estilos para que se vea como una “tarjeta” centrada:
 ## Cierre
 Construyendo el futuro del desarrollo web, un ladrillo a la vez.  
 Senior Cat recomienda enfocarse en claridad antes que en decoración.
+
+---
+
+# Enunciado 2 (nuevo): Tarjeta modo DNI de Senior Cat
+
+## Objetivo
+Tomar la tarjeta anterior y transformarla en un formato más compacto tipo DNI, manteniendo fundamentos de HTML y CSS.
+
+**Nivel:** inicial-intermedio  
+**Duración estimada:** 30-40 minutos
+
+---
+
+## Consigna
+Partiendo del ejercicio anterior, adapta el diseño para que se vea como una tarjeta tipo DNI:
+- bloque horizontal más ancho que alto,
+- imagen de Senior Cat a un lado,
+- datos principales al otro lado,
+- pie de tarjeta discreto en la parte inferior.
+
+---
+
+## Requisitos mínimos
+- Mantener estructura semántica: `header`, `main`, `section`, `footer`.
+- Mantener CSS externo (sin estilos en línea).
+- Usar `display: flex` para ordenar la tarjeta.
+- Mantener espaciado consistente con `margin` y `padding`.
+- Mantener legibilidad: jerarquía clara entre `h1`, `h2`, texto y lista.
+
+---
+
+## Pistas (sin solución)
+- Haz primero el bloque principal de la tarjeta y luego ajusta detalles.
+- Usa un ancho máximo para que no se estire demasiado en pantallas grandes.
+- Si el footer no queda abajo, revisa layout vertical de página (`body` y `main`).
+
+---
+
+## Criterio de finalización
+- Se percibe visualmente como tarjeta tipo DNI.
+- Foto y datos están alineados y no se pisan.
+- El contenido sigue siendo legible en ancho reducido.
+- No hay reglas CSS redundantes o contradictorias.
+
+---
+
+## Mini guía de trabajo en clase
+- 10 min: ajustar estructura visual tipo DNI.
+- 10 min: layout con flex y alineaciones.
+- 10 min: espaciado y ajustes finos.
+- 5-10 min: revisión final con checklist.
+
+---
+
+## Cierre del enunciado 2
+Mismo enfoque del grupo Ladrillos: construir desde una base clara y mejorar por iteraciones, un ladrillo a la vez con Senior Cat.
+

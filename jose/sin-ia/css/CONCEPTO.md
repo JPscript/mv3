@@ -175,3 +175,109 @@ ol {
 	list-style-position: inside;
 }
 ```
+
+---
+
+## Conceptos vistos en `tarjeta perfil`
+
+### `display: flex`
+
+**Definición**: Convierte un elemento en contenedor flexible para ordenar a sus hijos de forma controlada.
+
+**Metáfora**: Senior Cat activa una cinta de montaje para colocar ladrillos en orden.
+
+**Ejemplo de tu código (aplicado al layout de página)**:
+```css
+body {
+	display: flex;
+}
+```
+
+---
+
+### `flex-direction: column`
+
+**Definición**: Define que los hijos del contenedor flex se coloquen en vertical (de arriba a abajo).
+
+**Metáfora**: En vez de poner ladrillos en fila horizontal, los apilas por pisos.
+
+**Ejemplo de tu código (aplicado al layout de página)**:
+```css
+body {
+	flex-direction: column;
+}
+```
+
+---
+
+### `line-height` relativo
+
+**Definición**: Controla la altura de línea del texto. Un valor relativo (por ejemplo `1.5`) se adapta al tamaño de fuente.
+
+**Metáfora**: Es la separación entre filas de ladrillos de texto: ni muy pegadas ni muy separadas.
+
+**Ejemplo de tu código**:
+```css
+body {
+	font-size: 15px;
+	line-height: 1.5;
+}
+```
+
+---
+
+### `min-height: 100vh`
+
+**Definición**: Obliga a que el bloque tenga al menos el alto de la ventana, aunque haya poco contenido.
+
+**Metáfora**: Aunque pongas pocos ladrillos, la pared llega como mínimo hasta el techo.
+
+**Ejemplo de tu código**:
+```css
+body {
+	min-height: 100vh;
+}
+```
+
+---
+
+### Centrado de bloque con `max-width` + `width` + márgenes auto
+
+**Definición**: Se limita el ancho máximo del bloque, se mantiene flexible y se centra horizontalmente con márgenes automáticos.
+
+**Metáfora**: Construyes una tarjeta con ancho controlado y la colocas justo en el centro del muro.
+
+**Ejemplo de tu código**:
+```css
+main {
+	max-width: 700px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+```
+
+---
+
+### `padding` (espacio interno) vs `margin` (espacio externo)
+
+**Definición**:
+- `padding`: aire dentro del bloque, entre contenido y borde.
+- `margin`: aire fuera del bloque, entre bloques.
+
+**Metáfora**:
+- `padding` = espacio dentro del ladrillo.
+- `margin` = espacio entre ladrillos.
+
+**Ejemplo de tu código**:
+```css
+header {
+	padding: 50px;
+	margin-bottom: 30px;
+}
+
+main section {
+	padding: 16px;
+	margin-bottom: 50px;
+}
+```
