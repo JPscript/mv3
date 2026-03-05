@@ -318,6 +318,62 @@ Los enlaces con `#` llevan a secciones con ese `id` en la misma página.
 
 **Definición**: Inserta una imagen. El atributo `src` indica la ruta del archivo y `alt` proporciona texto alternativo para accesibilidad.
 
+---
+
+## Conceptos reforzados en la práctica actual (Tarjeta DNI de Senior Cat)
+
+### Contenedor principal por bloques (`dni-card`, `dni-foto`, `dni-datos`, `dni-pie`)
+
+**Definición**: Separar el contenido en bloques con clases permite estructurar mejor el documento y facilitar el estilo en CSS.
+
+**Metáfora**: En el grupo Ladrillos, Senior Cat no levanta una pared de una pieza: coloca bloques separados (foto, datos y pie) para construir una tarjeta firme y ordenada.
+
+**Ejemplo de tu código**:
+```html
+<div class="dni-card">
+    <div class="dni-foto">...</div>
+    <div class="dni-datos">...</div>
+    <div class="dni-pie">...</div>
+</div>
+```
+
+### Buen uso de lista de habilidades (`ul` + `li`)
+
+**Definición**: `ul` agrupa elementos sin orden jerárquico y cada habilidad va en su `li`.
+
+**Metáfora**: Es como una caja de herramientas de obra: no importa el orden, importa que cada herramienta (habilidad) esté clara y separada.
+
+**Ejemplo de tu código**:
+```html
+<ul>
+    <li>Java</li>
+    <li>SQL</li>
+    <li>HTML</li>
+</ul>
+```
+
+### Accesibilidad básica con `alt` en imágenes
+
+**Definición**: `alt` describe la imagen para lectores de pantalla o cuando la imagen no carga.
+
+**Metáfora**: Si en la obra se apaga la luz, Senior Cat deja un cartel descriptivo para que todos entiendan qué pieza va ahí.
+
+**Ejemplo de tu código**:
+```html
+<img src="senior-cat.svg" alt="Senior Cat, gato senior con gafas">
+```
+
+### Rutas relativas para portabilidad
+
+**Definición**: Una ruta relativa usa la posición entre carpetas del proyecto y evita depender del ordenador de cada persona.
+
+**Metáfora**: En vez de una dirección larga de ciudad, usas un plano interno de la obra: "sube dos pisos y entra al almacén CSS".
+
+**Ejemplo de tu código**:
+```html
+<link rel="stylesheet" href="../../css/tarjeta.css">
+```
+
 **Metáfora**: Es como pegar una foto en un álbum. `src` dice dónde está la foto, y `alt` es la descripción que escribes debajo.
 
 **Ejemplo de tu código**:

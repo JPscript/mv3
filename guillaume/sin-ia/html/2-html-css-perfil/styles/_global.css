@@ -1,0 +1,76 @@
+/* Html and body */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-background);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Texts */
+
+h2,
+h3,
+h4,
+p,
+span {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2,
+h3 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+h1 {
+    font-family: cursive;
+}
+
+h2 {
+    text-shadow: 2px 2px #000000;
+}
+
+h3 {
+    position: relative;
+    margin-bottom: 5px;
+    z-index: 100;
+    transition: all .5s ease;
+}
+
+/* Main sections */
+
+main,
+footer {
+    padding: 30px 5rem;
+}
+
+@media screen and (min-width: 800px) {
+    main,
+    footer {
+        padding: 30px 15rem;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+section .content {
+    margin-left: 35px;
+}

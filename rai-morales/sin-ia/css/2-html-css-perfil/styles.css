@@ -72,3 +72,100 @@ h2{
     display: inline-block; /* Hace que la lista ocupe solo el espacio necesario */
     margin-top: 10px;
 }
+.trufa{
+    display: flex;           /* Alinea la imagen y el texto en fila */
+    gap: 10px;              /* Espacio entre la imagen y el texto */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px;
+}
+.c-trufa{
+    margin-right: 300px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(7, 1, 8);
+    border-radius: 8px;
+}
+.c-trufa h3{
+    color: rgb(165, 57, 196);
+}
+.c-trufa form{
+    color: rgb(165, 57, 196);
+}
+.t-trufa img{
+    border-radius: 20%; /* Bordes redondeados para la imagen de Trufa */
+}
+label{
+    display: block;            /* Para que cada etiqueta esté arriba de su input */
+    margin-bottom: 1px;        /* Espacio con el input de abajo */
+    color: rgb(165, 57, 196);               /* Color de la letra */
+    font-weight: bold;         /* Negrita */
+    font-family: Arial, sans-serif;
+}
+input[type="text"], 
+input[type="email"],
+input[type="number"], 
+textarea {
+  width: 75%;               /* Que ocupen todo el ancho del form */
+  padding: 5px;             /* Espacio interno para que el texto no pegue al borde */
+  border: 2px solid rgb(175, 113, 193);    /* Borde */
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 1px;
+  margin-bottom: 10px;
+  color: rgb(165, 57, 196);               /* Color de la letra que escribe el usuario */
+  box-sizing: border-box;    /* Importante: para que el padding no ensanche el input */
+  transition: border-color 0.3s; /* Suavidad al hacer clic */
+}
+input[type="submit"],
+button {
+  background-color: rgb(175, 113, 193); /* Fondo negro */
+  color: rgb(255, 255, 255);              /* color de letra */
+  border: none;              /* Quita el borde por defecto */
+  border-radius: 5px;
+  margin-bottom: 30px;
+  cursor: pointer;           /* El cursor se vuelve una manito */
+  font-size: 12px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+/* EFECTO FOCUS: Cuando el usuario hace clic para escribir */
+input:focus {
+  outline: none;             /* Quita el borde azul feo por defecto */
+  border-color: #55a0f1;     /* Cambia el borde a azul */
+}
+button {
+  background-color: rgb(165, 57, 196); /* Fondo negro */
+  color: rgb(255, 255, 255);              /* color de letra */
+  border: none;              /* Quita el borde por defecto */
+  border-radius: 5px;
+  cursor: pointer;           /* El cursor se vuelve una manito */
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Efecto al pasar el ratón */
+button:hover {
+  background-color: rgb(113, 34, 135); /* Cuando pones el cursor encima se pone gris */
+  transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+
+/* Efecto al hacer clic */
+button:active {
+  transform: translateY(0);  /* Vuelve a su sitio al presionar */
+}
+
+.temitas{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+.temitas a{
+    text-decoration: none;   /* Quita el subrayado */
+    color: rgb(175, 113, 193);
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transición suave para el cambio*/
+}
+.temitas a:hover{
+    color: rgb(165, 57, 196);
+    transform: scale(1.1); /* Agranda el enlace al pasar el mouse */
+}
+
