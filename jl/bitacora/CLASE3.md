@@ -1,0 +1,6 @@
+- Revision del nuevo skill de Cintia
+- Resolucion de dudas CSS
+- Juegos de CSS (rana y cocina)
+- Trabajo en la pagina personal
+- Mas resolucion de dudas CSS
+- Uso de la IA para crear la web personal

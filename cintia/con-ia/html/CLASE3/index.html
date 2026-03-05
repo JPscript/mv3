@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Perfil de Cintia - El Mundo Pastelito de los Gatitos ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #f0e5ff 25%, #e5f2ff 50%, #fff5e5 75%, #ffe5f0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #5a4a6f;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* HEADER CON GATITO */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .cat-animation {
+            font-size: 80px;
+            display: inline-block;
+            animation: catPounce 0.6s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes catPounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 3em;
+            background: linear-gradient(45deg, #ff69b4, #dda0dd, #87ceeb, #f0e68c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #d495d4;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* NAVEGACIÓN BONITA */
+        nav {
+            background: rgba(255, 200, 221, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(221, 160, 221, 0.3);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #5a4a6f;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffd4e5, #e5d4ff);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, #ffb3d9, #d4a3ff);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(221, 160, 221, 0.4);
+        }
+
+        /* SECCIONES BONITAS */
+        section {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 25px 0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(221, 160, 221, 0.2);
+            box-shadow: 0 8px 32px rgba(221, 160, 221, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(221, 160, 221, 0.25);
+        }
+
+        h2 {
+            font-family: 'Nunito', sans-serif;
+            color: #d495d4;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "🧁";
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        p {
+            color: #5a4a6f;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* LISTAS BONITAS */
+        ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+
+        ul li {
+            color: #5a4a6f;
+            font-size: 1.1em;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "🐱";
+            position: absolute;
+            left: 0;
+            animation: tailWag 0.5s ease-in-out infinite;
+            transform-origin: left center;
+        }
+
+        @keyframes tailWag {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        /* BOTONES BONITOS */
+        button, input[type="submit"] {
+            background: linear-gradient(135deg, #ff69b4, #dda0dd);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 15px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: 0 4px 15px rgba(221, 160, 221, 0.3);
+        }
+
+        button:hover, input[type="submit"]:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(221, 160, 221, 0.5);
+            background: linear-gradient(135deg, #ff5ca1, #cd8dd9);
+        }
+
+        button:active, input[type="submit"]:active {
+            transform: scale(0.95);
+        }
+
+        /* FORMULARIOS BONITOS */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            color: #d495d4;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 12px 15px;
+            border: 2px solid rgba(221, 160, 221, 0.3);
+            border-radius: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1em;
+            color: #5a4a6f;
+            background: rgba(255, 245, 250, 0.8);
+            transition: all 0.3s ease;
+            resize: vertical;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #dda0dd;
+            background: rgba(255, 245, 250, 1);
+            box-shadow: 0 0 15px rgba(221, 160, 221, 0.3);
+        }
+
+        /* ENLACE BONITO */
+        a:not(nav a) {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 10px 15px;
+        }
+
+        a:not(nav a):hover {
+            color: #dda0dd;
+            transform: scale(1.1);
+        }
+
+        /* IMAGEN CON MARCO BONITO */
+        .foto-gatito {
+            max-width: 300px;
+            border-radius: 20px;
+            border: 5px solid rgba(221, 160, 221, 0.5);
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(221, 160, 221, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .foto-gatito:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 12px 40px rgba(221, 160, 221, 0.5);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #d495d4;
+            font-size: 0.9em;
+            padding: 20px;
+        }
+
+        /* GATITOS DECORATIVOS FLOTANTES */
+        .floating-cat {
+            position: fixed;
+            font-size: 50px;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .cat1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .cat2 { top: 30%; right: 10%; animation-delay: 2s; }
+        .cat3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+        .cat4 { top: 70%; right: 5%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-40px) translateX(-10px); }
+            75% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        /* GATITOS PEQUEÑOS EN LAS ESQUINAS */
+        .cute-corner {
+            position: absolute;
+            font-size: 35px;
+            animation: blink 3s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .corner-top-left { top: 15px; left: 15px; }
+        .corner-top-right { top: 15px; right: 15px; }
+        .corner-bottom-left { bottom: 15px; left: 15px; }
+        .corner-bottom-right { bottom: 15px; right: 15px; }
+
+        /* ANIMACIÓN DE BIENVENIDA */
+        .welcome-animation {
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* EFECTO DE PULSACIÓN AL INTERACTUAR */
+        .pulse {
+            animation: pulse 0.5s ease-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 rgba(221, 160, 221, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(221, 160, 221, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- GATITOS FLOTANTES DECORATIVOS -->
+    <div class="floating-cat cat1">🐱</div>
+    <div class="floating-cat cat2">😸</div>
+    <div class="floating-cat cat3">🐈</div>
+    <div class="floating-cat cat4">😻</div>
+
+    <div class="container">
+        <header>
+            <div class="cat-animation">🐱</div>
+            <h1>Perfil de Cintia</h1>
+            <p class="subtitle">~ El Mundo Pastelito de los Gatitos ~</p>
+        </header>
+
+        <nav>
+            <a href="#informacion-personal">👤 Información Personal</a>
+            <a href="#amante-gatitos">😸 Amante de Gatitos</a>
+            <a href="#cosillas">🎨 Mis Cosillas</a>
+            <a href="#contacto">💌 Contacto</a>
+            <a href="#catclab">🎥 Cat Club</a>
+        </nav>
+
+        <section class="welcome-animation">
+            <h2 id="informacion-personal">Información Personal</h2>
+            <p>👋 ¡Hola! Soy <strong>Cintia Jiménez</strong>, una amante de los gatitos y aspirante a super programadora.</p>
+            <p>☕ Me encanta tomarme mi cafesito solita mientras pienso en los gatitos.</p>
+            <p>👩🏻‍💻 Estoy construyendo mi futuro en el desarrollo web, un ladrillo a la vez, junto a Senior Cat. 🐱</p>
+        </section>
+
+        <section>
+            <h2 id="amante-gatitos">Amante de Gatitos</h2>
+            <p>¿Quieres explorar el cielo de los gatitos? ¡O prefieres volver al mundo real? Elige tu aventura pastelita:</p>
+            <form>
+                <button type="button" id="gatitos-btn" onclick="irAlCieloDeLosGatitos()">🌸 Ir al Cielo de los Gatitos 🌸</button>
+                <button type="reset" onclick="mostrarMensajeDulce()">🍦 Volver a la Realidad (Resetear)</button>
+            </form>
+        </section>
+
+        <section>
+            <h2 id="cosillas">Lista de Cosillas que me Encanta Hacer</h2>
+            <ul>
+                <li>Estar con mis gatitos adorables</li>
+                <li>Hacer manualidades creativas y dulces</li>
+                <li>Practicar CrossFit como una campeona</li>
+                <li>Aprender nuevas tecnologías web</li>
+                <li>Disfrutar de momentos de tranquilidad con mi café ☕</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="contacto">Zona de Contacto Dulcita</h2>
+            <p>✨ ¿Quieres dejarme un mensajito pastelito? ¡Adelante, no seas tímid@!</p>
+            <form id="contactForm">
+                <label for="nombre">👤 Tu Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre..." required>
+
+                <label for="email">💌 Tu Correo:</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+
+                <label for="asunto">📝 Asunto:</label>
+                <input type="text" id="asunto" name="asunto" placeholder="¿De qué quieres hablarme?" required>
+
+                <label for="mensaje">💬 Tu Mensajito:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame lo que quieras... ¡Con emojis de gatitos si quieres! 😸" required></textarea>
+
+                <button type="submit" onclick="enviarMensajeDulce(event)">💌 Enviar mi Mensaje Pastelito</button>
+            </form>
+        </section>
+
+        <section>
+            <h2 id="catclab">Cat Club - Comunidad de Amantes de Gatitos</h2>
+            <p>🎥 ¿Eres un verdadero amante de los gatitos? ¡Únete a nuestro club especial!</p>
+            <a href="https://www.youtube.com/shorts/Z-dO078R0rs" target="_blank">
+                🌸 Haz Click para Entrar al Club de los Gatitos 🌸
+            </a>
+        </section>
+
+        <section class="welcome-animation">
+            <h2>La Reina de Todo Esto 👑</h2>
+            <img class="foto-gatito" src="file:///C:/Users/Pato/Desktop/Master%20Programacion/FrontEnd/mv3/cintia/assets/fotofinal.png" alt="Foto de un hermoso gatito tuxedo">
+        </section>
+
+        <footer>
+            <p>© 2026 ✨ Kitty Cintia ✨ | Construyendo el futuro, un gatito a la vez. 🐱💕</p>
+            <p>Con amor y CSS pastelito 💖</p>
+        </footer>
+    </div>
+
+    <script>
+        // FUNCIÓN PARA IR AL CIELO DE LOS GATITOS
+        function irAlCieloDeLosGatitos() {
+            const btn = document.getElementById('gatitos-btn');
+            btn.classList.add('pulse');
+            
+            alert('🌈🐱 ¡Bienvenid@ al Cielo de los Gatitos! 🐱🌈\n\n¡Aquí solo hay felicidad, ronroneos y muchos mimis! 😻💕');
+            
+            // Animar el fondo brevemente
+            document.body.style.animation = 'none';
+            setTimeout(() => {
+                document.body.style.background = 'linear-gradient(135deg, #ffb3e6 0%, #ff99ff 25%, #b3d9ff 50%, #ffffcc 75%, #ffccff 100%)';
+                setTimeout(() => {
+                    document.body.style.background = 'linear-gradient(135deg, #ffe5ec 0%, #f0e5ff 25%, #e5f2ff 50%, #fff5e5 75%, #ffe5f0 100%)';
+                    document.body.style.animation = 'gradientShift 15s ease infinite';
+                }, 1000);
+            }, 100);
+        }
+
+        // FUNCIÓN PARA MOSTRAR MENSAJE DULCE AL RESETEAR
+        function mostrarMensajeDulce() {
+            alert('🍦 ¡El formulario ha sido reseteado! Vueltas a la realidad... por ahora. 🐱');
+        }
+
+        // FUNCIÓN PARA ENVIAR MENSAJE
+        function enviarMensajeDulce(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const asunto = document.getElementById('asunto').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Crear efecto visual
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            submitBtn.classList.add('pulse');
+            
+            // Mensaje de confirmación pastelito
+            alert(`🎀 ¡Gracias, ${nombre}! 🎀\n\nTu mensaje pastelito sobre "${asunto}" ha sido recibido.\nTe responderé pronto a ${email}. 💌\n\n¡Los gatitos y yo estamos muy contentos! 😸💕`);
+            
+            // Resetear formulario
+            document.getElementById('contactForm').reset();
+        }
+
+        // AGREGAR EFECTO AL PASAR MOUSE POR SECCIONES
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // EFECTO DE CARGA SUAVE
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+
+            // SALUDAR AL USUARIO
+            console.log('✨ ¡Bienvenid@ al mundo pastelito de Cintia! 🐱💕');
+            console.log('Construyendo el futuro del desarrollo web, un ladrillo a la vez. 🧱');
+        });
+
+        // EFECTO DE EASTER EGG: PRESIONAR 'K' MÚLTIPLES VECES
+        let kPresses = 0;
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'k') {
+                kPresses++;
+                if (kPresses === 3) {
+                    document.body.style.transform = 'rotate(5deg)';
+                    setTimeout(() => {
+                        document.body.style.transform = 'rotate(-5deg)';
+                        setTimeout(() => {
+                            document.body.style.transform = 'rotate(0deg)';
+                            alert('🐱 ¡Encontraste el easter egg de los gatitos! 🐱\n\n¡Eres un verdadero amante de los gatitos! 😻💕');
+                            kPresses = 0;
+                        }, 100);
+                    }, 100);
+                }
+            } else {
+                kPresses = 0;
+            }
+        });
+    </script>
+</body>
+</html>

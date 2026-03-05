@@ -1,0 +1,231 @@
+:root {
+    --bg-color: beige;
+    --primary-color: #33354d;
+    --link-color: #2c6868;
+    --link-hover: #141842;
+    --accent-color: #ff0;
+}
+
+html {
+    margin: 0 10%;
+    background-color: var(--bg-color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--link-hover);
+}
+
+p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgb(90, 95, 119);
+    margin: 1rem 0;
+}
+
+.directorio {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    background: rgba(255,255,255,0.8);
+    position: sticky;
+    top: 0;
+    animation: ticker 30s linear infinite;
+}
+
+.directorio a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    position: relative;
+}
+
+.directorio a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.plana {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.plana .a {
+    flex: 1 1 60%;
+    display: flex;
+    gap: 1rem;
+    border-right: dotted 2px var(--primary-color);
+    padding-right: 30px;
+}
+
+.plana .a img {
+    width: 60%;
+    object-fit: cover;
+    filter: grayscale(10%);
+    transition: filter .3s, transform .3s;
+}
+
+.plana .a img:hover {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.plana .b {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.plana .b div {
+    background: rgba(255,255,255,0.9);
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: transform .2s;
+}
+
+.plana .b div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.lugares {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+.lugares div {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.lugares div img {
+    width: 150px;
+    height: 150px;
+    clip-path: circle();
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.lugares div img:hover {
+    transform: scale(1.2);
+}
+
+.obituario table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.obituario th,
+.obituario td {
+    padding: 8px;
+}
+
+.obituario th {
+    background-color: #aaabb0;
+}
+
+.obituario td {
+    border: 1px solid #ddd;
+}
+
+.obituario tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.obituario tr:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+footer {
+    text-align: left;
+    background-color: rgb(183,186,219);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+footer label { display: block; }
+footer div { margin-left: 10px; }
+footer form { border-radius: 6px; margin-left: 20px; }
+
+footer input[type=text], select {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+footer input[type=submit] {
+    width: 100%;
+    background-color: #897c58;
+    color: white;
+    padding: 14px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+footer input[type=submit]:hover {
+    background-color: #625e3a;
+}
+
+aside {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    html { margin: 0 5%; }
+    .plana { flex-direction: column; }
+    .plana .a { border: none; padding: 0; }
+    .directorio { flex-direction: column; font-size: 1rem; }
+}

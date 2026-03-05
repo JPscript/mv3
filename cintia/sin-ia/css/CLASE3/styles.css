@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #f6f7cb, #f7f59c);
+  color: rgb(163, 11, 130);
+}
+    
+html{
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Baloo 2', cursive;
+    color: rgb(119, 5, 94);
+    font-size: 60px;
+}
+
+h2 {
+    size: 30px;
+    color: rgb(119, 5, 94);
+    font-weight: bold;
+}
+
+nav a {
+    margin-right: 2px;
+    text-decoration: none;
+    color: rgb(163, 11, 130);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: rgb(119, 5, 94);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100px;
+    height: 60px;
+    font-size: 14px;
+    color: rgb(240, 240, 194);
+}
+
+.cosillas {
+    list-style-image: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.foto-gatito{
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+    rotate: 270deg;
+    background-attachment: none;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+
