@@ -281,3 +281,69 @@ main section {
 	margin-bottom: 50px;
 }
 ```
+
+---
+
+## Conceptos reforzados en la práctica actual (Tarjeta DNI de Senior Cat)
+
+### Separar estilos del contenedor y de la imagen (`.dni-foto` vs `.dni-foto img`)
+
+**Definición**: El contenedor controla espacio/layout; la imagen controla su tamaño y forma. Mezclarlos suele desarmar el diseño.
+
+**Metáfora**: En construcción, una cosa es el hueco del ladrillo y otra el ladrillo mismo; Senior Cat no usa la misma regla para ambos.
+
+**Ejemplo de tu código**:
+```css
+.dni-foto {
+	width: 160px;
+	flex: 0 0 160px;
+}
+
+.dni-foto img {
+	width: 160px;
+	height: auto;
+	display: block;
+}
+```
+
+### Borde superior visible y controlado (`border-top-*`)
+
+**Definición**: Declarar color, estilo y grosor del borde asegura el resultado visual en cualquier navegador.
+
+**Metáfora**: Es como pintar la junta final del muro: si defines material, color y grosor, el acabado queda firme y visible.
+
+**Ejemplo de tu código**:
+```css
+.dni-pie {
+	border-top-color: #6B0000;
+	border-top-style: solid;
+	border-top-width: 2px;
+}
+```
+
+### Layout adaptable con `flex-wrap`
+
+**Definición**: Permite que los bloques pasen a otra línea cuando no hay espacio horizontal suficiente.
+
+**Metáfora**: Si no caben más ladrillos en la misma fila, se empieza la siguiente sin romper la estructura.
+
+**Ejemplo de tu código**:
+```css
+.dni-card {
+	display: flex;
+	flex-wrap: wrap;
+}
+```
+
+### Pie al final de la página con `margin-top: auto`
+
+**Definición**: En un layout vertical con flex, empuja el footer al final del alto disponible.
+
+**Metáfora**: Aunque haya pocos bloques en medio, el último ladrillo (footer) siempre baja a la base del muro.
+
+**Ejemplo de tu código**:
+```css
+footer {
+	margin-top: auto;
+}
+```

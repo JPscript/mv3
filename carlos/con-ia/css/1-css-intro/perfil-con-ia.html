@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - práctica CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container navbar">
+      <a class="brand" href="#">MiPerfil</a>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobremi">Sobre mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="inicio">
+    <a href="/Users/carlosparejocambron/Documents/Python/mv3/carlos/sin-ia/html/Ejercicios/index.html">Volver al inicio</a>
+
+    <section class="profile-section" aria-labelledby="perfil-titulo">
+      <div class="avatar">
+        <img src="/Users/carlosparejocambron/Documents/Python/assets/unnamed.jpg" alt="Avatar">
+      </div>
+      <div class="info">
+        <h1 id="perfil-titulo">Nombre Apellido</h1>
+        <p class="meta small">Desarrollador web · Ciudad · contacto@ejemplo.com</p>
+        <p>Breve descripción o biografía. En este bloque puedes explicar qué haces y qué te interesa en unas pocas frases.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contacto">Contactar</a>
+          <a class="btn btn-outline" href="#sobremi">Ver más</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="sobremi">
+      <h2>Sobre mí</h2>
+      <p class="small">Contenido de ejemplo para practicar estilos y espaciado.</p>
+    </section>
+
+    <section class="card" id="contacto" style="margin-top:1rem;">
+      <h2>Contacto</h2>
+      <form action="procesar.php" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email">
+        <input class="btn btn-primary" type="submit" value="Enviar">
+      </form>
+    </section>
+  </main>
+
+</body>
+</html>

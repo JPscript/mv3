@@ -35,6 +35,8 @@
             border-radius: 50%;
             border: 3px solid #4f46e5;
             margin-bottom: 10px;
+            object-fit: cover;
+
         }
 
         nav a {
@@ -56,16 +58,16 @@
             margin-bottom: 20px;
         }
 
-        /* El truco para ponerlos en paralelo */
+       
         .habilidades-wrapper {
             display: flex;
-            align-items: center; /* Alinea verticalmente al centro */
-            justify-content: space-between; /* Separa los elementos a los extremos */
+            align-items: center; 
+            justify-content: space-between;
             gap: 30px;
         }
 
         .lista-habilidades {
-            flex: 1; /* El texto ocupa el espacio que sobra */
+            flex: 1; 
         }
 
         .cat-img {
@@ -115,7 +117,7 @@
         <header id="top">
             <img class="avatar" src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\foto-pilar.jpg" alt="Pilar Salvador">
             <h1>Pilar Salvador</h1>
-            <p>SEO Specialist & Frontend Learner</p>
+            <p>Frontend Learner</p>
             <nav>
                 <a href="#presentacion">Inicio</a>
                 <a href="#habilidades">Aptitudes</a>
@@ -126,7 +128,9 @@
         <main>
             <section id="presentacion">
                 <h2>Presentación</h2>
-                <p>¡Hola! Soy Pilar. Mi perfil profesional une el mundo del <strong>SEO y Marketing Digital</strong> con el desarrollo técnico de interfaces. Estoy enfocada en aprender cómo el código influye en la experiencia del usuario.</p>
+                <p>Estudiante del master de programación y desarrollo de aplicaciones. 
+                Con experiencia en seo y marketing digital, con un enfoque en la optimización 
+                de contenido para motores de búsqueda.</p>
             </section>
 
             <section id="habilidades">
@@ -157,7 +161,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        <textarea  resize: none; id="mensaje" name="mensaje" rows="4"></textarea>
                     </div>
                     <button type="submit">Enviar Mensaje</button>
                 </form>

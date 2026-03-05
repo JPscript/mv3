@@ -37,6 +37,16 @@
 - https://cssbattle.dev/daily
 - https://flexboxfroggy.com/#es
 
+## Recursos visitados en clase
+
+- https://htmlcheatsheet.com/css/
+- https://www.svgrepo.com/
+- https://http.cat/
+- https://free-apis.github.io/#/
+- https://jsonhero.io/
+- https://transform.tools/json-to-typescript
+- https://chromewebstore.google.com/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc
+
 ## Entregables mínimos del día
 
 - Archivo final del ejercicio de perfil actualizado (HTML + CSS) en la carpeta correspondiente.

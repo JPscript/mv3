@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Antonio Moral</title>
+    <link rel="stylesheet" href="../../css/clase2/styles.css">
+    <header>
+        <h1>Presentación</h1>
+        <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    </header>
+            <figure class="site-brand">
+                <img class="logo" src="./assets/lobo2.png" alt="Logotipo de Antonio Moral" width="200" height="200">
+                <figcaption>Antonio Moral</figcaption>
+            </figure>
+            <h1>Desarrollo Web</h1>
+        <section>
+            <div><img class="logo" src="./assets/lobo2.png" alt="lobo2" style="width: 200px;"></div> 
+            <section aria-labelledby="presentacion">
+                <h2 id="presentacion">Presentación</h2>
+                <nav aria-label="Índice de la página">
+                    <ol type="I">
+                        <li><a href="#perfil">Ir al perfil</a></li>
+                        <li><a href="#habilidades">Ir a las habilidades</a></li>
+                        <li><a href="#formulario">Ir al formulario</a></li>
+                    </ol>
+                </nav>
+
+                <section id="perfil" aria-labelledby="perfil-title">
+                    <h3 id="perfil-title">Antonio Moral</h3>
+                    <figure>
+                        <figcaption>Estudiante de desarrollo de aplicaciones multiplataforma</figcaption>
+                    </figure>
+
+                </section>
+
+                <section id="habilidades" aria-labelledby="habilidades-title">
+                    <h3 id="habilidades-title">Habilidades</h3>
+                    <ol>
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Java</li>
+                        <li>Angular</li>
+                    </ol>
+                </section>
+
+                <section id="formulario" aria-labelledby="formulario-title">
+                    <h3 id="formulario-title">Formulario</h3>
+
+                    <form method="post" action="#" aria-describedby="form-desc">
+                        <p id="form-desc">Rellena tus datos. Los campos con * son obligatorios.</p>
+                        <fieldset>
+                            <legend>Datos personales</legend>
+                            <label for="fname">Nombre *</label>
+                            <input type="text" id="fname" name="fname" placeholder="Escribe tu nombre" required>
+
+                            <label for="lname">Apellido</label>
+                            <input type="text" id="lname" name="lname" placeholder="Escribe tu apellido">
+
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" placeholder="Escribe tu correo electrónico" required>
+
+                            <label for="edad">Edad</label>
+                            <input type="number" id="edad" name="edad" min="0" max="120">
+                        </fieldset>
+
+                        
+
+                        <label for="textarea">Comentario</label>
+                        <textarea id="textarea" name="textarea" placeholder="Escribe tu comentario"></textarea>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </section>
+            </section>
+    </footer>
+</body>
+</html>
