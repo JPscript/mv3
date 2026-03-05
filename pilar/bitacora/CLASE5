@@ -1,8 +1,77 @@
-- Skills Cintia
-- Profundizamos en css
-- formas de poner el css (in line, id, clase)
-- explicaciones teoria css
-- dudas
-- juego css ranitas
-- api/ protocolo http
-- Instalación Postman.
+- # CLASE3
+
+## Tema y objetivo del día
+
+- **Tema:** CSS - introducción y práctica.
+- **Fecha:** Miércoles 4 de marzo 2026.
+- **Horario:** 16:30 - 20:30.
+- **Objetivo:** continuar con el ejercicio del perfil personal y reforzar fundamentos de CSS y comenzar con los conceptos básicos de APIs.
+
+## Resultados de aprendizaje de la sesión
+
+- Profundización en CSS: Revisamos las distintas formas de inyectar estilos en un documento. Además de seguir con la explicación de conceptos fundamentales y resolución de dudas específicas sobre el comportamiento de los estilos.
+
+- Práctica lúdica: Refuerzo de conocimientos mediante el juego de las ranitas (Flexbox Froggy) para dominar el posicionamiento.
+
+- API y Protocolo HTTP: Explicación teórica sobre cómo se comunican las aplicaciones a través del protocolo HTTP.
+
+- Herramientas técnicas: Instalación y configuración de Postman para el testeo y consumo de APIs.
+## Conocimientos adquiridos en con los ejercicios de la sesión
+
+Iniciamos la clase con CSS, donde aprendimos que el código no solo debe ser funcional, sino también estéticamente coherente. A través del análisis de la especificidad, logramos transformar un documento de texto plano en una interfaz visualmente organizada. Esta destreza se puso a prueba de forma lúdica con el ejercicio de las "ranitas" que nos permitió dominar los conceptos básicos de posicionamiento con Flexbox, demostrando cómo la jerarquía de los estilos puede cambiar radicalmente la experiencia del usuario.
+
+Tras asentar estas bases visuales, realizamos una primera incursión en el mundo de las APIs y el protocolo HTTP. En esta parte introductoria, exploramos la teoría esencial sobre cómo se comunican las aplicaciones y preparamos nuestro entorno de trabajo mediante la instalación de Postman. Aunque no profundizamos en integraciones complejas, esta toma de contacto nos permitió entender la estructura básica de una petición y dejar lista la herramienta técnica necesaria para futuros desarrollos más avanzados.
+
+## Actividades sin-ia
+
+- Mejorar visualmente el perfil personal con CSS escrito manualmente.
+- Aplicar selectores básicos (etiqueta, clase, id) y propiedades de texto/espaciado.
+- Usar `display: flex` en al menos una sección (por ejemplo, perfil + datos o navbar).
+- Realizar retos cortos en las plataformas de práctica y anotar aprendizajes.
+
+## Actividades con-ia
+
+- Usar IA para proponer una primera versión de estilos del perfil.
+- Iterar prompts para mejorar legibilidad, consistencia visual y layout.
+- Validar y corregir manualmente el CSS generado por IA.
+- Comparar versión inicial vs versión final y justificar cambios.
+
+## Plataformas de práctica CSS
+
+- https://flukeout.github.io/
+- https://cssgridgarden.com/#es
+- https://cssbattle.dev/daily
+- https://flexboxfroggy.com/#es
+
+## Recursos visitados en clase
+
+- https://htmlcheatsheet.com/css/
+- https://www.svgrepo.com/
+- https://http.cat/
+- https://free-apis.github.io/#/
+- https://jsonhero.io/
+- https://transform.tools/json-to-typescript
+- https://chromewebstore.google.com/detail/json-viewer-pro/eifflpmocdbdmepbjaopkkhbfmdgijcc
+
+# Predicción próxima clase
+
+- Adentrarnos en las APIs.
+
+## Entregables mínimos del día
+
+- Archivo final del ejercicio de perfil actualizado (HTML + CSS) en la carpeta correspondiente.
+- Registro breve de dudas en `DUDAS.md` del tema.
+- Nota corta en bitácora con lo aprendido y dificultad encontrada.
+- Predicción breve de lo que creo que veremos en la siguiente clase.
+
+## Autoevaluación y próximos pasos
+
+- [x] Entiendo la diferencia entre selectores por etiqueta, clase e id.
+- [x] Puedo aplicar estilos de tipografía, color y espaciado con criterio.
+- [x] Apliqué `display: flex` en una parte de mi layout.
+- [x] Practiqué en al menos una plataforma de retos CSS.
+- [x] Escribí cómo me sentí durante la clase.
+- [ ] Registré mis dudas en `DUDAS.md`.
+- [x] Escribí mi predicción para la siguiente clase.
+
+
