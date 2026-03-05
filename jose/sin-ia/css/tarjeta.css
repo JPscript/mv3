@@ -21,7 +21,7 @@ header {
     
 }
 header h1{
-    font-size: 50px;
+    font-size: 30px;
     font-family: Helvetica;
     font-weight: 800;
     margin-bottom: 20px;
@@ -30,14 +30,7 @@ header h2 {
     color: #6B0000;
     margin-top: 10px;
 }
-header img {
-    width: 180px;
-    height: auto;
-    display:block;
-    margin: 12px auto 0;
-    border-radius: 100px;
-    max-width: 100%;
-}
+
 main {
     max-width: 700px;
     width:90%;
@@ -66,4 +59,47 @@ main section li {
 }
 footer {
     margin-top: auto;
+}
+.dni-card {
+    display: flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.dni-foto {
+    width: 160px;
+    flex: 0 0 160px;
+    
+}
+.dni-foto img {
+    width: 160px;
+    height: auto;
+    display:block;
+    margin: 12px auto 0;
+    border-radius: 100px;
+    max-width: 100%;
+
+}
+.dni-datos {
+    display:flex;
+    flex-direction: column;
+    flex: 1 1 260px;
+    min-width: 220px;
+    gap: 8px;
+}
+.dni-pie {
+    flex-basis: 100%;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top-color: #6B0000;
+    border-top-style: solid;
+    border-bottom-color: #6B0000;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+    font-size: 13px;
+    text-align: center;
+    opacity: 1;
 }

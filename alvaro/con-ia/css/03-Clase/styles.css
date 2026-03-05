@@ -1,0 +1,290 @@
+/* ===================================
+   PERFIL PERSONAL - estilos futuristas
+   Construyendo con CSS, un ladrillo a la vez
+   =================================== */
+
+/* --- VARIABLES GLOBALES --- */
+:root {
+    --color-primary: #0a0e27;      /* fondo oscuro profundo */
+    --color-accent: #00d9ff;        /* cian futurista */
+    --color-accent-2: #9d00ff;      /* púrpura neón */
+    --color-text: #e0e0e0;          /* texto gris claro */
+    --color-border: #1a1f3a;        /* bordes sutiles */
+    
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    
+    --font-family: 'Courier New', monospace;
+    --font-family-title: 'Courier New', monospace;
+}
+
+/* --- RESET Y ESTILOS BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* --- HEADER / NAVBAR --- */
+header {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    border-bottom: 2px solid var(--color-accent);
+    padding: var(--spacing-l) var(--spacing-xl);
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+}
+
+header h1 {
+    font-size: 28px;
+    color: var(--color-accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+nav {
+    background-color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-m) 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: var(--spacing-l);
+}
+
+nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 13px;
+    padding: var(--spacing-s) var(--spacing-m);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    max-width: 900px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-m);
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-l);
+    background-color: rgba(26, 31, 58, 0.5);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+section:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+}
+
+section h2 {
+    font-size: 18px;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-m);
+    border-bottom: 2px solid var(--color-accent-2);
+    padding-bottom: var(--spacing-s);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+section p {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-m);
+    line-height: 1.8;
+}
+
+/* --- SECCIÓN HABILIDADES (FLEX) --- */
+#habilidades ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-m);
+    list-style: none;
+}
+
+#habilidades li {
+    flex: 1;
+    min-width: 150px;
+    padding: var(--spacing-m);
+    background-color: rgba(157, 0, 255, 0.1);
+    border: 1px solid var(--color-accent-2);
+    border-radius: 4px;
+    text-align: center;
+    color: var(--color-accent-2);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#habilidades li:hover {
+    background-color: rgba(157, 0, 255, 0.2);
+    box-shadow: 0 0 12px rgba(157, 0, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- SECCIÓN PERFIL --- */
+#perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-l);
+}
+
+#perfil img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+#perfil img:hover {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+    transform: scale(1.05);
+}
+
+#infoextra {
+    background-color: rgba(0, 217, 255, 0.05);
+    border: 1px solid var(--color-accent);
+    padding: var(--spacing-m);
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--spacing-m);
+}
+
+#infoextra p {
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+/* --- FORMULARIO CONTACTO --- */
+#contacto label {
+    display: block;
+    margin-top: var(--spacing-m);
+    margin-bottom: var(--spacing-s);
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-m);
+    margin-bottom: var(--spacing-m);
+    background-color: rgba(0, 217, 255, 0.05);
+    border: 1px solid var(--color-accent);
+    border-radius: 3px;
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-accent-2);
+    box-shadow: 0 0 10px rgba(157, 0, 255, 0.3);
+    background-color: rgba(0, 217, 255, 0.1);
+}
+
+/* --- BOTONES --- */
+.boton {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border: none;
+    padding: var(--spacing-m) var(--spacing-l);
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: var(--spacing-m);
+}
+
+.boton:hover {
+    background-color: var(--color-accent-2);
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.boton:active {
+    transform: translateY(0);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--color-primary);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-l) var(--spacing-xl);
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    font-size: 12px;
+    color: var(--color-text);
+}
+
+footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-accent-2);
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE (nivel inicial) --- */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-s);
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    #habilidades ul {
+        flex-direction: column;
+    }
+
+    #habilidades li {
+        min-width: auto;
+    }
+}
