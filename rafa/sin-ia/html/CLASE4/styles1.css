@@ -17,6 +17,7 @@ html{
     }
     p{
         text-align:justify;
+        text-indent: 30px;
     }
     hr{
         border-top: solid 2px rgb(90, 95, 119);
@@ -44,7 +45,6 @@ div.plana {
                 width: 60%;
                 height: 60%;
                 object-fit: cover;
-                justify-content:flex-start;
                 padding-right: 20px;
                 filter: grayscale(10%);
             }
