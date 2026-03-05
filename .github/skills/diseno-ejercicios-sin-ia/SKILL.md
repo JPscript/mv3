@@ -25,7 +25,8 @@ Crear material práctico para `sin-ia` con dificultad baja-media, pasos claros y
 4. Incluir para cada ejercicio:
    - objetivo,
    - requisitos mínimos,
-   - pistas breves (sin dar solución completa),
+   - guía paso a paso docente (sin saltos),
+   - solución completa explicada,
    - criterio de finalización.
 5. Mantener lenguaje simple y orientación docente.
 6. Entregar también una mini guía de trabajo en clase (orden recomendado y tiempo estimado por ejercicio).
@@ -42,9 +43,18 @@ Crear material práctico para `sin-ia` con dificultad baja-media, pasos claros y
 - Mantener cambios mínimos y documentos breves.
 - No dejar ejercicios sueltos en la raíz de `html`; usar siempre carpeta temática `N-tema`.
 
+## Regla anti-solución simple (obligatoria)
+- Nunca entregar soluciones cortas o ambiguas.
+- La solución final debe explicar, como un profesor:
+   - qué se hace en cada paso,
+   - por qué se hace así,
+   - para qué sirve en un caso real.
+- Si una respuesta queda superficial, rehacerla antes de entregar.
+
 ## Salida esperada
 - Propuesta de ejercicios para `sin-ia` lista para copiar a la carpeta del tema.
 - Formato claro para que el alumnado pueda avanzar de forma autónoma.
+- Incluye siempre: pasos numerados finos + solución completa + guía de verificación + errores comunes.
 
 ## Ejemplo de uso
 - "Tema: Formularios HTML básicos. Nivel: inicial. Duración: 16:30-20:30. Usa como referencia `jp/bitacora/CLASE1.md` y crea ejercicios para `jp/sin-ia/html/2-formularios-html`."

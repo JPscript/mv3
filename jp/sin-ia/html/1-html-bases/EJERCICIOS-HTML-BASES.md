@@ -1,86 +1,70 @@
-# Ejercicios HTML bases (sin IA)
+# HTML bases (sin IA)
 
-Referencia de continuidad: `jp/bitacora/CLASE1.md`.
-Nivel: inicial.
-Duración sugerida: 16:30 - 20:30.
+## Opciones propuestas (mínimo 5)
+1. Página de perfil personal.
+2. Página de receta.
+3. Página de evento.
+4. Mini blog con artículos.
+5. Guía de ciudad.
 
-## Mini guía de trabajo (orden y tiempo)
-- Ejercicio 1: 15 min
-- Ejercicio 1.1: 15 min
-- Ejercicio 2: 25 min
-- Ejercicio 3: 30 min
-- Ejercicio 4: 30 min
-- Revisión final y ajustes: 20 min
+## Opción elegida
+- Página de perfil personal.
 
-## Ejercicio 1 — Estructura semántica guiada
-**Objetivo:** reforzar la estructura base usando las etiquetas más básicas de html.
+## Ejercicio guiado
+Construye un `index.html` con estructura básica y contenido esencial.
 
-**Requisitos mínimos:**
-- Crear `index.html` con `html`, `head`, `title`, `body`.
-- Incluir un `h1`, dos `h2`, al menos dos párrafos `p`, una anchor tag `a` y una imagen con la etiqueta `img`.
+### Pasos
+1. Crea un archivo llamado `index.html`.
+2. Escribe la estructura mínima: `DOCTYPE`, `html lang="es"`, `head`, `body`.
+3. En `head`, añade `meta charset`, `meta viewport` y `title`.
+4. En `body`, escribe un `h1` (solo uno) con el nombre del perfil.
+5. Debajo del `h1`, agrega un párrafo corto de presentación.
+6. Crea un subtítulo `h2` llamado "Datos".
+7. Debajo, crea una lista `ul` con al menos 3 `li`.
+8. Inserta una imagen con `img` y completa `src`, `alt` y `width`.
+9. Agrega un enlace de contacto con `a` usando `mailto:`.
+10. Revisión final:
+  - `alt` no vacío.
+  - Etiquetas cerradas.
+  - Jerarquía: `h1` y luego `h2`.
 
-**Pistas:**
-- Usa títulos para separar ideas.
+## Solución completa explicada
 
-**Criterio de finalización:**
-- El documento abre sin errores y se entiende claramente su estructura.
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Senior Cat</title>
+</head>
+<body>
+  <h1>Senior Cat</h1>
+  <p>Hola, este es mi perfil básico de práctica HTML.</p>
 
-## Ejercicio 1.1 — Estructura semántica guiada, etiquetas de sección
-**Objetivo:** reforzar la estructura base usando etiquetas de sección semántica.
-**Requisitos mínimos:**
-- Crear `index.html` con `html`, `head`, `title`, `body`.
-- Incluir un `header` con un `h1`, un `main` con dos `section` con `h2` y párrafos, y un `footer` con información de contacto.  
-**Pistas:**
-- Usa `header` para la introducción, `main` para el contenido principal y `footer` para el cierre.
-**Criterio de finalización:**
-- El documento abre sin errores y se entiende claramente su estructura semántica.
+  <h2>Datos</h2>
+  <ul>
+    <li>Nombre: Senior Cat</li>
+    <li>Edad: 10</li>
+    <li>Rol: Mentor felino</li>
+  </ul>
 
-## Ejercicio 2 — Listas y navegación interna
-**Objetivo:** practicar organización de contenido y enlaces internos.
+  <img src="./assets/image.png" alt="Foto de Senior Cat" width="220">
 
-**Requisitos mínimos:**
-- Crear un índice al inicio con 3 enlaces internos.
-- Añadir 3 secciones con `id` para que el índice funcione.
-- Incluir al menos una lista ordenada y una desordenada.
+  <p><a href="mailto:seniorcat@example.com">Contactar</a></p>
+</body>
+</html>
+```
 
-**Pistas:**
-- Usa `href="#seccion-x"` para saltar dentro de la misma página.
-- Define `id` únicos en cada sección.
+- Se usa `lang="es"` para accesibilidad e internacionalización.
+- `meta viewport` permite buena visualización en móvil.
+- `h1` define el título principal único de la página.
+- `ul/li` organiza datos de forma semántica.
+- `img` con `alt` describe la imagen para lectores de pantalla.
 
-**Criterio de finalización:**
-- Todos los enlaces del índice llevan a la sección correcta.
+## Verificación
+- Abre en navegador y comprueba que imagen, lista y enlace funcionan.
 
-## Ejercicio 3 — Formularios básicos (inicio)
-**Objetivo:** introducir formularios HTML simples con buena estructura.
-
-**Requisitos mínimos:**
-- Crear un formulario con campos: nombre, correo y mensaje.
-- Asociar cada campo con su `label`.
-- Añadir botón de envío.
-
-**Pistas:**
-- Usa `for` en `label` y `id` en cada campo.
-- Usa `type="email"` para el correo.
-
-**Criterio de finalización:**
-- El formulario es legible, semántico y cada campo tiene etiqueta correcta.
-
-## Ejercicio 4 — Página de perfil mejorada
-**Objetivo:** integrar todo en una sola página coherente.
-
-**Requisitos mínimos:**
-- Crear una página de perfil con: presentación, habilidades, proyectos y contacto.
-- Usar enlaces, imágenes con `alt`, listas y formulario básico.
-- Mantener jerarquía de títulos clara.
-
-**Pistas:**
-- Reutiliza lo aprendido en los ejercicios anteriores.
-- Revisa que no haya saltos raros en la estructura (`h1` -> `h2` -> `h3`).
-
-**Criterio de finalización:**
-- Página completa, ordenada y funcional sin ayuda de IA.
-
-## Entregables de esta práctica
-- Archivo HTML funcional en `jp/sin-ia/html`.
-- Registro breve de dudas en `jp/sin-ia/html/DUDAS.md` (si aparecen).
-- Nota corta en bitácora con lo aprendido.
+## Qué resuelve este ejercicio
+- Construye tu primer cimiento web: estructura, contenido, accesibilidad y navegación básica.
+- Te prepara para estilos CSS y lógica JS sin arrastrar errores de HTML.
