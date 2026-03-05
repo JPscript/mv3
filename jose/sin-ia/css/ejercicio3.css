@@ -1,0 +1,85 @@
+html {
+    background-color: #F5FBF5;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #203C25;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0px 20px;
+}
+
+
+header {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    margin: 0 0 15px 0;
+
+}
+
+header h1 {
+    text-align: center;
+    align-self: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #94CE9A;
+    border-radius: 10px;
+    background-color: #F5FBF5;
+    padding: 6px;
+    max-width: 500px;
+    width: 100%;
+    color: #203C25;
+    font-size: 50px;
+}
+
+header p{
+    margin-top: 25px;
+    font-size: 20px;
+    color: #002006DF;
+    background-color: #0099000A;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 100%;
+    max-width: 350px;
+    align-self: center;
+    border-width: 3px;
+    border-color: #018B0F6B;
+    border-style: solid;   
+    font-weight:800px;
+}
+header nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+header nav a{
+    text-decoration: none;
+    color: #203C25;
+    padding: 6px;
+    border-radius: 6px;
+
+}
+header nav a:hover{
+    background-color: #C9E8CA;
+    color: #203C25;
+    
+    
+    text-decoration: underline;
+   
+}
+header nav a:focus-visible {
+    outline: 2px solid #018B0F;
+    outline-offset: 3px ;
+    background-color: #C9E8CA;
+    color: #203C25;
+}
