@@ -12,6 +12,27 @@ header{
 h1{
     font-size: 36px;
     font-family: arial, sans-serif;
+    background-color: #E0B0FF;
+}
+
+    
+ a:link {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: rgb(93, 143, 217);
+  background-color: transparent;
+  text-decoration-thickness: inherit;
+}
+
+a:active {
+  color:  rgb(147, 34, 172);
+  background-color: transparent;
+  
 }
 h2{
     font-size: 25px;
