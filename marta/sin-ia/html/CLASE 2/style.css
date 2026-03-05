@@ -104,10 +104,10 @@ h2{
 }
 
 .item-habilidad img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    object-fit:scale-down;
+    border-radius: 20px;
     
 }
 
