@@ -1,29 +1,64 @@
+<!-- Declaración del tipo de documento: indica al navegador que este archivo usa HTML5 -->
 <!DOCTYPE html>
+<!-- Elemento raíz del documento; lang="es" indica que el idioma principal es español -->
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../css/tarjeta.css">
-        <title> Tarjeta perfil</title>
-    </head>
-    <body>
-        <header>
-            <h1>Mi tarjeta de presentacion</h1>
-            <h2>Jose Sanchez Rodriguez</h2>
-            <img src="senior-cat.svg" alt="Senior Cat, gato senior con gafas">
 
-        </header>
-        <main>
-            <section>
-                <p>Soy estudiante de programacion</p>
-                <ul>
-                    <li>Java</li>
-                    <li>Sql</li>
-                    <li>Html</li>
-                </ul>
-            </section>
-        </main>
-        <footer>
-            <p> Derechos reservados. 2026</p>
-        </footer>
-    </body>
-</html>      
+<head>
+    <!-- Define la codificación de caracteres en UTF-8 para soportar tildes y símbolos -->
+    <meta charset="UTF-8">
+    <!-- Enlaza la hoja de estilos CSS externa que da diseño visual a esta página -->
+    <link rel="stylesheet" href="../../css/tarjeta.css">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title> Tarjeta perfil</title>
+</head>
+
+<body>
+    <!-- Encabezado principal de la página: presenta el tema del contenido -->
+    <header>
+        <!-- h1: título principal de la página (nivel de jerarquía más alto) -->
+        <h1>Mi tarjeta de presentacion</h1>
+        <!-- h2: subtítulo que aclara el formato visual tipo DNI -->
+        <h2>DNI</h2>
+
+
+
+    </header>
+    <!-- main: contiene el contenido principal único de esta página -->
+    <main>
+        <!-- section: agrupa el bloque de la tarjeta como una unidad temática -->
+        <section>
+            <!-- Contenedor general de la tarjeta; la clase permite aplicar layout con CSS -->
+            <div class="dni-card">
+                <!-- Bloque de la foto del perfil -->
+                <div class="dni-foto"><img src="senior-cat.svg" alt="Senior Cat, gato senior con gafas">
+                    <!-- img: muestra la imagen; src es la ruta del archivo y alt describe la imagen para accesibilidad -->
+                </div>
+                <!-- Bloque con los datos personales/textuales -->
+                <div class="dni-datos">
+                    <!-- Nombre completo como encabezado del bloque de datos -->
+                    <h2>Jose Sanchez Rodriguez</h2>
+
+                    <!-- Descripción breve del perfil -->
+                    <p>Soy estudiante de programación</p>
+                    <!-- Lista no ordenada de tecnologías conocidas -->
+                    <ul>
+                        <!-- Cada li representa una habilidad concreta -->
+                        <li>Java</li>
+                        <li>SQL</li>
+                        <li>HTML</li>
+                    </ul>
+                </div>
+                <!-- Pie de la tarjeta: texto corto de identificación -->
+                <div class="dni-pie">
+                    <p>Documento identifiación</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Pie global del documento: información legal o de cierre -->
+    <footer>
+        <p> Derechos reservados. 2026</p>
+    </footer>
+</body>
+
+</html>
