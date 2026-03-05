@@ -7,11 +7,17 @@
 
 html {
     font-family: Arial, sans-serif;
-    background-color: #E4E1E0;
-    color: #691210;
+    background-color: #f5f3f2;
+    color: #3f0b0a;
+    margin: 0;
+    padding: 0;
+}
+
+body {
     margin: 10px;
     padding: 5px;
 }
+
 header {
     background-color: #E4E1E0;
     color: #691210;
@@ -19,8 +25,9 @@ header {
     text-align: center;
     /* Separa el bloque header del borde superior de la página */
     margin-top: 50px;
-    
+    border-radius: 10px;
 }
+
 nav {
     /* Coloca los enlaces del menú en una fila */
     display: flex;
@@ -28,8 +35,8 @@ nav {
     width: fit-content;
     /* Centra horizontalmente los enlaces dentro del recuadro */
     justify-content: center;
-        /* Crea espacio uniforme entre cada enlace del menú */
-        gap: 16px;
+    /* Crea espacio uniforme entre cada enlace del menú */
+    gap: 16px;
     /* Deja aire entre el título/imagen y el menú y centra el bloque */
     margin: 30px auto 0 auto;
     /* Crea el recuadro del menú */
@@ -37,27 +44,41 @@ nav {
     border: 1px solid #691210;
     border-radius: 8px;
     background-color: #ffffff;
-    }
+}
 
 a {
     /* quitar lineas a los enlaces */
-   display: inline-block;
+    display: inline-block;
     margin-top: var(--espacio-medio);
     padding: 8px 16px;
     background-color: #691210;
     color: #ffffff;
     border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a:hover {
     /* Efecto hover en los enlaces */
-    color: #cca26a;
-    font-size: 20px;
-    text-decoration: none;
+    color: #ffffff;
+    background-color: #7a1a18;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
+
+a:focus,
+a:focus-visible {
+    color: #ffffff;
+    background-color: #7a1a18;
+    outline: 2px solid #cca26a;
+    outline-offset: 2px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 main {
     /* Cambio de fuente del main */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* Separación general del bloque principal respecto al resto */
     margin: var(--espacio-grande);
     padding: 0;
@@ -83,6 +104,7 @@ main img {
     /* Espacio corto y uniforme entre elementos internos */
     margin-bottom: var(--espacio-pequeno);
 }
+
 ul {
     /* Lista con viñetas cuadradas */
     list-style-type: square;
@@ -186,7 +208,7 @@ aside {
     padding: var(--espacio-medio);
     margin-top: var(--espacio-medio);
     border-radius: 8px;
-    margin-top : var(--espacio-medio);
+    
 }
 footer {
     background-color: #E4E1E0;
@@ -195,7 +217,7 @@ footer {
     padding: var(--espacio-medio);
     margin-top: var(--espacio-medio);
     border-radius: 8px;
-    margin-top : var(--espacio-medio);
+   
 }
 .enlace-github {
     display: inline-block;

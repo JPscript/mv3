@@ -1,0 +1,167 @@
+/* Reset básico para limpiar márgenes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cuerpo: Tipografía legible y fondo suave */
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fff5e6; /* Crema suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header: Color vibrante y bordes marcados */
+header {
+    background-color: #ff6b6b; /* Coral vibrante */
+    padding: 2rem;
+    border-bottom: 5px solid #333;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    text-shadow: 4px 4px 0 #333; /* Sombra dura estilo cómic */
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    transform: rotate(-1deg); /* Pequeña rotación divertida */
+}
+
+/* Navbar: REQUISITO display: flex */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    background: white;
+    padding: 10px 20px;
+    border: 3px solid #333;
+    font-weight: bold;
+    box-shadow: 5px 5px 0 #333; /* Sombra sólida */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover sorprendente en menú */
+nav a:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 #333;
+    background-color: #feca57; /* Amarillo */
+}
+
+/* Layout Principal con Flexbox */
+main {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Aside: Tarjeta de perfil */
+aside {
+    flex: 1 1 250px; /* Flexible pero con base de 250px */
+    background: white;
+    padding: 20px;
+    border: 3px solid #333;
+    box-shadow: 8px 8px 0 #333;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #333;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+#enlacesAside a {
+    display: block;
+    margin: 8px 0;
+    color: #54a0ff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+#enlacesAside a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor de contenido principal */
+main > div {
+    flex: 2 1 400px; /* Ocupa más espacio que el aside */
+}
+
+/* Secciones y Formularios estilo tarjeta */
+section, form {
+    background: white;
+    border: 3px solid #333;
+    padding: 25px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 4px solid #1dd1a1; /* Verde menta */
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* Inputs consistentes */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background: #f1f2f6;
+    font-family: inherit;
+}
+
+/* Botón con efecto de "presionar" */
+input[type="submit"] {
+    background-color: #54a0ff; /* Azul brillante */
+    color: white;
+    border: 3px solid #333;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 #333;
+    transition: all 0.1s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2e86de;
+    transform: translate(2px, 2px); /* Se mueve un poco */
+    box-shadow: 3px 3px 0 #333; /* La sombra se achica */
+}
+
+input[type="submit"]:active {
+    transform: translate(5px, 5px); /* Efecto presionado */
+    box-shadow: none;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 5px solid #000;
+}

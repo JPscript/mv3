@@ -15,9 +15,9 @@
 - Consolidación de Estructura: ejercicio final de HTML plano. - Dificultad baja
 - Estilismo con CSS: usar el HTML plano para aplicar CSS. - Dificultad media
 
-## Conocimientos adquiridos en con los ejercicios de la sesión
-
- Comenzamos desglosando la lógica de los formularios en HTML, entendiendo que son el puente de comunicación entre el usuario y el servidor. Tras dominar la arquitectura básica de la página, pusimos a prueba nuestra destreza en un ejercicio final que sirvió como "lienzo" estructural. Finalmente, entramos en el mundo del CSS, donde aprendimos que el código no solo debe ser funcional, sino también estéticamente atractivo; logramos transformar un documento de texto plano en una interfaz visualmente organizada, demostrando cómo la jerarquía de los estilos puede cambiar radicalmente la experiencia del usuario.
+## Conocimientos adquiridos en con los ejercicios de la sesión 
+ 
+ Tras dominar la arquitectura básica de la página, pusimos a prueba nuestra destreza en un ejercicio final que sirvió como "lienzo" estructural. Finalmente, entramos en el mundo del CSS, donde aprendimos que el código no solo debe ser funcional, sino también estéticamente atractivo; logramos transformar un documento de texto plano en una interfaz visualmente organizada, demostrando cómo la jerarquía de los estilos puede cambiar radicalmente la experiencia del usuario.
 
 ## Actividades sin-ia
 

@@ -1,0 +1,120 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: aquamarine;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0 12px;
+}
+
+.center {
+  text-align: center;
+  list-style-position: inside;
+}
+
+.image {
+  border-radius: 50%;
+}
+div.c{
+  display: flex;
+background-color: #afe4e6;
+}
+
+.c div{
+ margin: 10px;
+  padding: 20px;
+  justify-content: center;
+  background-color: antiquewhite;
+}
+aside{
+  text-align: left;
+  font-size: small;
+  max-width: 320px;
+  margin: 1rem auto;
+}
+
+blockquote{
+  border: 1px solid #8fd593;
+  background-color: #8fd593;
+  border-radius: 6px;
+  padding: 20px;
+  display: block;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff;
+  max-width: 900px;
+  margin: 1rem auto;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+table td, table th {
+  border: 1px solid #3b3779;
+  padding: 10px;
+}
+
+table tr:nth-child(even){
+  background-color: #afe4e6;
+}
+
+table td:hover {
+  background-color: darkcyan;
+  color: #fff;
+}
+
+table th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+footer{
+  border-radius: 5px;
+  background-color: #ccdff5;
+  padding: 20px;
+  margin: 30px 40px;
+}
+
+footer input[type="text"], footer input[type="number"]{
+  width: 100%;
+  border-radius: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+footer input[type="text"]:focus, footer input[type="number"]:focus{
+  outline: 3px solid rgba(143,213,147,0.35);
+}
+
+footer input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+footer input[type="submit"]:hover {
+  background-color: #29ac2f;
+}
+
+footer section button{
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px){
+  table { width: 100%; }
+  footer { margin: 20px 12px; }
+  .image { max-width: 300px; width: 80%; height: auto; }
+}
