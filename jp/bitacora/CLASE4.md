@@ -1,4 +1,54 @@
-# CLASE3 - JavaScript + HTML + CSS con APIs
+# CLASE4 - JavaScript + HTML + CSS con APIs
+
+## Nota importante de organización
+
+- Por error, esta sesión fue nombrada inicialmente como **CLASE3**.
+- La versión correcta es **CLASE4** y está en la carpeta `jp/bitacora`.
+- No está en la carpeta de `adrian_ruiz`.
+
+## Referencias de arranque (sin saber nada)
+
+### Referencia 1: recorrer un array y pintarlo en HTML
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Arrays</h1>
+<h2>Looping an Array</h2>
+
+<p id="demo"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+let text = "<ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
+```
+
+### Referencia 2: base de `fetch` con `async/await`
+
+```js
+async function loadData() {
+  try {
+    let response = await fetch("data.json");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log("Network error");
+  }
+}
+```
 
 **Fecha:** 2026-03-05  
 **Horario:** 16:30 - 20:30  
