@@ -1,0 +1,58 @@
+@import "variables.css";
+
+@font-face {
+    font-family: 'HarryP'; /* El nombre que tú quieras darle */
+    src: url('fonts/HARRYP__.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body{
+    background-color: var(--color-primario);
+    height: 100%;
+    margin: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--color-secundario);
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--color-fuente);
+    font-size:1.3rem;
+    padding: 1.5dvh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    font-size: 1.4rem;
+}
+
+#menu{
+    display:flex;
+}
+
+h1{
+    font-family: HarryP;
+    color:goldenrod;
+    font-size:4rem
+}
+
+#contenido{
+    flex:1;
+}
+
+footer{
+    background-color: var(--color-secundario);
+    color: var(--color-fuente);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
