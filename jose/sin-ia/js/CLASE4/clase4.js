@@ -24,20 +24,46 @@ async function loadData() {
         // Inicializamos una variable para ir acumulando el HTML de las tarjetas.
         let htmlTarjetas = "";
         // Recorremos el array de personajes usando un bucle for clásico.
-                for (let i = 0; i < lista.length; i++) {
-                        // Guardamos el personaje actual en la variable 'item'.
-                        const item = lista[i];
-                        // Generamos una tarjeta visual con imagen, nombre y descripción en bloques separados.
-                        htmlTarjetas += `
+        for (let i = 0; i < lista.length; i++) {
+            // Guardamos el personaje actual en la variable 'item'.
+            const item = lista[i];
+            // Generamos una tarjeta visual con imagen, nombre y descripción en bloques separados.
+            htmlTarjetas += `
                             <div class="tarjeta">
                                 <img src="${item.image}" alt="${item.name}">
                                 <p class="nombre">${item.name}</p>
+                                <button> Ver descripcion </button>
                                 <div class="descripcion">${item.description}</div>
                             </div>
                         `;
         }
+        
         // Mostramos todas las tarjetas generadas en el contenedor del DOM.
         tarjetas.innerHTML = htmlTarjetas;
+
+        // Seleccionamos todos los botones que están dentro de las tarjetas.
+        const botones = document.querySelectorAll('.tarjeta button');
+
+        // Recorremos cada botón para añadirle un evento 'click'.
+        botones.forEach(function (boton) {
+            // Cuando el usuario hace clic en el botón...
+            boton.addEventListener('click', function () {
+                // Buscamos el elemento de descripción dentro de la misma tarjeta.
+                const descripcion = boton.parentElement.querySelector('.descripcion');
+                const tarjeta = boton.parentElement;
+                // Si la descripción está oculta (display: none o vacío), la mostramos.
+                if (descripcion.style.display === 'none' || descripcion.style.display === '') {
+                    descripcion.style.display = 'block';
+                    boton.textContent='ocultar descripcion';
+                    tarjeta.classList.add('mostrar-descripcion');
+                } else {
+                    // Si ya está visible, la ocultamos.
+                    descripcion.style.display = 'none';
+                    tarjeta.classList.remove('mostrar-descripcion');
+                    boton.textContent='Ver descripcion';
+                }
+            });
+        });
         // Actualizamos el estado para mostrar cuántas tarjetas se han pintado.
         estado.textContent = "Tarjetas mostradas: " + lista.length;
     } catch (error) {
@@ -50,4 +76,6 @@ async function loadData() {
 
 // Llamamos a la función principal para que se ejecute al cargar la página.
 
+// Llamamos a la función principal para que se ejecute al cargar la página.
+// Esto inicia la carga de datos y el pintado de las tarjetas.
 loadData();
