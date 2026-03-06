@@ -1,85 +1,183 @@
+/*
+    El selector 'html' afecta al elemento raíz del documento.
+    Aquí se definen estilos base (fondo, tipografía y color general) que luego se heredan.
+*/
 html {
+        /* Define un color de fondo verde muy claro para toda la página */
     background-color: #F5FBF5;
+        /* Lista de fuentes de respaldo: el navegador usa la primera disponible */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        /* Tamaño base del texto: 16px es una medida común por defecto */
     font-size: 16px;
+        /* Color de texto principal (verde oscuro) */
     color: #203C25;
 }
 
+/*
+    El selector 'body' afecta al cuerpo de la página.
+    Se usa Flexbox para organizar los elementos principales en columna.
+*/
 body {
+        /* Convierte el body en contenedor flexible */
     display: flex;
+        /* Coloca los hijos uno debajo de otro (eje principal vertical) */
     flex-direction: column;
+        /* Quita el margen por defecto del navegador (box model: espacio externo) */
     margin: 0;
+        /* Altura mínima igual al alto visible de la ventana (100vh) */
     min-height: 100vh;
+        /* Espacio interno horizontal: 0 arriba/abajo y 20px izquierda/derecha */
     padding: 0px 20px;
 }
 
 
+/*
+    El selector 'header' afecta al encabezado.
+    También usa Flexbox en columna para ordenar título, texto y navegación.
+*/
 header {
+        /* Espacio interno: 15px arriba/abajo y 10px izquierda/derecha */
     padding: 15px 10px;
+        /* Activa Flexbox en el encabezado */
     display: flex;
+        /* Ordena los elementos internos en vertical */
     flex-direction: column;
 
+        /* Centra el texto dentro del header */
     text-align: center;
+        /* Margen inferior de 15px para separar el header del contenido siguiente */
     margin: 0 0 15px 0;
 
 }
 
+/*
+    Este selector apunta al h1 dentro del header.
+    Se estiliza como un bloque destacado con borde redondeado.
+*/
 header h1 {
+        /* Centra el texto del título */
     text-align: center;
+        /* En Flexbox, centra este elemento en el eje cruzado */
     align-self: center;
+        /* Grosor del borde */
     border-width: 3px;
+        /* Tipo de borde: línea continua */
     border-style: solid;
+        /* Color del borde */
     border-color: #94CE9A;
+        /* Redondea las esquinas */
     border-radius: 10px;
+        /* Color de fondo del título */
     background-color: #F5FBF5;
+        /* Espacio interno para que el texto respire (box model: padding) */
     padding: 6px;
+        /* Limita el ancho máximo a 500px en pantallas grandes */
     max-width: 500px;
+        /* Ocupa el 100% del espacio disponible hasta ese máximo */
     width: 100%;
+        /* Color del texto del título */
     color: #203C25;
+        /* Tamaño de letra grande para destacar el encabezado */
     font-size: 50px;
 }
 
+/*
+    Este selector apunta al párrafo dentro del header.
+    Se presenta como una tarjeta centrada con fondo suave y borde.
+*/
 header p{
+        /* Margen superior para separarlo del h1 */
     margin-top: 25px;
+        /* Tamaño de texto del párrafo */
     font-size: 20px;
+        /* Color del texto en formato hexadecimal con canal alfa (transparencia) */
     color: #002006DF;
+        /* Fondo con transparencia para resaltar sin recargar */
     background-color: #0099000A;
+        /* Bordes redondeados */
     border-radius: 10px;
+        /* Margen inferior para separar de la navegación */
     margin-bottom: 20px;
+        /* Espacio interno para mejorar lectura (box model) */
     padding: 5px;
+        /* Intenta ocupar todo el ancho disponible */
     width: 100%;
+        /* Pero limita su ancho a 350px para no estirarse demasiado */
     max-width: 350px;
+        /* Centra este bloque dentro del contenedor flex */
     align-self: center;
+        /* Grosor del borde */
     border-width: 3px;
+        /* Color de borde con transparencia */
     border-color: #018B0F6B;
+        /* Borde continuo */
     border-style: solid;   
-    font-weight:800px;
+        /*
+            Nota: font-weight normalmente usa valores como 400, 700, 800 (sin px).
+            Aquí se mantiene el valor original para no cambiar tu código.
+        */
+    font-weight:800;
 }
+/*
+    Este selector afecta al contenedor de navegación dentro del header.
+    Usa Flexbox para distribuir los enlaces de forma ordenada.
+*/
 header nav {
+        /* Separa la navegación del bloque anterior */
     margin-top: 10px;
+        /* Activa Flexbox */
     display: flex;
+        /* Centra los enlaces horizontalmente */
     justify-content: center;
+        /* Espacio entre enlaces */
     gap: 20px;
+        /* Permite salto de línea si no caben en una sola fila (responsive básico) */
     flex-wrap: wrap;
 }
+/*
+    Este selector afecta a cada enlace dentro del nav del header.
+    Se define una apariencia limpia tipo botón/enlace suave.
+*/
 header nav a{
+        /* Quita el subrayado por defecto de los enlaces */
     text-decoration: none;
+        /* Color de texto del enlace */
     color: #203C25;
+        /* Espacio interno para ampliar área clicable */
     padding: 6px;
+        /* Esquinas redondeadas */
     border-radius: 6px;
 
 }
+/*
+    Pseudo-clase :hover: aplica estilos cuando el cursor pasa por encima del enlace.
+    Mejora el feedback visual al usuario.
+*/
 header nav a:hover{
+        /* Cambia el fondo al pasar el mouse */
     background-color: #C9E8CA;
+        /* Mantiene color de texto legible */
     color: #203C25;
     
     
+        /* Vuelve a mostrar subrayado para reforzar que es un enlace */
     text-decoration: underline;
    
 }
+/*
+    Pseudo-clase :focus-visible: estilo accesible para navegación con teclado.
+    Muestra claramente qué enlace está seleccionado al usar Tab.
+*/
 header nav a:focus-visible {
+        /* Contorno verde para accesibilidad (no afecta al box model) */
     outline: 2px solid #018B0F;
+        /* Separa el contorno del borde del elemento */
     outline-offset: 3px ;
+        /* Fondo destacado igual que en hover */
     background-color: #C9E8CA;
+        /* Mantiene coherencia de color de texto */
     color: #203C25;
+}
+main {
+    
 }

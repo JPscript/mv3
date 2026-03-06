@@ -1,0 +1,28 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+    background-color: white;     
+  padding: 30px;               
+  border-radius: 15px;        
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  width: 500px;                
+  text-align: center;
+  justify-content: flex-start;
+  
+}
+img {
+  width: 500px;
+ }
+ h1 {
+  font-family: verdana;
+  font-size: 30px;
+  text-align: center;}
+  p {
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center;}
+    h2 {
+      font-family: verdana;
+      font-size: 25px;
+      text-align: center;}
