@@ -104,8 +104,7 @@ Ejemplo: `<a href="https://google.com">Ir a Google</a>`
 - **`<th>`**: Table header → celda de encabezado (va en negrita por defecto).
 
 - **`<td>`**: Table data → celda normal.
-Atributos importantes en tablas: **Colspan** (Permite que una celda ocupe varias columnas. 
-Ejemplo: `<td colspan="2">Texto</td>`) y **Rowspan** (Permite que una celda ocupe varias filas. Ejemplo: `<td rowspan="2">Texto</td>`)
+Atributos importantes en tablas: **Colspan** (Permite que una celda ocupe varias columnas. Ejemplo: `<td colspan="2">Texto</td>`) y **Rowspan** (Permite que una celda ocupe varias filas. Ejemplo: `<td rowspan="2">Texto</td>`)
 
 ### FORMULARIOS EN HTML
 
