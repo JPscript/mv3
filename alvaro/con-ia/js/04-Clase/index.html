@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>MONSTER HUNTER WORLD API - Cyberpunk Edition</title>
+</head>
+
+<body>
+    <header class="top">
+        <h1>MONSTER HUNTER WORLD API</h1>
+        <h4>MHW Weapons</h4>
+        <h4>Based on: MHWDB-API</h4>
+    </header>
+
+    <nav class="filter-nav">
+        <h3>Filter by Element:</h3>
+        <div class="filter-buttons">
+            <button class="filter-btn" data-element="all">All</button>
+            <button class="filter-btn" data-element="fire">Fire</button>
+            <button class="filter-btn" data-element="water">Water</button>
+            <button class="filter-btn" data-element="thunder">Thunder</button>
+            <button class="filter-btn" data-element="ice">Ice</button>
+            <button class="filter-btn" data-element="dragon">Dragon</button>
+            <button class="filter-btn" data-element="poison">Poison</button>
+            <button class="filter-btn" data-element="paralysis">Paralysis</button>
+            <button class="filter-btn" data-element="sleep">Sleep</button>
+            <button class="filter-btn" data-element="blast">Blast</button>
+            <button class="filter-btn" data-element="none">No Element</button>
+        </div>
+    </nav>
+
+    <nav class="filter-nav">
+        <h3>Filter by Weapon Type:</h3>
+        <div class="filter-buttons">
+            <button class="filter-btn" data-type="all">All</button>
+            <button class="filter-btn" data-type="great-sword">Great Sword</button>
+            <button class="filter-btn" data-type="long-sword">Long Sword</button>
+            <button class="filter-btn" data-type="sword-and-shield">Sword and Shield</button>
+            <button class="filter-btn" data-type="dual-blades">Dual Blades</button>
+            <button class="filter-btn" data-type="hammer">Hammer</button>
+            <button class="filter-btn" data-type="hunting-horn">Hunting Horn</button>
+            <button class="filter-btn" data-type="lance">Lance</button>
+            <button class="filter-btn" data-type="gunlance">Gunlance</button>
+            <button class="filter-btn" data-type="switch-axe">Switch Axe</button>
+            <button class="filter-btn" data-type="charge-blade">Charge Blade</button>
+            <button class="filter-btn" data-type="insect-glaive">Insect Glaive</button>
+            <button class="filter-btn" data-type="light-bowgun">Light Bowgun</button>
+            <button class="filter-btn" data-type="heavy-bowgun">Heavy Bowgun</button>
+            <button class="filter-btn" data-type="bow">Bow</button>
+        </div>
+    </nav>
+
+    <main class="layout">
+        <div class="status-container">
+            <p id="status"></p>
+        </div>
+        <section id="cards" class="cards-grid"></section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
