@@ -4,20 +4,24 @@ async function obtenerDatos() {
     const datos = await respuesta.json();
     const tarjetas =datos.data;
     const flen = tarjetas.length;
-    let text = "<ul>";
+
+    let text = "";
+
     for (let i = 0; i < flen; i++) {
-      text += "<div class='cards'> " + "<h1>" + tarjetas[i].name + "</h1>" +
+      text += "<div class='card'> " + "<h1>" + tarjetas[i].name + "</h1>" +
        "<p>" + tarjetas[i].description + "</p>" +
-      "<img src='" + tarjetas[i].image + "' alt='" + tarjetas[i].name + "'>"
+      "<img src='" + tarjetas[i].image + "' alt='" + tarjetas[i].name + "'>" +
       "</div>";
     }
-    text += "</ul>";
+
     document.getElementById("cards").innerHTML = text;
     console.log(datos);
+
   } catch (error) {
     console.log("error al consumir api", error);
   }
 }
+
 obtenerDatos();
 
 
