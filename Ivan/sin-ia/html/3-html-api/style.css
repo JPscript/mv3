@@ -50,3 +50,22 @@ body {
     margin: 0.75rem;
 
 }
+
+/* Adaptación para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+
+  body {
+    padding: 20px; /* menos espacio lateral en móvil */
+  }
+
+  /* las tecnologías pasan a una sola columna */
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ajustamos el tamaño del título */
+  #hero h1 {
+    font-size: 48px;
+  }
+
+}
