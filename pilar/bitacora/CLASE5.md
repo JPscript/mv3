@@ -1,4 +1,4 @@
-- # CLASE3
+- # CLASE5
 
 ## Tema y objetivo del día
 
@@ -16,6 +16,7 @@
 - API y Protocolo HTTP: Explicación teórica sobre cómo se comunican las aplicaciones a través del protocolo HTTP.
 
 - Herramientas técnicas: Instalación y configuración de Postman para el testeo y consumo de APIs.
+
 ## Conocimientos adquiridos en con los ejercicios de la sesión
 
 Iniciamos la clase con CSS, donde aprendimos que el código no solo debe ser funcional, sino también estéticamente coherente. A través del análisis de la especificidad, logramos transformar un documento de texto plano en una interfaz visualmente organizada. Esta destreza se puso a prueba de forma lúdica con el ejercicio de las "ranitas" que nos permitió dominar los conceptos básicos de posicionamiento con Flexbox, demostrando cómo la jerarquía de los estilos puede cambiar radicalmente la experiencia del usuario.

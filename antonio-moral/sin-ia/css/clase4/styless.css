@@ -1,28 +1,63 @@
+:root {
+  --sable-verde: #00ff41;
+  --sable-azul: #00e5ff;
+  --sable-rojo: #ff0000;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-    background-color: white;     
-  padding: 30px;               
-  border-radius: 15px;        
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
-  width: 500px;                
-  text-align: center;
-  justify-content: flex-start;
-  
-}
-img {
+  justify-content: center;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px var(--sable-rojo);
   width: 500px;
- }
+  text-align: center;
+
+  border: 4px solid var(--sable-rojo);
+}
+  .card:hover {
+  border-color: var(--sable-verde);
+  box-shadow: 0 8px 20px var(--sable-verde);
+
+}
+
+}
+
+ .card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  margin-top: auto;
+}
+
  h1 {
   font-family: verdana;
   font-size: 30px;
-  text-align: center;}
+  text-align: center;
+  color: var(--sable-azul);
+}
+
   p {
     font-family: verdana;
     font-size: 20px;
     text-align: center;}
+
     h2 {
       font-family: verdana;
       font-size: 25px;
       text-align: center;}
+
+body {
+  background-image: url('../../html/clase2/assets/fondo%20star%20wars.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
