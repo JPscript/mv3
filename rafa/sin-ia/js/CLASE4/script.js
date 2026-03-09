@@ -14,7 +14,13 @@ async function loadData() {
     let fLen = 16;
     let content = "";
     for(let i= 0; i<fLen; i++){
-      content += getCard(info[i].profilePicture, info[i].name, info[i].characterPlayed, info[i].imdbProfile);
+      try{
+        const responseImage = await fetch(info[i].profilePicture);
+        console.log("imagen: ", responseImage);
+        content += getCard(info[i].profilePicture, info[i].name, info[i].characterPlayed, info[i].imdbProfile);
+      } catch (error) {
+        console.log("Image error");
+      } 
     }
     document.getElementById("card").innerHTML = content;
   } catch (error) {
