@@ -1,0 +1,3 @@
+Hoy aprendimos como enlazar una API con nuestros proyectos y yo he elegido una de Disney.
+Ningún problema grave en principio, algunas consultas a la IA para poder saber bien como se hacía y que significaban algunas cosas de las explicadas para poder hacerlo y entenderlo.
+Me estuve peleando porque no veía que el CSS estuviera afectando al diseño y no se quedaba como quería y me di cuenta de que fui lela y no enlacé el css con el html. Al enlazarlo ya me quedaron en los cuadritos tal y como quería y ya pude hacer los útimos retoques, aunque no quedé muy satisfecha al final con el tipo de API que había elegido pero bueno.
