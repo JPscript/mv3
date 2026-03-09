@@ -25,9 +25,22 @@ fetch(url)
 
     contenedor.innerHTML = lista;
   })
+
+  
+
+  .map(item => `
+    <div class="card">
+      <h3>${item.name}</h3>
+      <img src="${item.image.image_url}" alt="${item.name}">
+    </div>
+  `)
+
+  
+
   .catch(error => {
     contenedor.innerHTML = "Error cargando datos";
     console.error(error);
   });
+  
 
 
