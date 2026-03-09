@@ -20,7 +20,7 @@ async function loadData() {
                     <img src="${book.cover}" alt="Portada de ${book.title}" />
                     <div class="content">
                       <h3>${book.title}</h3>
-                      <p>Descripción: ${shortDescription}</p>
+                      <p>${shortDescription}</p>
                     </div>
                 </div>
             `;
