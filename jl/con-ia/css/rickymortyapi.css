@@ -1,0 +1,17 @@
+body {
+  background-color: gray;
+}
+.titulo {
+  justify-content: center;
+}
+
+header {
+  justify-content: space-between;
+  flex-direction: row;
+  text-align: right;
+}
+
+home {
+  display: flex;
+  justify-content: left;
+}

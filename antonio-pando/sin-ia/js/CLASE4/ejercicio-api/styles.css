@@ -1,0 +1,56 @@
+html {
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+}
+
+img {
+    width: 200px;
+    align-items: center;
+}
+
+#info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tarjeta {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 25vw;
+    margin: 2vw;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: rgb(240, 235, 230);
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta img {
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.detalles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1vh;
+}
+
+.detalles p {
+    margin: 0vh;
+}

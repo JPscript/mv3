@@ -1,0 +1,50 @@
+body{
+    background-color: #f1d0ed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/*Esto sirve para ocultar el mensaje de error por defecto, y mostrarlo solo cuando sea necesario*/
+#error{
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+
