@@ -111,4 +111,129 @@ En el desarrollo web existen términos que se utilizan con frecuencia. A continu
 
 ## CONCEPTOS CSS
 
-*(Añadir detalles de CSS aquí cuando se requiera)*
+- **CSS (Cascading Style Sheets)**: lenguaje que define la presentación visual de un documento HTML. Se usa para controlar colores, tipografías, tamaños, espacios, alineaciones, distribución (layout) y efectos visuales. CSS se aplica al DOM del navegador y se rige por reglas de cascada y especificidad.
+
+### 1. Sintaxis básica
+
+- Una regla CSS se compone de **selector** + **declaraciones**:
+  ```css
+  selector {
+    propiedad: valor;
+    propiedad: valor;
+  }
+  ```
+
+### 2. Selectores y especificidad
+
+- **Tipo**: `p { ... }`
+- **Clase**: `.mi-clase { ... }`
+- **ID**: `#mi-id { ... }`
+- **Descendiente**: `nav a { ... }`
+- **Hijo directo**: `ul > li { ... }`
+- **Hermano adyacente**: `h2 + p { ... }`
+- **Atributo**: `input[type="text"] { ... }`
+
+**Especificidad (prioridad de reglas)**  
+1. Inline (`style="..."`)  
+2. IDs (`#id`)  
+3. Clases/atributos/pseudo-clases (`.clase`, `[attr]`, `:hover`)  
+4. Etiquetas/pseudo-elementos (`div`, `::before`)  
+Si hay empate, gana la regla que aparece última en el CSS.
+
+### 3. Formas de incluir CSS
+
+- **Inline**: `<p style="color:red;">Hola</p>`
+- **Interno**: dentro de `<style>` en el HTML.
+- **Externo**: archivo `.css` referenciado con `<link rel="stylesheet" href="styles.css">`
+- **Importar**: `@import url("styles.css");`
+
+### 4. Modelo de caja (box model)
+
+Cada elemento es una “caja” compuesta por:
+- **Contenido**
+- **Padding** (espacio interior)
+- **Border** (borde)
+- **Margin** (espacio exterior)
+
+### 5. Unidades de medida
+
+- Absolutas: `px`, `cm`, `mm`, `in`, `pt`
+- Relativas: `%`, `em`, `rem`, `vw`, `vh`
+
+### 6. Colores y fondos
+
+- `color`: color del texto.
+- `background-color`: color de fondo.
+- `background-image`, `background-size`, `background-position`, `background-repeat`.
+
+### 7. Tipografía
+
+- `font-family`, `font-size`, `font-weight`, `line-height`, `text-align`, `text-decoration`.
+
+### 8. Display y flujo
+
+- `display`: `block`, `inline`, `inline-block`, `none`, `flex`, `grid`.
+- `visibility`: `visible`, `hidden`.
+
+### 9. Posicionamiento
+
+- `position`: `static`, `relative`, `absolute`, `fixed`, `sticky`.
+- `top`, `right`, `bottom`, `left`.
+- `z-index`: controla superposición (solo con position distinto de static).
+
+### 10. Flexbox
+
+- Contenedor: `display: flex;`
+- Ejes: `flex-direction` (`row`, `column`, etc.)
+- Alineación: `justify-content`, `align-items`, `align-content`
+- Wrapping: `flex-wrap`, `flex-flow`
+- Ítems: `flex-grow`, `flex-shrink`, `flex-basis`, `order`
+
+### 11. Grid
+
+- Contenedor: `display: grid;`
+- Definir columnas/filas: `grid-template-columns`, `grid-template-rows`
+- Espacios: `gap`, `row-gap`, `column-gap`
+- Posicionamiento: `grid-column`, `grid-row`, `grid-area`
+
+### 12. Responsividad
+
+- **Media queries**:
+  ```css
+  @media (max-width: 768px) {
+    /* estilos para dispositivos pequeños */
+  }
+  ```
+- Uso de unidades relativas (`%, em, rem, vw, vh`) y enfoque mobile-first.
+
+### 13. Pseudo-clases y pseudo-elementos
+
+- **Pseudo-clases**: `:hover`, `:active`, `:focus`, `:visited`, `:first-child`, `:nth-child(n)`, etc.
+- **Pseudo-elementos**: `::before`, `::after`, `::first-letter`, `::first-line`.
+
+### 14. Transiciones y animaciones
+
+- **Transiciones**: `transition: propiedad duración función;`
+- **Animaciones**: `@keyframes`, `animation: nombre duración iteraciones;`
+
+### 15. Variables CSS (custom properties)
+
+- Definición:
+  ```css
+  :root {
+    --color-principal: #3498db;
+  }
+  ```
+- Uso:
+  ```css
+  .btn {
+    background: var(--color-principal);
+  }
+  ```
+
+### 16. Buenas prácticas
+
+- Organizar estilos por secciones (layout, tipografía, componentes).
+- Usar nombres de clase claros y consistentes (BEM, etc.).
+- Evitar sobreespecificidad y el uso excesivo de IDs.
+- Mantener archivos limpios y comentados cuando sea necesario.
