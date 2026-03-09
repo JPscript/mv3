@@ -20,7 +20,7 @@ async function loadData() {
                     <h3>${weapon.name}</h3>
                     <div class="hidden">
                         <p>Attack: ${weapon.attack.display}</p>
-                        <p>Element: ${weapon.elements ? weapon.elements.map(e => e.type).join(', ') : 'None'}</p>
+                        <p>Element: ${weapon.elements && weapon.elements.length > 0 ? weapon.elements.map(e => e.type).join(', ') : 'none'}</p>
                     </div>
                 </div>
             </article>
