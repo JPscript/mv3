@@ -1,27 +1,21 @@
 // Ejemplos minimos de fetch por metodo HTTP.
 // Cambia la URL y el body segun tu API.
 
-const baseUrl = "http://127.0.0.1:3000/items";
+const baseUrl = "http://127.0.0.1:3000/recipes";
 
 // GET (listar)
 (async () => {
-  try {
-    const r = await fetch(baseUrl, { method: "GET" });
-    console.log(await r.json());
-  } catch (error) {
-    console.error(error);
-  }
+  const r = await fetch(baseUrl);
+  console.log(await r.json());
 })();
+
 
 // GET por id
 (async () => {
-  try {
-    const r = await fetch(`${baseUrl}/1`, { method: "GET" });
-    console.log(await r.json());
-  } catch (error) {
-    console.error(error);
-  }
+  const r = await fetch(baseUrl);
+  console.log(await r.json());
 })();
+
 
 // POST (crear)
 (async () => {
