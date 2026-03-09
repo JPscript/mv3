@@ -2,4 +2,4 @@
 
 ## Tema y objetivo del día
 
-Hemos dado las bases de html, hemos resuelto el ejercicio de crear nuestro primer html bien estructurado y hemos subido nuestros cambios al proyecto en Github.
+Continuamos aprendiendo JavaScript, luego terminamos nuestro ejercicio de Api, nos conectamos a la api de recetas de JP configurando todo lo necesario en nuestro pc, y por último, se nos pide es realizar una interfaz gráfica donde haremos las consultas sin usar Postman.
