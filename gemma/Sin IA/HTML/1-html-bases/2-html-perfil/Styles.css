@@ -1,0 +1,121 @@
+html{
+    background-color: #84eac8;
+    font-family: "Courier New", Courier, monospace;
+}
+
+main {
+    padding: 0 9rem;
+    padding-bottom: 2rem;
+}
+
+footer{
+    margin-left:9vw
+}
+.datos-intereses{
+    background-color: #92c8f1;
+    display:flex;
+    padding: 10px;
+}
+
+#datosPersonales{
+    flex:1;
+}
+
+#intereses{
+    flex:1;
+}
+
+nav{
+    display:flex;
+    background-color: #1271a8;
+    padding: 1%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    min-height: 35px;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    text-decoration: none;
+    font-family: "Courier New", Courier, monospace;
+    color: #1E1F24;
+    margin-right: 2vw;
+}
+
+h1{
+    text-align: center;
+    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);;
+}
+
+h3{
+    margin-bottom: -1vh;
+}
+
+h4{
+    margin-bottom: -1vh;
+}
+
+p{
+    margin-bottom: -1vh;
+}
+
+img{
+    /* border: 9px solid #3D63DD;
+    border-radius: 100%;
+    width: 200px;
+    margin-right: vw;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    margin: 2vw */
+}
+
+#nombre{
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+#correo{
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+#perfil{
+    margin-top: 2vh;
+}
+
+aside{
+    float:right;
+    margin-right: 2vw;
+    background-color:#92c8f1;
+    border-radius: 8px;
+    padding-bottom: 3vh;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+aside a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: blue;
+}
+
+#habilidades{
+    /* display: flex; */
+}
+
+#bd{
+    margin-left: 5vw;
+}
+
+#enlacesAside{
+    margin-top: 1vh
+}
+
+a{
+    text-decoration: none;
+    color: #e3e4ea ;
+}
+
+a:hover{
+    color:rgb(181, 181, 181);
+}

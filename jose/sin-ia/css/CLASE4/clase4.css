@@ -9,10 +9,11 @@ html {
     /* color define el color del texto principal */
     color: #dd601c;
 }
+
 /* 'body' afecta al cuerpo principal de la página */
 body {
     /* display: flex activa flexbox para organizar los elementos hijos */
-    display:flex;
+    display: flex;
     /* margin: 0 elimina el margen exterior por defecto */
     margin: 0;
     /* flex-direction: column coloca los elementos hijos en columna */
@@ -24,6 +25,7 @@ body {
     /* padding añade espacio interno a los lados */
     padding: 0px 20px;
 }
+
 /* '.tarjeta img' afecta a las imágenes dentro de un div con clase 'tarjeta' */
 .tarjeta img {
     /* max-width limita el ancho máximo de la imagen */
@@ -37,39 +39,39 @@ body {
     /* border-radius redondea las esquinas de la imagen */
     border-radius: 6px;
     /* order: 1 coloca la imagen en la posición 1 dentro del flexbox */
-    order:1;
+    order: 1;
 }
 
 
 
-    
-    /* '.tarjeta .descripcion' afecta a la descripción dentro de la tarjeta */
-    .tarjeta .descripcion {
-        /* color define el color del texto de la descripción */
+
+/* '.tarjeta .descripcion' afecta a la descripción dentro de la tarjeta */
+.tarjeta .descripcion {
+    /* color define el color del texto de la descripción */
     color: #6e1106;
-        /* margin-bottom añade espacio debajo de la descripción */
+    /* margin-bottom añade espacio debajo de la descripción */
     margin-bottom: 10px;
-        /* border-width define el grosor del borde */
+    /* border-width define el grosor del borde */
     border-width: 3px;
-        /* margin-top separa la descripción del elemento superior */
+    /* margin-top separa la descripción del elemento superior */
     margin-top: 11px;
-        /* border-color define el color del borde */
+    /* border-color define el color del borde */
     border-color: #0b140a;
-        /* border-style: solid crea un borde continuo */
-    border-style: solid; 
-        /* border-radius redondea las esquinas del borde */
+    /* border-style: solid crea un borde continuo */
+    border-style: solid;
+    /* border-radius redondea las esquinas del borde */
     border-radius: 6px;
-        /* padding añade espacio interno alrededor del texto */
+    /* padding añade espacio interno alrededor del texto */
     padding: 7px;
-        /* display: none oculta la descripción por defecto */
+    /* display: none oculta la descripción por defecto */
     display: none;
-        /* order: 2 coloca la descripción en la posición 2 dentro del flexbox */
-    order:2;
-    }
-    
-    
-    
-    
+    /* order: 2 coloca la descripción en la posición 2 dentro del flexbox */
+    order: 2;
+}
+
+
+
+
 
 
 /* '.tarjeta .nombre' afecta al nombre del personaje dentro de la tarjeta */
@@ -77,13 +79,13 @@ body {
     /* color define el color del texto del nombre */
     color: #873a11;
     /* order: 0 coloca el nombre en la primera posición dentro del flexbox */
-     order:0;
+    order: 0;
     /* font-family usa la fuente 'Star Wars' */
-     font-family: 'Star Wars', sans-serif;
+    font-family: 'Star Wars', sans-serif;
     /* margin añade espacio alrededor del nombre */
-     margin: 10px;
+    margin: 10px;
     /* padding-top añade espacio arriba del nombre */
-     padding-top: 6px;
+    padding-top: 6px;
 }
 
 /* '.tarjeta' afecta a todo el contenedor de la tarjeta */
@@ -93,22 +95,23 @@ body {
     /* flex-direction: column coloca los elementos en columna por defecto */
     flex-direction: column;
     /* border-color define el color del borde de la tarjeta */
-    border-color: 	#0b140a;
+    border-color: #0b140a;
     /* border-style: solid crea un borde continuo */
     border-style: solid;
     /* border-radius redondea las esquinas de la tarjeta */
     border-radius: 7px;
     /* margin-bottom separa las tarjetas entre sí */
     margin-bottom: 10px;
-    
 
 
-    
+
+
 }
+
 /* '.tarjeta button' afecta a los botones dentro de la tarjeta */
 .tarjeta button {
     /* order: 3 coloca el botón en la posición 3 dentro del flexbox */
-    order:3;
+    order: 3;
     /* color define el color del texto del botón */
     color: #9E6C00;
     /* background-color define el color de fondo del botón */
@@ -126,10 +129,11 @@ body {
     font-family: 'Star Wars', sans-serif;
     /* margin añade espacio alrededor del botón */
     margin: 10px;
-    
+
 }
+
 /* '.tarjeta button:hover' define el estilo del botón cuando el usuario pasa el ratón encima */
-.tarjeta button:hover{
+.tarjeta button:hover {
     /* background-color cambia el color de fondo al pasar el ratón */
     background-color: #FFD700;
     /* color cambia el color del texto al pasar el ratón */
@@ -137,11 +141,12 @@ body {
     /* box-shadow añade una sombra suave al botón */
     box-shadow: 0 2px 8px #473B1F33;
 }
+
 /* '.tarjeta.mostrar-descripcion' cambia el layout de la tarjeta cuando la descripción está visible */
 .tarjeta.mostrar-descripcion {
     /* flex-direction: row coloca los elementos en fila (horizontal) */
     flex-direction: row;
     /* align-items: flex-start alinea los elementos arriba */
     align-items: flex-start;
-    
+
 }

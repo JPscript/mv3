@@ -1,0 +1,30 @@
+<!-- Declaración del tipo de documento, indica que es HTML5 -->
+<!DOCTYPE html>
+<!-- Elemento raíz del documento, el atributo lang especifica el idioma principal -->
+<html lang="es">
+<head>
+    <!-- <meta charset> define la codificación de caracteres, UTF-8 es estándar para español y otros idiomas -->
+    <meta charset="UTF-8">
+    <!-- <title> muestra el texto en la pestaña del navegador -->
+    <title>Leer Recetas - Senior Cat</title>
+    <!-- <link rel="stylesheet"> enlaza una hoja de estilos externa para dar formato visual -->
+    <link rel="stylesheet" href="../CLASE5/styles.css">
+</head>
+<body>
+    <!-- <h1> es el título principal de la página, solo debe haber uno por documento -->
+    <h1>Consultar Recetas</h1>
+    <!-- Botón para mostrar todas las recetas disponibles -->
+    <button id="btn-todas">Mostrar todas las recetas</button>
+    <!-- Campo de texto para buscar recetas por nombre -->
+    <input type="text" id="buscar-nombre" placeholder="Buscar por nombre...">
+    <!-- Botón para ejecutar la búsqueda por nombre -->
+    <button id="btn-buscar">Buscar</button>
+    <!-- <div> contenedor donde se mostrarán los resultados de la consulta o búsqueda -->
+    <div id="resultado"></div>
+    <!-- <script> enlaza el archivo JavaScript que contiene la lógica para leer y buscar recetas -->
+    <script src="../../js/CLASE5/read.js"></script>
+</body>
+<!-- Cierre del elemento raíz <html> -->
+    
+
+</html>
