@@ -19,6 +19,9 @@ import { RecipesModule } from './recipes/recipes.module';
           username: config.get<string>('DB_USER', 'postgres'),
           password: config.get<string>('DB_PASSWORD', ''),
           database: config.get<string>('DB_NAME', 'api_recetas_db'),
+                    extra: {
+            client_encoding: config.get<string>('DB_CLIENT_ENCODING', 'UTF8'),
+          },
           autoLoadEntities: true,
           synchronize: false,
           logging: dbLogging,
