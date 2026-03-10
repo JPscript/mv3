@@ -46,7 +46,7 @@ function mostrarPagina(){
                 <li>
                 ${personaje.films.length > 0 
                 ? "Películas: " + personaje.films.join(", ") 
-                : "El señor Disney no ha creado ninguna peli para este personaje."}
+                : "El señor Disney no ha creado ninguna peli donde sea el prota."}
                 </li>
             </ul>
 
