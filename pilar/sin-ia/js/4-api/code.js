@@ -10,13 +10,17 @@ async function loadData() {
         let htmlContent = "";
 
         data.forEach((book) => {
+            const maxDescriptionLength = 100;
+            const shortDescription = book.description.length > maxDescriptionLength
+                ? book.description.slice(0, maxDescriptionLength).trimEnd() + "..."
+                : book.description;
+
             htmlContent += `
                 <div class="card">
                     <img src="${book.cover}" alt="Portada de ${book.title}" />
                     <div class="content">
                       <h3>${book.title}</h3>
-                      <p>Fecha salida: ${book.releaseDate}</p>
-                      <p>Páginas: ${book.pages}</p>
+                      <p>${shortDescription}</p>
                     </div>
                 </div>
             `;

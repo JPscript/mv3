@@ -1,4 +1,4 @@
-Seleccionamos api
-Empezamos javaScript
-Scope
-Async fetch
+- Seleccionamos api para hacer tarjetas
+- Empezamos javaScript
+- Scope
+- Async fetch

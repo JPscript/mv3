@@ -54,6 +54,85 @@ body::before {
     font-weight: 400;
 }
 
+/* Filter Navigation */
+.filter-nav {
+    padding: 1.5rem 2rem;
+    background: rgba(10, 14, 39, 0.9);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.filter-nav h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    color: #a0e0ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn:hover {
+    border-color: #00ffff;
+    color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: rgba(255, 0, 126, 0.3);
+    border-color: #ff006e;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 0, 126, 0.6), inset 0 0 10px rgba(255, 0, 126, 0.2);
+    transform: scale(1.05);
+}
+
+.filter-btn.active::before {
+    background: rgba(255, 0, 126, 0.2);
+}
+
 .layout {
     padding: 2rem;
     display: flex;
@@ -189,6 +268,10 @@ body::before {
 @media (max-width: 768px) {
     .layout { padding: 1.5rem; gap: 2rem; }
     .top h1 { font-size: 1.5rem; }
+    .filter-nav { padding: 1rem 1.5rem; }
+    .filter-nav h3 { font-size: 0.85rem; }
+    .filter-buttons { gap: 0.5rem; }
+    .filter-btn { padding: 0.5rem 0.9rem; font-size: 0.75rem; }
     .cards-grid { gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     .card { height: 220px; }
     .card img { height: 140px; }
@@ -198,6 +281,10 @@ body::before {
 @media (max-width: 480px) {
     .layout { padding: 1rem; gap: 1.5rem; }
     .top h1 { font-size: 1.2rem; letter-spacing: 2px; }
+    .filter-nav { padding: 0.75rem 1rem; }
+    .filter-nav h3 { font-size: 0.75rem; margin-bottom: 0.75rem; }
+    .filter-buttons { gap: 0.4rem; }
+    .filter-btn { padding: 0.4rem 0.7rem; font-size: 0.65rem; }
     .top h4 { font-size: 0.65rem; }
     .cards-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 0.75rem; }
     .card { height: 180px; }

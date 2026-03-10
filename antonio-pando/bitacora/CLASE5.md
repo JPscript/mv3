@@ -1,0 +1,3 @@
+- Repasamos el resultado del ejercicio de la clase 4
+- Reinstalo el servidor postgresql
+- Lanzamos pruebas con postman a la api creada

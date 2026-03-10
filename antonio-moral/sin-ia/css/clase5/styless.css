@@ -1,0 +1,97 @@
+:root {
+  --pac-yellow: #ffd700;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #0087ff;
+  --ghost-orange: #ff9800;
+  --maze-dark: #1a1a2e;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.botones button {
+  width: 300px;
+  height: 300px;
+  font-family: verdana;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botones button:nth-child(1):hover {
+  border-color: var(--pac-yellow);
+  box-shadow: 0 0 10px var(--pac-yellow),
+              0 0 20px var(--pac-yellow);
+}
+
+.botones button:nth-child(2):hover {
+  border-color: var(--ghost-red);
+  box-shadow: 0 0 10px var(--ghost-red),
+              0 0 20px var(--ghost-red);
+}
+
+.botones button:nth-child(3):hover {
+  border-color: var(--ghost-blue);
+  box-shadow: 0 0 10px var(--ghost-blue),
+              0 0 20px var(--ghost-blue);
+}
+
+.botones button:nth-child(4):hover {
+  border-color: var(--ghost-orange);
+  box-shadow: 0 0 10px var(--ghost-orange),
+              0 0 20px var(--ghost-orange);
+}
+
+  h1 {
+  font-family: verdana;
+  font-size: 30px;
+  text-align: center;
+}
+
+form {
+  background-color: rgb(255, 255, 255);
+  width: 300px;
+  border: 15px solid rgb(202, 245, 236);
+  padding: 50px;
+  margin: 20px;
+  justify-content: center;
+    width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
+/* Botón psicodélico */
+#formulario input[type="submit"] {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+/* Hover psicodélico del botón */
+#formulario input[type="submit"]:hover {
+  border-color: var(--pac-yellow);
+  box-shadow: 
+      0 0 10px var(--pac-yellow),
+      0 0 20px var(--ghost-pink),
+      0 0 30px var(--ghost-blue),
+      0 0 40px var(--ghost-orange);
+  color: var(--pac-yellow);
+  transform: scale(1.05);
+}
+

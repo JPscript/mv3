@@ -1,7 +1,7 @@
 @import "variables.css";
 
 @font-face {
-    font-family: 'HarryP'; /* El nombre que tú quieras darle */
+    font-family: 'HarryP';
     src: url('fonts/HARRYP__.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -19,9 +19,11 @@ nav{
     align-items: center;
     flex-direction: column;
     background-color: var(--color-secundario);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    border-top: 1px solid yellow;
 }
 
-nav a{
+.menu{
     text-decoration: none;
     color: var(--color-fuente);
     font-size:1.3rem;
@@ -30,7 +32,7 @@ nav a{
     margin-right: 1vw;
 }
 
-nav a:hover{
+.menu:hover{
     text-decoration: underline;
     font-size: 1.4rem;
 }
@@ -42,11 +44,74 @@ nav a:hover{
 h1{
     font-family: HarryP;
     color:goldenrod;
-    font-size:4rem
+    font-size:5rem;
+    margin:0;
+    display: flex;
+    justify-content: center;
 }
 
-#contenido{
-    flex:1;
+#enlaceLogo {
+    text-decoration: none;
+    margin-bottom:0;
+    margin-top: 1.5vh;
+}
+
+#info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tarjeta {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 300px;
+    width: 300px;
+    max-width: 300px;
+    margin: 2vw;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: var(--color-secundario);
+    flex-direction: column;
+    align-items: center;
+    padding: 2vw;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+.tarjeta img {
+    width: 200px;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+@media (max-width: 420px) {
+    .tarjeta {
+        flex: 0 0 calc(100% - 4vw);
+        width: calc(100% - 4vw);
+        max-width: calc(100% - 4vw);
+        margin: 2vw auto;
+    }
+    .tarjeta img {
+        width: 100%;
+        max-width: 240px;
+    }
+}
+
+.detalles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1vh;
+    color: var(--color-fuente);
+    text-align: center;
+}
+
+.detalles p {
+    margin: 0vh;
 }
 
 footer{
