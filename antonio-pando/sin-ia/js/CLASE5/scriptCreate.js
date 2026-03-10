@@ -1,4 +1,4 @@
-const baseUrl = "http://127.0.0.1:3000/recipes";
+const baseUrl = "http://localhost:3000/recipes";
 
 const formulario = document.getElementById('formulario');
 
@@ -16,12 +16,11 @@ formulario.addEventListener('submit', async (e) => {
                 nombre: formulario.nombre.value,
                 descripcion: formulario.descripcion.value,
                 ingredientes: formulario.ingredientes.value,
-                tiempo: Number(formulario.tiempo.value),
+                tiempo_min: Number(formulario.tiempo.value),
                 dificultad: formulario.dificultad.value,
-                active: true,
             })
         });
-        console.log(await r.json);
+        console.log(await r.json());
         if (respuesta.ok) {
             const resultado = await respuesta.json();
             console.log('¡Éxito!:', resultado);

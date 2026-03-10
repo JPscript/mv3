@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         // Recorremos el array de recetas y mostramos cada una.
-        recetas.forEach(receta => {
+        recetas.forEach(function(receta) {
             // Creamos un bloque de HTML para cada receta.
-            // Usamos template literals (comillas invertidas y ${}) para insertar variables.
-            divResultado.innerHTML += divResultado.innerHTML +=
+            
+            divResultado.innerHTML +=
                 "<div class='receta'>" +
                 "<h2>" + receta.nombre + "</h2>" +
                 "<p><strong>Descripción:</strong> " + receta.descripcion + "</p>" +
@@ -41,9 +41,50 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
     btnBuscar.addEventListener("click", async function(events) {
+        // Pedimos a la API la lista de recetas usando fetch.
+        // 'await' espera a que la respuesta llegue.
         const r = await fetch("http://localhost:3000/recipes");
         // Convertimos la respuesta a JSON (array de recetas).
         const recetas = await r.json();
-        
+
+        // Obtenemos el texto que el usuario ha escrito en el input de búsqueda.
+        // Usamos .value para acceder al valor actual del input.
+        // Ejemplo: si el usuario escribe "tarta", textoBuscado será "tarta".
+        // Esto nos permite luego filtrar las recetas por ese texto.
+        const textoBuscado = inputBuscar.value;
+
+        // Filtramos el array de recetas para quedarnos solo con las que coinciden con el texto buscado.
+        // Usamos .filter() para crear un nuevo array solo con las recetas que cumplen la condición.
+        // Convertimos tanto el nombre de la receta como el texto buscado a minúsculas para ignorar mayúsculas/minúsculas.
+        // .includes() comprueba si el nombre contiene el texto buscado.
+        // Si la condición es true, la receta se incluye en el array filtrado.
+        const recetasFiltradas = recetas.filter(function(receta) {
+            return receta.nombre.toLowerCase().includes(textoBuscado.toLowerCase());
+        });
+
+        // Limpiamos el div de resultados antes de mostrar nuevas recetas.
+        divResultado.innerHTML = "";
+
+        // Si el array filtrado está vacío, mostramos un mensaje.
+        if (!recetasFiltradas.length) {
+            // Mostramos un mensaje claro si no hay coincidencias.
+            divResultado.innerHTML = "No hay recetas disponibles";
+            return;
+        }
+
+        // Recorremos el array de recetas filtradas y mostramos cada una.
+        // Usamos forEach para ejecutar la función para cada receta encontrada.
+        recetasFiltradas.forEach(function(receta) {
+            // Creamos un bloque de HTML para cada receta.
+            // Usamos template literals (comillas invertidas y ${}) para insertar variables.
+            divResultado.innerHTML +=
+                "<div class='receta'>" +
+                "<h2>" + receta.nombre + "</h2>" +
+                "<p><strong>Descripción:</strong> " + receta.descripcion + "</p>" +
+                "<p><strong>Ingredientes:</strong> " + receta.ingredientes + "</p>" +
+                "<p><strong>Tiempo:</strong> " + receta.tiempo_min + " min</p>" +
+                "<p><strong>Dificultad:</strong> " + receta.dificultad + "</p>" +
+                "</div>";
+        });
     })
-});
+})

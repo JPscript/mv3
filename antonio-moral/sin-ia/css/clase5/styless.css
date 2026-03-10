@@ -5,6 +5,8 @@
   --ghost-blue: #0087ff;
   --ghost-orange: #ff9800;
   --maze-dark: #1a1a2e;
+  --sable-verde: #00ff41;
+
 }
 
 .botones {
@@ -26,25 +28,25 @@
   transition: 0.3s;
 }
 
-.botones button:nth-child(1):hover {
+.botones a:nth-child(1):hover {
   border-color: var(--pac-yellow);
   box-shadow: 0 0 10px var(--pac-yellow),
               0 0 20px var(--pac-yellow);
 }
 
-.botones button:nth-child(2):hover {
+.botones a:nth-child(2):hover {
   border-color: var(--ghost-red);
   box-shadow: 0 0 10px var(--ghost-red),
               0 0 20px var(--ghost-red);
 }
 
-.botones button:nth-child(3):hover {
+.botones a:nth-child(3):hover {
   border-color: var(--ghost-blue);
   box-shadow: 0 0 10px var(--ghost-blue),
               0 0 20px var(--ghost-blue);
 }
 
-.botones button:nth-child(4):hover {
+.botones a:nth-child(4):hover {
   border-color: var(--ghost-orange);
   box-shadow: 0 0 10px var(--ghost-orange),
               0 0 20px var(--ghost-orange);
@@ -57,9 +59,10 @@
 }
 
 form {
-  background-color: rgb(255, 255, 255);
+border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
   width: 300px;
-  border: 15px solid rgb(202, 245, 236);
   padding: 50px;
   margin: 20px;
   justify-content: center;
@@ -67,6 +70,12 @@ form {
   margin: 0 auto;
   margin-top: 100px;
   text-align: center;
+}
+
+form:hover {
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);
 }
 
 /* Botón psicodélico */
@@ -85,7 +94,7 @@ form {
 
 /* Hover psicodélico del botón */
 #formulario input[type="submit"]:hover {
-  border-color: var(--pac-yellow);
+  border-color: var(--pac-orange);
   box-shadow: 
       0 0 10px var(--pac-yellow),
       0 0 20px var(--ghost-pink),

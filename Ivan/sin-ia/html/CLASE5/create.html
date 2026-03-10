@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Receta</title>
-        <link rel="stylesheet" href="../../css/CLASE5/create.css" />
+    <link rel="stylesheet" href="../../css/CLASE5/create.css" />
+
 
 
 </head>
 
 <body>
     <h2>Crear Receta</h2>
-    <form action="create.html" method="post">
+    <form id="createForm" action="create.html" method="post">
         <label for="nombre">Nombre de la receta:</label><br>
         <input type="text" id="nombre" name="nombre"><br><br>
         <label for="descripcion">Descripción:</label><br>
@@ -20,13 +21,19 @@
         <label for="ingredientes">Ingredientes:</label><br>
         <textarea id="ingredientes" name="ingredientes" rows="4" cols="50"></textarea><br><br>
         <label for="tiempo">Tiempo:</label><br>
-        <input type="text" id="tiempo" name="tiempo"><br><br>
+        <input type="number" id="tiempo" name="tiempo_min" min="1" step="1" required><br><br>
         <input type="submit" value="Crear Receta">
         <button type="button">Añadir imagen</button>
+        <label for="dificultad">Dificultad:</label><br>
+        <select id="dificultad" name="dificultad">
+            <option value="facil">Fácil</option>
+            <option value="media">Media</option>
+            <option value="dificil">Difícil</option>
+        </select><br><br>
 
 
     </form>
-
+    <script src="../../js/CLASE5/create.js"></script>
 </body>
 
 </html>
