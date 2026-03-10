@@ -20,6 +20,7 @@ nav{
     flex-direction: column;
     background-color: var(--color-secundario);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    border-top: 1px solid yellow;
 }
 
 .menu{
@@ -45,6 +46,8 @@ h1{
     color:goldenrod;
     font-size:5rem;
     margin:0;
+    display: flex;
+    justify-content: center;
 }
 
 #enlaceLogo {
