@@ -5,7 +5,7 @@ Es la forma de organizar documentos, que son creados a través de código, para 
 ## AGENTS.MD
 Es el equivalente del readme.md para iA. Un "agente" de iA (como un chatboot, pero listo) lo primero que hace es leer este agents.md. 
 ## SKILLS
-Evita que se llene la ventana de contexto con distintas peticiones. Un skill para darle la capacidad a la iA de hacer algo. 
+Evita que se llene la ventana de contexto con distintas peticiones. Un skill da la capacidad a la iA de hacer algo. 
 Están dentro de la carpeta .github. 
 ## PROTOCOLO HTTP
 Create - POST 
