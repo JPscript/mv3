@@ -1,0 +1,23 @@
+const baseUrl='http://localhost:3000';
+
+console.log('Hello world !');
+document.getElementById('read_all').addEventListener('submit', (e) => {
+    e.preventDefault(); // empêche le rechargement de la page
+    const data = new FormData(e.target);
+    console.log(data.get('test'));
+    readAll();
+});
+
+async function readAll() {
+  try {
+    let response = await fetch(baseUrl + '/recipes');
+    let data = await response.json();
+    // let datas = data.products;
+    console.log(data);
+
+    // populate_html(datas);
+
+  } catch (error) {
+    console.log("Network error");
+  }
+}
