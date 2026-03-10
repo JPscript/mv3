@@ -6,14 +6,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-app.enableCors({
-    // `origin: true` refleja el Origin recibido (incluye `null` desde file://)
-    origin: true,
-    credentials: true,
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin'],
-    optionsSuccessStatus: 204,
-  });
+  app.enableCors({ origin: '*' });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
