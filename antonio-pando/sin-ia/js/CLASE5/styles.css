@@ -23,6 +23,7 @@ html{
     border: solid 1px black;
     padding: 1.5vh;
     text-decoration: none;
+    color: blue;
 }
 
 .botones a:hover{
