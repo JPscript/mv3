@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crear receta</title>
+    </head>
+    <body>
+        <h1>Crear nueva receta:</h1>
+        <p>Rellena el siguiente formulario para crear una nueva receta:</p>
+        <form enctype="multipart/form-data">
+            <label for="nombre">Nombre de la receta:</label><br>
+            <input type="text" id="nombre" name="nombre"><br><br>
+
+            <label for="descripcion">Descripción:</label><br>
+            <textarea id="descripcion" name="descripcion"></textarea><br><br>
+
+            <label for="ingredientes">Ingredientes:</label><br>
+            <textarea id="ingredientes" name="ingredientes"></textarea><br><br>
+
+            <label for="tiempo_min">Tiempo mínimo de preparación (en minutos):</label><br>
+            <input type="number" id="tiempo_min" name="tiempo_min" min="1"><br><br>
+
+            <label for="dificultad">Dificultad de la receta:</label><br>
+            <select id="dificultad" name="dificultad">
+                <option value="facil">Fácil</option>
+                <option value="media">Media</option>
+                <option value="dificil">Difícil</option>
+            </select><br><br>
+
+            <label for="imagen">Imagen de la receta:</label><br>
+            <input type="file" id="imagen" name="imagen" accept="image/*"><br><br>
+
+            <button type="submit">Crear receta receta</button>
+        </form>
+    </body>
+</html>

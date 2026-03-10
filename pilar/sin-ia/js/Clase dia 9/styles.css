@@ -1,0 +1,32 @@
+
+html{
+    background-color: rgb(151, 156, 255);
+}
+
+#cabecera{
+    display:flex;
+    justify-content: center;
+    background-color: rgb(152, 244, 244);
+    padding: 2vh;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.botones{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height:100%;
+    margin:5vh;
+}
+
+.botones a{
+    border: solid 1px black;
+    padding: 1.5vh;
+    text-decoration: none;
+}
+
+.botones a:hover{
+    background-color: white;
+    color: black;
+}
