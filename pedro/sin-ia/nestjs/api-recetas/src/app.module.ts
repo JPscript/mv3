@@ -19,6 +19,10 @@ import { RecipesModule } from './recipes/recipes.module';
           username: config.get<string>('DB_USER', 'postgres'),
           password: config.get<string>('DB_PASSWORD', ''),
           database: config.get<string>('DB_NAME', 'api_recetas_db'),
+          // Fuerza UTF-8 en el cliente para evitar texto corrupto con tildes.
+          extra: {
+            client_encoding: config.get<string>('DB_CLIENT_ENCODING', 'UTF8'),
+          },
           autoLoadEntities: true,
           synchronize: false,
           logging: dbLogging,
