@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000 http://127.0.0.1:3000 ws:; img-src 'self' http://localhost:3000 http://127.0.0.1:3000;">
-    <title>Document</title>
+    <title>API Recetas</title>
 </head>
-<body data-page="recipe">
-    <h1>Receta increible !</h1>
-    <div class="recipe-container"></div>
-    <!-- <button id="delete">Suprimir la receta</button>
-    <button id="add-picture-btn">Añadir un imagen</button> -->
+<body data-page="add-picture">
+    <h1>Receta</h1>
+    <h1>Un imagen por favor</h1>
+    <div class="form-container">
+        <form action="add-picture" id="add-picture-form">
+            <input type="file" name="picture" accept="image/*" id="picture">
+            <input class="btn" type="submit" value="Enviar">
+        </form>
+    </div>
     <a href="index.html" class="btn">Volver</a>
-    <a href="delete.html" id="delete" class="btn">Suprimir la receta</a>
-    <a href="add-picture.html" id="add-picture" class="btn">Añadir una imagen a la receta</a>
     <script src="main.js"></script>
 </body>
 </html>
