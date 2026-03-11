@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Receta</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="code.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="topbar">
+            <a class="logo" href="index.html" aria-label="recetalia">
+                <img class="header-logo"
+                    src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\recetalia.svg"
+                    alt="Recetalia" />
+            </a>
+
+            <form class="search" action="" method="get" role="search" aria-label="Buscar recetas">
+                <input type="search" name="q" placeholder="Buscar recetas..." autocomplete="off">
+                <button type="submit" aria-label="Buscar">Buscar</button>
+            </form>
+
+            <nav class="nav-links" aria-label="Navegación principal">
+                <a href="create.html">Crear</a>
+                <a href="read.html">Ver</a>
+                <a href="update.html">Editar</a>
+                <a href="delete.html">Eliminar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page">
+            <section class="hero">
+                <h1 id="cabecera">Actualizar receta</h1>
+                <p class="hero-subtitle">Introduce el ID de la receta y modifica los campos que quieras actualizar.</p>
+
+                <div id="contenedorForm">
+                    <form action="" method="post" class="update-form">
+
+                        <div class="campo">
+                            <label for="id">ID de la receta a actualizar</label>
+                            <input type="number" id="id" name="id" class="cajaTexto" placeholder="ID de tu receta"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="nombre">Nombre de la receta</label>
+                            <input type="text" id="nombre" name="nombre" class="cajaTexto"
+                                placeholder="Nombre de tu receta">
+                        </div>
+
+                        <div class="campo">
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" id="descripcion" name="descripcion" class="cajaTexto"
+                                placeholder="Breve descripción">
+                        </div>
+
+                        <div class="campo">
+                            <label for="ingredientes">Ingredientes</label>
+                            <input type="text" id="ingredientes" name="ingredientes" class="cajaTexto"
+                                placeholder="Lista de ingredientes">
+                        </div>
+
+                        <div class="campo">
+                            <label for="tiempo">Tiempo en minutos</label>
+                            <input type="number" id="tiempo" name="tiempo" class="cajaTexto"
+                                placeholder="Tiempo de preparación">
+                        </div>
+
+                        <div class="campo">
+                            <label for="dificultad">Dificultad</label>
+                            <select name="dificultad" id="dificultad">
+                                <option value="">--Selecciona--</option>
+                                <option value="facil">Fácil</option>
+                                <option value="media">Media</option>
+                                <option value="dificil">Difícil</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="imagen">Imagen (opcional)</label>
+                            <input type="file" id="imagen" name="imagen" class="cajaTexto" accept="image/*" />
+                        </div>
+
+                        <button type="submit" class="boton botonEnviar">Actualizar receta</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Gestiona tus recetas de forma fácil y rápida.</p>
+        <a href="./index.html">Volver a la página principal</a>
+        | &copy; 2026
+        <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank" rel="noreferrer">Pilar
+            Salvador</a>
+    </footer>
+
+</body>
+
+</html>

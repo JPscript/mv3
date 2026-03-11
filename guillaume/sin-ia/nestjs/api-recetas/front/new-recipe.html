@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000 http://127.0.0.1:3000 ws:; img-src 'self' http://localhost:3000 http://127.0.0.1:3000;">
+    <title>API Recetas</title>
+</head>
+<body data-page="new-recipe">
+    <h1>Cuentamelo</h1>
+    <div class="form-container">
+        <form action="add-new" id="new-recipe-form">
+            <input type="text" name="nombre" placeholder="nombre">
+            <input type="text" name="descripcion" placeholder="descripción">
+            <input type="text" name="ingredientes" placeholder="ingredientes">
+            <label for="tiempo_min">Tiempo minimo</label>
+            <input type="number" name="tiempo_min">
+            <select name="dificultad" id="dificultad">
+                <option value="facil">facil</option>
+                <option value="media">media</option>
+                <option value="dificil">dificil</option>
+            </select>
+            <input class="btn" type="submit" value="Enviar">
+        </form>
+    </div>
+    <a href="index.html" class="btn">Volver</a>
+    <script src="main.js"></script>
+</body>
+</html>

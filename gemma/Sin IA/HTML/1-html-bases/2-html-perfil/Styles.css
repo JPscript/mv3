@@ -45,7 +45,7 @@ nav{
 
 h1{
     text-align: center;
-    text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);;
+    text-shadow: 5px 5px 15px #13c9e933;
 }
 
 h3{
@@ -77,35 +77,6 @@ img{
 #correo{
     border: 1px solid grey;
     border-radius: 8px;
-}
-
-#perfil{
-    margin-top: 2vh;
-}
-
-aside{
-    float:right;
-    margin-right: 2vw;
-    background-color:#92c8f1;
-    border-radius: 8px;
-    padding-bottom: 3vh;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
-}
-
-aside a{
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    color: blue;
-}
-
-
-#bd{
-    margin-left: 5vw;
-}
-
-#enlacesAside{
-    margin-top: 1vh
 }
 
 a{

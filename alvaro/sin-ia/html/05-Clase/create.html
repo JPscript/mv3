@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CREATE</title>
 </head>
+
 <body>
     <header>
         <h1>Create Recipe</h1>
@@ -15,11 +17,11 @@
             <label for="name">Name:</label><br>
             <input type="text" name="name" id="name"><br>
             <label for="description">Description:</label><br>
-            <input type="text" name="description" id="description"><br>
+            <textarea name="description" id="description" style="resize: none;"></textarea><br>
             <label for="ingredients">Ingredients:</label><br>
             <input type="text" name="ingredients" id="ingredients"><br>
-            <label for="time">Time:</label><br>
-            <input type="number" name="time" id="time"><br>
+            <label for="time">Time (in minutes):</label><br>
+            <input type="number" name="time" id="time" min="1"><br>
             <label for="difficulty">Difficulty:</label><br>
 
             <select name="difficulty" id="difficulty">
@@ -28,14 +30,17 @@
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
             </select><br>
+
+            <label for="image">Select image:</label><br>
+            <input type="file" name="image" id="image"><br>
+
             <button type="submit">Submit</button>
         </form>
 
-        <button>
-            <a href="index.html">
-                Back
-            </a>
-        </button>
+        <a href="index.html">
+            <button>Back</button>
+        </a>
     </main>
 </body>
+
 </html>

@@ -23,7 +23,7 @@
 				// Tomamos el valor del campo 'tiempo_min'.
 				tiempo_min: parseInt(form.tiempo_min.value),
 				// Tomamos el valor del campo 'dificultad'.
-				dificultad: form.dificultad.value,
+				dificultad: form.dificultad.value
 				
 			};
 
@@ -34,7 +34,7 @@
 				body: JSON.stringify(receta)
 			})
 			// Cuando la API responde, convertimos la respuesta a JSON.
-			.then(async response => {
+			.then(async function(response)  {
 				const data = await response.json();
 				// Si la respuesta es exitosa (status 2xx)
 				if (response.ok) {
