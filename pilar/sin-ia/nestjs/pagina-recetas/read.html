@@ -1,29 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tarjetas desde API</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <script src="code.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ver recetas | Recetalia</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="code.js"></script>
 
 </head>
-<body>
-  <header class="top">
-    <h1>Tarjetas dinámicas con API</h1>
-    <p>Ejercicio práctico con la Api de Harry Potter</P> </p>
-  </header>
 
-  <main class="layout">
-    <p id="info">Cargando datos...</p>
-    <section id="cards" class="cards"></section>
-  </main>
-   <footer>
-            <p><a href="#top" style="color:#ffffff; text-decoration: none;">↑ Volver arriba</a></p>
-            <p>&copy; 2026 <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank">Pilar Salvador</a></p>
+<body>
+
+    <header>
+        <div class="topbar">
+            <a class="logo" href="index.html" aria-label="recetalia">
+                <img class="header-logo"
+                    src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\recetalia.svg"
+                    alt="Recetalia" />
+            </a>
+
+            <form class="search" action="" method="get" role="search" aria-label="Buscar recetas">
+                <input type="search" name="q" placeholder="Buscar recetas..." autocomplete="off">
+                <button type="submit" aria-label="Buscar">Buscar</button>
+            </form>
+
+            <nav class="nav-links" aria-label="Navegación principal">
+                <a href="create.html">Crear</a>
+                <a href="read.html">Ver</a>
+                <a href="update.html">Editar</a>
+                <a href="delete.html">Eliminar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page">
+
+            <h1>Ver recetas</h1>
+
+            <p>
+                Aquí puedes consultar todas las recetas que has guardado en tu recetario digital. Explora tus creaciones
+                culinarias y encuentra inspiración para tu próxima comida.
+            </p>
+
+            <div id="cards" class="cards">
+                Cargando datos...
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>Gestiona tus recetas de forma fácil y rápida.</p>
+
+        <a href="./index.html">Volver a la página principal</a>
+        | © 2026
+
+        <a href="https://www.linkedin.com/in/pilar-salvador-arenas" target="_blank" rel="noreferrer">
+            Pilar Salvador </a>
+
     </footer>
 
-  
 </body>
-</html>
 
+</html>

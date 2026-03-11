@@ -1,89 +1,94 @@
 <!DOCTYPE html>
+
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Recetas</title>
+    <title>Recetalia | Recetario</title>
+
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    
-    <svg style="display: none;">
-        <symbol id="icon-add" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v14" />
-            <path d="M5 12h14" />
-        </symbol>
-
-        <symbol id="icon-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="6" width="16" height="12" rx="2" ry="2" />
-            <path d="M8 10h8" />
-            <path d="M8 14h6" />
-        </symbol>
-
-        <symbol id="icon-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20h9" />
-            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19.5 3 21l1.5-4L16.5 3.5z" />
-        </symbol>
-
-        <symbol id="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 6h18" />
-            <path d="M8 6v12" />
-            <path d="M16 6v12" />
-            <path d="M5 6l1 14h12l1-14" />
-            <path d="M9 6l1-2h4l1 2" />
-        </symbol>
-    </svg>
 </head>
 
 <body>
 
     <header>
-        <h1 id="cabecera">¿Qué deseas hacer?</h1>
+        <div class="topbar">
+            <a class="logo" href="index.html" aria-label="recetalia">
+                <img class="header-logo"
+                    src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\recetalia.svg"
+                    alt="Recetalia" />
+            </a>
+
+            <form class="search" action="" method="get" role="search" aria-label="Buscar recetas">
+                <input type="search" name="q" placeholder="Buscar recetas..." autocomplete="off">
+                <button type="submit" aria-label="Buscar">Buscar</button>
+            </form>
+
+            <nav class="nav-links" aria-label="Navegación principal">
+                <a href="create.html">Crear</a>
+                <a href="read.html">Ver</a>
+                <a href="update.html">Editar</a>
+                <a href="delete.html">Eliminar</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section class="grid" aria-label="Opciones CRUD">
-            <a class="card" href="create.html">
-                <svg class="icono" aria-hidden="true">
-                    <use href="#icon-add" />
-                </svg>
-                <span>Crear receta</span>
-            </a>
 
-            <a class="card" href="read.html">
-                <svg class="icono" aria-hidden="true">
-                    <use href="#icon-list" />
-                </svg>
-                <span>Mostrar recetas</span>
-            </a>
+        <div class="page">
 
-            <a class="card" href="update.html">
-                <svg class="icono" aria-hidden="true">
-                    <use href="#icon-edit" />
-                </svg>
-                <span>Actualizar receta</span>
-            </a>
+            <h1>Tu recetario digital</h1>
 
-            <a class="card" href="delete.html">
-                <svg class="icono" aria-hidden="true">
-                    <use href="#icon-trash" />
-                </svg>
-                <span>Eliminar receta</span>
-            </a>
-        </section>
+            <p>
+                Gestiona tus recetas fácilmente. Crea nuevas recetas,
+                consulta las que ya tienes guardadas o modifícalas cuando quieras.
+            </p>
+            <section class="grid" aria-label="OpcionesCRUD">
+
+                <a class="card" href="create.html">
+                    <div class="card-icon-container">
+                        <img src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\añadir.svg" alt="Crear" class="icono-img">
+                    </div>
+                    <span>Crear receta</span>
+                </a>
+
+                <a class="card" href="read.html">
+                    <div class="card-icon-container">
+                        <img src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\ver.svg" alt="Ver" class="icono-img">
+                    </div>
+                    <span>Mostrar recetas</span>
+                </a>
+
+                <a class="card" href="update.html">
+                    <div class="card-icon-container">
+                        <img src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\editar.svg" alt="Actualizar" class="icono-img">
+                    </div>
+                    <span>Actualizar receta</span>
+                </a>
+
+                <a class="card" href="delete.html">
+                    <div class="card-icon-container">
+                        <img src="C:\Users\pilar\Desktop\Master programación y desarrollo de aplicaciones\Desarrollo de sofware\Modulo 7 Fronted\mv3\pilar\assets\borrar.svg" alt="Eliminar" class="icono-img">
+                    </div>
+                    <span>Eliminar receta</span>
+                </a>
+
+            </section>
+
+        </div>
+
     </main>
 
     <footer>
-        <p>Gestiona tus recetas de forma fácil y rápida.</p>
-        <a href="./index.html">Volver a la página principal</a>
-        | &copy; 2026
-        <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank" rel="noreferrer">Pilar
-            Salvador</a>
+        &copy; 2026
+        <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank" rel="noreferrer">
+            Pilar Salvador
+        </a>
+
     </footer>
+
 </body>
 
 </html>

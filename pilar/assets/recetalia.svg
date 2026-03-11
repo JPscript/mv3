@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120" fill="none">
+  <!-- Fondo transparente -->
+  <rect width="400" height="120" fill="none"></rect>
+
+  <!-- Icono: cuchara estilizada -->
+  <path d="M40 20c4 0 8 6 8 12s-4 12-8 12-8-6-8-12 4-12 8-12zM40 44v40" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path>
+
+  <!-- Nombre Recetalia en blanco -->
+  <text x="90" y="80" font-family="Arial, sans-serif" font-size="48" fill="#FFFFFF" font-weight="bold">
+    Recetalia
+  </text>
+</svg>
