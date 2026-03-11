@@ -1,14 +1,15 @@
 html{
-    background-color: rgb(151, 156, 255);
+    background-color: #F8EDEB;
 }
 
 #cabecera{
     display:flex;
     justify-content: center;
-    background-color: rgb(152, 244, 244);
+    background-color: #F7CAC9;
     padding: 2vh;
     font-size: 1.5rem;
     font-weight: bold;
+    box-shadow: 0px 0px 30px #333;
 }
 
 .botones{
@@ -23,10 +24,13 @@ html{
     border: solid 1px black;
     padding: 1.5vh;
     text-decoration: none;
-    color: blue;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px #333;
+    background-color: #F7CAC9;
 }
 
 .botones a:hover{
-    background-color: white;
+    background-color: #FFE5B4;
     color: black;
 }
