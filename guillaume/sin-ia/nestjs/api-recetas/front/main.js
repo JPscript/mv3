@@ -160,7 +160,7 @@ async function saveRecipe(formData) {
                 }),
             });
             alert('Receta creada con éxito');
-            window.location.href = 'recipes.html';
+            window.location.href = 'index.html';
         } catch (error) {
             console.error(error);
         }
@@ -208,7 +208,7 @@ async function putRecipe(recipeId, formData) {
           dificultad: formData.get('dificultad'),
         }),
       });
-      window.location.href = 'recipes.html';
+      window.location.href = 'index.html';
 
     } catch (error) {
       console.error(error);
