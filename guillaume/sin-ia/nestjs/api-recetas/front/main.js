@@ -159,8 +159,18 @@ async function saveRecipe(formData) {
                     dificultad: formData.get('dificultad'),
                 }),
             });
-            alert('Receta creada con éxito');
-            window.location.href = 'index.html';
+            // const imageData = new formData();
+            // imageData.append('image', formData.get('image'));
+
+            try {
+              const recipe = await r.json();
+              const t = await fetch(`${APIUrl}recipes/${recipe.id}/image`, {
+                  method: 'POST',
+                  body: formData,
+              });
+            } catch(error) {
+              console.error(error);
+            }
         } catch (error) {
             console.error(error);
         }
