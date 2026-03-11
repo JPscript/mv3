@@ -1,0 +1,16 @@
+.crud-button {
+    width: 25vh;
+    height: 25vh;
+    border: 0;
+    border-radius: 8px;
+    background-color: rgb(163, 231, 208);
+    cursor: pointer;
+}
+
+.crud-main {
+    height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
