@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         case 'add-picture':
             setRecipePicture();
             break;
+        case 'update-recipe':
+          updateRecipeForm();
     }
 });
 
@@ -76,11 +78,6 @@ async function recipes() {
 
 // GET por id
 async function recipe(id) {
-    // document.getElementById('delete').addEventListener('click', (e) => {
-    //     e.preventDefault(); // empêche le rechargement de la page
-    //     alert('hello')
-    // });
-
     try {
         const r = await fetch(`${APIUrl}recipes/${id}`, { method: "GET" });
         const recipe = await r.json();
@@ -93,7 +90,8 @@ async function recipe(id) {
         delete_btn.href = `delete.html?id=${id}`;
         const add_picture_btn = document.getElementById('add-picture');
         add_picture_btn.href = `add-picture.html?id=${id}`;
-
+        const update_picture_btn = document.getElementById('update-recipe');
+        update_picture_btn.href = `update-recipe.html?id=${id}`;
     } catch (error) {
       console.error(error);
     }
@@ -163,16 +161,46 @@ async function saveRecipe(formData) {
         }
 }
 
+async function updateRecipeForm() {
+  // populate form
+  const recipeId = new URL(window.location.href).searchParams.get('id');
+  try {
+        const r = await fetch(`${APIUrl}recipes/${recipeId}`, { method: "GET" });
+        const recipe = await r.json();
+        const nameInput = document.getElementsByName('nombre')[0];
+        nameInput.value = recipe.nombre;
+        const descriptionInput = document.getElementsByName('descripcion')[0];
+        descriptionInput.value = recipe.descripcion;
+        const ingredientesInput = document.getElementsByName('ingredientes')[0];
+        ingredientesInput.value = recipe.ingredientes;
+        const tiempoInput = document.getElementsByName('tiempo_min')[0];
+        tiempoInput.value = recipe.tiempo_min;
+        const dificultadInput = document.getElementsByName('dificultad')[0];
+        dificultadInput.value = recipe.dificultad;
+
+        document.getElementById('update-recipe-form').addEventListener('submit', (e) => {
+          e.preventDefault(); // empêche le rechargement de la page
+
+          const data = new FormData(e.target);
+          patchRecipe(recipeId, data);
+        });
+  } catch (error) {
+        console.error(error);
+  }
+}
+
 // PUT (reemplazo completo)
-async function putRecipe(params) {
+async function putRecipe(recipeId, formData) {
     try {
-      const r = await fetch(`${baseUrl}/1`, {
+      const r = await fetch(`${APIUrl}/1`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: "Item reemplazado",
-          description: "PUT completo",
-          active: false,
+          nombre: formData.get('nombre'),
+          ingredientes: formData.get('ingredientes'),
+          descripcion: formData.get('descripcion'),
+          tiempo_min: parseInt(formData.get('tiempo_min')),
+          dificultad: formData.get('dificultad'),
         }),
       });
       console.log(await r.json());
@@ -183,13 +211,17 @@ async function putRecipe(params) {
 
 
 // PATCH (actualizacion parcial)
-async function patchRecipe(params) {
+async function patchRecipe(recipeId, formData) {
     try {
-      const r = await fetch(`${APIUrl}/1`, {
+      const r = await fetch(`${APIUrl}recipes/${recipeId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          description: "Cambio parcial con PATCH",
+          nombre: formData.get('nombre'),
+          ingredientes: formData.get('ingredientes'),
+          descripcion: formData.get('descripcion'),
+          tiempo_min: parseInt(formData.get('tiempo_min')),
+          dificultad: formData.get('dificultad'),
         }),
       });
       console.log(await r.json());
