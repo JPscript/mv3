@@ -247,7 +247,7 @@ async function deleteRecipeById(event) {
     if (deleteResponse.ok) {
       alert('Receta eliminada correctamente.');
       form.reset();
-      window.location.href = 'read.html'; // Redirigir para ver los cambios
+      window.location.href = 'read.html'; 
     } else {
       alert('Error al intentar eliminar la receta del servidor.');
     }

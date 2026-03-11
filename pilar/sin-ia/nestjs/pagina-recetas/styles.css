@@ -85,9 +85,10 @@ header {
     display: flex;
     gap: 0.75rem;
 }
+
 .search {
     width: 100%;
-    max-width: 500px;       
+    max-width: 500px;
     display: flex;
     gap: 0.35rem;
 }
@@ -194,6 +195,7 @@ main {
 }
 
 @media (max-width: 640px) {
+
     .grid,
     .cards {
         grid-template-columns: 1fr;
@@ -274,14 +276,14 @@ form label {
 select {
     padding: 0.9rem 0.85rem;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.15);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     font-size: 0.95rem;
     background: #fff;
     transition: all 0.2s ease;
 }
 
 .cajaTexto::placeholder {
-    color: rgba(0,0,0,0.35);
+    color: rgba(0, 0, 0, 0.35);
 }
 
 .cajaTexto:focus,
@@ -307,7 +309,7 @@ select:focus {
 
 .boton:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
 }
 
 /* BOTON (variante) */
@@ -343,6 +345,7 @@ footer a:hover {
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
