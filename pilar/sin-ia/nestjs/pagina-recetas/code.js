@@ -3,8 +3,7 @@ const API_URL = "http://localhost:3000/recipes";
 // Carga los datos de la API y los muestra en la página
 async function loadData() {
   const cardsContainer = document.getElementById("cards");
-  if (!cardsContainer) return; // Solo cuando estamos en read.html
-
+  if (!cardsContainer) return; 
   try {
     let response = await fetch(API_URL);
     let data = await response.json();
