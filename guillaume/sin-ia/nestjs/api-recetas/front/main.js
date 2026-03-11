@@ -86,12 +86,17 @@ async function recipe(id) {
         let link = false;
         populateRecipe(main_container, recipe, link)
         // add id to buttons links
-        const delete_btn = document.getElementById('delete');
+        const delete_btn = document.getElementById('delete-recipe');
         delete_btn.href = `delete.html?id=${id}`;
         const add_picture_btn = document.getElementById('add-picture');
         add_picture_btn.href = `add-picture.html?id=${id}`;
         const update_picture_btn = document.getElementById('update-recipe');
         update_picture_btn.href = `update-recipe.html?id=${id}`;
+
+        delete_btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          deleteRecipe(id);
+        })
     } catch (error) {
       console.error(error);
     }
@@ -203,7 +208,8 @@ async function putRecipe(recipeId, formData) {
           dificultad: formData.get('dificultad'),
         }),
       });
-      console.log(await r.json());
+      window.location.href = 'recipes.html';
+
     } catch (error) {
       console.error(error);
     }
@@ -224,17 +230,18 @@ async function patchRecipe(recipeId, formData) {
           dificultad: formData.get('dificultad'),
         }),
       });
-      console.log(await r.json());
+      window.location.href = 'index.html';
     } catch (error) {
       console.error(error);
     }
 }
 
 // DELETE
-async function deleteRecipe(params) {
+async function deleteRecipe(id) {
     try {
-      const r = await fetch(`${baseUrl}/1`, { method: "DELETE" });
+      const r = await fetch(`${APIUrl}recipes/${id}`, { method: "DELETE" });
       console.log(await r.json());
+      window.location.href = 'index.html';
     } catch (error) {
       console.error(error);
     }
