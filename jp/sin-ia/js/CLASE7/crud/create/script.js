@@ -1,6 +1,7 @@
 function data() {
     document.getElementById("create-form").addEventListener("submit", async (e) => {
         e.preventDefault();
+        console.log("event: ", e)
         const formData = new FormData(e.target)
         console.log("nombre: ", formData.get("nombre"))
         console.log("descripcion: ", formData.get("descripcion"))
