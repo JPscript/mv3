@@ -12,5 +12,33 @@
 
     <input type="text" id="buscar-receta" placeholder="Buscar por nombre...">
     <button id="enviar">Buscar</button>
+    <div id="resultado"></div>
+    <form id="formulario-update">
+        <label for="nombre">Nombre:</label>
+
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="descripcion">Descripcion</label>
+        <input type="text" id="descripcion" name="descripcion"></input>
+
+        <label for="ingredientes">Ingredientes</label>
+        <input type="text" id="ingredientes" name="ingredientes"></input>
+
+        <label for="tiempo">Tiempo (minutos)</label>
+        <input type="number" id="tiempo_min" name="tiempo_min" min="1" step="1" required>
+
+        <label for="dificultad">Dificultad:</label>
+        <select id="dificultad" name="dificultad" required>
+            <option value="facil">Fácil</option>
+            <option value="media">Media</option>
+            <option value="dificil">Difícil</option>
+        </select>
+
+        
+
+        <button type="submit">Actualizar receta</button>
+    </form>
+    <div id="formulario-actualizar"></div>
+    <script src= "../../js/CLASE5/update.js"></script>
 </body>
 </html>
