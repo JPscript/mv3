@@ -7,7 +7,7 @@
         <title>Crear receta</title>
     </head>
     <body>
-        <h1>Crear nueva receta:</h1>
+        <h1>Nueva receta:</h1>
         <p>Rellena el siguiente formulario para crear una nueva receta:</p>
         <form enctype="multipart/form-data">
             <label for="nombre">Nombre de la receta:</label><br>
@@ -32,7 +32,9 @@
             <label for="imagen">Imagen de la receta:</label><br>
             <input type="file" id="imagen" name="imagen" accept="image/*"><br><br>
 
-            <button type="submit">Crear receta receta</button>
+            <button type="submit">Crear nueva receta</button>
         </form>
+        <button onclick="location.href='../main/mainRecetas.html'">Volver</button>
+        <script src="funcionesCreateRecipe.js"></script>
     </body>
 </html>

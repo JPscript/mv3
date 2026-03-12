@@ -36,13 +36,13 @@
 			// Cuando la API responde, convertimos la respuesta a JSON.
 			.then(async function(response)  {
 				const data = await response.json();
-				// Si la respuesta es exitosa (status 2xx)
+				// Si la respuesta es exitosa 
 				if (response.ok) {
 					let mensaje = document.createElement('p');
 					mensaje.textContent = 'Receta creada correctamente.';
 					form.appendChild(mensaje);
 					form.reset();
-					setTimeout(() => mensaje.remove(), 3000);
+					setTimeout(function() { mensaje.remove(); }, 3000);
 				} else {
 					// Si hay error, mostramos el mensaje de la API
 					let mensaje = document.createElement('p');
@@ -52,7 +52,7 @@
 				}
 			})
 			// Si ocurre un error de red, lo mostramos en consola y al usuario.
-			.catch(error => {
+			.catch(function(error) {
 				console.error(error);
 				let mensaje = document.createElement('p');
 				mensaje.textContent = 'Error de red al crear la receta.';

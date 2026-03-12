@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../../css/CLASE8/styles.css" />
+    <script src="../../js/CLASE8/create.js" defer></script>
+  </head>
+
+  <body>
+    <section class="hero">
+      <h1>Introduce tu nueva receta</h1>
+      <form id="formulario">
+        <label for="nombre">Nombre de la receta:</label><br />
+        <input type="text" id="nombre" name="nombre" /><br />
+        <label for="descripcion">Breve descripcion:</label><br />
+        <textarea type="text" id="descripcion" name="descripcion"></textarea>
+        <label for="ingredientes">Ingredientes:</label><br />
+        <input type="text" id="ingredientes" name="ingredientes" />
+        <label for="tiempo_min">Tiempo de cocina en minutos:</label><br />
+        <input type="number" id="tiempo_min" min="1" />
+        <label for="dificultad">¿Dificultad?</label><br />
+        <select id="dificultad" name="dificultad">
+          <option value="facil">Facil</option>
+          <option value="media">Media</option>
+          <option value="dificil">Dificil</option>
+        </select>
+
+        <input type="submit" value="Submit" />
+      </form>
+    </section>
+  </body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000 http://127.0.0.1:3000 ws:; img-src 'self' http://localhost:3000 http://127.0.0.1:3000;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000 http://127.0.0.1:3000 ws:; img-src 'self' data: http://localhost:3000 http://127.0.0.1:3000;">    <link rel="stylesheet" href="style.css">
     <title>API Recetas</title>
 </head>
 <body data-page="new-recipe">
@@ -20,6 +20,7 @@
                 <option value="media">media</option>
                 <option value="dificil">dificil</option>
             </select>
+            <input type="file" name="image" accept="image/*" id="picture">
             <input class="btn" type="submit" value="Enviar">
         </form>
     </div>
