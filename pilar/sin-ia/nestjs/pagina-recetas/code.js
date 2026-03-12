@@ -42,7 +42,7 @@ async function loadData() {
 
 // Inicializa comportamientos según la página actual
 document.addEventListener('DOMContentLoaded', () => {
-  loadData();
+  loadData(); // Ejecuta este código cuando todo el HTML de la página esté cargado.
 
   const createForm = document.querySelector('form.create-form');
   if (createForm) createForm.addEventListener('submit', createRecipe);
