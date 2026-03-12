@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio API</title>
+    <link rel="stylesheet" href="../../css/clase5/updateStyless.css">
+</head>
+<body>
+<h1>ACTUALIZAR RECETA</h1>
+
+<section id="formulario">
+
+    <div>
+            <form id="actualizarReceta" enctype="multipart/form-data">
+  <label for="fname">Nombre:</label><br>
+  <input type="text" id="nombre" name="nombre" placeholder="Nombre de la receta"><br><br>
+  <label for="descripcion">Descripción:</label><br>
+  <input type="text" id="descripcion" name="descripcion" placeholder="Descripción de la receta"><br><br>
+  <label for="ingredientes">Ingredientes:</label><br>
+  <input type="text" id="ingredientes" name="ingredientes" placeholder="Ingredientes"><br><br>
+  <label for="dificultad">Dificultad:</label><br>
+  <input type="text" id="dificultad" name="dificultad" placeholder="facil, media o dificil"><br><br>
+  <label for="tiempo">Tiempo (minutos):</label><br>
+  <input type="number" id="tiempo" name="tiempo" min="0" placeholder="Tiempo necesario"><br><br>
+  <label for="file">Imagen:</label><br>
+  <input type="file" id="file" name="file" accept="image/*"><br><br>
+  <input type="submit" id="crear" value="Crear">
+</form> 
+         </div>
+
+</section>
+
+
+<script src="../../js/clase5/update.js"></script>
+
+</body>
+</html>

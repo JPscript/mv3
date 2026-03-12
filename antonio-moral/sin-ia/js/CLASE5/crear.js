@@ -17,7 +17,7 @@ async function crearReceta(event) {
   const bodyData = { nombre, descripcion, ingredientes, dificultad, tiempo_min };
 
   try {
-    // 8Crear receta (JSON)
+    // Crear receta (JSON)
     const r = await fetch(baseUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

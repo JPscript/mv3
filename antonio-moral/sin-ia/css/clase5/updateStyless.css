@@ -1,0 +1,62 @@
+:root {
+  --pac-yellow: #ffd700;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #0087ff;
+  --ghost-orange: #ff9800;
+  --maze-dark: #1a1a2e;
+  --sable-verde: #00ff41;
+
+}
+ 
+ h1 {
+  font-family: verdana;
+  font-size: 30px;
+  text-align: center;
+}
+
+form {
+border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  width: 300px;
+  padding: 50px;
+  margin: 20px;
+  justify-content: center;
+    width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
+form:hover {
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);
+}
+
+/* Botón psicodélico */
+#formulario input[type="submit"] {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+/* Hover psicodélico del botón */
+#formulario input[type="submit"]:hover {
+  border-color: var(--pac-orange);
+  box-shadow: 
+      0 0 10px var(--pac-yellow),
+      0 0 20px var(--ghost-pink),
+      0 0 30px var(--ghost-blue),
+      0 0 40px var(--ghost-orange);
+  color: var(--pac-yellow);
+  transform: scale(1.05);
+}
