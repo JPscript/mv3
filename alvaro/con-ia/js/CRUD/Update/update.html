@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update receta</title>
+  <link rel="stylesheet" href="../shared/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Update receta</h1>
+      <p>Selecciona receta, precarga y guarda con PATCH.</p>
+    </header>
+
+    <nav class="nav">
+      <a href="../Home/index.html">Home</a>
+      <a href="../Create/create.html">Create</a>
+      <a href="../Read/read.html">Read</a>
+      <a href="../Delete/delete.html">Delete</a>
+    </nav>
+
+    <form id="updateForm">
+      <label for="recipeSelect">Receta *</label>
+      <select id="recipeSelect" name="recipeSelect" required>
+        <option value="">Selecciona una receta</option>
+      </select>
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" />
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion"></textarea>
+
+      <label for="ingredientes">Ingredientes</label>
+      <textarea id="ingredientes" name="ingredientes"></textarea>
+
+      <label for="tiempo_min">Tiempo (min)</label>
+      <input id="tiempo_min" name="tiempo_min" type="number" min="1" step="1" />
+
+      <label for="dificultad">Dificultad</label>
+      <select id="dificultad" name="dificultad">
+        <option value="">Sin cambios</option>
+        <option value="facil">Fácil</option>
+        <option value="media">Media</option>
+        <option value="dificil">Difícil</option>
+      </select>
+
+      <label for="image">Imagen (archivo)</label>
+      <input id="image" name="image" type="file" accept="image/*" />
+
+      <div class="actions">
+        <button type="submit">Guardar cambios</button>
+        <button type="button" id="reloadBtn" class="secondary">Recargar lista</button>
+      </div>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+
+  <script src="../shared/js/crud-core.js"></script>
+  <script src="./update.js"></script>
+</body>
+</html>

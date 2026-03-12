@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete receta</title>
+  <link rel="stylesheet" href="../shared/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Delete receta</h1>
+      <p>Borrado con confirmación explícita.</p>
+    </header>
+
+    <nav class="nav">
+      <a href="../Home/index.html">Home</a>
+      <a href="../Create/create.html">Create</a>
+      <a href="../Read/read.html">Read</a>
+      <a href="../Update/update.html">Update</a>
+    </nav>
+
+    <div class="actions">
+      <button id="reloadBtn" class="secondary">Recargar lista</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <section id="deleteGrid" class="grid"></section>
+  </div>
+
+  <script src="../shared/js/crud-core.js"></script>
+  <script src="./delete.js"></script>
+</body>
+</html>
