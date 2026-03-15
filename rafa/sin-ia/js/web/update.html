@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>API recetas</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+</head>
+
+<body>
+  <header class=top>
+    <h1>UPDATE</h1>
+  </header>
+
+  <main class="layout">
+    <div id="read" class="read"></div>
+
+    <div id="modal" class="modal">
+      <div id="modal-content">
+        <span class="close">&times;</span>
+        <div id="formulario">
+          <label for="nombre">Nombre</label><br>
+          <input type="text" id="nombre" name="nombre"><br>
+          <label for="descripcion">Descripción</label><br>
+          <textarea name="descripcion" id="descripcion" cols="50" rows="5"></textarea><br>
+          <label for="ingredientes">Ingredientes</label><br>
+          <textarea name="ingredientes" id="ingredientes" cols="50" rows="5"></textarea><br>
+          <label for="tiempo">Tiempo</label><br>
+          <input type="number" id="tiempo" name="tiempo" min="1"><br>
+          <label for="dificultad">Dificultad</label><br>
+          <input type="text" id="dificultad" name="dificultad"><br>
+          <label for="image">Imagen</label><br>
+          <input type="file" id="image" name="image"><br>
+          <input type="submit"><br>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+</body>
+<script src="script_update.js" defer></script>
+
+</html>

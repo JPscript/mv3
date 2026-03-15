@@ -1,0 +1,151 @@
+html {
+    background-color: rgb(218, 220, 144);
+    font-family: 'Times New Roman', Times, serif;
+
+    .top {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 70px;
+        background-color: rgb(61, 139, 88);
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+
+        h1 {
+            color: aliceblue;
+            font-size: 50x;
+            text-align: center;
+        }
+    }
+
+    .layout {
+        width: min(1100px);
+        margin: 50px auto 50px;
+        background-color: rgb(217, 255, 253);
+        border-radius: 10px;
+
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+        padding: 20px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .menu .MenuCard {
+        padding: .8rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(25, 52, 27, 0.08);
+        word-wrap: break-word;
+
+        h3 {
+            text-align: center;
+            font-size: 19px;
+            text-transform: capitalize;
+            color: rgb(31, 46, 28);
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            text-align: justify;
+            text-transform: capitalize;
+            color: rgb(31, 31, 68);
+        }
+    }
+
+    .read {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .read .readCard {
+        padding: .8rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(25, 52, 27, 0.08);
+        word-wrap: break-word;
+
+        h3 {
+            text-align: center;
+            font-size: 19px;
+            text-transform: capitalize;
+            color: rgb(31, 46, 28);
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            text-align: justify;
+            text-transform: capitalize;
+            color: rgb(31, 31, 68);
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(44, 126, 100);
+        }
+    }
+
+    .read1 .readOneCard {
+        background: #fff;
+        border-radius: 12px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+        h3 {
+            text-align: left;
+            padding: 20px;
+            font-size: 30px;
+            text-transform: capitalize;
+            color: rgb(37, 72, 30);
+        }
+
+        p,
+        blockquote {
+            text-align: center;
+            font-size: 16px;
+            color: rgb(31, 31, 68);
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 12px;
+            width: 500px;
+            object-fit: cover;
+        }
+    }
+
+    .modal {
+        display: flex;
+        justify-content: center;
+        padding-top: 100px;
+        overflow: auto;
+        background-color: beige;
+    }
+
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
