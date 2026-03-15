@@ -16,9 +16,11 @@
     <div id="read" class="read"></div>
 
     <div id="modal" class="modal">
-      <div id="modal-content">
-        <span class="close">&times;</span>
-        <div id="formulario">
+      <div id="modal-content" class="modal-content">
+        <form id="formulario">
+          <span class="close">&times;</span>
+          <label for="id">Id</label><br>
+          <input type="text" id="id" name="id"><br>
           <label for="nombre">Nombre</label><br>
           <input type="text" id="nombre" name="nombre"><br>
           <label for="descripcion">Descripción</label><br>
@@ -29,15 +31,14 @@
           <input type="number" id="tiempo" name="tiempo" min="1"><br>
           <label for="dificultad">Dificultad</label><br>
           <input type="text" id="dificultad" name="dificultad"><br>
-          <label for="image">Imagen</label><br>
-          <input type="file" id="image" name="image"><br>
-          <input type="submit"><br>
-        </div>
+          <!--          <label for="image">Imagen</label><br>
+          <input type="file" id="image" name="image"><br>-->
+          <input type="submit">
+        </form>
       </div>
     </div>
+
   </main>
-
-
 </body>
 <script src="script_update.js" defer></script>
 
