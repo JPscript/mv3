@@ -1,4 +1,4 @@
-const { createRecipe, uploadRecipeImage, clearStatus, setStatus, isCorsError, normalizeRecipe } = window.CRUD;
+const { createRecipe, uploadRecipeImage, clearStatus, setStatus, isCorsError, normalizeRecipe } = globalThis.CRUD;
 
 const form = document.querySelector('#createForm');
 const statusBox = document.querySelector('#status');
@@ -17,12 +17,12 @@ form.addEventListener('submit', async (event) => {
   const tiempo_min = Number(tiempoMinRaw);
 
   if (!nombre || !descripcion || !ingredientes || !dificultad || !Number.isFinite(tiempo_min) || tiempo_min <= 0) {
-    setStatus(statusBox, 'Completa todos los campos obligatorios.', 'error');
+    setStatus(statusBox, 'Please complete all required fields.', 'error');
     return;
   }
 
   try {
-    setStatus(statusBox, 'Creando receta...', 'info');
+    setStatus(statusBox, 'Creating recipe...', 'info');
     const created = await createRecipe({
       nombre,
       descripcion,
@@ -33,17 +33,17 @@ form.addEventListener('submit', async (event) => {
 
     const createdId = normalizeRecipe(created).id;
     if (imageFile && createdId !== null) {
-      setStatus(statusBox, 'Subiendo imagen...', 'info');
+      setStatus(statusBox, 'Uploading image...', 'info');
       await uploadRecipeImage(createdId, imageFile);
     }
 
     form.reset();
-    setStatus(statusBox, 'Receta creada correctamente.', 'success');
+    setStatus(statusBox, 'Recipe created successfully.', 'success');
   } catch (error) {
     if (isCorsError(error)) {
-      setStatus(statusBox, 'No se pudo conectar. Si abriste con Alt+B, revisa CORS en backend para Origin null.', 'error');
+      setStatus(statusBox, 'Could not connect. If opened with Alt+B, check backend CORS for Origin null.', 'error');
       return;
     }
-    setStatus(statusBox, `Error al crear: ${error.message}`, 'error');
+    setStatus(statusBox, `Create error: ${error.message}`, 'error');
   }
 });

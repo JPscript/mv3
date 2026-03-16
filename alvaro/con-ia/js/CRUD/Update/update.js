@@ -29,7 +29,7 @@ function fillForm(selectedId) {
 
 async function loadRecipes() {
   try {
-    setStatus(statusBox, 'Cargando recetas...', 'info');
+    setStatus(statusBox, 'Loading recipes...', 'info');
     const recipes = await getRecipes();
     const recipePairs = recipes
       .map((recipe) => ({ normalized: normalizeRecipe(recipe), original: recipe }))
@@ -38,21 +38,21 @@ async function loadRecipes() {
 
     recipeMap = new Map(recipePairs.map((pair) => [String(pair.normalized.id), pair.original]));
 
-    recipeSelect.innerHTML = '<option value="">Selecciona una receta</option>';
+    recipeSelect.innerHTML = '<option value="">Select a recipe</option>';
     recipeSelect.insertAdjacentHTML('beforeend', normalizedRecipes.map(recipeOptionTemplate).join(''));
 
     if (!normalizedRecipes.length) {
-      setStatus(statusBox, 'No hay recetas disponibles para editar.', 'info');
+      setStatus(statusBox, 'No recipes available to edit.', 'info');
       return;
     }
 
-    setStatus(statusBox, `Recetas disponibles: ${normalizedRecipes.length}`, 'success');
+    setStatus(statusBox, `Available recipes: ${normalizedRecipes.length}`, 'success');
   } catch (error) {
     if (isCorsError(error)) {
-      setStatus(statusBox, 'No se pudo conectar. Si abriste con Alt+B, revisa CORS en backend para Origin null.', 'error');
+      setStatus(statusBox, 'Could not connect. If opened with Alt+B, check backend CORS for Origin null.', 'error');
       return;
     }
-    setStatus(statusBox, `Error al cargar recetas: ${error.message}`, 'error');
+    setStatus(statusBox, `Recipe load error: ${error.message}`, 'error');
   }
 }
 
@@ -65,7 +65,7 @@ form.addEventListener('submit', async (event) => {
 
   const id = recipeSelect.value;
   if (!id || !currentRecipe) {
-    setStatus(statusBox, 'Selecciona una receta para editar.', 'error');
+    setStatus(statusBox, 'Select a recipe to edit.', 'error');
     return;
   }
 
@@ -85,7 +85,7 @@ form.addEventListener('submit', async (event) => {
   if (tiempoMinRaw !== String(currentTiempo)) {
     const tiempoParsed = Number(tiempoMinRaw);
     if (!Number.isFinite(tiempoParsed) || tiempoParsed <= 0) {
-      setStatus(statusBox, 'tiempo_min debe ser un número mayor que 0.', 'error');
+      setStatus(statusBox, 'tiempo_min must be a number greater than 0.', 'error');
       return;
     }
     payload.tiempo_min = tiempoParsed;
@@ -99,31 +99,31 @@ form.addEventListener('submit', async (event) => {
   const hasImageChange = Boolean(imageFile);
 
   if (!hasPatchChanges && !hasImageChange) {
-    setStatus(statusBox, 'No hay cambios para enviar (PATCH o imagen).', 'info');
+    setStatus(statusBox, 'No changes to send (PATCH or image).', 'info');
     return;
   }
 
   try {
     if (hasPatchChanges) {
-      setStatus(statusBox, 'Guardando cambios de texto (PATCH)...', 'info');
+      setStatus(statusBox, 'Saving text changes (PATCH)...', 'info');
       await patchRecipe(id, payload);
     }
 
     if (hasImageChange) {
-      setStatus(statusBox, 'Subiendo imagen...', 'info');
+      setStatus(statusBox, 'Uploading image...', 'info');
       await uploadRecipeImage(id, imageFile);
     }
 
-    setStatus(statusBox, 'Receta actualizada correctamente.', 'success');
+    setStatus(statusBox, 'Recipe updated successfully.', 'success');
     await loadRecipes();
     recipeSelect.value = id;
     fillForm(id);
   } catch (error) {
     if (isCorsError(error)) {
-      setStatus(statusBox, 'No se pudo conectar. Si abriste con Alt+B, revisa CORS en backend para Origin null.', 'error');
+      setStatus(statusBox, 'Could not connect. If opened with Alt+B, check backend CORS for Origin null.', 'error');
       return;
     }
-    setStatus(statusBox, `Error al actualizar: ${error.message}`, 'error');
+    setStatus(statusBox, `Update error: ${error.message}`, 'error');
   }
 });
 

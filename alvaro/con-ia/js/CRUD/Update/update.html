@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Update receta</title>
+  <title>Update Recipe</title>
   <link rel="stylesheet" href="../shared/css/styles.css" />
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>Update receta</h1>
-      <p>Selecciona receta, precarga y guarda con PATCH.</p>
+      <h1>Update Recipe</h1>
+      <p>Select a recipe, preload values, and save with PATCH.</p>
     </header>
 
     <nav class="nav">
@@ -21,37 +21,37 @@
     </nav>
 
     <form id="updateForm">
-      <label for="recipeSelect">Receta *</label>
+      <label for="recipeSelect">Recipe *</label>
       <select id="recipeSelect" name="recipeSelect" required>
-        <option value="">Selecciona una receta</option>
+        <option value="">Select a recipe</option>
       </select>
 
-      <label for="nombre">Nombre</label>
+      <label for="nombre">Name</label>
       <input id="nombre" name="nombre" type="text" />
 
-      <label for="descripcion">Descripción</label>
+      <label for="descripcion">Description</label>
       <textarea id="descripcion" name="descripcion"></textarea>
 
-      <label for="ingredientes">Ingredientes</label>
+      <label for="ingredientes">Ingredients</label>
       <textarea id="ingredientes" name="ingredientes"></textarea>
 
-      <label for="tiempo_min">Tiempo (min)</label>
+      <label for="tiempo_min">Time (min)</label>
       <input id="tiempo_min" name="tiempo_min" type="number" min="1" step="1" />
 
-      <label for="dificultad">Dificultad</label>
+      <label for="dificultad">Difficulty</label>
       <select id="dificultad" name="dificultad">
-        <option value="">Sin cambios</option>
-        <option value="facil">Fácil</option>
-        <option value="media">Media</option>
-        <option value="dificil">Difícil</option>
+        <option value="">No change</option>
+        <option value="facil">Easy</option>
+        <option value="media">Medium</option>
+        <option value="dificil">Hard</option>
       </select>
 
-      <label for="image">Imagen (archivo)</label>
+      <label for="image">Image (file)</label>
       <input id="image" name="image" type="file" accept="image/*" />
 
       <div class="actions">
-        <button type="submit">Guardar cambios</button>
-        <button type="button" id="reloadBtn" class="secondary">Recargar lista</button>
+        <button type="submit">Save Changes</button>
+        <button type="button" id="reloadBtn" class="secondary">Reload List</button>
       </div>
       <div id="status" class="status"></div>
     </form>
