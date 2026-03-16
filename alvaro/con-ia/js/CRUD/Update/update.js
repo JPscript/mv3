@@ -109,7 +109,7 @@ form.addEventListener('submit', async (event) => {
       await patchRecipe(id, payload);
     }
 
-    if (hasImageChange) {
+    if (imageFile) {
       setStatus(statusBox, 'Uploading image...', 'info');
       await uploadRecipeImage(id, imageFile);
     }
