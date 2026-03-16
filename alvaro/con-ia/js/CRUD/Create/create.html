@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Recipe</title>
+  <link rel="stylesheet" href="../shared/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Create Recipe</h1>
+      <p>Create a recipe and optionally upload an image.</p>
+    </header>
+
+    <nav class="nav">
+      <a href="../Home/index.html">Home</a>
+      <a href="../Read/read.html">Read</a>
+      <a href="../Update/update.html">Update</a>
+      <a href="../Delete/delete.html">Delete</a>
+    </nav>
+
+    <form id="createForm">
+      <label for="nombre">Name *</label>
+      <input id="nombre" name="nombre" type="text" required />
+
+      <label for="descripcion">Description *</label>
+      <textarea id="descripcion" name="descripcion" required></textarea>
+
+      <label for="ingredientes">Ingredients *</label>
+      <textarea id="ingredientes" name="ingredientes" required></textarea>
+
+      <label for="tiempo_min">Time (minutes) *</label>
+      <input id="tiempo_min" name="tiempo_min" type="number" min="1" step="1" required />
+
+      <label for="dificultad">Difficulty *</label>
+      <select id="dificultad" name="dificultad" required>
+        <option value="">Select difficulty</option>
+        <option value="facil">Easy</option>
+        <option value="media">Medium</option>
+        <option value="dificil">Hard</option>
+      </select>
+
+      <label for="image">Image (optional file)</label>
+      <input id="image" name="image" type="file" accept="image/*" />
+
+      <div class="actions">
+        <button type="submit">Create Recipe</button>
+        <button type="reset" class="secondary">Clear</button>
+      </div>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+
+  <script src="../shared/js/crud-core.js"></script>
+  <script src="./create.js"></script>
+</body>
+</html>

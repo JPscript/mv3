@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <title>Mi Perfil Personal</title>
 </head>
+<style>
+textarea {
+  resize: none;
+}
+</style>
 <body>
  <header>
         <h1>Mi Sitio</h1>
+        <div class ="cabecera"> 
         <nav>
             <a href="#sobre-mi">Sobre mí</a> |
              <a href="#datos">Datos personales</a> |
             <a href="#habilidades">Habilidades</a> |
             <a href="#contacto">Contacto</a>
         </nav>
+        </div>
     </header>
 <main>
    
@@ -37,9 +44,29 @@
         <li><strong>Estudios actuales:</strong> Programación y Desarrollo de Aplicaciones Web.</li>
         <li><strong>Ciudad:</strong> Entre Galicia y Granada.</li>
         <li><strong>Especialidad secreta:</strong> Patadas giratorias nivel experto.</li>
-          <li><strong>Frase especial:</strong> La calle es un tatami de cemento.</li>
-           <li><strong>Canción favorita:</strong> Cualquiera de Dellafuente.</li>
-        
+          <li><strong>Frase especial:</strong> La calle es un tatami de cemento. </li>
+           <li><strong>Canción favorita:</strong> Cualquiera de Dellafuente, Cruz Cafuné, Hijos de la Ruina o Grecas.</li>
+        <section id="videos">
+
+    <div class="contenedor-videos">
+
+        <a href="https://youtu.be/HyISf7YeVZE?si=-FI4I6Gu-n0f8fJ6" target="_blank" class="video-miniatura">
+            <img src="https://img.youtube.com/vi/HyISf7YeVZE/hqdefault.jpg" alt="Video 1">
+        </a>
+
+        <a href="https://youtu.be/IiFstrDSabk?si=L_a24IS9RG_C5AiT" target="_blank" class="video-miniatura">
+            <img src="https://img.youtube.com/vi/IiFstrDSabk/hqdefault.jpg" alt="Video 2">
+        </a>
+         <a href="https://youtu.be/ZXBlmBRuH_U?si=LTeBHyxAYg_D_26g" target="_blank" class="video-miniatura">
+            <img src="https://img.youtube.com/vi/ZXBlmBRuH_U/hqdefault.jpg" alt="Video 3">
+        </a>
+
+        <a href="https://youtu.be/nVp9OBxGY7A?si=NF12Cyz9idXIz8W_" target="_blank" class="video-miniatura">
+            <img src="https://img.youtube.com/vi/nVp9OBxGY7A/hqdefault.jpg" alt="Video4">
+        </a>
+
+    </div>
+</section>
     </ul>
 </section>
   <section id="habilidades">
@@ -86,7 +113,7 @@
                 
                <label>Mensaje:</label><br>
 <textarea name="mensaje" rows="5" cols="30"></textarea><br>
-                <button type="boton">Enviar mensaje</button>
+              <button type="submit" class="boton">Enviar mensaje</button>
             </form>
         </section>
 
@@ -94,5 +121,6 @@
       <footer>
         <p>© 2026 Marta Travieso al aparato</p>
     </footer>
+    
 </body>
 </html>

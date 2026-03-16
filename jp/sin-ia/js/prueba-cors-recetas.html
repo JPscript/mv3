@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba CORS API Recetas</title>
+    <style>
+      :root {
+        --bg: #f7f6f2;
+        --panel: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #0f766e;
+        --primary-2: #115e59;
+        --danger: #b91c1c;
+        --ok: #166534;
+        --border: #d1d5db;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top right, #dbeafe, var(--bg) 45%);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 32px auto;
+        padding: 0 16px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.6rem;
+      }
+
+      p {
+        margin-top: 0;
+        color: var(--muted);
+      }
+
+      form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      label {
+        display: block;
+        font-size: 0.92rem;
+        margin-bottom: 6px;
+      }
+
+      input,
+      textarea,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: var(--primary);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      button:hover {
+        background: var(--primary-2);
+      }
+
+      button.secondary {
+        background: #374151;
+      }
+
+      .hint {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .output {
+        margin-top: 16px;
+        border-left: 4px solid var(--border);
+        background: #f9fafb;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .ok {
+        border-left-color: var(--ok);
+      }
+
+      .error {
+        border-left-color: var(--danger);
+      }
+
+      @media (max-width: 700px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <h1>Formulario de prueba CORS para Recetas</h1>
+        <p>
+          Esta pagina te permite probar <code>POST /recipes</code> y
+          <code>GET /recipes</code> en tu API de NestJS.
+        </p>
+
+        <form id="recipeForm">
+          <div>
+            <label for="apiUrl">URL API base</label>
+            <input id="apiUrl" name="apiUrl" value="http://127.0.0.1:3000" required />
+            <div class="hint">Ejemplo: http://127.0.0.1:3000</div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" maxlength="120" required />
+            </div>
+            <div>
+              <label for="tiempo_min">Tiempo (minutos)</label>
+              <input id="tiempo_min" name="tiempo_min" type="number" min="1" value="15" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="descripcion">Descripcion</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+          </div>
+
+          <div>
+            <label for="ingredientes">Ingredientes</label>
+            <textarea id="ingredientes" name="ingredientes" required></textarea>
+          </div>
+
+          <div>
+            <label for="dificultad">Dificultad</label>
+            <select id="dificultad" name="dificultad" required>
+              <option value="facil">facil</option>
+              <option value="media">media</option>
+              <option value="dificil">dificil</option>
+            </select>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Crear receta (POST)</button>
+            <button type="button" id="btnList" class="secondary">Listar recetas (GET)</button>
+          </div>
+        </form>
+
+        <div id="output" class="output">
+          <pre>Esperando accion...</pre>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById('recipeForm');
+      const btnList = document.getElementById('btnList');
+      const output = document.getElementById('output');
+
+      function setOutput(message, type) {
+        output.classList.remove('ok', 'error');
+        if (type) output.classList.add(type);
+        output.querySelector('pre').textContent = message;
+      }
+
+      function buildPayload(fd) {
+        return {
+          nombre: String(fd.get('nombre') || '').trim(),
+          descripcion: String(fd.get('descripcion') || '').trim(),
+          ingredientes: String(fd.get('ingredientes') || '').trim(),
+          tiempo_min: Number(fd.get('tiempo_min')),
+          dificultad: String(fd.get('dificultad') || '').trim(),
+        };
+      }
+
+      async function parseResponse(response) {
+        const raw = await response.text();
+        try {
+          return raw ? JSON.parse(raw) : null;
+        } catch {
+          return raw;
+        }
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const fd = new FormData(form);
+        const baseUrl = String(fd.get('apiUrl') || '').trim().replace(/\/$/, '');
+        const payload = buildPayload(fd);
+
+        try {
+          setOutput('Enviando POST /recipes...', '');
+          const response = await fetch(`${baseUrl}/recipes`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await parseResponse(response);
+          if (!response.ok) {
+            setOutput(
+              `Error HTTP ${response.status}\n\n${JSON.stringify(data, null, 2)}`,
+              'error',
+            );
+            return;
+          }
+
+          setOutput(`Receta creada correctamente.\n\n${JSON.stringify(data, null, 2)}`, 'ok');
+        } catch (error) {
+          setOutput(`Fallo de red/CORS:\n${error.message}`, 'error');
+        }
+      });
+
+      btnList.addEventListener('click', async () => {
+        const apiUrl = document.getElementById('apiUrl').value.trim().replace(/\/$/, '');
+
+        try {
+          setOutput('Consultando GET /recipes...', '');
+          const response = await fetch(`${apiUrl}/recipes`, { method: 'GET' });
+          const data = await parseResponse(response);
+          if (!response.ok) {
+            setOutput(
+              `Error HTTP ${response.status}\n\n${JSON.stringify(data, null, 2)}`,
+              'error',
+            );
+            return;
+          }
+
+          setOutput(`Listado recibido OK.\n\n${JSON.stringify(data, null, 2)}`, 'ok');
+        } catch (error) {
+          setOutput(`Fallo de red/CORS:\n${error.message}`, 'error');
+        }
+      });
+    </script>
+  </body>
+</html>

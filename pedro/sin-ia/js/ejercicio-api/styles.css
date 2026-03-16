@@ -1,0 +1,57 @@
+/* Estilo general de la página */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Texto de estado */
+#status {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Contenedor de tarjetas */
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Tarjeta */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Nombre del droide */
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Imagen */
+.card img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Descripción */
+.card p {
+  font-size: 14px;
+  color: #555;
+}

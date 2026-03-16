@@ -1,0 +1,93 @@
+  
+   body{
+    background-color: #000000;
+    margin: 0;
+    padding:0;
+}
+   p{
+    text-align: justify;
+color:aliceblue;
+ margin:70px}
+    
+   h1{
+    text-align: center;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    color: #b1ceea;
+    background-color: #5a8dbf;
+    
+    margin-top: 20px;
+}
+
+
+.Disney {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+
+.card {
+    background-color: rgb(178, 221, 230);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #000000;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(161, 46, 46, 0.2);
+    background-color: #9ff7d5;
+}
+
+
+.card img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+}
+
+
+.card h3 {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* LISTA */
+.card ul {
+    padding-left: 15px;
+    text-align: left;
+}
+
+.card li {
+    font-size: 14px;
+    color: #071a6e;
+}
+.paginacion{
+text-align:center;
+margin:20px;
+}
+
+.paginacion button{
+background:#2c3e50;
+color:white;
+border:none;
+padding:10px 15px;
+margin:5px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.paginacion button:hover{
+background:#4a6b8a;
+}

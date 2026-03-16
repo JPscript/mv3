@@ -17,7 +17,12 @@ disable-model-invocation: false
 2. Crea o revisa estructura semántica (`header`, `main`, `section`, `article`, `footer`).
 3. Verifica formularios (`label` asociado, `name`, `type`, `required` cuando aplique).
 4. Revisa enlaces e imágenes (`href` válido, `alt` descriptivo).
-5. Entrega cambios mínimos y explicación breve en español.
+5. Entrega cambios mínimos con explicación docente detallada en español.
+
+## Regla anti-solución simple (obligatoria)
+- No entregar “solo HTML final”.
+- Explicar el paso a paso como profesor: qué cambia, por qué y para qué.
+- Incluir revisión de calidad final (semántica, accesibilidad, jerarquía).
 
 ## Checklist rápido
 - Documento con estructura clara y jerarquía de títulos (`h1` a `h3` según necesidad).

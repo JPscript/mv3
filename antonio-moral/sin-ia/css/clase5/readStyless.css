@@ -1,0 +1,62 @@
+:root {
+  --pac-yellow: #ffd700;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #0087ff;
+  --ghost-orange: #ff9800;
+  --maze-dark: #1a1a2e;
+  --sable-verde: #00ff41;
+
+}
+#recetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 250px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);}
+
+.card:hover {
+  border-image-slice: 1;
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: verdana;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.buscarId{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;}
+
+  #resultado {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  justify-content: center;
+}

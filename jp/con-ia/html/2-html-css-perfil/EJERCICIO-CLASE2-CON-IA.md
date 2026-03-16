@@ -1,44 +1,70 @@
-# CLASE2 - Ejercicio único (con IA)
+# CLASE2 Perfil (con IA)
 
-Referencia: `jp/bitacora/CLASE2.md`
-Carpeta: `jp/con-ia/html/2-html-css-perfil`
+## Opciones propuestas (mínimo 5)
+1. Perfil personal.
+2. Perfil de artista.
+3. Perfil de desarrollador.
+4. Perfil de streamer.
+5. Perfil de equipo.
 
-## Objetivo
-Construir una página de perfil personal con contacto usando HTML básico y después mejorarla con CSS, iterando prompts con criterio técnico.
+## Opción elegida
+- Perfil personal.
 
-## Parte 1 (HTML con IA)
-**Prompt inicial sugerido:**
-"Crea una página `index.html` de perfil personal con zona de contacto. Incluye `header`, `nav`, `main`, `section`, `footer`, títulos, párrafos, lista de habilidades, imagen con `alt`, enlaces e inputs con botón. Mantén semántica clara para nivel inicial."
+## Prompt base
+"Crea una página semántica de perfil personal con secciones, navegación interna y formulario de contacto accesible."
 
-**Iteración sugerida 1:**
-"Mejora la jerarquía de títulos y organiza mejor las secciones para que sea más legible."
+## Iteraciones sugeridas
+1. "Añade tabla simple de datos de amigos."
+2. "Revisa accesibilidad del formulario y mejora labels."
 
-**Iteración sugerida 2:**
-"Ajusta la zona de contacto para que los `label` estén bien asociados a cada `input`."
+## Paso a paso docente (con IA)
+1. Genera primer borrador con el prompt base.
+2. Copia el HTML en tu archivo y NO lo des por válido aún.
+3. Revisa manualmente que exista estructura semántica (`header/main/section`).
+4. Pide mejora puntual de accesibilidad en el formulario.
+5. Verifica a mano que cada `label` apunte a un `id` existente.
+6. Añade navegación interna y prueba cada enlace.
+7. Ejecuta validación visual: móvil y escritorio.
+8. Escribe una mini conclusión: qué aportó la IA y qué corregiste tú.
 
-## Parte 2 (CSS con IA)
-**Prompt inicial sugerido:**
-"Genera `styles.css` para esta página con tipografía legible, paleta simple, espaciado coherente, navbar clara, layout simple usando `display: flex` y botones con estilo básico."
+## Solución completa explicada
 
-**Iteración sugerida 1:**
-"Refuerza consistencia visual (márgenes, paddings y tamaños) sin sobreestilizar."
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil con IA</title>
+</head>
+<body>
+  <header>
+    <h1>Senior Cat Profile</h1>
+    <nav>
+      <a href="#perfil">Perfil</a> |
+      <a href="#datos">Datos</a> |
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+  <main>
+    <section id="perfil"><h2>Perfil</h2><p>Descripción personal.</p></section>
+    <section id="datos"><h2>Datos</h2><ul><li>Edad: 10</li><li>Flow: alto</li></ul></section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form>
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
+```
 
-**Iteración sugerida 2:**
-"Haz que el layout con `display: flex` se vea limpio en escritorio y no rompa en móvil."
+- El flujo con IA acelera el borrador, pero la revisión manual corrige detalles finales.
+- Se valida semántica y accesibilidad antes de aceptar la solución.
 
-## Checklist de validación
-- [ ] HTML incluye todos los elementos pedidos.
-- [ ] Estructura semántica correcta.
-- [ ] CSS mejora visualmente el ejercicio.
-- [ ] Se usa `display: flex` al menos en una sección.
-- [ ] Se revisó y corrigió manualmente lo generado por IA.
-
-## Reflexión final (obligatoria)
-- ¿Qué generó bien la IA?
-- ¿Qué corregiste manualmente?
-- ¿Qué prompt funcionó mejor y por qué?
-
-## Entregables
-- `index.html`
-- `styles.css`
-- Dudas (si hay) en `jp/con-ia/html/DUDAS.md`
+## Qué resuelve este ejercicio
+- Entrena un proceso real de desarrollo asistido por IA con control humano.
+- Refuerza calidad de código y criterio técnico del estudiante.

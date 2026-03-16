@@ -1,0 +1,36 @@
+ul{
+    list-style: none;     /* Quita los puntitos de la lista */
+    display: flex;        /* Alinea los hijos en fila */
+    justify-content: center ; /* Centra los enlaces horizontalmente */
+    flex-wrap: wrap;     /* Permite que los elementos se envuelvan a la siguiente línea si no caben */
+    gap: 20px;           /* Espacio entre los enlaces */
+}
+li {
+    width: 300px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 69, 69);
+}
+.imagen{
+    margin-left: 50px;
+}
+.texto{
+    margin-left:20px;
+    background-color: brown;
+    width: 250px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.texto h2{
+    text-decoration: underline;
+    text-decoration-color: #000000;    /* Color rojo */
+    text-decoration-thickness: 3px;     /* Grosor de la línea */
+    text-decoration-style: wavy;
+}
+footer{
+    background-color: rgb(69, 212, 255);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}

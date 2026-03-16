@@ -1,167 +1,191 @@
-/* Reset básico para limpiar márgenes */
+/* Selector universal: afecta a TODOS los elementos de la página. */
+/* Se usa para normalizar el cálculo de tamaños y eliminar márgenes/paddings por defecto. */
 * {
+    /* box-sizing: border-box hace que padding y border se sumen dentro del ancho/alto declarado */
     box-sizing: border-box;
+    /* eliminar márgenes/paddings por defecto del navegador para empezar desde cero */
     margin: 0;
     padding: 0;
 }
 
-/* Cuerpo: Tipografía legible y fondo suave */
+/* El elemento 'body' representa el contenido principal de la página. */
 body {
+    /* font-family define la tipografía. 'inherit' o 'sans-serif' son buenas reservas */
     font-family: 'Verdana', sans-serif;
+    /* background-color establece el color de fondo de la página */
     background-color: #fff5e6; /* Crema suave */
+    /* color es el color del texto por defecto */
     color: #333;
+    /* line-height mejora la legibilidad entre líneas de texto */
     line-height: 1.6;
 }
 
-/* Header: Color vibrante y bordes marcados */
+/* El 'header' suele contener el título o la cabecera principal. */
 header {
+    /* fondo llamativo para separar visualmente la cabecera */
     background-color: #ff6b6b; /* Coral vibrante */
+    /* padding añade espacio interno alrededor del contenido */
     padding: 2rem;
+    /* borde inferior para enfatizar separación con el resto */
     border-bottom: 5px solid #333;
+    /* centrar el texto dentro del header */
     text-align: center;
 }
 
+/* h1 es el título principal: aquí se estiliza su aspecto visual */
 h1 {
-    color: white;
+    color: white; /* color del texto del título */
+    /* text-shadow añade una sombra dura para contraste */
     text-shadow: 4px 4px 0 #333; /* Sombra dura estilo cómic */
-    font-size: 2.5rem;
-    margin-top: 1rem;
+    font-size: 2.5rem; /* tamaño del título */
+    margin-top: 1rem; /* espacio por encima del título */
+    /* text-transform uppercase convierte el texto a mayúsculas */
     text-transform: uppercase;
+    /* transform rota ligeramente el elemento para un efecto lúdico */
     transform: rotate(-1deg); /* Pequeña rotación divertida */
 }
 
-/* Navbar: REQUISITO display: flex */
+/* 'nav' es la barra de navegación. Usamos Flexbox para distribuir los enlaces. */
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    display: flex; /* activa flexbox */
+    justify-content: center; /* centra los elementos horizontalmente */
+    gap: 15px; /* espacio entre los elementos flex */
+    flex-wrap: wrap; /* permite que los enlaces salten a nueva línea en pantallas pequeñas */
 }
 
+/* Enlaces de navegación: apariencia tipo botón */
 nav a {
-    text-decoration: none;
-    color: #333;
-    background: white;
-    padding: 10px 20px;
-    border: 3px solid #333;
-    font-weight: bold;
+    text-decoration: none; /* quita subrayado */
+    color: #333; /* color del texto del enlace */
+    background: white; /* fondo blanco para dominar sobre el header */
+    padding: 10px 20px; /* espacio interno para hacerlo clicable */
+    border: 3px solid #333; /* borde visible para estilo "tarjeta" */
+    font-weight: bold; /* resalta el texto */
+    /* box-shadow crea una sombra sólida que da sensación de "corte" */
     box-shadow: 5px 5px 0 #333; /* Sombra sólida */
+    /* transición suave al interactuar (hover) */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Efecto hover sorprendente en menú */
+/* Estado :hover: se activa cuando el cursor pasa por encima del enlace */
 nav a:hover {
+    /* translate mueve el enlace ligeramente para simular elevación */
     transform: translate(-3px, -3px);
-    box-shadow: 8px 8px 0 #333;
-    background-color: #feca57; /* Amarillo */
+    box-shadow: 8px 8px 0 #333; /* sombra más grande al pasar el cursor */
+    background-color: #feca57; /* cambia el fondo a un amarillo para indicar interactividad */
 }
 
-/* Layout Principal con Flexbox */
+/* Contenedor principal: usa Flexbox para layout responsivo */
 main {
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: flex-start;
+    max-width: 1000px; /* limita el ancho para mantener líneas de lectura cómodas */
+    margin: 3rem auto; /* centra horizontalmente y añade separación superior/inferior */
+    padding: 0 20px; /* espacio lateral para pantallas pequeñas */
+    display: flex; /* contenedor flex para columnas */
+    flex-wrap: wrap; /* permite que las columnas fluyan en varias filas en pantallas pequeñas */
+    gap: 2rem; /* espacio entre columnas */
+    align-items: flex-start; /* alinea el contenido al inicio verticalmente */
 }
 
-/* Aside: Tarjeta de perfil */
+/* Aside: tarjeta de perfil lateral. Flex shorthand controla crecimiento/encogimiento y base. */
 aside {
-    flex: 1 1 250px; /* Flexible pero con base de 250px */
-    background: white;
-    padding: 20px;
-    border: 3px solid #333;
-    box-shadow: 8px 8px 0 #333;
-    text-align: center;
-    border-radius: 10px;
+    flex: 1 1 250px; /* flex: [grow] [shrink] [base-width] */
+    background: white; /* fondo de tarjeta */
+    padding: 20px; /* espacio interno */
+    border: 3px solid #333; /* borde tipo marco */
+    box-shadow: 8px 8px 0 #333; /* sombra sólida para efecto de tarjeta */
+    text-align: center; /* centra el contenido dentro del aside */
+    border-radius: 10px; /* esquinas redondeadas */
 }
 
+/* Imagen de perfil: círculo gracias a border-radius 50% */
 #perfil {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid #333;
-    object-fit: cover;
-    margin-bottom: 1rem;
+    width: 150px; /* ancho fijo */
+    height: 150px; /* alto fijo */
+    border-radius: 50%; /* hace la imagen circular */
+    border: 4px solid #333; /* borde alrededor de la imagen */
+    object-fit: cover; /* mantiene proporción y recorta si es necesario */
+    margin-bottom: 1rem; /* espacio debajo de la imagen */
 }
 
+/* Enlaces dentro del aside: estilo y espaciado consistente */
 #enlacesAside a {
-    display: block;
-    margin: 8px 0;
-    color: #54a0ff;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.1rem;
+    display: block; /* cada enlace ocupa su propia línea */
+    margin: 8px 0; /* espacio vertical entre enlaces */
+    color: #54a0ff; /* color azul para enlaces */
+    font-weight: bold; /* destaca el texto */
+    text-decoration: none; /* quita subrayado */
+    font-size: 1.1rem; /* tamaño ligeramente mayor */
 }
 
 #enlacesAside a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* subrayado al pasar el cursor */
 }
 
-/* Contenedor de contenido principal */
+/* El contenido principal (derecha) toma más espacio que el aside */
 main > div {
-    flex: 2 1 400px; /* Ocupa más espacio que el aside */
+    flex: 2 1 400px; /* crece más que el aside y tiene base de 400px */
 }
 
-/* Secciones y Formularios estilo tarjeta */
+/* Secciones y formularios con apariencia de tarjeta coherente */
 section, form {
-    background: white;
-    border: 3px solid #333;
-    padding: 25px;
-    margin-bottom: 2rem;
-    border-radius: 10px;
+    background: white; /* fondo blanco para contraste */
+    border: 3px solid #333; /* borde tipo marco */
+    padding: 25px; /* espacio interno para separar contenido del borde */
+    margin-bottom: 2rem; /* espacio debajo de cada tarjeta */
+    border-radius: 10px; /* esquinas redondeadas para suavizar el diseño */
 }
 
+/* h2: subtítulos con una raya decorativa debajo */
 h2 {
-    color: #333;
-    border-bottom: 4px solid #1dd1a1; /* Verde menta */
-    display: inline-block;
-    margin-bottom: 1.5rem;
+    color: #333; /* color del texto */
+    border-bottom: 4px solid #1dd1a1; /* línea decorativa verde menta */
+    display: inline-block; /* hace que la línea ocupe solo el ancho del texto */
+    margin-bottom: 1.5rem; /* espacio debajo del subtítulo */
 }
 
-/* Inputs consistentes */
+/* Estilos para inputs de texto: tamaño, accesibilidad y consistencia visual */
 input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 16px;
-    border: 2px solid #333;
-    border-radius: 5px;
-    background: #f1f2f6;
-    font-family: inherit;
+    width: 100%; /* ocupa todo el ancho del contenedor */
+    padding: 12px; /* espacio interno para que el texto no toque el borde */
+    margin: 8px 0 16px; /* margen superior e inferior para separación */
+    border: 2px solid #333; /* borde visible */
+    border-radius: 5px; /* esquinas ligeramente redondeadas */
+    background: #f1f2f6; /* fondo claro para indicar área editable */
+    font-family: inherit; /* hereda la tipografía del body para consistencia */
 }
 
-/* Botón con efecto de "presionar" */
+/* Botón de envío con estilo de tarjeta y efecto visual al interactuar */
 input[type="submit"] {
     background-color: #54a0ff; /* Azul brillante */
-    color: white;
-    border: 3px solid #333;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 5px 5px 0 #333;
-    transition: all 0.1s;
+    color: white; /* color del texto del botón */
+    border: 3px solid #333; /* borde para mantener el estilo de "tarjeta" */
+    padding: 12px 30px; /* espacio interno para un tamaño cómodo clicable */
+    font-size: 1rem; /* tamaño del texto */
+    font-weight: bold; /* texto en negrita */
+    cursor: pointer; /* cursor de mano indica que es interactivo */
+    box-shadow: 5px 5px 0 #333; /* sombra sólida para efecto "elevado" */
+    transition: all 0.1s; /* transición rápida para hover/active */
 }
 
+/* Hover del botón: cambio de color y pequeño movimiento para feedback */
 input[type="submit"]:hover {
-    background-color: #2e86de;
-    transform: translate(2px, 2px); /* Se mueve un poco */
-    box-shadow: 3px 3px 0 #333; /* La sombra se achica */
+    background-color: #2e86de; /* azul más oscuro al pasar el cursor */
+    transform: translate(2px, 2px); /* mueve ligeramente el botón */
+    box-shadow: 3px 3px 0 #333; /* sombra se reduce al acercarse */
 }
 
+/* Active: estado mientras se mantiene pulsado (efecto "presionado") */
 input[type="submit"]:active {
-    transform: translate(5px, 5px); /* Efecto presionado */
-    box-shadow: none;
+    transform: translate(5px, 5px); /* efecto presionado más marcado */
+    box-shadow: none; /* sin sombra para simular que se apoya */
 }
 
-/* Footer */
+/* Footer: pie de página con contraste alto */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-top: 5px solid #000;
+    background-color: #333; /* fondo oscuro */
+    color: white; /* texto claro sobre fondo oscuro */
+    text-align: center; /* centra el contenido */
+    padding: 2rem; /* espacio interno generoso */
+    margin-top: 2rem; /* separación del contenido anterior */
+    border-top: 5px solid #000; /* borde superior para énfasis */
 }

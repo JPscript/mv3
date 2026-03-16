@@ -42,9 +42,16 @@ Crear ejercicios para `con-ia` con mayor reto técnico, aprovechando prompts e i
 - Mantener formato breve y accionable.
 - No dejar ejercicios sueltos en la raíz de `html`; usar siempre carpeta temática `N-tema`.
 
+## Regla anti-solución simple (obligatoria)
+- La solución nunca puede ser “resumen corto”.
+- Debe incluir paso a paso docente + explicación de qué/por qué/para qué de cada bloque.
+- Debe incluir validación manual y justificación de cambios sobre la salida de IA.
+- Si está incompleta o superficial, se rehace antes de entregar.
+
 ## Salida esperada
 - Propuesta de ejercicios para `con-ia` con prompts listos para usar.
 - Bloque de evaluación rápida para revisar calidad técnica y comprensión.
+- Solución final completa y explicada como clase guiada.
 
 ## Ejemplo de uso
 - "Tema: Formularios HTML y validación básica. Resultado esperado: formulario de registro semántico con validaciones nativas. Nivel: inicial-intermedio. Usa como referencia `jp/bitacora/CLASE1.md` y crea ejercicios para `jp/con-ia/html/2-formularios-html`."

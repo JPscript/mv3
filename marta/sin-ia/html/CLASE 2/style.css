@@ -12,6 +12,27 @@ header{
 h1{
     font-size: 36px;
     font-family: arial, sans-serif;
+    background-color: #E0B0FF;
+}
+
+    
+ a:link {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: rgb(93, 143, 217);
+  background-color: transparent;
+  text-decoration-thickness: inherit;
+}
+
+a:active {
+  color:  rgb(147, 34, 172);
+  background-color: transparent;
+  
 }
 h2{
     font-size: 25px;
@@ -44,6 +65,32 @@ h2{
     height: 200px;
     object-fit: contain;
     justify-content: space-between;
+}
+
+
+.contenedor-videos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.video-miniatura{
+    display: flex;
+    justify-content: center;
+}
+
+.video-miniatura img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-miniatura img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 .lista-habilidades {
     list-style: none;
@@ -78,10 +125,10 @@ h2{
 }
 
 .item-habilidad img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    object-fit:scale-down;
+    border-radius: 20px;
     
 }
 
@@ -89,11 +136,22 @@ h2{
     transform: scale(1.05);
 }
 
-  .boton:hover{
-    background-color: #E0B0FF;
-    color: #6240DB;
+  button:hover {
+    background-color: #9fb0ed;
+    color: #000000;
     padding: 10px 20px;
-    border: 2px solid #afb4a7;
+    border: 1px solid #afb4a7;
+    cursor:pointer;
  
-    transform: scale(1.05);
+    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    background-color: #a3c3eb;
+    padding: 9px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(120, 9, 109, 0.829);
 }

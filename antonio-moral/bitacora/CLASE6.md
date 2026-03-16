@@ -1,0 +1,1 @@
+Continuamos con el ejercicio de CRUD haciendo los metodos de Read y ReadOne con sus respectivo js, html y css

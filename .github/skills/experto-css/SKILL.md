@@ -19,6 +19,11 @@ disable-model-invocation: false
 4. Ajusta responsive con enfoque mobile-first y breakpoints mínimos.
 5. Evita sobreestilizar y limita cambios a lo pedido.
 
+## Regla anti-solución simple (obligatoria)
+- No entregar solo bloque CSS sin guía.
+- Explicar paso a paso qué regla se aplica, por qué y para qué mejora el diseño.
+- Incluir validación visual mínima (desktop/tablet/móvil) y checklist final.
+
 ## Checklist rápido
 - Selectores simples y legibles.
 - Evitar duplicación innecesaria de reglas.

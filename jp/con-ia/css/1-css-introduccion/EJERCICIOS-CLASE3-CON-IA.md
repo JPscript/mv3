@@ -1,47 +1,43 @@
-# CLASE3 - CSS introducción (con IA)
+# CSS introducción (con IA)
 
-Referencia: `jp/bitacora/CLASE3.md`
-Carpeta: `jp/con-ia/css/1-css-introduccion`
+## Opciones propuestas (mínimo 5)
+1. Rediseño perfil.
+2. Tarjetas servicios.
+3. Dashboard pastel.
+4. Landing neón.
+5. Pricing table.
 
-## Objetivo
-Mejorar la página de perfil con CSS usando IA como apoyo, iterando prompts y validando manualmente el resultado.
+## Opción elegida
+- Tarjetas servicios.
 
-## Ejercicio principal (único)
-Aplicar estilo al perfil personal (HTML ya creado) con foco en legibilidad y layout.
+## Prompt base
+"Crea estilos para 6 tarjetas responsive con hover, jerarquía visual y botones consistentes."
 
-### Prompt inicial sugerido
-"Tengo una página HTML de perfil personal. Crea un `styles.css` básico y limpio con: tipografía legible, paleta simple, espaciado coherente, navbar clara, botones consistentes y una sección con `display: flex`. Nivel inicial."
+## Paso a paso docente (con IA)
+1. Solicita a la IA una propuesta inicial de paleta y layout.
+2. Aplica el CSS en archivo local y revisa que no rompa el HTML.
+3. Pide optimización responsive con 2 breakpoints.
+4. Comprueba manualmente la rejilla en móvil, tablet y escritorio.
+5. Ajusta contraste de texto sobre fondos de color.
+6. Pide a la IA mejorar consistencia de botones y estados hover.
+7. Revisa performance visual: sombras y efectos sin exceso.
+8. Cierra con checklist de calidad (coherencia, legibilidad, responsive).
 
-### Iteración 1 sugerida
-"Mejora la jerarquía visual de títulos y párrafos, ajustando tamaños y espacios sin sobrecargar el diseño."
+## Solución completa explicada
 
-### Iteración 2 sugerida
-"Refactoriza estilos repetidos usando clases reutilizables y mejora consistencia en colores y botones."
+```css
+:root{--bg:#fff7fc;--card:#fff;--a:#ff5fa2;--b:#7b6dff}
+body{font-family:'Segoe UI',sans-serif;background:var(--bg);margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.card{background:var(--card);padding:1rem;border-radius:14px;box-shadow:0 6px 16px #0001}
+.card:hover{transform:translateY(-2px)}
+button{background:linear-gradient(90deg,var(--a),var(--b));color:#fff;border:none;border-radius:999px;padding:.5rem .9rem}
+@media (max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+```
 
-### Iteración 3 sugerida
-"Ajusta Flexbox para que el layout no se rompa en pantallas pequeñas (sin usar frameworks)."
+- La IA acelera el estilo base, pero se revisa manualmente responsive y contraste.
 
-## Checklist de validación
-- [ ] Se aplican selectores por etiqueta, clase e id.
-- [ ] El CSS es legible y no tiene reglas duplicadas innecesarias.
-- [ ] Hay al menos una sección con `display: flex` funcional.
-- [ ] El resultado final fue revisado y corregido manualmente.
-
-## Mini práctica interactiva (obligatoria)
-Completar al menos 1 reto en cada una de estas plataformas:
-- https://flukeout.github.io/
-- https://cssgridgarden.com/#es
-- https://cssbattle.dev/daily
-- https://flexboxfroggy.com/#es
-
-## Reflexión final (obligatoria)
-Responder en 4 líneas:
-1. ¿Qué parte del CSS generó mejor la IA?
-2. ¿Qué corregiste manualmente y por qué?
-3. ¿Qué prompt te dio el mejor resultado?
-4. ¿Qué mejorarías para la próxima iteración?
-
-## Entregables
-- `styles.css` final y ajustes en `index.html` si fueran necesarios.
-- Registro de dudas en `jp/con-ia/css/DUDAS.md` (si aplica).
-- Nota breve en bitácora con aprendizaje clave del día.
+## Qué resuelve este ejercicio
+- Enseña a usar IA para acelerar diseño sin perder control técnico.
+- Refuerza validación visual multi-dispositivo.

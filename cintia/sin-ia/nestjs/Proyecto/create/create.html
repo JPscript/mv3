@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Crear Receta</title>
+
+</head>
+
+<body>
+    <h1>Crear Receta</h1>
+
+    <section>
+        <form id="Formulario-Receta">
+            <label for="nombre">Nombre:</label>
+            <br><br>
+            <input type="text" id="nombre" name=nombre placeholder="Nombre de la receta">
+            <br><br>
+            <label for="descripcion">Descripción:</label>
+            <br><br>
+            <textarea name="descripcion" id="descripcion" name=descripcion placeholder="Descripción de la receta" cols="50"
+                rows="5"></textarea>
+            <br><br>
+            <label for="ingredientes">Ingredientes:</label>
+            <br><br>
+            <textarea name="ingredientes" id="ingredientes" name=ingredientes placeholder="Ingredientes de la receta" cols="50"
+                rows="5"></textarea>
+            <br><br>
+            <label for="tiempo">Tiempo de preparación:</label>
+            <br><br>
+            <input type="number" id="tiempo" name=tiempo placeholder="1" min="1">
+            <p>Dificultad</p></label>
+            <input type="radio" id="facil" name="dificultad" value="facil">
+            <label for="facil">Fácil</label><br>
+            <input type="radio" id="media" name="dificultad" value="media">
+            <label for="media">Media</label><br>
+            <input type="radio" id="dificil" name="dificultad" value="dificil">
+            <label for="dificil">Difícil</label><br>
+            <br><br>
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+
+    <script src="create.js"></script>
+</body>
+
+</html>

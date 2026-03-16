@@ -265,6 +265,7 @@ Cerrar con evidencia, reflexión y proyección a CLASE4.
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarjetas desde API</title>
   <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <header class="top">

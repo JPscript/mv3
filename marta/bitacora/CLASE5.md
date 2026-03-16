@@ -1,0 +1,4 @@
+Hoy se han revisado algunos de los proyectos de API de los compañeros y posteriormente nos pusimos con la instalación del api de recetas de JP, la verdad es que ha sido un poco lío y si tuviera que volverlo a hacer creo que no sería capaz de hacerlo sin ayuda.
+Con respecto al proyecto de hoy hay que crear una página de recetas usando esa api y con el método CRUD, es un proyecto que pinta que va a ser bastante largo, por el momento me encuentro pensando como quiero estructurarlo y como me gustaría que se viese.
+
+Tengo bastantes dudas, con el tema de fetch y sobre como hacerlo un poco a nivel general para enlazar la api y añadir y quitar cosas, pero confío en poco a poco ir gestionándolo.

@@ -1,0 +1,109 @@
+body {
+  background-color: #1a1a2e;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.main_header {
+  background-color: white;
+  width: 100%; /* ← cambiado de 100vw a 100% para evitar scroll horizontal */
+  padding: 15px 20px;
+  box-sizing: border-box; /* ← evita que el padding desborde */
+  display: flex; /* ← para alinear logo y botones en la misma línea */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo {
+  background-color: #1a1a2e; /* ← mismo color que el body, no blanco */
+  color: white; /* ← texto blanco */
+  font-size: clamp(30px, 5vw, 60px); /* ← adaptable a cualquier pantalla */
+  text-align: center;
+  padding: 30px 0;
+}
+
+.botones {
+  display: flex;
+  gap: 15px; /* ← espacio entre botones */
+}
+
+.botones button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botones button:hover {
+  color: #00b5cc;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  /* ← renombrado de .cards a .card */
+  background-color: #3c3e44;
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+  display: flex; /* ← imagen izquierda, info derecha */
+  flex-direction: row;
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover; /* ← recorta sin deformar */
+  flex-shrink: 0; /* ← la imagen no se encoge */
+}
+
+.card-info {
+  padding: 15px;
+}
+
+.card-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.punto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.label {
+  color: #aaaaaa;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.hero {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+}

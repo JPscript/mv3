@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="categories-container"></ul>
+    <!-- Add a button to launch fetching orange juices -->
+    <button id="search-button">Fetch Orange Juices</button>
+    <div id="results-container"></div>
+    <section>
+        <h2>🔍 Recherche par catégorie</h2>
+        <form id="category-form">
+            <label for="categories-select">Choisissez une catégorie :</label>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <select id="categories-select" name="category">
+                    <option value="">— Chargement des catégories… —</option>
+                </select>
+                <button type="submit" class="btn">OK</button>
+            </div>
+        </form>
+    </section>
+    <section>
+        <h2>🧃 Résultats</h2>
+        <div id="results-container"></div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

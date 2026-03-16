@@ -1,0 +1,94 @@
+:root {
+    --color-wood-dark: #1A0F0A;
+    --color-wood: #3B2316;
+    --color-wood-light: #5C3A21;
+    --color-leather: #8B5E3C;
+    --color-gold: #C8A951;
+    --color-gold-bright: #E8C84A;
+    --color-blood: #8B1A1A;
+    --color-blood-bright: #B22222;
+    --color-stone: #2A2A2A;
+    --color-parchment: #D4C5A9;
+    --color-parchment-dark: #B8A88A;
+    --color-text: #E8DCC8;
+    --color-text-dark: #1A0F0A;
+
+    --font-main: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    --font-heading: 'Segoe UI', Impact, 'Arial Black', sans-serif;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    --radius: 2px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--color-gold-bright);
+}
+
+h2 {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background: var(--color-wood-light);
+}
+
+.main {
+    padding-top: 70px;
+    background: var(--color-gold-bright);
+}
+
+.categories-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    width: 30%;
+    max-width: 30%;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    position: relative;
+}
+
+.card-picture{
+    max-width: 80%;;
+}
+
+.card-env-score {
+    text-align: center;
+}

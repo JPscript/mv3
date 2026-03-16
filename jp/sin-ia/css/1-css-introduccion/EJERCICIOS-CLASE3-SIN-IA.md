@@ -1,47 +1,41 @@
-# CLASE3 - CSS introducción (sin IA)
+# CSS introducción (sin IA)
 
-Referencia: `jp/bitacora/CLASE3.md`
-Carpeta: `jp/sin-ia/css/1-css-introduccion`
+## Opciones propuestas (mínimo 5)
+1. Mejorar perfil.
+2. Tarjetas de servicios.
+3. Landing básica.
+4. Tabla de precios.
+5. Dashboard simple.
 
-## Objetivo
-Aplicar CSS básico al perfil personal para mejorar estructura visual, legibilidad y orden.
+## Opción elegida
+- Mejorar perfil.
 
-## Ejercicio principal (único)
-Trabajar sobre la página de perfil creada en HTML y crear/ajustar `styles.css` con estos puntos:
+## Paso a paso docente
+1. Crea (o abre) `styles.css` y vincúlalo desde `index.html`.
+2. Define variables en `:root` para colores principales.
+3. Aplica estilo base en `body` (`margin`, `font-family`, `background`, `color`).
+4. Centra el contenido con `width:min(...)` en `header/main/footer`.
+5. Convierte menú en `flex` para ordenar enlaces.
+6. Da estilo a `section` con fondo, padding y bordes redondeados.
+7. Diseña botón con color de acento y bordes redondos.
+8. Verifica contraste visual y legibilidad del texto.
+9. Revisión final: coherencia visual entre todas las secciones.
 
-1. **Selectores básicos**
-- Aplicar estilos con selector de etiqueta (`body`, `h1`, `p`).
-- Aplicar estilos con clase y con id en secciones clave.
+## Solución completa explicada
 
-2. **Tipografía y color**
-- Definir fuente principal y tamaño base del texto.
-- Elegir una paleta simple (fondo, texto, color acento).
-- Mejorar contraste en títulos y enlaces.
+```css
+:root { --bg:#f7f7fb; --text:#222; --accent:#6b5bff; }
+body { margin:0; font-family:Arial,sans-serif; background:var(--bg); color:var(--text); }
+header, main, footer { width:min(900px,92%); margin:0 auto; }
+nav { display:flex; gap:.5rem; flex-wrap:wrap; }
+section { background:#fff; padding:1rem; border-radius:12px; margin:1rem 0; }
+button { background:var(--accent); color:#fff; border:none; padding:.6rem 1rem; border-radius:999px; }
+```
 
-3. **Espaciado y box model**
-- Añadir `margin` y `padding` coherentes.
-- Separar visualmente secciones con espacio o borde sutil.
+- `:root` centraliza colores para mantenimiento.
+- `width:min(...)` mejora responsive sin media query compleja.
+- `display:flex` ordena enlaces de navegación.
 
-4. **Navbar y botones**
-- Mejorar estilo de navegación.
-- Estilizar botones de forma clara y consistente.
-
-5. **Flexbox básico**
-- Usar `display: flex` en al menos una sección del perfil.
-- Alinear elementos de forma legible (`justify-content`, `align-items`, `gap`).
-
-## Mini práctica interactiva (obligatoria)
-Completar al menos 1 reto en cada una de estas plataformas:
-- https://flukeout.github.io/
-- https://flexboxfroggy.com/#es
-
-## Criterios de finalización
-- El perfil se ve más ordenado que la versión sin CSS.
-- Se aplicaron selectores por etiqueta, clase e id.
-- Existe al menos una sección maquetada con Flexbox.
-- Navegación y botones tienen estilo consistente.
-
-## Entregables
-- `styles.css` final y ajustes en `index.html` si fueran necesarios.
-- Registro de dudas en `jp/sin-ia/css/DUDAS.md` (si aplica).
-- Nota breve en bitácora con qué propiedad CSS costó más.
+## Qué resuelve este ejercicio
+- Pasa de HTML “en bruto” a interfaz clara y usable.
+- Introduce fundamentos de diseño escalable para clases futuras.

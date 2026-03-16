@@ -1,0 +1,107 @@
+.main_header {
+  background-color: white;
+  width: 100%; /* ← cambiado de 100vw a 100% para evitar scroll horizontal */
+  padding: 15px 20px;
+  box-sizing: border-box; /* ← evita que el padding desborde */
+  display: flex; /* ← para alinear logo y botones en la misma línea */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.botones {
+  display: flex;
+  gap: 15px; /* ← espacio entre botones */
+}
+
+.botones button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botones button:hover {
+  color: #00b5cc;
+}
+.card1 {
+  background-color: goldenrod;
+  border-radius: 10px;
+  color: white;
+  height: 200px;
+  width: 200px;
+  font-size: 200px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 80%;
+}
+.card2 {
+  background-color: cornflowerblue;
+  border-radius: 10px;
+  color: white;
+  height: 200px;
+  width: 200px;
+  font-size: 200px;
+  text-align: center;
+  justify-content: center;
+}
+.card3 {
+  background-color: coral;
+  border-radius: 10px;
+  color: white;
+  height: 200px;
+  width: 200px;
+  font-size: 200px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 80%;
+}
+.card4 {
+  background-color: darkslategrey;
+  border-radius: 10px;
+  color: white;
+  height: 200px;
+  width: 200px;
+  font-size: 200px;
+  text-align: center;
+  justify-content: center;
+}
+
+.hero {
+  background-color: darkolivegreen;
+  color: black;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+  background-color: darkolivegreen;
+  color: white;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: clamp(20px, 4vw, 50px);
+  font-weight: 300px;
+  background-color: darkolivegreen;
+  color: white;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: darkolivegreen;
+}
+h2 {
+  background-color: darkolivegreen;
+}
