@@ -1,3 +1,18 @@
+/* Bouton de fermeture modal (CSP safe) */
+.close-update-box {
+  float: right;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: color var(--transition);
+}
+.close-update-box:hover {
+  color: var(--accent);
+}
 /* ============================================
    API Recetas — Dark Theme Élégant 🐱🧱
    ============================================ */
