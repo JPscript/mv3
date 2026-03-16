@@ -9,11 +9,44 @@
 
 }
  
- h1 {
+#recetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 250px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);}
+
+.card:hover {
+  border-image-slice: 1;
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+h1 {
   font-family: verdana;
   font-size: 30px;
   text-align: center;
+  margin-bottom: 30px;
 }
+
 
 form {
 border-radius: 10px;
@@ -51,12 +84,56 @@ form:hover {
 
 /* Hover psicodélico del botón */
 #formulario input[type="submit"]:hover {
-  border-color: var(--pac-orange);
-  box-shadow: 
-      0 0 10px var(--pac-yellow),
-      0 0 20px var(--ghost-pink),
-      0 0 30px var(--ghost-blue),
-      0 0 40px var(--ghost-orange);
-  color: var(--pac-yellow);
+  border-color: var(--ghost-blue);
+  box-shadow: 0 0 10px var(--ghost-blue),
+              0 0 20px var(--ghost-blue);
+  color: var(--ghost-blue);
   transform: scale(1.05);
 }
+
+/* Botón psicodélico */
+#cerrarModal {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+/* Hover psicodélico del botón */
+#cerrarModal:hover {
+  border-color: var(--ghost-blue);
+  box-shadow: 0 0 10px var(--ghost-blue),
+              0 0 20px var(--ghost-blue);
+  color: var(--ghost-blue);
+  transform: scale(1.05);
+}
+
+        /* Modal */
+        #modalForm {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10;
+            width: 400px;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 5;
+        }

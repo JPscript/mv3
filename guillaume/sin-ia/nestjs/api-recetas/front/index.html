@@ -11,6 +11,23 @@
     <h1>Recetas maravilosas !</h1>
     <div class="recipes-container"></div>
     <a href="new-recipe.html" class="btn">Añadir una receta</a>
+    <div id="recipe-update-box" class="recipe-update-box">
+        <button id="close-update-box" type="button" class="close-update-box">&times;</button>
+        <form action="update" id="update-recipe-form">
+            <input type="text" name="nombre">
+            <input type="text" name="descripcion">
+            <input type="text" name="ingredientes">
+            <label for="tiempo_min">Tiempo minimo</label>
+            <input type="number" name="tiempo_min">
+            <select name="dificultad" id="dificultad">
+                <option value="facil">facil</option>
+                <option value="media">media</option>
+                <option value="dificil">dificil</option>
+            </select>
+            <input type="file" name="picture" accept="image/*" id="picture">
+            <input class="btn" type="submit" value="Enviar">
+        </form>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

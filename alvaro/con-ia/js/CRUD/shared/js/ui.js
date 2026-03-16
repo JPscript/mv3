@@ -15,7 +15,7 @@ export function recipeCardTemplate(recipe) {
   return `
     <article class="card" data-id="${normalized.id}">
       <div class="card-image-wrap">
-        ${normalized.imageUrl ? `<img src="${normalized.imageUrl}" alt="${normalized.title}" class="card-image" />` : '<div class="card-image placeholder">Sin imagen</div>'}
+        ${normalized.imageUrl ? `<img src="${normalized.imageUrl}" alt="${normalized.title}" class="card-image" />` : '<div class="card-image placeholder">No image</div>'}
       </div>
       <div class="card-body">
         <h3>${normalized.title}</h3>

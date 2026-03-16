@@ -13,12 +13,12 @@ const {
 
 async function loadRecipes() {
   try {
-    setStatus(statusBox, 'Cargando recetas...', 'info');
+    setStatus(statusBox, 'Loading recipes...', 'info');
     const recipes = await getRecipes();
 
     if (!recipes.length) {
-      grid.innerHTML = '<div class="empty">No hay recetas registradas.</div>';
-      setStatus(statusBox, 'Sin resultados.', 'info');
+      grid.innerHTML = '<div class="empty">No recipes found.</div>';
+      setStatus(statusBox, 'No results.', 'info');
       return;
     }
 
@@ -33,14 +33,14 @@ async function loadRecipes() {
     });
 
     const total = recipes.map(normalizeRecipe).filter((item) => item.id).length;
-    setStatus(statusBox, `Recetas cargadas: ${total}`, 'success');
+    setStatus(statusBox, `Loaded recipes: ${total}`, 'success');
   } catch (error) {
     grid.innerHTML = '';
     if (isCorsError(error)) {
-      setStatus(statusBox, 'No se pudo conectar. Si abriste con Alt+B, revisa CORS en backend para Origin null.', 'error');
+      setStatus(statusBox, 'Could not connect. If opened with Alt+B, check backend CORS for Origin null.', 'error');
       return;
     }
-    setStatus(statusBox, `Error al cargar: ${error.message}`, 'error');
+    setStatus(statusBox, `Load error: ${error.message}`, 'error');
   }
 }
 

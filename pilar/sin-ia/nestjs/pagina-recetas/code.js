@@ -41,6 +41,7 @@ async function loadData() {
 }
 
 // Inicializa comportamientos según la página actual
+// HTML cargado → DOM listo → se ejecuta el script
 document.addEventListener('DOMContentLoaded', () => {
   loadData(); // Ejecuta este código cuando todo el HTML de la página esté cargado.
 

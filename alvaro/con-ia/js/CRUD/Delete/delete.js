@@ -1,4 +1,4 @@
-const { getRecipes, normalizeRecipe, deleteRecipe, setStatus, isCorsError } = window.CRUD;
+const { getRecipes, normalizeRecipe, deleteRecipe, setStatus, isCorsError } = globalThis.CRUD;
 
 const grid = document.querySelector('#deleteGrid');
 const statusBox = document.querySelector('#status');
@@ -12,7 +12,7 @@ function deleteCardTemplate(recipe) {
         <h3>${item.title}</h3>
         <p>${item.description}</p>
         <div class="actions">
-          <button class="danger" data-action="delete" data-id="${item.id}">Eliminar</button>
+          <button class="danger" data-action="delete" data-id="${item.id}">Delete</button>
         </div>
       </div>
     </article>
@@ -21,24 +21,24 @@ function deleteCardTemplate(recipe) {
 
 async function loadRecipes() {
   try {
-    setStatus(statusBox, 'Cargando recetas...', 'info');
+    setStatus(statusBox, 'Loading recipes...', 'info');
     const recipes = await getRecipes();
 
     if (!recipes.length) {
-      grid.innerHTML = '<div class="empty">No hay recetas para borrar.</div>';
-      setStatus(statusBox, 'Sin elementos.', 'info');
+      grid.innerHTML = '<div class="empty">No recipes available to delete.</div>';
+      setStatus(statusBox, 'No items found.', 'info');
       return;
     }
 
     grid.innerHTML = recipes.map(deleteCardTemplate).join('');
-    setStatus(statusBox, 'Selecciona una receta para eliminar.', 'success');
+    setStatus(statusBox, 'Select a recipe to delete.', 'success');
   } catch (error) {
     grid.innerHTML = '';
     if (isCorsError(error)) {
-      setStatus(statusBox, 'No se pudo conectar. Si abriste con Alt+B, revisa CORS en backend para Origin null.', 'error');
+      setStatus(statusBox, 'Could not connect. If opened with Alt+B, check backend CORS for Origin null.', 'error');
       return;
     }
-    setStatus(statusBox, `Error al cargar: ${error.message}`, 'error');
+    setStatus(statusBox, `Load error: ${error.message}`, 'error');
   }
 }
 
@@ -48,21 +48,21 @@ grid.addEventListener('click', async (event) => {
 
   const id = button.dataset.id;
   const card = button.closest('.card');
-  const recipeName = card?.querySelector('h3')?.textContent || 'esta receta';
+  const recipeName = card?.querySelector('h3')?.textContent || 'this recipe';
 
-  const confirmed = window.confirm(`¿Seguro que quieres borrar ${recipeName}?`);
+  const confirmed = globalThis.confirm(`Are you sure you want to delete ${recipeName}?`);
   if (!confirmed) {
-    setStatus(statusBox, 'Borrado cancelado por el usuario.', 'info');
+    setStatus(statusBox, 'Delete canceled by user.', 'info');
     return;
   }
 
   try {
-    setStatus(statusBox, 'Eliminando receta...', 'info');
+    setStatus(statusBox, 'Deleting recipe...', 'info');
     await deleteRecipe(id);
-    setStatus(statusBox, 'Receta eliminada correctamente.', 'success');
+    setStatus(statusBox, 'Recipe deleted successfully.', 'success');
     await loadRecipes();
   } catch (error) {
-    setStatus(statusBox, `Error al eliminar: ${error.message}`, 'error');
+    setStatus(statusBox, `Delete error: ${error.message}`, 'error');
   }
 });
 

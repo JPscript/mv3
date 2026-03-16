@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create receta</title>
+  <title>Create Recipe</title>
   <link rel="stylesheet" href="../shared/css/styles.css" />
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>Create receta</h1>
-      <p>Crea receta y sube imagen opcional.</p>
+      <h1>Create Recipe</h1>
+      <p>Create a recipe and optionally upload an image.</p>
     </header>
 
     <nav class="nav">
@@ -21,32 +21,32 @@
     </nav>
 
     <form id="createForm">
-      <label for="nombre">Nombre *</label>
+      <label for="nombre">Name *</label>
       <input id="nombre" name="nombre" type="text" required />
 
-      <label for="descripcion">Descripción *</label>
+      <label for="descripcion">Description *</label>
       <textarea id="descripcion" name="descripcion" required></textarea>
 
-      <label for="ingredientes">Ingredientes *</label>
+      <label for="ingredientes">Ingredients *</label>
       <textarea id="ingredientes" name="ingredientes" required></textarea>
 
-      <label for="tiempo_min">Tiempo (minutos) *</label>
+      <label for="tiempo_min">Time (minutes) *</label>
       <input id="tiempo_min" name="tiempo_min" type="number" min="1" step="1" required />
 
-      <label for="dificultad">Dificultad *</label>
+      <label for="dificultad">Difficulty *</label>
       <select id="dificultad" name="dificultad" required>
-        <option value="">Selecciona dificultad</option>
-        <option value="facil">Fácil</option>
-        <option value="media">Media</option>
-        <option value="dificil">Difícil</option>
+        <option value="">Select difficulty</option>
+        <option value="facil">Easy</option>
+        <option value="media">Medium</option>
+        <option value="dificil">Hard</option>
       </select>
 
-      <label for="image">Imagen (archivo opcional)</label>
+      <label for="image">Image (optional file)</label>
       <input id="image" name="image" type="file" accept="image/*" />
 
       <div class="actions">
-        <button type="submit">Crear receta</button>
-        <button type="reset" class="secondary">Limpiar</button>
+        <button type="submit">Create Recipe</button>
+        <button type="reset" class="secondary">Clear</button>
       </div>
       <div id="status" class="status"></div>
     </form>

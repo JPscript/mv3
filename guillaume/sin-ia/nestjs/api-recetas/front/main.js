@@ -7,7 +7,7 @@ const HTMLUrl = "http://127.0.0.1:5500/guillaume/sin-ia/nestjs/api-recetas/front
 // determine the location:
 document.addEventListener('DOMContentLoaded', () => {
     const page = document.body.dataset.page || (location.pathname.split('/').pop().replace('.html','') || 'index');
-    const params = new URL(window.location.href).searchParams;
+    const params = new URL(globalThis.location.href).searchParams;
     console.log(params.get('id'));
     switch (page) {
         case 'recipes':
@@ -53,24 +53,73 @@ function populateRecipe(container, recipe, link) {
   if (link) {
     html += '</a>'
   }
+  // buttons for boxes system
+  html += '<div class="buttons">';
+  html += `<button class="update-btn" data-id="${recipe.id}" type="button">✏️</button>`;
+
+  html += `<button id="delete-btn" data-id="${recipe.id}" type="button">🗑️</button>`;
   html += '</div>';
-  return container.innerHTML += html;
+  html += '</div>';
+  container.innerHTML += html;
 }
 
+// activate update a recipe box
+async function updateBox(params) {
+  // charge button
+
+
+  const box = document.getElementById('recipe-update-box');
+  const closeBtn = document.getElementById('close-update-box');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      box.classList.remove('active');
+    });
+  }
+  const btns = document.getElementsByClassName('update-btn');
+  Array.from(btns).forEach(function(btn) {
+    // feactivate the single recipe page to work on box system
+    btn.addEventListener('click', async (e) => {
+      console.log('hello');
+
+      e.preventDefault();
+
+      // populate the form
+      const recipeId = e.target.dataset.id;
+      const r = await fetch(`${APIUrl}recipes/${recipeId}`, { method: "GET" });
+      const recipe = await r.json();
+      const nameInput = document.getElementsByName('nombre')[0];
+      nameInput.value = recipe.nombre;
+      const descriptionInput = document.getElementsByName('descripcion')[0];
+      descriptionInput.value = recipe.descripcion;
+      const ingredientesInput = document.getElementsByName('ingredientes')[0];
+      ingredientesInput.value = recipe.ingredientes;
+      const tiempoInput = document.getElementsByName('tiempo_min')[0];
+      tiempoInput.value = recipe.tiempo_min;
+      const dificultadInput = document.getElementsByName('dificultad')[0];
+      dificultadInput.value = recipe.dificultad;
+      box.classList.add('active');
+    })
+  });
+  // receive the submit values
+  // save the changes on API
+
+}
 
 // GET (listar)
 async function recipes() {
     try {
       const r = await fetch(`${APIUrl}recipes`, { method: "GET" });
-    //   console.log(await r.json());
+
       const main_container = document.getElementsByClassName('recipes-container')[0];
-    //   console.log(main_container);
+
       const recipes = await r.json();
       // populating, add an 'a' tag
       recipes.forEach(recipe => {
-        let link = true;
+        // feactivate the single recipe page to work on box system
+        let link = false;
         populateRecipe(main_container, recipe, link);
       });
+      updateBox();
     } catch (error) {
       console.error(error);
     }
@@ -113,7 +162,7 @@ function createRecipeForm() {
 }
 
 function setRecipePicture() {
-    const recipeId = new URL(window.location.href).searchParams.get('id');
+    const recipeId = new URL(globalThis.location.href).searchParams.get('id');
     if (!recipeId) {
         alert('No se proporcionó el id de la receta');
         return;
@@ -123,7 +172,7 @@ function setRecipePicture() {
         e.preventDefault();
 
         const pic = new FormData(e.target).get('picture');
-        if (!pic || !pic.size) {
+        if (!pic?.size) {
             alert('Selecciona una imagen primero');
             return;
         }
@@ -138,7 +187,7 @@ function setRecipePicture() {
             });
             const recipe = await r.json();
             alert('Imagen guardada: ' + recipe.image_url);
-            window.location.href = `recipe.html?id=${recipeId}`;
+            globalThis.location.href = `recipe.html?id=${recipeId}`;
         } catch (error) {
             console.error(error);
             alert('Error al subir la imagen');
@@ -148,27 +197,20 @@ function setRecipePicture() {
 
 async function saveRecipe(formData) {
         try {
-            const r = await fetch(`${APIUrl}recipes`, {
+            await fetch(`${APIUrl}recipes`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     nombre: formData.get('nombre'),
                     ingredientes: formData.get('ingredientes'),
                     descripcion: formData.get('descripcion'),
-                    tiempo_min: parseInt(formData.get('tiempo_min')),
+                    tiempo_min: Number.parseInt(formData.get('tiempo_min')),
                     dificultad: formData.get('dificultad'),
                 }),
             });
-            // const imageData = new formData();
-            // imageData.append('image', formData.get('image'));
 
-            try {
-              const recipe = await r.json();
-              const t = await fetch(`${APIUrl}recipes/${recipe.id}/image`, {
-                  method: 'POST',
-                  body: formData,
-              });
-            } catch(error) {
+
+            try { /* empty */ } catch(error) {
               console.error(error);
             }
         } catch (error) {
@@ -178,7 +220,7 @@ async function saveRecipe(formData) {
 
 async function updateRecipeForm() {
   // populate form
-  const recipeId = new URL(window.location.href).searchParams.get('id');
+  const recipeId = new URL(globalThis.location.href).searchParams.get('id');
   try {
         const r = await fetch(`${APIUrl}recipes/${recipeId}`, { method: "GET" });
         const recipe = await r.json();
@@ -207,18 +249,7 @@ async function updateRecipeForm() {
 // PUT (reemplazo completo)
 async function putRecipe(recipeId, formData) {
     try {
-      const r = await fetch(`${APIUrl}/1`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre: formData.get('nombre'),
-          ingredientes: formData.get('ingredientes'),
-          descripcion: formData.get('descripcion'),
-          tiempo_min: parseInt(formData.get('tiempo_min')),
-          dificultad: formData.get('dificultad'),
-        }),
-      });
-      window.location.href = 'index.html';
+      globalThis.location.href = 'index.html';
 
     } catch (error) {
       console.error(error);
@@ -229,17 +260,6 @@ async function putRecipe(recipeId, formData) {
 // PATCH (actualizacion parcial)
 async function patchRecipe(recipeId, formData) {
     try {
-      const r = await fetch(`${APIUrl}recipes/${recipeId}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nombre: formData.get('nombre'),
-          ingredientes: formData.get('ingredientes'),
-          descripcion: formData.get('descripcion'),
-          tiempo_min: parseInt(formData.get('tiempo_min')),
-          dificultad: formData.get('dificultad'),
-        }),
-      });
       window.location.href = 'index.html';
     } catch (error) {
       console.error(error);

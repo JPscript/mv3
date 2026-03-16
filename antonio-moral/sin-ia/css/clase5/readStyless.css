@@ -1,3 +1,13 @@
+:root {
+  --pac-yellow: #ffd700;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #0087ff;
+  --ghost-orange: #ff9800;
+  --maze-dark: #1a1a2e;
+  --sable-verde: #00ff41;
+
+}
 #recetas {
   display: flex;
   flex-wrap: wrap;
@@ -13,11 +23,11 @@
   width: 250px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 3px solid #00ff41; 
-}
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);}
 
 .card:hover {
-  border-image: linear-gradient(45deg, #ffd700, #ff0000, #ffb8ff, #0087ff, #ff9800, #1a1a2e);
   border-image-slice: 1;
   transform: scale(1.05);
 }
@@ -47,5 +57,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
+  padding-bottom: 100px;
   justify-content: center;
 }

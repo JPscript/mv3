@@ -20,8 +20,8 @@
   function normalizeRecipe(recipe) {
     return {
       id: recipe?.id ?? recipe?._id ?? recipe?.recipeId ?? recipe?.recipe_id ?? null,
-      title: recipe?.title ?? recipe?.name ?? recipe?.nombre ?? 'Sin título',
-      description: recipe?.description ?? recipe?.instructions ?? recipe?.descripcion ?? 'Sin descripción',
+      title: recipe?.title ?? recipe?.name ?? recipe?.nombre ?? 'Untitled',
+      description: recipe?.description ?? recipe?.instructions ?? recipe?.descripcion ?? 'No description',
       imageUrl: recipe?.imageUrl ?? recipe?.image ?? recipe?.photo ?? recipe?.image_url ?? ''
     };
   }
@@ -31,7 +31,7 @@
     return `
       <article class="card" data-id="${item.id}">
         <div class="card-image-wrap">
-          ${item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.title}" class="card-image" />` : '<div class="card-image placeholder">Sin imagen</div>'}
+          ${item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.title}" class="card-image" />` : '<div class="card-image placeholder">No image</div>'}
         </div>
         <div class="card-body">
           <h3>${item.title}</h3>
@@ -57,10 +57,10 @@
   }
 
   function formatDate(value) {
-    if (!value) return 'No disponible';
+    if (!value) return 'Not available';
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return String(value);
-    return date.toLocaleString('es-ES');
+    return date.toLocaleString('en-US');
   }
 
   async function parseResponse(response) {

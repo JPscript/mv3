@@ -1,21 +1,25 @@
+:root {
+  --pac-yellow: #ffd700;
+  --ghost-red: #ff0000;
+  --ghost-pink: #ffb8ff;
+  --ghost-blue: #0087ff;
+  --ghost-orange: #ff9800;
+  --maze-dark: #1a1a2e;
+  --sable-verde: #00ff41;
+}
+
 body {
   margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  font-family: verdana;
 }
 
 h1 {
-  font-family: verdana;
   font-size: 30px;
   margin-bottom: 30px;
-}
-
-.eliminarID {
-  display: flex;
-  gap: 20px;
 }
 
 #recetas {
@@ -29,16 +33,14 @@ h1 {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 3px solid var(--sable-verde);
   width: 250px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 3px solid #00ff41; 
+  box-shadow: 0 0 10px var(--sable-verde), 0 0 20px var(--sable-verde);
 }
 
 .card:hover {
-  border-image: linear-gradient(45deg, #ffd700, #ff0000, #ffb8ff, #0087ff, #ff9800, #1a1a2e);
-  border-image-slice: 1;
   transform: scale(1.05);
 }
 
@@ -48,4 +50,64 @@ h1 {
   object-fit: cover;
   margin-top: 10px;
   border-radius: 5px;
+}
+
+/* Modal y overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 5;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal section {
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  width: 350px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+#modal section:hover {
+  border-color: var(--sable-verde);
+  box-shadow: 0 0 10px var(--sable-verde),
+              0 0 20px var(--sable-verde);
+}
+
+/* Botones */
+#eliminarBtn, #cerrarModal {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 3px solid var(--maze-dark);
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin: 10px 5px 0 5px;
+}
+
+#eliminarBtn:hover, #cerrarModal:hover {
+  border-color: var(--ghost-blue);
+  box-shadow: 0 0 10px var(--ghost-blue),
+              0 0 20px var(--ghost-blue);
+  color: var(--ghost-blue);
+  transform: scale(1.05);
 }
