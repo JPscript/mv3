@@ -23,11 +23,24 @@ async function loadData() {
             <h4>${data.tiempo_min}</h4>
             <h4>${data.dificultad}</h4>
             <input type="button" value="EDITAR" />
+
+          </a>
+          </div>
+
+           <div class="receta">
+          <a href="delete.html?id=${data.id}">
+            <h3>${data.nombre}</h3>
+            <h4>${data.descripcion}</h4>
+            <h4>${data.ingredientes}</h4>
+            <h4>${data.tiempo_min}</h4>
+            <h4>${data.dificultad}</h4>
+            <input type="button" value="ELIMINAR" />
+
           </a>
           </div>
       `;
 
-    document.getElementById("recetas").innerHTML = salida; // ← QUITADO el </ul>
+    document.getElementById("recetas").innerHTML = salida;
   } catch (error) {
     console.log(error);
   }
