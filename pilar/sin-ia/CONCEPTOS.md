@@ -284,7 +284,7 @@
 
 - **cursor**: Cambia el tipo de cursor cuando pasa por un elemento.
 
-## Conceptos JS iniciales (explicación breve y clara)
+## Conceptos JS iniciales
 
 1. **`fetch(url)`**
    - **Qué es:** función para pedir datos a una API.
@@ -305,3 +305,206 @@
    - **Qué es:** volcar HTML generado dentro de un contenedor.
    - **Para qué sirve:** mostrar tarjetas dinámicas en pantalla.
    - **Qué problema resuelve:** pasar de datos en memoria a interfaz visible.
+
+   Angular
+
+Framework de desarrollo web basado en TypeScript que permite crear aplicaciones frontend estructuradas mediante componentes, servicios y módulos.
+
+Angular CLI
+
+Herramienta de línea de comandos que permite crear, ejecutar, configurar y mantener proyectos Angular automáticamente mediante comandos.
+
+Ejemplos de uso:
+
+crear proyectos
+
+generar componentes
+
+ejecutar el servidor de desarrollo
+
+compilar la aplicación
+
+ng new
+
+Comando de Angular CLI que crea una nueva aplicación Angular con toda la estructura inicial del proyecto.
+
+Ejemplo:
+
+ng new guia-restaurantes
+ng serve
+
+Comando que inicia el servidor de desarrollo de Angular y permite visualizar la aplicación en el navegador mientras se trabaja.
+
+Por defecto la aplicación se ejecuta en:
+
+http://localhost:4200
+ng generate (ng g)
+
+Comando utilizado para crear automáticamente elementos de Angular como componentes, servicios, módulos o interfaces.
+
+Ejemplo:
+
+ng g c restaurante-card
+Componente (Component)
+
+Unidad básica de construcción de la interfaz en Angular.
+
+Un componente está formado por:
+
+TypeScript → lógica
+
+HTML → estructura
+
+CSS / SCSS → estilos
+
+Los componentes permiten dividir la aplicación en bloques reutilizables de interfaz.
+
+Template
+
+Archivo HTML asociado a un componente donde se define cómo se muestra la información en la interfaz.
+
+Permite usar sintaxis propia de Angular para mostrar datos o controlar el flujo de renderizado.
+
+Interpolación
+
+Mecanismo que permite mostrar datos del componente en el template HTML.
+
+Se representa con:
+
+{{ variable }}
+
+Ejemplo:
+
+<h1>{{ nombreRestaurante }}</h1>
+Directivas
+
+Instrucciones que Angular utiliza dentro del HTML para modificar el comportamiento o la estructura del DOM.
+
+Ejemplos:
+
+@if → mostrar contenido condicionalmente
+
+@for → iterar listas de datos
+
+@Input
+
+Decorador que permite pasar datos de un componente padre a un componente hijo.
+
+Se utiliza para reutilizar componentes mostrando información diferente.
+
+@Output
+
+Decorador que permite enviar eventos desde un componente hijo hacia un componente padre.
+
+Se usa cuando un componente necesita comunicar una acción hacia arriba.
+
+Servicio (Service)
+
+Clase de Angular que contiene lógica reutilizable de la aplicación, especialmente para:
+
+comunicación con APIs
+
+manejo de datos
+
+lógica de negocio
+
+Los servicios suelen utilizarse junto con HttpClient.
+
+CRUD
+
+Modelo de operaciones básicas que se pueden realizar sobre datos en una aplicación:
+
+Create → crear datos
+
+Read → leer datos
+
+Update → actualizar datos
+
+Delete → eliminar datos
+
+API
+
+Interfaz que permite que una aplicación frontend se comunique con un backend mediante peticiones HTTP.
+
+En el proyecto se utiliza una API creada con NestJS.
+
+Endpoint
+
+Ruta específica dentro de una API que permite realizar una operación concreta.
+
+Ejemplo:
+
+GET /restaurants
+Interface (TypeScript)
+
+Estructura que define la forma que deben tener los datos dentro de una aplicación.
+
+Permite tipar objetos para mejorar la organización y evitar errores.
+
+Ejemplo:
+
+export interface Restaurante {
+  id: number;
+  nombre: string;
+  direccion: string;
+}
+Router
+
+Sistema de navegación de Angular que permite moverse entre diferentes páginas o vistas dentro de una aplicación sin recargar la página.
+
+Ejemplo de rutas:
+
+/restaurantes
+/restaurantes/:id
+ng build
+
+Comando que compila la aplicación Angular para producción, generando los archivos optimizados que se publicarán en un servidor.
+
+localhost
+
+Dirección que apunta al servidor local del propio ordenador, utilizada para probar aplicaciones durante el desarrollo.
+
+Ejemplo:
+
+http://localhost:4200
+
+TypeScript (tipado fuerte)
+
+Lenguaje de programación que extiende JavaScript añadiendo tipado fuerte (strong typing).
+
+Esto significa que las variables, funciones y objetos deben declarar el tipo de dato que utilizan, lo que permite detectar errores durante el desarrollo antes de ejecutar el programa.
+
+Ejemplo:
+
+let nombre: string = "Restaurante Central";
+let puntuacion: number = 4.5;
+
+El tipado fuerte mejora:
+
+la seguridad del código
+
+la legibilidad
+
+la detección temprana de errores
+
+Angular utiliza TypeScript como lenguaje principal de desarrollo.
+
+DOM (Document Object Model)
+
+El DOM es la representación estructurada de una página web en forma de árbol de objetos que el navegador crea a partir del HTML.
+
+Gracias al DOM, JavaScript puede:
+
+leer el contenido de la página
+
+modificar elementos HTML
+
+cambiar estilos
+
+responder a eventos del usuario
+
+Ejemplo de interacción con el DOM en JavaScript:
+const titulo = document.querySelector("h1");
+titulo.textContent = "Nuevo título";
+
+En frameworks como Angular, la manipulación del DOM se realiza principalmente a través de templates y data binding, evitando modificarlo directamente con JavaScript.

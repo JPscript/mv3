@@ -1,9 +1,4 @@
-- buscar una api para trabajar
-- explicaicon javascript
-- trabajar con apis 
-
-
- # CLASE6
+# CLASE6
 
 ## Tema y objetivo del día
 
