@@ -15,6 +15,7 @@ const baseUrl = "http://127.0.0.1:3000/recipes";
           <p><strong>Dificultad:</strong> ${receta.dificultad}</p>
           <p><strong>Tiempo:</strong> ${receta.tiempo_min} min</p>
         ${receta.image_url ? `<img src="${receta.image_url}" alt="${receta.nombre}">` : ''}
+        <p><strong>ID:</strong> ${receta.id}</p>
         </div>
       `;
     });
@@ -44,6 +45,7 @@ async function buscarId() {
           <p><strong>Dificultad:</strong> ${data.dificultad}</p>
           <p><strong>Tiempo:</strong> ${data.tiempo_min} min</p>
         ${data.image_url ? `<img src="${data.image_url}" alt="${data.nombre}">` : ''}
+        <p></p>ID: ${data.id}</p>
         </div>
       `;
     

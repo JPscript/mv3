@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>Actualizar Recetas</title>
+    <link rel="stylesheet" href="update.css">
+</head>
+
+<body>
+    <h1>Actualizar receta</h1>
+
+    <h2>Edición de la receta</h2>
+    <form id="formUpdate">
+        <label for="nombre">Nombre:</label>
+        <br><br>
+        <input type="text" id="nombre" name="nombre">
+        <br><br>
+        <label for="descripcion">Descripción:</label>
+        <br><br>
+        <textarea name="descripcion" id="descripcion" cols="50"
+            rows="5"></textarea>
+        <br><br>
+        <label for="ingredientes">Ingredientes:</label>
+        <br><br>
+        <textarea name="ingredientes" id="ingredientes" cols="50"
+            rows="5"></textarea>
+        <br><br>
+        <label for="tiempo">Tiempo de preparación:</label>
+        <br><br>
+        <input type="number" id="tiempo" name="tiempo" placeholder="1" min="1">
+        <p>Dificultad</p>
+        <input type="radio" id="facil" name="dificultad" value="facil">
+        <label for="facil">Fácil</label><br>
+        <input type="radio" id="media" name="dificultad" value="media">
+        <label for="media">Media</label><br>
+        <input type="radio" id="dificil" name="dificultad" value="dificil">
+        <label for="dificil">Difícil</label><br>
+        <br><br>
+        <button type="submit">Actualizar receta</button>
+    </form>
+
+    <!-- PRIMERO update.js (define api_url y recetaSeleccionada) -->
+    <script src="update.js"></script>
+
+    <!-- DESPUÉS el script inline que usa esas variables -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const recetaId = urlParams.get('id');
+
+        if (recetaId) {
+            recetaSeleccionada = recetaId;
+
+            fetch(`${api_url}/${recetaId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('nombre').value = data.nombre || '';
+                    document.getElementById('descripcion').value = data.descripcion || '';
+                    document.getElementById('ingredientes').value = data.ingredientes || '';
+                    document.getElementById('tiempo').value = data.tiempo_min || '';
+                    if (data.dificultad === 'facil') document.getElementById('facil').checked = true;
+                    else if (data.dificultad === 'media') document.getElementById('media').checked = true;
+                    else if (data.dificultad === 'dificil') document.getElementById('dificil').checked = true;
+                })
+                .catch(error => console.error('Error al cargar la receta:', error));
+        }
+
+        document.getElementById("formUpdate").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            try {
+                const response = await fetch(`${api_url}/${recetaSeleccionada}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nombre: formData.get("nombre"),
+                        descripcion: formData.get("descripcion"),
+                        ingredientes: formData.get("ingredientes"),
+                        tiempo_min: Number(formData.get("tiempo")),
+                        dificultad: formData.get("dificultad")
+                    })
+                });
+                if (!response.ok) throw new Error("Error en la actualización");
+                alert("Receta actualizada correctamente");
+                window.location.href = 'updateUno.html'; 
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+
+</html>

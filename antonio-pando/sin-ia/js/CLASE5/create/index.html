@@ -2,14 +2,14 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="stylesCreate.css">
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
 
     <header>
-        <a href="index.html" id="cabecera">Recetas</a>
+        <a href="../index.html" id="cabecera">Recetas</a>
     </header>
 
     <main>
@@ -22,13 +22,12 @@
                 <label for="ingredientes">Ingredientes</label>
                 <input type="text" id="ingredientes" name="ingredientes" class="cajaTexto" placeholder="Dime que necesito">
                 <label for="tiempo">Tiempo en minutos</label>
-                <input type="number" id="tiempo" name="tiempo" class="cajaTexto" placeholder="Dime cuanto tardo">
+                <input type="number" id="tiempo" name="tiempo" class="cajaTexto" placeholder="Dime cuanto tardo" min="1">
                 <label for="dificultad">Dificultad</label>
                 <select name="dificultad" id="dificultad">
                     <option value="facil">Facil</option>
                     <option value="media">Media</option>
                     <option value="dificil">Dificil</option>
-                    <option value="imposible">Imposible</option>
                 </select>
                 <label for="imagen">Imagen</label>
                 <input type="file" id="imagen" name="imagen" accept="image/*">
@@ -41,7 +40,7 @@
     <footer>
 
     </footer>
-    <script src="scriptCreate.js"></script>
+    <script src="script.js"></script>
 </body>
 
 

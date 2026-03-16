@@ -14,13 +14,6 @@ async function loadData() {
 
     data.forEach((recipe) => {
 
-      const maxDescriptionLength = 100;
-
-      const shortDescription =
-        recipe.descripcion.length > maxDescriptionLength
-          ? recipe.descripcion.slice(0, maxDescriptionLength).trimEnd() + "..."
-          : recipe.descripcion;
-
       const imageUrl = recipe.image_url || recipe.imagen || '';
       const imageHtml = imageUrl
         ? `<div class="card-image"><img src="${imageUrl}" alt="Imagen de ${recipe.nombre}" loading="lazy" /></div>`
@@ -31,7 +24,7 @@ async function loadData() {
                     ${imageHtml}
                     <div class="content">
                         <h3>${recipe.nombre}</h3>
-                        <p>${shortDescription}</p>
+                        <p>${recipe.descripcion}</p>
                         <p><strong>Ingredientes:</strong> ${recipe.ingredientes}</p>
                         <p><strong>Tiempo:</strong> ${recipe.tiempo_min} min</p>
                         <p><strong>Dificultad:</strong> ${recipe.dificultad}</p>
@@ -49,7 +42,7 @@ async function loadData() {
 
 // Inicializa comportamientos según la página actual
 document.addEventListener('DOMContentLoaded', () => {
-  loadData();
+  loadData(); // Ejecuta este código cuando todo el HTML de la página esté cargado.
 
   const createForm = document.querySelector('form.create-form');
   if (createForm) createForm.addEventListener('submit', createRecipe);
