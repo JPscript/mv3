@@ -1,0 +1,14 @@
+:host {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+app-header,
+app-footer {
+	display: block;
+}
+
+app-footer {
+	margin-top: auto;
+}

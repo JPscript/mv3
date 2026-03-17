@@ -1,0 +1,92 @@
+/* Base visual comun para toda la app */
+
+:root {
+  --color-bg: #f6efe5;
+  --color-surface: #fffaf4;
+  --color-surface-strong: #ffffff;
+  --color-text: #2f2a24;
+  --color-muted: #6d6258;
+  --color-primary: #c96b3b;
+  --color-primary-dark: #a9542a;
+  --color-success: #4f8a52;
+  --color-success-dark: #3e6f41;
+  --color-warning: #e7b24a;
+  --color-danger: #c74b4b;
+  --color-danger-dark: #a33838;
+  --color-border: #eadfce;
+  --shadow-soft: 0 14px 30px rgba(85, 57, 34, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at top left, rgba(231, 178, 74, 0.22), transparent 28%),
+    linear-gradient(180deg, #fbf6ef 0%, var(--color-bg) 45%, #f4ecdf 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+input:focus {
+  border-color: rgba(201, 107, 59, 0.7);
+  box-shadow: 0 0 0 4px rgba(201, 107, 59, 0.12);
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
