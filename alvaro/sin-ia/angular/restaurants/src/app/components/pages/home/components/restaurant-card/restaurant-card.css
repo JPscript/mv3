@@ -1,0 +1,95 @@
+:host {
+  display: block;
+}
+
+.card {
+  background: #1a1d27;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #c9d1d9;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 32px rgba(61, 180, 242, 0.25);
+}
+
+/* --- Portada --- */
+.card__cover {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card__img {
+  transform: scale(1.05);
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(26, 29, 39, 0.95) 100%
+  );
+}
+
+/* --- Cuerpo --- */
+.card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e8eaf6;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__description {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #8b949e;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- Coordenadas --- */
+.card__coords {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: #3db4f2;
+  font-variant-numeric: tabular-nums;
+}
+
+.card__coords-icon {
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}

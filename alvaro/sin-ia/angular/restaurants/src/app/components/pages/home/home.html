@@ -1,0 +1,10 @@
+<div class="cards-grid">
+  @for (restaurant of fakeRestaurants; track restaurant.id) {
+    <app-restaurant-card
+      [name]="restaurant.name"
+      [description]="restaurant.description"
+      [image]="restaurant.image"
+      [coordinates]="restaurant.coordinates">
+    </app-restaurant-card>
+  }
+</div>
