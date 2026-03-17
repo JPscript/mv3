@@ -1,0 +1,14 @@
+.restaurant-card {
+    max-width: 30%;
+    width: 30%;
+}
+
+.name {
+    background: var(--color-bg-secondary)
+}
+
+img,
+.image {
+    height: 100px;
+    width: 100px;
+}
