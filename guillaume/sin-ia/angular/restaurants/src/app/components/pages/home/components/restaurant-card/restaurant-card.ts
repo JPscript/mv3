@@ -13,4 +13,5 @@ export class RestaurantCard {
   picture = input<string>();
   lat = input<string>();
   lng = input<string>();
+  rating = input<number>();
 }
