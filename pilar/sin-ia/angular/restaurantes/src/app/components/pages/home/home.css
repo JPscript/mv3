@@ -1,0 +1,24 @@
+/* El contenedor principal */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Aumentamos el espacio entre columnas */
+    width: 95%; /* Que no llegue al borde total de la pantalla */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ESTA ES LA CLAVE PARA ANGULAR:
+   Hacemos que el componente personalizado no genere una caja propia
+   para que la tarjeta interior sea la que se posicione en el grid */
+app-restaurante-card {
+    display: contents;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

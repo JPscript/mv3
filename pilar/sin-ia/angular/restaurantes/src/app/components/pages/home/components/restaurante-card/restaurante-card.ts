@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-restaurante-card',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './restaurante-card.html',
   styleUrl: './restaurante-card.css',
 })
-export class RestauranteCard {}
+
+export class RestauranteCard {
+  nombre = input<string>();
+  descripcion = input<string>();
+  imagen = input<string>();
+  lat = input.required<number>();
+lng = input.required<number>();
+}

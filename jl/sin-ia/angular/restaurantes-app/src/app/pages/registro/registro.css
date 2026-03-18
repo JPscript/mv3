@@ -1,0 +1,51 @@
+.register-box {
+  max-width: 350px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  color: #2f3542;
+  margin-bottom: 5px;
+}
+
+p {
+  color: #747d8c;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box; /* Para que el padding no ensanche el input */
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2ed573; /* Verde para diferenciarlo del login */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-text {
+  margin-top: 15px;
+}
+
+.footer-text a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: bold;
+}

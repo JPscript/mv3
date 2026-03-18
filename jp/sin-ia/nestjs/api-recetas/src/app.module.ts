@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
+import { CommentsModule } from './comments/comments.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { RatingsModule } from './ratings/ratings.module';
+import { RestaurantsModule } from './restaurants/restaurants.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -29,6 +34,11 @@ import { RecipesModule } from './recipes/recipes.module';
         };
       },
     }),
+    AuthModule,
+    UsersModule,
+    RestaurantsModule,
+    CommentsModule,
+    RatingsModule,
     RecipesModule,
   ],
 })

@@ -1,21 +1,15 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:host {
+  display: block;
 }
 
-body {
-  background: #0d1117;
-  color: #c9d1d9;
-  font-family: 'Segoe UI', system-ui, sans-serif;
+.app-shell {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
 }
 
-a {
-  color: #3db4f2;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+.app-content {
+  width: 100%;
+  position: relative;
 }

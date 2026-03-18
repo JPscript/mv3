@@ -1,0 +1,78 @@
+.detalle-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #ff4757;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.detalle-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.main-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 30px;
+}
+
+.header-detalle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating {
+  background: #fff2f2;
+  color: #ff4757;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.direccion {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.menu-tags {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.menu-tags li {
+  background: #f0f0f0;
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+.btn-reserva {
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #2ed573;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
