@@ -141,6 +141,8 @@ function mostrarModal(receta) {
         cambios.tiempo_min = Number(form.tiempo_min.value);
       if (form.dificultad.value !== (receta.dificultad || ""))
         cambios.dificultad = form.dificultad.value;
+      if (form.image_url.value !== receta.image_url)
+        cambios.image_url = form.image_url.value;
 
       // Si hay claves en 'cambios', hacemos un PATCH a la API con solo esas claves.
       if (Object.keys(cambios).length > 0) {
