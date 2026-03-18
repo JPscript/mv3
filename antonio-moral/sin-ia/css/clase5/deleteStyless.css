@@ -111,3 +111,11 @@ h1 {
   color: var(--ghost-blue);
   transform: scale(1.05);
 }
+
+#cerrarModal:hover {
+  border-color: var(--ghost-red);
+  box-shadow: 0 0 10px var(--ghost-red),
+              0 0 20px var(--ghost-red);
+  color: var(--ghost-red);
+  transform: scale(1.05);
+}

@@ -1,0 +1,16 @@
+<a routerLink="/login">Login</a> |
+<a routerLink="/registro">Registro</a> |
+<a routerLink="/perfil">Perfil</a> |
+<a routerLink="/mapa">Mapa</a>
+
+<p>home works!</p>
+
+<button routerLink="/restaurantes/crear-restaurante">
+  Crear restaurante
+</button>
+
+<div>
+  @for (r of restauranteFake; track r.id) {
+    <app-restaurante-card [restaurante]="r"></app-restaurante-card>
+  }
+</div>

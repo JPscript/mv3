@@ -1,30 +1,81 @@
+/* Estilos mediterráneos mejorados para las tarjetas de recetas */
+
 .card {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 12px;
-    margin: 8px 0;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    background: linear-gradient(145deg, #FFFACD, #F5DEB3);
+    border: 3px solid #556B2F;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     height: fit-content;
-    width: 300px;          
-    min-height: 200px;     
-    max-width: 90%;
+    width: 300px;
+    transition: all 0.3s ease;
+    color: #2F4F4F;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: #FFA500;
+}
+
+.card h2 {
+    font-size: 1.4em;
+    margin: 10px 0;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.card p {
+    margin: 8px 0;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.card img {
+    max-width: 65%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-}
-
-.card img {
-    max-width: 50%;
-    height: auto;
-    display: block;
-    margin: 8px 0;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 #data {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h1 {
+    text-align: center;
+    color: #8B4513;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-top: 20px;
+    background: linear-gradient(45deg, #FFFACD, #F5DEB3);
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 2px solid #556B2F;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    
+}
+
+.contenedor {
+    text-align: center;
 }

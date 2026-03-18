@@ -1,0 +1,8 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 32px;
+  background: #0d1117;
+  min-height: 100vh;
+}

@@ -1,0 +1,30 @@
+header{
+    background-color: var(--verde-oscuro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+header img{
+    width: 2dvw;
+    padding: 0.5dvw;
+}
+
+header h1{
+    color: var(--blanco);
+}
+
+header input{
+    border-radius: 5px;
+}
+
+header button{
+    margin-right: 2dvw;
+}
+
+#derechaHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+<article class="card">
+  <div class="card__cover">
+    <img [src]="image()" [alt]="name()" class="card__img" />
+    <div class="card__overlay"></div>
+  </div>
+
+  <div class="card__body">
+    <h2 class="card__title">{{ name() }}</h2>
+    <p class="card__description">{{ description() }}</p>
+
+    <div class="card__coords">
+      <span class="card__coords-icon">📍</span>
+      <span>{{ coordinates()?.lat | number:'1.4-4' }}, {{ coordinates()?.lng | number:'1.4-4' }}</span>
+    </div>
+  </div>
+</article>

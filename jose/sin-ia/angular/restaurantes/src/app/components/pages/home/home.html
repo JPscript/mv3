@@ -1,0 +1,12 @@
+<p>home works!</p>
+<div>
+<div *ngFor="let restaurante of restaurantes; trackBy: trackId">
+    <app-restaurante-card
+        [nombre]="restaurante.nombre"
+        [telefono]="restaurante.telefono"
+        [direccion]="restaurante.direccion"
+        [imagen]="restaurante.imagen">
+    </app-restaurante-card>
+</div>
+</div>
+ 
