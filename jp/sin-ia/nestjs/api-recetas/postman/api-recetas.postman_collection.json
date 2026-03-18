@@ -1,176 +1,777 @@
 {
   "info": {
-    "name": "API Recetas - CRUD",
-    "description": "Colección CRUD de recetas para api-recetas (NestJS + PostgreSQL).",
+    "name": "API Restaurantes y Recetas",
+    "description": "Colección separada por acceso público y acceso protegido. Empieza por Publico/Auth para obtener authToken y luego usa Protegido para probar escritura y recursos autenticados.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:3000"
+      "value": "http://127.0.0.1:3000"
+    },
+    {
+      "key": "authToken",
+      "value": ""
+    },
+    {
+      "key": "restaurantId",
+      "value": "1"
     },
     {
       "key": "recipeId",
       "value": "1"
     },
     {
-      "key": "imagePath",
-      "value": "C:/ruta/a/tu/imagen.jpg"
+      "key": "userImagePath",
+      "value": "C:/ruta/a/tu/user-image.jpg"
+    },
+    {
+      "key": "restaurantImagePath",
+      "value": "C:/ruta/a/tu/restaurant-image.jpg"
+    },
+    {
+      "key": "recipeImagePath",
+      "value": "C:/ruta/a/tu/recipe-image.jpg"
+    },
+    {
+      "key": "publicFileName",
+      "value": "recipe-tostada-senior-cat.jpg"
     }
   ],
   "item": [
     {
-      "name": "1 - GET all recipes",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/recipes",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "2 - POST create recipe",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"nombre\": \"Sopa de tomate\",\n  \"descripcion\": \"Sopa casera rápida\",\n  \"ingredientes\": \"tomate,agua,sal\",\n  \"tiempo_min\": 15,\n  \"dificultad\": \"facil\"\n}"
-        },
-        "url": {
-          "raw": "{{baseUrl}}/recipes",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes"
-          ]
-        }
-      },
-      "event": [
+      "name": "Publico",
+      "description": "Endpoints que no requieren token.",
+      "item": [
         {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "pm.test('Status 201/200', function () {",
-              "  pm.expect([200, 201]).to.include(pm.response.code);",
-              "});",
-              "",
-              "const json = pm.response.json();",
-              "if (json && json.id) {",
-              "  pm.collectionVariables.set('recipeId', String(json.id));",
-              "}"
-            ]
-          }
-        }
-      ],
-      "response": []
-    },
-    {
-      "name": "3 - POST upload recipe image",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "formdata",
-          "formdata": [
+          "name": "1. Auth",
+          "description": "Registro y login. El login guarda authToken automáticamente.",
+          "item": [
             {
-              "key": "image",
-              "type": "file",
-              "src": "{{imagePath}}"
+              "name": "POST register",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"usuario-postman\",\n  \"password\": \"clave123\"\n}"
+                },
+                "description": "Crea un usuario nuevo.",
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST login Senior Cat",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test('Status 200', function () {",
+                      "  pm.response.to.have.status(200);",
+                      "});",
+                      "const json = pm.response.json();",
+                      "if (json && json.access_token) {",
+                      "  pm.collectionVariables.set('authToken', json.access_token);",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"Senior Cat\",\n  \"password\": \"seniorcat123\"\n}"
+                },
+                "description": "Login con el usuario seed.",
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
-        "url": {
-          "raw": "{{baseUrl}}/recipes/{{recipeId}}/image",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes",
-            "{{recipeId}}",
-            "image"
+        {
+          "name": "2. Restaurants",
+          "description": "Lecturas públicas de restaurantes, comentarios y ratings.",
+          "item": [
+            {
+              "name": "GET all restaurants",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET restaurant by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET comments by restaurant",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "comments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET rating summary",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/ratings/summary",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "ratings",
+                    "summary"
+                  ]
+                }
+              },
+              "response": []
+            }
           ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "4 - GET recipe by id",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/recipes/{{recipeId}}",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes",
-            "{{recipeId}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "5 - PATCH update recipe",
-      "request": {
-        "method": "PATCH",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"tiempo_min\": 18\n}"
         },
-        "url": {
-          "raw": "{{baseUrl}}/recipes/{{recipeId}}",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes",
-            "{{recipeId}}"
+        {
+          "name": "3. Recipes",
+          "description": "Lecturas públicas de recetas.",
+          "item": [
+            {
+              "name": "GET all recipes",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/recipes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET recipe by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/{{recipeId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "{{recipeId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET recipes by restaurant",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/restaurant/{{restaurantId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "restaurant",
+                    "{{restaurantId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "4. Files",
+          "description": "Acceso público a archivos ya subidos.",
+          "item": [
+            {
+              "name": "GET file by name",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/files/{{publicFileName}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files",
+                    "{{publicFileName}}"
+                  ]
+                }
+              },
+              "response": []
+            }
           ]
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "6 - DELETE recipe",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/recipes/{{recipeId}}",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "recipes",
-            "{{recipeId}}"
+      "name": "Protegido",
+      "description": "Endpoints que requieren Authorization Bearer.",
+      "item": [
+        {
+          "name": "1. Auth y Users",
+          "item": [
+            {
+              "name": "GET profile",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auth/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET me",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH me",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"Senior Cat\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST profile image",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "{{userImagePath}}"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/users/me/image",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me",
+                    "image"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "2. Restaurants",
+          "item": [
+            {
+              "name": "POST create restaurant",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "if (json && json.id) {",
+                      "  pm.collectionVariables.set('restaurantId', String(json.id));",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"Taller Senior Cat\",\n  \"descripcion\": \"Restaurante de prueba creado desde Postman.\",\n  \"latitud\": 40.4,\n  \"longitud\": -3.7\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH restaurant",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descripcion\": \"Descripcion actualizada desde Postman.\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST comment",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comentario\": \"Comentario de prueba desde Postman.\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "comments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET my rating",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/ratings/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "ratings",
+                    "me"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST rating",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"calificacion\": 5\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/ratings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "ratings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST restaurant image",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "{{restaurantImagePath}}"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}/image",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}",
+                    "image"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE restaurant",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/restaurants/{{restaurantId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "restaurants",
+                    "{{restaurantId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "3. Recipes",
+          "item": [
+            {
+              "name": "POST create recipe",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "type": "text/javascript",
+                    "exec": [
+                      "const json = pm.response.json();",
+                      "if (json && json.id) {",
+                      "  pm.collectionVariables.set('recipeId', String(json.id));",
+                      "}"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"restaurant_id\": {{restaurantId}},\n  \"nombre\": \"Croqueta de Obra\",\n  \"descripcion\": \"Receta de prueba desde Postman.\",\n  \"ingredientes\": \"patata,leche,mantequilla\",\n  \"tiempo_min\": 18,\n  \"dificultad\": \"media\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/recipes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "PATCH recipe",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tiempo_min\": 20\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/{{recipeId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "{{recipeId}}"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "POST recipe image",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "src": "{{recipeImagePath}}"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/{{recipeId}}/image",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "{{recipeId}}",
+                    "image"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE recipe",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{authToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/{{recipeId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "{{recipeId}}"
+                  ]
+                }
+              },
+              "response": []
+            }
           ]
         }
-      },
-      "response": []
+      ]
     }
   ]
 }

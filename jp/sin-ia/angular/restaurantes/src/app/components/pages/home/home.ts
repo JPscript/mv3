@@ -1,5 +1,18 @@
 import { Component } from '@angular/core';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
+import { Header } from '../../layout/header/header';
+import { Footer } from '../../layout/footer/footer';
+
+interface Restaurante {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  coordenadas: {
+    lat: number;
+    lng: number;
+  };
+}
 
 @Component({
   selector: 'app-home',
@@ -7,8 +20,12 @@ import { RestauranteCard } from './components/restaurante-card/restaurante-card'
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
+
+
 export class Home {
-   restaurantesFake = [
+   restaurantesFake: Restaurante[] = [];
+   getRestaurantes() {
+    this.restaurantesFake = [
     {
       id: 1,
       nombre: 'Restaurante AB',
@@ -23,5 +40,5 @@ export class Home {
       imagen: 'https://via.placeholder.com/150',
       coordenadas: { lat: 34.0522, lng: -118.2437 },
     }
-] 
+]  }
 }
