@@ -1,1 +1,11 @@
-<p>home works!</p>
+<div class="cards">
+  @for (restaurante of restaurantesFake; track restaurante.id) {
+    <app-restaurante-card
+      [nombre]="restaurante.nombre"
+      [descripcion]="restaurante.descripcion"
+      [imagen]="restaurante.imagen"
+      [lat]="restaurante.coordenadas.lat"
+      [lng]="restaurante.coordenadas.lng">
+    </app-restaurante-card>
+  }
+</div>

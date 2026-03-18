@@ -1,0 +1,104 @@
+/* Centramos el bloque gris en la página */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+/* El recuadro gris compacto */
+.auth-container {
+    background-color: #f6f6f6; 
+    width: 100%;
+    max-width: 500px; /* Limitamos el ancho para que no se estire */
+    padding: 50px;    /* Espacio interno para que respire */
+    box-sizing: border-box;
+}
+
+/* Título en negrita y mayúsculas */
+h1 {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+}
+
+/* Etiquetas y campos */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc; /* Línea fina debajo */
+    background: transparent;       /* Sin fondo blanco */
+    padding: 10px 0;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Enlaces pequeños debajo del password */
+.links-helper {
+    margin-top: 8px;
+    display: flex;
+    gap: 15px;
+}
+
+.links-helper a:hover {
+  color: #575e5b;
+}
+.links-helper a {
+    font-size: 12px;
+    color: #000;
+    text-decoration: underline;
+}
+
+/* Botón con flecha */
+.btn-main {
+    width: 100%;
+    background: #2D8A6B;
+    color: #fff;
+    border: none;
+    padding: 18px 25px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Separador "O también" */
+.separator {
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    margin: 30px 0;
+}
+
+/* Botones sociales blancos */
+.btn-social {
+    width: 100%;
+    background: #2D8A6B;
+    color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.legal {
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+}

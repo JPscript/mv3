@@ -1,0 +1,136 @@
+/* 1. EL CONTENEDOR (Rejilla de 2 columnas) */
+.cards-container {
+    display: grid;
+    /* Fuerza 2 columnas iguales siempre que quepan */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; /* Espacio generoso entre tarjetas */
+    width: 100%;
+    /* Muy importante: LIMITA el ancho total para que no se estiren */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Responsive: Una sola columna en móviles */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 2. LA TARJETA (ESTRUCTURA VERTICAL) */
+.restaurante-card {
+    display: flex;
+    flex-direction: column; /* Estructura de arriba a abajo */
+    border-radius: 18px; /* Variable --radius */
+   background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 100%);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Asegura que la imagen respete los bordes redondeados */
+    width: 100%;
+    /* Altura constante para todas las tarjetas de una fila */
+    height: 100%; 
+}
+
+.restaurante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 28px rgba(0,0,0,0.12);
+}
+
+/* 3. LA IMAGEN (A LARGO COMPLETO Y SIN DEFORMARSE) */
+.card-image-wrapper {
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    /* Define una altura fija y proporcional para la imagen (ej: 200px) */
+    height: 200px; 
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    /* ESTA ES LA CLAVE: llena el espacio cortando el exceso */
+    object-fit: cover; 
+    object-position: center; /* Centra la parte importante de la foto */
+}
+
+/* CORAZÓN DE FAVORITO */
+.fav-heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 4. BLOQUE DE TEXTO (Ajustado) */
+.card-data-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón al final */
+    flex: 1; /* Ocupa el espacio restante de la tarjeta */
+    padding: 1.2rem;
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+/* TÍTULO */
+.res-title {
+    margin: 0;
+    font-size: 1.3rem; /* Color oscuro var(--text) */
+    font-weight: 800;
+}
+
+/* DESCRIPCIÓN */
+.res-description {
+    margin: 6px 0 0 0; /* Color var(--muted) */
+    font-size: 0.95rem;
+    line-height: 1.4;
+    /* Limita la descripción a 2 líneas para un diseño limpio */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 5. FOOTER DENTRO DE TARJETA (coordenadas + botón) */
+.footer-actions {
+    display: flex;
+    justify-content: space-between; /* Coordenadas izquierda, botón derecha */
+    align-items: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    padding-top: 15px;
+}
+
+/* UBICACIÓN */
+.location-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* BOTÓN CENTRADO AL FINAL */
+.btn-ver-mas {
+    padding: 0.5rem 1.3rem;
+    border: none;
+    border-radius: 10px;
+    /* Degradado var(--primary) a var(--primary-2) */
+    background: linear-gradient(135deg, #2D8A6B 0%, #4EBA96 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.btn-ver-mas:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
