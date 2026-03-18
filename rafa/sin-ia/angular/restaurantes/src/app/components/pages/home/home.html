@@ -1,0 +1,9 @@
+@for (restaurante of restauranteFake; track restaurante.id) {
+    <app-restaurante-card
+        [nombre]="restaurante.nombre"
+        [direccion]="restaurante.direccion"
+        [telefono]="restaurante.telefono"
+        [email]="restaurante.email"
+        [image]="restaurante.image"
+    ></app-restaurante-card>
+    }
