@@ -1,0 +1,30 @@
+<div class="detalle-wrapper">
+  <button class="btn-back" routerLink="/restaurantes">⬅ Volver</button>
+
+  @if (restaurante()) {
+    <div class="detalle-card">
+      <img [src]="restaurante().imagen" [alt]="restaurante().nombre" class="main-img" />
+
+      <div class="content">
+        <div class="header-detalle">
+          <h1>{{ restaurante().nombre }}</h1>
+          <span class="rating">⭐ {{ restaurante().puntuacion }}</span>
+        </div>
+
+        <p class="direccion">📍 {{ restaurante().direccion }}</p>
+        <p class="description">{{ restaurante().descripcion }}</p>
+
+        <h3>Especialidades:</h3>
+        <ul class="menu-tags">
+          @for (plato of restaurante().menu; track plato) {
+            <li>{{ plato }}</li>
+          }
+        </ul>
+
+        <button class="btn-reserva">Reservar mesa ahora</button>
+      </div>
+    </div>
+  } @else {
+    <p>Cargando datos del restaurante...</p>
+  }
+</div>

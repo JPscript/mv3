@@ -6,9 +6,12 @@ form.addEventListener("submit", async function (event) {
   let nombre = document.getElementById("nombre").value;
   let descripcion = document.getElementById("descripcion").value;
   let ingredientes = document.getElementById("ingredientes").value;
-  let tiempo_min = parseInt(document.getElementById("tiempo_min").value, 10);
+  let tiempo_min = Number.parseInt(
+    document.getElementById("tiempo_min").value,
+    10,
+  );
 
-  if (isNaN(tiempo_min) || tiempo_min < 1) {
+  if (Number.isNaN(tiempo_min) || tiempo_min < 1) {
     alert("Por favor ingresa un tiempo válido (mínimo 1 minuto)");
     return;
   }

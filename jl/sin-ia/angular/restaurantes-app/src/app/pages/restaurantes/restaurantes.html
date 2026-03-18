@@ -1,0 +1,18 @@
+<section>
+  <div class="header-section">
+    <h1>Explora Restaurantes</h1>
+    <p>Mostrando {{ restaurantes().length }} sitios disponibles</p>
+  </div>
+
+  <div class="restaurantes-grid">
+    @for (res of restaurantes(); track res.id) {
+      <div class="res-card" [routerLink]="['/restaurantes', res.id]">
+        <div class="img-placeholder">{{ res.imagen }}</div>
+        <div class="res-info">
+          <h3>{{ res.nombre }}</h3>
+          <p>{{ res.tipo }} • ⭐ {{ res.rating }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>
