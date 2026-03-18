@@ -3,7 +3,7 @@
 ## Tema y objetivo del día
 
 - **Tema:** 
-- **Fecha:** Martes 17 de marzo 2026.
+- **Fecha:** Miércoles 18 de marzo 2026.
 - **Horario:** 16:30 - 20:30.
 - **Objetivo:** Construir una página con Angular que consuma una API de restaurantes.
 

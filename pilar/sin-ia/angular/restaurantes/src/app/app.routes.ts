@@ -5,8 +5,6 @@ import { Mapa } from './components/pages/mapa/mapa';
 import { Login } from './components/pages/login/login';
 import { Registro } from './components/pages/registro/registro';
 import { Perfil } from './components/pages/perfil/perfil';
-import { Header } from './components/layout/header/header';
-import { Footer } from './components/layout/footer/footer';
 import { Restaurante } from './components/pages/home/restaurante/restaurante';
 import { ActualizarRestaurante } from './components/pages/home/actualizar-restaurante/actualizar-restaurante';
 
@@ -20,7 +18,5 @@ export const routes: Routes = [
   { path: 'registro', title: "Registro 📝", component: Registro },
   { path: 'perfil', title: "Perfil 👤", component: Perfil },
   { path: 'mapa', title: "Mapa 🗺️", component: Mapa },
-  { path: 'header', title: "Header", component: Header },
-  { path: 'footer', title: "Footer", component: Footer },
   { path: '**', redirectTo: '/restaurantes' }
 ];
