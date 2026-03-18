@@ -17,7 +17,7 @@ form.addEventListener('submit', async (event) => {
     const ingredientesUser = form.ingredientes.value.trim();
     const tiempoUser = Number(form.tiempo_min.value);
     const dificultadUser = form.dificultad.value;
-    const imagenUser = form.imagen.files[0];                    // Captura el archivo de imagen
+    const imagenUser = form.imagen.files[0];                    
 
     // --- VALIDACIÓN ---
     //Hacemos una validación de que todos los campos necesarios esten rellenos
@@ -70,7 +70,7 @@ form.addEventListener('submit', async (event) => {
         }
         // FORM-DATA (subida de archivo)
         const nuevaReceta = await r.json();
-        console.log("Receta creada:", nuevaReceta);
+        //console.log("Receta creada:", nuevaReceta);
         // --- SUBIDA DE IMAGEN (Si el usuario metió imagen y la receta se creó) ---
         // Usamos el ID que nos devuelve la API (nuevaReceta.id)
         if (imagenSeleccionada && nuevaReceta.id) {
@@ -80,7 +80,7 @@ form.addEventListener('submit', async (event) => {
                 method: "POST",
                 body: formData,
             });
-            console.log("Imagen subida:", await resImagen.json());
+            //console.log("Imagen subida:", await resImagen.json());
             if(resImagen.ok) {
                 alert("¡Imagen subida con éxito!");
             }
@@ -88,7 +88,7 @@ form.addEventListener('submit', async (event) => {
                 alert("Error al subir la imagen al servidor. Intentar subir de otra manera o más tarde.");
             }
         }
-        window.location.href = "../main/mainRecetas.html"; // Redirigir al mainRecetas.html al finalizar
+        window.location.href = "../main/mainRecetas.html"; // Volvemos a la ventana del main
     } catch (error) {
         console.error(error);
         alert("Error al conectar con el servidor. Por favor, intenta de nuevo más tarde.");
