@@ -22,6 +22,20 @@ export class Home {
       'picture': '/images/restau2.jpg',
       'lat': '2.000.444.12',
       'lng': '45.225.889.443'
+    },
+    {
+      'name': 'La Mesa de Guillermo',
+      'description': 'Fantàstico !',
+      'picture': '/images/restau3.jpg',
+      'lat': '2.000.444.12',
+      'lng': '45.225.889.443'
+    },
+        {
+      'name': 'Guillermo desde 1981',
+      'description': 'So typic',
+      'picture': '/images/restau3.jpg',
+      'lat': '2.000.444.12',
+      'lng': '45.225.889.443'
     }
   ]
 }

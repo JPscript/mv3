@@ -1,9 +1,13 @@
-<div class="reataurant-card">
-    <h2 class="name">{{ name() }}</h2>
-    <p class="description">{{ description() }}</p>
-    <img class="image" ngSrc="{{ picture() }}" alt="A super restaurant" width="400" height="200" priority>
-    <div class="coordo">
-        <p>{{ lat() }}</p>
-        <p>{{ lng() }}</p>
+<div class="restaurant-card">
+    <div class="card-header">
+        <h2 class="name">{{ name() }}</h2>
+        <p class="description">{{ description() }}</p>
+    </div>
+    <div class="card-content">
+        <img class="image" ngSrc="{{ picture() }}" alt="A super restaurant" width="400" height="200" priority>
+        <div class="coordo">
+            <p>{{ lat() }}</p>
+            <p>{{ lng() }}</p>
+        </div>
     </div>
 </div>

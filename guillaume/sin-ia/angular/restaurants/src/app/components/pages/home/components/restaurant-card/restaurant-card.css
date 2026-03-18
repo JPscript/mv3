@@ -1,10 +1,30 @@
 .restaurant-card {
-    max-width: 30%;
-    width: 30%;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 10px;
+    /* padding: 15px; */
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.card-header,
+.card-content {
+    padding: 15px 15px 0;
+}
+
+.card-header {
+    background: var(--color-bg-secondary)
+    width: 100%;
 }
 
 .name {
-    background: var(--color-bg-secondary)
+    font-family: cursive;
+    text-align: center;
+    font-size: 2rem;
 }
 
 img,
