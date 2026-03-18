@@ -1,0 +1,13 @@
+<p>home works!</p>
+
+<div class="home-container">
+  <h1>Restaurantes disponibles</h1>
+
+  <div class="contenedor-restaurante">
+    <ng-container *ngFor="let restaurante of restaurantes">
+      <app-restaurante-card
+        [restaurante]="restaurante">
+      </app-restaurante-card>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.content {
+    padding: 1.5rem;
+  }
+  
+  header, footer {
+    padding: 1rem;
+    background: #222;
+    color: white;
+  }
+  
