@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-bg-main: #003c5a;
+  --color-bg-secondary: #7E1946;
+  --color-surface: #24292F;
+  --color-text-main: #F5F6FA;
+  --color-text-secondary: #B0B3B8;
+  --color-accent-1: #4F8EF7;
+  --color-accent-2: #F7B84F;
+  --color-accent-3: #E05C7A;
+  --color-success: #3FC380;
+  --color-alert: #F76E5C;
+  --color-border: #31363B;
+}
+
+body {
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+.home-container {
+  padding: 20px 4rem;
+}

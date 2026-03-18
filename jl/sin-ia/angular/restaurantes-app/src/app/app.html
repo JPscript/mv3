@@ -1,0 +1,23 @@
+<header class="navbar">
+  <div class="logo" routerLink="/restaurantes"><span class="icon">🍴</span> GlotonApp</div>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar restaurante..." #txtBuscar />
+    <button (click)="buscar(txtBuscar.value)">🔍</button>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/restaurantes" routerLinkActive="active">Inicio</a>
+    <a routerLink="/mapa" routerLinkActive="active">Mapa</a>
+    <a routerLink="/perfil" routerLinkActive="active">Perfil</a>
+    <a routerLink="/login" class="login-link">Entrar</a>
+  </nav>
+</header>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="simple-footer">
+  <p>&copy; 2026 GlotonApp - Proyecto de Clase</p>
+  <p>Contacto: ayuda@Glotonapp.com</p>
+</footer>
