@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  padding: 40px 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e8eaf6;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #3db4f2;
+  padding-bottom: 12px;
+  display: inline-block;
+}
+
+p {
+  color: #c9d1d9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

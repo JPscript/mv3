@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+.content {
+    padding: 1.5rem;
+  }
+  
+  header, footer {
+    padding: 1rem;
+    background: #222;
+    color: white;
+  }
+  

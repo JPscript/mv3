@@ -1,0 +1,25 @@
+<header>
+  <h2>Explora Restaurantes cercanos</h2>
+  <p>Lat: {{ ubicacionActual().lat }} | Lng: {{ ubicacionActual().lng }}</p>
+</header>
+
+<div class="map-container">
+  <h1>Restaurantes cerca de ti</h1>
+  <p>Explora la ciudad y encuentra dónde comer.</p>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.332500000000!2d-3.6000000!3d37.1700000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fce135!2sGranada!5e0!3m2!1ses!2ses!4v1234567890"
+    width="100%"
+    height="450"
+    style="border: 0; border-radius: 15px"
+    allowfullscreen=""
+    loading="lazy"
+  >
+  </iframe>
+</div>
+
+<div class="map-footer-info">
+  <p>Usa los controles del mapa para acercarte o alejarte.</p>
+</div>
+
+<button class="btn-gps" (click)="actualizarMapa()">Mi ubicación actual</button>

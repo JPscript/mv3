@@ -107,10 +107,10 @@ form:hover {
 
 /* Hover psicodélico del botón */
 #cerrarModal:hover {
-  border-color: var(--ghost-blue);
-  box-shadow: 0 0 10px var(--ghost-blue),
-              0 0 20px var(--ghost-blue);
-  color: var(--ghost-blue);
+  border-color: var(--ghost-red);
+  box-shadow: 0 0 10px var(--ghost-red),
+              0 0 20px var(--ghost-red);
+  color: var(--ghost-red);
   transform: scale(1.05);
 }
 

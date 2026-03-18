@@ -1,0 +1,31 @@
+.map-page {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto; /* Centra todo el contenido */
+  text-align: center;
+}
+
+.map-header h1 {
+  color: #2f3542;
+  margin-bottom: 5px;
+}
+
+.map-header p {
+  color: #747d8c;
+  margin-bottom: 30px;
+}
+
+/* La caja que envuelve el mapa */
+.map-card {
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Para que el mapa respete las esquinas redondeadas */
+}
+
+.map-footer-info {
+  margin-top: 20px;
+  color: #a4b0be;
+  font-size: 0.9rem;
+}

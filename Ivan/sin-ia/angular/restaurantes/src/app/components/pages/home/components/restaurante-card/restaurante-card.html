@@ -1,0 +1,11 @@
+<div class="card">
+  <h3 (click)="toggle()">{{ restaurante.nombre }}</h3>
+
+  @if (abierto) {
+    <img [src]="restaurante.imagen">
+    <p>{{ restaurante.descripcion }}</p>
+
+    <button [routerLink]="['/restaurantes/actualizar-restaurante', restaurante.id]">Editar</button>
+    <button [routerLink]="['/restaurantes/borrar-restaurante', restaurante.id]">Borrar</button>
+  }
+</div>

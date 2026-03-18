@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 32px;
+  border-radius: 24px;
+  background-color: rgba(255, 250, 244, 0.94);
+  box-shadow: var(--shadow-soft);
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 1.9rem;
+}
+
+p {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  margin: 0;
+  border: 2px dashed rgba(201, 107, 59, 0.32);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(246, 239, 229, 0.9)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(201, 107, 59, 0.03) 0,
+      rgba(201, 107, 59, 0.03) 12px,
+      transparent 12px,
+      transparent 24px
+    );
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  text-align: center;
+}

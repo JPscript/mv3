@@ -1,0 +1,16 @@
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px 20px;
+	background: linear-gradient(135deg, #8d4a2c 0%, #c96b3b 100%);
+	color: #fff7ef;
+	box-shadow: 0 10px 24px rgba(90, 48, 28, 0.18);
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(1.8rem, 4vw, 2.6rem);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}

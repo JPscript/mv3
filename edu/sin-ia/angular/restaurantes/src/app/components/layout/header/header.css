@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.buscador {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buscador input {
+  border: none;
+  outline: none;
+}
+
+header img {
+  cursor: pointer; 
+}

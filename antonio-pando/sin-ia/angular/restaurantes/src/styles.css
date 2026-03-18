@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*https://coolors.co/9e8576-f4faff-1f2232-00798c-50a2a7*/
+
+html{
+    background-color: #F4FAFF;
+}
+
+:root {
+    --gris-oscuro: #1F2232;
+    --verde-oscuro: #00798C;
+    --verde-claro: #50A2A7;
+    --marron: #9E8576;
+    --blanco: #F4FAFF;
+}

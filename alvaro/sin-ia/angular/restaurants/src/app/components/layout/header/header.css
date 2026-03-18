@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  background: #1a1d27;
+  border-bottom: 1px solid #30363d;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3db4f2;
+  letter-spacing: 0.05em;
+  padding: 16px 0;
+}

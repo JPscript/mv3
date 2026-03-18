@@ -508,3 +508,5 @@ const titulo = document.querySelector("h1");
 titulo.textContent = "Nuevo título";
 
 En frameworks como Angular, la manipulación del DOM se realiza principalmente a través de templates y data binding, evitando modificarlo directamente con JavaScript.
+
+MICROFRONTEDNS
