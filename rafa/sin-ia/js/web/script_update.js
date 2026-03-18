@@ -47,6 +47,7 @@ async function modal(id) {
     document.getElementById("ingredientes").value = info.ingredientes;
     document.getElementById("tiempo").value = info.tiempo_min;
     document.getElementById("dificultad").value = info.dificultad;
+    document.getElementById("previewImage").src = info.image_url;
 
   } catch (error) {
     console.log("Error cargando los datos");
@@ -86,6 +87,7 @@ document.getElementById("formulario").addEventListener("submit", async (e) => {
   try {
     const response = await fetch(`${API_URL}/` + formData.get("id"), { method: "GET" });
     const data = await response.json();
+    const imageFile = formData.get("image");
     console.log("data: ", data);
     let infoModal = data;
     document.getElementById("id").value = infoModal.id;
@@ -94,6 +96,8 @@ document.getElementById("formulario").addEventListener("submit", async (e) => {
     document.getElementById("ingredientes").value = infoModal.ingredientes;
     document.getElementById("tiempo").value = infoModal.tiempo_min;
     document.getElementById("dificultad").value = infoModal.dificultad;
+    document.getElementById("previewImage").src = infoModal.image_url;
+
 
     // Comparacion de datos
     let cambios = {};
@@ -112,15 +116,36 @@ document.getElementById("formulario").addEventListener("submit", async (e) => {
     if (formData.get("dificultad") !== infoModal.dificultad) {
       cambios.dificultad = formData.get("dificultad");
     }
+    if (imageFile && imageFile.size > 0) {
+      cambios.image = imageFile;
+    }
     console.log("Hemos llegado hasta cambios: ", cambios);
 
     //Patch en el caso de que haya cambios
+
     if (Object.keys(cambios).length > 0) {
-      const r = await fetch(`${API_URL}/` + formData.get("id"), {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cambios),
-      });
+
+      let r;
+      if (cambios.image) {
+        const fd = new FormData();
+
+        for (let key in cambios) {
+          fd.append(key, cambios[key]);
+        }
+
+        r = await fetch(`${API_URL}/${formData.get("id")}`, {
+          method: "PATCH",
+          body: fd,
+        });
+
+      } else {
+
+        r = await fetch(`${API_URL}/` + formData.get("id"), {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(cambios),
+        });
+      }
       const datos_finales = await r.json();
       console.log("Datos actualizados:", datos_finales);
       document.getElementById("nombre").value = datos_finales.nombre;
@@ -128,6 +153,7 @@ document.getElementById("formulario").addEventListener("submit", async (e) => {
       document.getElementById("ingredientes").value = datos_finales.ingredientes;
       document.getElementById("tiempo").value = datos_finales.tiempo_min;
       document.getElementById("dificultad").value = datos_finales.dificultad;
+      document.getElementById("previewImage").src = datos_finales.image_url;
     }
 
   } catch (error) {
