@@ -1,0 +1,28 @@
+$kind: http-request
+url: "{{baseUrl}}/recipes"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "nombre": "Sopa de tomate",
+      "descripcion": "Sopa casera rápida",
+      "ingredientes": "tomate,agua,sal",
+      "tiempo_min": 15,
+      "dificultad": "facil"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test('Status 201/200', function () {
+        pm.expect([200, 201]).to.include(pm.response.code);
+      });
+
+      const json = pm.response.json();
+      if (json && json.id) {
+        pm.collectionVariables.set('recipeId', String(json.id));
+      }
+    language: text/javascript
+order: 2000

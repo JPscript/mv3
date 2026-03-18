@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{baseUrl}}/recipes/{{recipeId}}/image"
+method: POST
+body:
+  type: formdata
+  content:
+    - type: file
+      key: image
+      src:
+        - "{{imagePath}}"
+order: 3000
