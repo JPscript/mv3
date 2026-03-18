@@ -7,16 +7,18 @@ import { Login } from './components/pages/login/login';
 import { Registration } from './components/pages/registration/registration';
 import { Profile } from './components/pages/profile/profile';
 import { Map } from './components/pages/map/map';
+import { RecipeDetail } from './components/pages/home/restaurant/components/recipe-detail/recipe-detail';
 
 export const routes: Routes = [ 
     {path:'', redirectTo: '/restaurants', pathMatch: 'full'},
-    {path: 'restaurants', title: 'Restaurants 🍽️', component: Home},
-    {path: 'restaurants/restaurant', title: 'Restaurants 🍽️', component: Restaurant},
-    {path: 'restaurants/create-restaurant', title: 'Create Restaurant 🆕', component: CreateRestaurant},
-    {path: 'restaurants/update-restaurant', title: 'Update Restaurant ✏️', component: UpdateRestaurant},
-    {path: 'login', title: 'Login 🔑', component: Login},
-    {path: 'registration', title: 'Registration 📝', component: Registration},
-    {path: 'profile', title: 'Profile 👤', component: Profile},
-    {path: 'map', title: 'Map 🗺️', component: Map},
+    {path: 'restaurants', title: 'Restaurants', component: Home},
+    {path: 'restaurants/restaurant/:id', title: 'Restaurant Detail', component: Restaurant},
+    {path: 'restaurants/restaurant/:restaurantId/recipe/:recipeId', title: 'Recipe Detail', component: RecipeDetail},
+    {path: 'restaurants/create-restaurant', title: 'Create Restaurant', component: CreateRestaurant},
+    {path: 'restaurants/update-restaurant', title: 'Update Restaurant', component: UpdateRestaurant},
+    {path: 'login', title: 'Login', component: Login},
+    {path: 'registration', title: 'Registration', component: Registration},
+    {path: 'profile', title: 'Profile', component: Profile},
+    {path: 'map', title: 'Map', component: Map},
     {path: '**', redirectTo: '/restaurants'}
 ];

@@ -1,0 +1,25 @@
+@if (recipe && restaurant) {
+  <div class="recipe-detail">
+    <button class="back-btn" (click)="goBackToRestaurant()">← Back to {{ restaurant.name }}</button>
+
+    <section class="recipe-detail__card">
+      <p class="recipe-detail__restaurant">{{ restaurant.name }}</p>
+      <h1 class="recipe-detail__title">{{ recipe.name }}</h1>
+
+      <div class="recipe-detail__section">
+        <h2>Ingredients</h2>
+        <p>{{ recipe.ingredients }}</p>
+      </div>
+
+      <div class="recipe-detail__section">
+        <h2>Instructions</h2>
+        <p>{{ recipe.instructions }}</p>
+      </div>
+    </section>
+  </div>
+} @else {
+  <div class="not-found">
+    <p>Recipe not found.</p>
+    <button class="back-btn" (click)="goBackToRestaurant()">← Back</button>
+  </div>
+}
