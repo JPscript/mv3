@@ -1,20 +1,18 @@
-# CLASE12 - Reactive Forms: Crear y Editar Restaurantes
+# CLASE12 - Cerrar la app hardcodeada y preparar la conexión con api-recetas
 
-**Fecha:** 2026-03-19 (estimada)
-**Horario:** 16:30 - 20:30
-**Receso:** 18:00 - 18:30
-**Nivel:** inicial-intermedio
-**Clase anterior de referencia:** jp/bitacora/CLASE11.md
-**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.
+**Fecha:** 2026-03-19  
+**Horario:** 16:30 - 20:30  
+**Receso:** 18:00 - 18:30  
+**Nivel:** inicial-intermedio  
+**Clase anterior de referencia:** jp/bitacora/CLASE11.md  
+**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.  
 **Mentor de la sesión:** Senior Cat 🐱
 
 ---
 
 ## Contexto y continuidad con CLASE11
 
-En CLASE11 construimos el detalle del restaurante y conectamos recetas con `@Input`.
-Hoy **damos escritura al proyecto**: formularios para crear y editar restaurantes.
-Los Reactive Forms son el sistema eléctrico del edificio — controlan el flujo de datos entre el usuario y la API.
+En CLASE11 el home ya tenía un ladrillo reutilizable claro. Ahora toca cerrar el esqueleto completo de la app hardcodeada y estudiar la API real que servirá de base para reemplazar esos datos falsos en las clases siguientes.
 
 ---
 
@@ -22,309 +20,109 @@ Los Reactive Forms son el sistema eléctrico del edificio — controlan el flujo
 
 ### Tema central
 
-Reactive Forms con `FormBuilder`, validaciones, mensajes de error y conexión con `POST` / `PATCH`.
+Maquetar toda la app con contenido hardcoded y mapear el frontend contra la API `api-recetas` ya mejorada.
 
 ### Objetivo general
 
-1. Formulario de creación de restaurante con validaciones.
-2. Formulario de edición que carga los datos existentes.
-3. Conectar formulario con `POST /restaurants` y `PATCH /restaurants/:id`.
-4. Mostrar feedback visual: errores de validación, éxito, carga.
+1. Terminar todas las páginas Angular pendientes en versión hardcoded.
+2. Revisar el backend `jp/sin-ia/nestjs/api-recetas`.
+3. Leer su `README.md` y la colección de Postman para conocer endpoints, auth y flujo de pruebas.
+4. Dejar una tabla mental clara de qué pantallas consumirán qué endpoints.
 
 ---
 
-## Conceptos clave del día
+## Qué se debe revisar del backend
 
-### Template Forms vs Reactive Forms — ¿cuál usar?
+Referencia principal:
 
-|                   | Template Forms           | Reactive Forms                     |
-| ----------------- | ------------------------ | ---------------------------------- |
-| Configuración     | En el HTML con `ngModel` | En el TypeScript con `FormBuilder` |
-| Validaciones      | en el template           | en el TypeScript                   |
-| Tests             | difícil                  | fácil                              |
-| Proyectos grandes | no recomendado           | **recomendado**                    |
+- `jp/sin-ia/nestjs/api-recetas/README.md`
 
-**Para este proyecto: Reactive Forms siempre.**
+Material de pruebas:
 
-### FormBuilder — construir el formulario
+- `jp/sin-ia/nestjs/api-recetas/postman/api-recetas.postman_collection.json`
 
-```typescript
-// FormBuilder es un helper que simplifica la creación de FormGroup y FormControl.
-// Un FormGroup agrupa controles relacionados (los campos del formulario).
-// Un FormControl representa UN campo (nombre, email, etc.).
+Ideas clave del backend que el alumnado debe entender hoy:
 
-import { FormBuilder, Validators } from "@angular/forms";
-import { inject } from "@angular/core";
-
-export class RestauranteFormComponent {
-  private fb = inject(FormBuilder);
-
-  // Crear el grupo de controles
-  // Cada entrada: [valorInicial, [validaciones]]
-  form = this.fb.group({
-    nombre: ["", [Validators.required, Validators.minLength(3)]],
-    descripcion: ["", [Validators.required, Validators.maxLength(500)]],
-    direccion: ["", Validators.required],
-    imagen: ["", Validators.required],
-    categoria: ["", Validators.required],
-    lat: [null as number | null, Validators.required],
-    lng: [null as number | null, Validators.required],
-  });
-}
-```
-
-### Validators más usados
-
-```typescript
-Validators.required; // el campo no puede estar vacío
-Validators.minLength(3); // mínimo 3 caracteres
-Validators.maxLength(500); // máximo 500 caracteres
-Validators.email; // formato de email válido
-Validators.min(1); // valor numérico mínimo 1
-Validators.max(5); // valor numérico máximo 5
-Validators.pattern(/^\d+$/); // solo números (regex)
-```
-
-### Acceder a controles para mostrar errores
-
-```typescript
-// En el TypeScript — getter para acceso fácil en el template
-get nombre() { return this.form.get('nombre'); }
-
-// En el HTML — mostrar error solo si fue tocado Y es inválido
-// @if (nombre?.invalid && nombre?.touched) {
-//   @if (nombre?.errors?.['required']) {
-//     <span class="error">El nombre es obligatorio</span>
-//   }
-//   @if (nombre?.errors?.['minlength']) {
-//     <span class="error">Mínimo 3 caracteres</span>
-//   }
-// }
-```
-
-### Modo edición: rellenar el formulario con datos existentes
-
-```typescript
-// patchValue actualiza SOLO los campos indicados (no falla si falta alguno)
-// setValue requiere TODOS los campos (falla si falta uno)
-// Para edición, siempre patchValue
-this.form.patchValue({
-  nombre: restaurante.nombre,
-  descripcion: restaurante.descripcion,
-  // ... resto de campos
-});
-```
+- hay endpoints públicos y protegidos,
+- existe login con JWT,
+- restaurantes, recetas, comentarios y ratings ya están listos,
+- hay usuarios seed para clase,
+- la colección de Postman ya indica el orden recomendado de prueba.
 
 ---
 
-## Referencia rápida: comandos del día
+## Piezas Angular que deben quedar listas hardcoded
 
-```bash
-# Componente form reutilizable (sirve para crear Y editar)
-ng g c restaurantes/restaurante-form
+- home,
+- restaurante,
+- crear-restaurante,
+- actualizar-restaurante,
+- borrar-restaurante,
+- login,
+- registro,
+- perfil,
+- mapa,
+- header,
+- footer.
 
-# Actualizar el servicio con POST y PATCH
-# (editar el servicio existente, no generar uno nuevo)
-```
+La regla de hoy es simple: sin servicios todavía, pero con intención real de uso.
 
 ---
 
-## Código guiado paso a paso
+## Mapeo base frontend ↔ backend
 
-### Paso 1 — Ampliar el servicio con POST y PATCH
+### Públicas
 
-```typescript
-// servicios/restaurantes.service.ts — añadir estos métodos
-import { Restaurante } from '../interfaces/restaurante';
+- Home → `GET /restaurants`
+- Detalle de restaurante → `GET /restaurants/:id`
+- Lista de recetas por restaurante → `GET /recipes/restaurant/:restaurantId`
+- Login visual preparado para `POST /auth/login`
+- Registro visual preparado para `POST /auth/register`
 
-// Crear restaurante nuevo
-crear(data: Omit<Restaurante, 'id'>): Observable<Restaurante> {
-  return this.http.post<Restaurante>(`${this.apiUrl}/restaurants`, data);
-}
+### Protegidas
 
-// Editar restaurante existente (PATCH = solo envías los campos que cambian)
-editar(id: number, cambios: Partial<Restaurante>): Observable<Restaurante> {
-  return this.http.patch<Restaurante>(`${this.apiUrl}/restaurants/${id}`, cambios);
-}
-
-// Eliminar restaurante
-eliminar(id: number): Observable<void> {
-  return this.http.delete<void>(`${this.apiUrl}/restaurants/${id}`);
-}
-```
-
-### Paso 2 — FormComponent (crear + editar en un solo componente)
-
-```typescript
-// restaurantes/restaurante-form.component.ts
-import { Component, OnInit, inject, Input } from "@angular/core";
-import { FormBuilder, Validators, ReactiveFormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
-import { RestaurantesService } from "../../servicios/restaurantes.service";
-import { Restaurante } from "../../interfaces/restaurante";
-
-@Component({
-  selector: "app-restaurante-form",
-  standalone: true,
-  imports: [ReactiveFormsModule], // IMPORTANTE: importar ReactiveFormsModule
-  templateUrl: "./restaurante-form.component.html",
-})
-export class RestauranteFormComponent implements OnInit {
-  // Si recibe un restaurante = modo edición. Si no = modo creación.
-  @Input() restaurante?: Restaurante;
-
-  private fb = inject(FormBuilder);
-  private svc = inject(RestaurantesService);
-  private router = inject(Router);
-
-  enviando = false;
-  mensajeExito = "";
-  mensajeError = "";
-
-  form = this.fb.group({
-    nombre: ["", [Validators.required, Validators.minLength(3)]],
-    descripcion: ["", [Validators.required, Validators.maxLength(500)]],
-    direccion: ["", Validators.required],
-    imagen: [""],
-    categoria: ["", Validators.required],
-    lat: [null as number | null],
-    lng: [null as number | null],
-  });
-
-  // Getters — acceso limpio a controles desde el template
-  get nombre() {
-    return this.form.get("nombre");
-  }
-  get descripcion() {
-    return this.form.get("descripcion");
-  }
-  get direccion() {
-    return this.form.get("direccion");
-  }
-  get categoria() {
-    return this.form.get("categoria");
-  }
-
-  ngOnInit() {
-    // Si viene un restaurante, rellenamos el formulario (modo edición)
-    if (this.restaurante) {
-      this.form.patchValue(this.restaurante);
-    }
-  }
-
-  guardar() {
-    if (this.form.invalid) {
-      // markAllAsTouched muestra todos los errores si el usuario intenta enviar sin rellenar
-      this.form.markAllAsTouched();
-      return;
-    }
-
-    this.enviando = true;
-    const datos = this.form.value as Omit<Restaurante, "id">;
-
-    const peticion = this.restaurante
-      ? this.svc.editar(this.restaurante.id, datos) // modo edición
-      : this.svc.crear(datos); // modo creación
-
-    peticion.subscribe({
-      next: (r) => {
-        this.mensajeExito = "¡Restaurante guardado!";
-        this.enviando = false;
-        this.router.navigate(["/restaurantes", r.id]);
-      },
-      error: () => {
-        this.mensajeError = "Error al guardar. Intenta de nuevo.";
-        this.enviando = false;
-      },
-    });
-  }
-}
-```
-
-```html
-<!-- restaurante-form.component.html -->
-<form [formGroup]="form" (ngSubmit)="guardar()">
-  <div class="campo">
-    <label>Nombre</label>
-    <input formControlName="nombre" placeholder="Nombre del restaurante" />
-    @if (nombre?.invalid && nombre?.touched) { @if
-    (nombre?.errors?.['required']) { <span class="error">Obligatorio</span> }
-    @if (nombre?.errors?.['minlength']) {
-    <span class="error">Mínimo 3 caracteres</span> } }
-  </div>
-
-  <div class="campo">
-    <label>Descripción</label>
-    <textarea formControlName="descripcion"></textarea>
-    @if (descripcion?.invalid && descripcion?.touched) {
-    <span class="error">La descripción es obligatoria</span>
-    }
-  </div>
-
-  <div class="campo">
-    <label>Dirección</label>
-    <input formControlName="direccion" />
-  </div>
-
-  <div class="campo">
-    <label>Categoría</label>
-    <select formControlName="categoria">
-      <option value="">Selecciona una categoría</option>
-      <option value="ITALIANA">Italiana</option>
-      <option value="MEXICANA">Mexicana</option>
-      <option value="JAPONESA">Japonesa</option>
-      <option value="ESPAÑOLA">Española</option>
-    </select>
-  </div>
-
-  @if (mensajeExito) {
-  <p class="exito">{{ mensajeExito }}</p>
-  } @if (mensajeError) {
-  <p class="error">{{ mensajeError }}</p>
-  }
-
-  <button type="submit" [disabled]="enviando">
-    {{ enviando ? 'Guardando...' : (restaurante ? 'Actualizar' : 'Crear
-    restaurante') }}
-  </button>
-</form>
-```
+- Crear restaurante → `POST /restaurants`
+- Actualizar restaurante → `PATCH /restaurants/:id`
+- Borrar restaurante → `DELETE /restaurants/:id`
+- Perfil → `GET /auth/profile` y `GET /users/me`
+- Comentarios → `POST /restaurants/:id/comments`
+- Ratings → `POST /restaurants/:id/ratings`
 
 ---
 
 ## Plan por bloques de tiempo
 
-### 16:30 - 16:50 | Repaso CLASE11 + introducción a Reactive Forms
+### 16:30 - 16:50 | Repaso de CLASE11
 
-- Diferencia entre Template Forms y Reactive Forms.
-- Analogía: el formulario es el mostrador de recepción del edificio — valida antes de dejar pasar.
+- Ver el home y el uso de `RestauranteCard`.
+- Detectar qué páginas siguen siendo solo cascarón.
 
-### 16:50 - 17:30 | Crear formulario de nuevo restaurante
+### 16:50 - 17:30 | Cierre visual de páginas hardcoded
 
-- `FormBuilder`, `FormGroup`, `Validators`.
-- `ReactiveFormsModule` en imports del componente.
-- Formulario básico funcionando con `ngSubmit`.
+- Completar vistas CRUD visuales.
+- Preparar login, registro y perfil con datos falsos coherentes.
+- Añadir navegación interna entre pantallas.
 
-### 17:30 - 18:00 | Validaciones y mensajes de error
+### 17:30 - 18:00 | Lectura guiada del backend
 
-- Getters para acceder a controles.
-- `markAllAsTouched()` al intentar enviar.
-- Estilos visuales de error (clase CSS condicional).
+- Abrir el README de `api-recetas`.
+- Entender recursos disponibles.
+- Identificar endpoints clave para la app Angular.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | POST + PATCH en el servicio
+### 18:30 - 19:15 | Colección Postman y flujo de prueba
 
-- Añadir `crear()` y `editar()` al servicio.
-- Reutilizar el mismo componente form para crear y editar con `@Input`.
-- Probar creación desde Angular → verificar en la API.
+- Ver cómo está separada la colección en `Publico` y `Protegido`.
+- Repasar el flujo de login, profile, restaurants y recipes.
+- Relacionar esas llamadas con las pantallas del frontend.
 
-### 19:15 - 20:00 | Práctica autónoma
+### 19:15 - 20:00 | Puente hacia CLASE13
 
-- Añadir botón "Eliminar" en el detalle con confirmación.
-- Estilizar el formulario con clases dinámicas `[class.invalido]`.
+- Decidir qué datos hardcoded desaparecerán primero.
+- Preparar el terreno para servicios HTTP y sesión de usuario.
 
-### 20:00 - 20:30 | Revisión + cierre
+### 20:00 - 20:30 | Cierre
 
 ---
 
@@ -332,46 +130,43 @@ export class RestauranteFormComponent implements OnInit {
 
 ### sin-ia
 
-1. Implementar el formulario de creación con al menos 4 campos y validaciones.
-2. Mostrar un mensaje de éxito o error tras el envío.
-3. Explicar con tus palabras la diferencia entre `patchValue` y `setValue`.
-4. Probar que el formulario no se puede enviar vacío.
+1. Terminar el `html`, `css` y `ts` hardcoded de todas las páginas.
+2. Identificar en una tabla qué pantalla usa qué endpoint futuro.
+3. Leer el README del backend y anotar qué partes entendiste.
+4. Abrir la colección Postman y reconocer qué carpeta es pública y cuál protegida.
 
 ### con-ia
 
-1. Todo lo anterior + modo edición: cargar datos del restaurante al abrir el formulario.
-2. Añadir validador personalizado que evite nombres duplicados (mock local).
-3. Pedir a la IA que genere un componente de upload de imagen en Base64.
-
-**Prompt sugerido para con-ia:**
-
-> "Tengo un formulario Angular con ReactiveFormsModule para crear y editar restaurantes. Genera un validador personalizado que verifique que el campo 'imagen' sea una URL válida que empiece con http/https. También añade feedback visual en el campo con clases CSS dinámicas."
+1. Pedir a la IA una tabla `pantalla → endpoint → método` y validarla manualmente con el README.
+2. Pedir a la IA ejemplos de datos hardcoded coherentes con la API real.
+3. Pedir a la IA una propuesta de estructura de modelos TypeScript basada en la respuesta de restaurantes.
+4. Explicar luego con palabras propias qué piezas siguen siendo falsas y cuáles ya vienen definidas por la API.
 
 ---
 
 ## Entregables mínimos del día
 
-- [ ] Formulario de creación con mínimo 4 campos y validaciones visibles.
-- [ ] POST al servidor funcionando (nuevo restaurante aparece en la lista).
-- [ ] Mensaje de éxito/error tras submit.
-- [ ] Botón deshabilitado mientras `enviando === true`.
-- [ ] Dudas en `DUDAS.md`.
+- [ ] App completa en versión hardcoded.
+- [ ] Todas las rutas visuales principales funcionando.
+- [ ] README de `api-recetas` revisado.
+- [ ] Colección Postman localizada y entendida a nivel general.
+- [ ] Mapa básico de endpoints asociado a pantallas.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] Entiendo la diferencia entre `FormGroup` y `FormControl`.
-- [ ] Sé cuándo usar `patchValue` vs `setValue`.
-- [ ] Mis validaciones muestran mensajes solo cuando el campo fue tocado.
-- [ ] El formulario funciona para crear Y para editar (con `@Input`).
-- [ ] Autoevaluación personal (1-5).
+- [ ] Tengo clara la diferencia entre maqueta hardcoded y conexión real a backend.
+- [ ] Sé dónde consultar endpoints y auth del backend.
+- [ ] Entiendo qué pantallas necesitarán token y cuáles no.
+- [ ] La app ya está lista para empezar a reemplazar datos falsos.
+- [ ] Autoevaluación personal completada (1-5).
 
 ---
 
-## Predicción CLASE13
+## Predicción de la siguiente clase (CLASE13)
 
-1. Autenticación: registro y login de usuarios.
-2. Almacenar el token JWT en `localStorage`.
-3. `AuthGuard` para proteger rutas privadas.
-4. `HttpInterceptor` para enviar el token en cada petición automáticamente.
+1. Crear servicios HTTP.
+2. Empezar a conectar la app con `api-recetas`.
+3. Configurar sesión de usuario.
+4. Introducir Leaflet en Angular con coordenadas hardcodeadas como primer paso.
