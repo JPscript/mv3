@@ -1,1 +1,12 @@
-<p>perfil works!</p>
+<div class="perfil">
+    <div class="info">
+        <h2>Nombre: {{ miPerfil.nombre }}</h2>
+        <p>Email: {{ miPerfil.email }}</p>
+        <p>Nivel de Experiencia: {{ miPerfil.nivelDeExperiencia }}</p>
+        <p>Ubicación: {{ miPerfil.ubicacion }}</p>
+        <p>Número de Valoraciones: {{ miPerfil.numeroDeValoraciones }}</p>
+        <p> Un poco sobre mí </p>
+        <blockquote>{{ miPerfil.descripcion }}</blockquote>
+    </div>
+    <img [src]="miPerfil.image" alt="Foto de perfil" width="200">
+</div>
