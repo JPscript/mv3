@@ -3,6 +3,7 @@ footer{
     justify-content: center;
     align-items: center;
     background-color: var(--verde-oscuro);
+    margin-top: 4dvh;
 }
 
 footer p{
