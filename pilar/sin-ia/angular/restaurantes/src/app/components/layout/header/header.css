@@ -1,0 +1,156 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* Header principal */
+.main-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Contenedor nav */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Botón hamburguesa */
+.boton-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.boton-menu:hover {
+  background: #f2f2f2;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  filter: brightness(0);
+  gap: 8px;
+}
+
+.header-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Buscador */
+.search-form {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-wrapper {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 10px 45px 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-wrapper input:focus {
+  outline: none;
+  background: #fff;
+  border-color: #34e0a1;
+  box-shadow: 0 0 0 3px rgba(52, 224, 161, 0.2);
+}
+
+/* Botón lupa */
+.search-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #34e0a1;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #2bc48f;
+}
+
+.search-btn svg {
+  fill: #000;
+}
+
+/* Iconos (mapa y usuario) */
+.world-icon,
+.user-menu {
+  display: flex;
+  align-items: center;
+}
+
+.boton-icono,
+.user-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.boton-icono:hover,
+.user-link:hover {
+  background: #f2f2f2;
+}
+
+/* Imágenes iconos */
+.boton-icono img,
+.user-link img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 10px;
+  }
+
+  .search-wrapper {
+    max-width: 250px;
+  }
+
+  .header-logo {
+    height: 26px;
+  }
+}
