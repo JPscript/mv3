@@ -1,12 +1,29 @@
+<!--
+    home.html: Vista principal de la página Home
+    - Muestra una lista de cartas de restaurante usando *ngFor (estructura repetitiva, como colocar ladrillos uno a uno)
+    - Cada carta recibe sus datos mediante property binding ([nombre], [telefono], etc.), conectando cada ladrillo con su información
+    - trackBy optimiza el renderizado usando el id del restaurante, evitando reconstruir ladrillos innecesarios
+-->
 <p>home works!</p>
-<div>
-<div *ngFor="let restaurante of restaurantes; trackBy: trackId">
+<!--<div>-->
+    <!-- Itera sobre el array de restaurantes y genera una carta por cada uno -->
+   <!-- <div *ngFor="let restaurante of restaurantes; trackBy: trackId">-->
+        <!-- Componente restaurante-card recibe los datos del restaurante como @Input -->
+       <!-- <app-restaurante-card-->
+           <!-- [nombre]="restaurante.nombre"-->
+           <!-- [telefono]="restaurante.telefono"-->
+           <!-- [direccion]="restaurante.direccion"-->
+           <!-- [imagen]="restaurante.imagen">-->
+       <!-- </app-restaurante-card>-->
+  <!--  </div>-->
+<!--</div>-->
+ <div>
+  @for (restaurante of restaurantes; track restaurante.id) {
     <app-restaurante-card
-        [nombre]="restaurante.nombre"
-        [telefono]="restaurante.telefono"
-        [direccion]="restaurante.direccion"
-        [imagen]="restaurante.imagen">
+      [nombre]="restaurante.nombre"
+      [telefono]="restaurante.telefono"
+      [direccion]="restaurante.direccion"
+      [imagen]="restaurante.imagen">
     </app-restaurante-card>
+  }
 </div>
-</div>
- 
