@@ -1,5 +1,5 @@
-# CLASE1
+# CLASE9
 
 ## Tema y objetivo del día
 
-Hoy vamos a ver Angular mediante un tutorial trabajando en solitario y en grupo revisando la API de recetas y haciendo una aplicación que muestre restaurantes y conforme avancemos agregaremos platos a cada restaurante.
+Hoy vamos a ver Angular mediante un tutorial en el cuál trabajaremos en solitario y luego en grupo, revisando la API de recetas, y haciendo una aplicación que muestre restaurantes. Conforme avancemos agregaremos platos a cada restaurante.
