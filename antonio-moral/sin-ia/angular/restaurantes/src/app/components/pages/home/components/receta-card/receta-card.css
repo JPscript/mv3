@@ -1,0 +1,22 @@
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.receta-card {
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px solid #0c75dd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #8bbedb;
+    margin: 0.5rem;
+    text-align: center;
+
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
