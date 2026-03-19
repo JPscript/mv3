@@ -81,7 +81,7 @@
 .search-wrapper input:focus {
   outline: none;
   background: #fff;
-  border-color: #34e0a1;
+  border-color: #2D8A6B;
   box-shadow: 0 0 0 3px rgba(52, 224, 161, 0.2);
 }
 
@@ -91,7 +91,7 @@
   right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  background: #34e0a1;
+  background: #2D8A6B;
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -104,7 +104,7 @@
 }
 
 .search-btn:hover {
-  background: #2bc48f;
+  background: #2D8A6B;
 }
 
 .search-btn svg {
@@ -130,7 +130,7 @@
 
 .boton-icono:hover,
 .user-link:hover {
-  background: #f2f2f2;
+  background: #2D8A6B;
 }
 
 /* Imágenes iconos */

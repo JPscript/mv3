@@ -1,20 +1,18 @@
-# CLASE10 - Routing + HttpClient → Lista de Restaurantes
+# CLASE10 - Estructura real de la app, componentes y router
 
-**Fecha:** 2026-03-17 (estimada)
-**Horario:** 16:30 - 20:30
-**Receso:** 18:00 - 18:30
-**Nivel:** inicial (segundo día con Angular)
-**Clase anterior de referencia:** jp/bitacora/CLASE9.md
-**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.
+**Fecha:** 2026-03-17  
+**Horario:** 16:30 - 20:30  
+**Receso:** 18:00 - 18:30  
+**Nivel:** inicial  
+**Clase anterior de referencia:** jp/bitacora/CLASE9.md  
+**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.  
 **Mentor de la sesión:** Senior Cat 🐱
 
 ---
 
 ## Contexto y continuidad con CLASE9
 
-En CLASE9 instalamos Angular CLI, creamos la app base y completamos el tutorial oficial.
-Hoy conectamos Angular con el mundo real: nuestra API NestJS de restaurantes.
-Si JS vanilla era construir con ladrillos sueltos, hoy ponemos el **sistema de tuberías** (HttpClient) que alimenta cada piso del edificio.
+En CLASE9 se montó el andamio Angular con el tutorial oficial. En CLASE10 ya empezamos la obra real del proyecto: generar la estructura verdadera de la app de restaurantes, maquetar sin servicios y dejar el router listo.
 
 ---
 
@@ -22,249 +20,136 @@ Si JS vanilla era construir con ladrillos sueltos, hoy ponemos el **sistema de t
 
 ### Tema central
 
-Router de Angular + HttpClient: configurar rutas y hacer el primer `GET` real a la API.
+Generación de componentes reales del proyecto, layout común y configuración correcta del router.
 
 ### Objetivo general
 
-1. Configurar `provideRouter` y `provideHttpClient` en `app.config.ts`.
-2. Crear el servicio `RestaurantesService` con `GET /restaurants`.
-3. Mostrar la lista de restaurantes con `@for` en `RestauranteListaComponent`.
-4. Navegar al detalle de restaurante (ruta `/restaurantes/:id`, el componente puede estar vacío hoy).
+1. Crear la estructura real de páginas y layout del proyecto.
+2. Dejar la app navegable con contenido hardcoded.
+3. Montar `header`, `footer` y `router-outlet`.
+4. Configurar las rutas principales y las rutas del CRUD visual de restaurantes.
 
 ---
 
-## Conceptos clave del día
+## Componentes realmente creados en clase
 
-### Router de Angular — para qué sirve
+```bash
+ng g c components/pages/home
+ng g c components/pages/perfil
+ng g c components/pages/login
+ng g c components/pages/registro
+ng g c components/pages/mapa
+ng g c components/pages/home/components/restaurante-card
+ng g c components/pages/home/restaurante
+ng g c components/pages/home/crear-restaurante
+ng g c components/pages/home/actualizar-restaurante
+ng g c components/pages/home/borrar-restaurante
+ng g c components/layout/header
+ng g c components/layout/footer
+```
 
-El Router mapea URLs a componentes. Sin él, Angular es una sola página estática.
+---
 
-```typescript
-// app.routes.ts — define el mapa de rutas de la app
-import { Routes } from "@angular/router";
+## Sentido de la estructura
+
+```text
+components/
+├─ layout/
+│  ├─ header/
+│  └─ footer/
+└─ pages/
+   ├─ home/
+   │  ├─ components/
+   │  │  └─ restaurante-card/
+   │  ├─ restaurante/
+   │  ├─ crear-restaurante/
+   │  ├─ actualizar-restaurante/
+   │  └─ borrar-restaurante/
+   ├─ perfil/
+   ├─ login/
+   ├─ registro/
+   └─ mapa/
+```
+
+- `layout` contiene las piezas estables de navegación.
+- `pages` contiene las vistas que cambian con el router.
+- `home` concentra la primera navegación del dominio restaurantes.
+- `restaurante-card` nace como ladrillo visual reutilizable, aunque todavía no se explota del todo en esta clase.
+
+---
+
+## Configuración correcta del router trabajada en CLASE10
+
+```ts
+import { Routes } from '@angular/router';
+import { HomeComponent } from './components/pages/home/home.component';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { RegistroComponent } from './components/pages/registro/registro.component';
+import { MapaComponent } from './components/pages/mapa/mapa.component';
+import { RestauranteComponent } from './components/pages/home/restaurante/restaurante.component';
+import { CrearRestauranteComponent } from './components/pages/home/crear-restaurante/crear-restaurante.component';
+import { ActualizarRestauranteComponent } from './components/pages/home/actualizar-restaurante/actualizar-restaurante.component';
+import { BorrarRestauranteComponent } from './components/pages/home/borrar-restaurante/borrar-restaurante.component';
 
 export const routes: Routes = [
-  { path: "", redirectTo: "restaurantes", pathMatch: "full" },
-
-  // Ruta simple: carga el componente directamente
-  { path: "restaurantes", component: RestauranteListaComponent },
-
-  // Ruta con parámetro: :id es dinámico (ej: /restaurantes/42)
-  { path: "restaurantes/:id", component: RestauranteDetalleComponent },
-
-  // Ruta lazy loading: el módulo solo se descarga cuando el usuario navega aquí
-  // Ideal para secciones grandes que no todos visitan (admin, perfil, etc.)
-  {
-    path: "admin",
-    loadChildren: () =>
-      import("./admin/admin.routes").then((m) => m.ADMIN_ROUTES),
-  },
-
-  // Comodín: cualquier ruta no conocida va a 404
-  { path: "**", component: PaginaNoEncontradaComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'home/restaurante/:id', component: RestauranteComponent },
+  { path: 'home/crear-restaurante', component: CrearRestauranteComponent },
+  { path: 'home/actualizar-restaurante/:id', component: ActualizarRestauranteComponent },
+  { path: 'home/borrar-restaurante/:id', component: BorrarRestauranteComponent },
+  { path: 'perfil', component: PerfilComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
+  { path: 'mapa', component: MapaComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 ```
 
-### HttpClient — para qué sirve
-
-Servicio de Angular para hacer peticiones HTTP (GET, POST, PATCH, DELETE).
-Siempre devuelve un **Observable** — hay que suscribirse para obtener el dato.
-
-```typescript
-// ¿Observable vs Promise? Analogía:
-// Promise: pides una pizza, te llaman UNA vez cuando llega.
-// Observable: te suscribes a una serie de TV, recibes CADA capítulo nueva.
-// Para HTTP básico se comportan igual, pero Observable permite cancelar, reintentar, transformar.
-```
-
-### Servicios en Angular — para qué sirven
-
-Un servicio es una clase con `@Injectable` que contiene lógica reutilizable.
-**Regla de oro:** los componentes muestran datos, los servicios los obtienen.
-
-```typescript
-// Mal: lógica HTTP dentro del componente
-// Bien: componente llama al servicio, servicio llama a la API
-
-@Injectable({ providedIn: "root" }) // 'root' = disponible en toda la app
-export class RestaurantesService {
-  // ...
-}
-```
-
----
-
-## Referencia rápida: comandos del día
-
-```bash
-# Generar el servicio de restaurantes
-ng g s servicios/restaurantes
-
-# Generar el componente lista
-ng g c restaurantes/restaurante-lista
-
-# Generar el componente detalle (hoy solo el esqueleto)
-ng g c restaurantes/restaurante-detalle
-
-# Generar la interfaz del modelo de datos
-ng g interface interfaces/restaurante
-```
-
----
-
-## Código guiado paso a paso
-
-### Paso 1 — Configurar providers en app.config.ts
-
-```typescript
-// app.config.ts
-import { ApplicationConfig } from "@angular/core";
-import { provideRouter } from "@angular/router";
-import { provideHttpClient } from "@angular/common/http";
-import { routes } from "./app.routes";
-
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideRouter(routes), // activa el sistema de rutas
-    provideHttpClient(), // activa HttpClient en toda la app
-  ],
-};
-```
-
-### Paso 2 — Interfaz Restaurante
-
-```typescript
-// interfaces/restaurante.ts
-export interface Restaurante {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  direccion: string;
-  imagen: string;
-  categoria: string;
-  lat: number;
-  lng: number;
-  puntuacionMedia?: number; // opcional, calculada por la API
-}
-```
-
-### Paso 3 — Servicio de restaurantes
-
-```typescript
-// servicios/restaurantes.service.ts
-import { Injectable, inject } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Restaurante } from "../interfaces/restaurante";
-
-@Injectable({ providedIn: "root" })
-export class RestaurantesService {
-  // inject() es la forma moderna, equivale a constructor(private http: HttpClient)
-  private http = inject(HttpClient);
-  private apiUrl = "http://localhost:3000"; // URL base de tu API NestJS
-
-  // Obtiene todos los restaurantes
-  getAll(): Observable<Restaurante[]> {
-    return this.http.get<Restaurante[]>(`${this.apiUrl}/restaurants`);
-  }
-
-  // Obtiene un restaurante por id
-  getById(id: number): Observable<Restaurante> {
-    return this.http.get<Restaurante>(`${this.apiUrl}/restaurants/${id}`);
-  }
-}
-```
-
-### Paso 4 — Componente lista
-
-```typescript
-// restaurantes/restaurante-lista.component.ts
-import { Component, OnInit, inject } from "@angular/core";
-import { RestaurantesService } from "../../servicios/restaurantes.service";
-import { Restaurante } from "../../interfaces/restaurante";
-import { RouterLink } from "@angular/router";
-
-@Component({
-  selector: "app-restaurante-lista",
-  standalone: true,
-  imports: [RouterLink], // necesario para usar [routerLink] en el template
-  templateUrl: "./restaurante-lista.component.html",
-})
-export class RestauranteListaComponent implements OnInit {
-  private svc = inject(RestaurantesService);
-
-  restaurantes: Restaurante[] = [];
-  cargando = true;
-  error = "";
-
-  ngOnInit() {
-    // ngOnInit se ejecuta una vez cuando el componente se monta en el DOM
-    this.svc.getAll().subscribe({
-      next: (data) => {
-        this.restaurantes = data;
-        this.cargando = false;
-      },
-      error: (err) => {
-        this.error = "No se pudo cargar la lista";
-        this.cargando = false;
-      },
-    });
-  }
-}
-```
+Estructura base esperada en la app:
 
 ```html
-<!-- restaurante-lista.component.html -->
-@if (cargando) {
-<p>Cargando restaurantes...</p>
-} @if (error) {
-<p class="error">{{ error }}</p>
-} @for (r of restaurantes; track r.id) {
-<div class="card">
-  <img [src]="r.imagen" [alt]="r.nombre" />
-  <h2>{{ r.nombre }}</h2>
-  <p>{{ r.descripcion }}</p>
-  <!-- routerLink genera el href dinámicamente -->
-  <a [routerLink]="['/restaurantes', r.id]">Ver detalle →</a>
-</div>
-}
+<app-header></app-header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>
 ```
 
 ---
 
 ## Plan por bloques de tiempo
 
-### 16:30 - 16:50 | Repaso CLASE9 + objetivo del día
+### 16:30 - 16:50 | Repaso de CLASE9 y objetivo del día
 
-- Verificar que todos tienen `ng serve` corriendo.
-- Explicar el flujo: navegador → Router → Componente → Servicio → API NestJS.
+- Diferencia entre tutorial y proyecto real.
+- Presentación del mapa de componentes.
 
-### 16:50 - 17:30 | Configurar Router + primeras rutas
+### 16:50 - 17:30 | Generación de componentes
 
-- Crear `app.routes.ts` con las rutas del proyecto.
-- `<router-outlet>` en `app.component.html`.
-- Navegar entre rutas con `[routerLink]`.
+- Crear páginas y layout con Angular CLI.
+- Explicar la estructura de carpetas resultante.
 
-### 17:30 - 18:00 | Servicio + HttpClient
+### 17:30 - 18:00 | Primer layout real
 
-- Generar `RestaurantesService`.
-- Primer `GET /restaurants` desde Angular.
-- Ver la respuesta en consola con `.subscribe(console.log)`.
+- Montar header, footer y contenedor principal.
+- Preparar la app para navegar entre páginas.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | Renderizar la lista
+### 18:30 - 19:15 | Router del proyecto
 
-- Conectar servicio al componente lista.
-- Renderizar con `@for`, mostrar imagen, nombre, descripción.
-- Gestionar estados: cargando / error / datos.
+- Configurar `app.routes.ts`.
+- Probar navegación entre `home`, `perfil`, `login`, `registro` y `mapa`.
+- Añadir las rutas del CRUD visual.
 
-### 19:15 - 20:00 | Práctica autónoma
+### 19:15 - 20:00 | Maquetación hardcoded inicial
 
-- Añadir filtro por categoría (sin-ia: con botones estáticos; con-ia: pipe personalizada).
-- Estilizar la tarjeta básica.
+- Añadir contenido mínimo hardcoded a las páginas.
+- Preparar botones, enlaces y vistas vacías con intención clara.
 
-### 20:00 - 20:30 | Revisión + cierre
+### 20:00 - 20:30 | Cierre y revisión
 
 ---
 
@@ -272,45 +157,43 @@ export class RestauranteListaComponent implements OnInit {
 
 ### sin-ia
 
-1. Crear el router con 3 rutas: raíz, lista y detalle (componente vacío).
-2. Implementar `getAll()` en el servicio siguiendo la guía paso a paso.
-3. Mostrar la lista con `@for` y `track`.
-4. Añadir un `@if` para mostrar "Sin resultados" si el array está vacío.
+1. Generar exactamente los mismos componentes creados en clase.
+2. Dejar cada página con un título y un contenido provisional.
+3. Comprobar que todas las rutas navegan sin error.
+4. Escribir qué hace `router-outlet` dentro de la aplicación.
 
 ### con-ia
 
-1. Implementar todo lo anterior y además añadir un buscador por nombre con `signal()`.
-2. Crear una `pipe` llamada `truncarTexto` que limite la descripción a N caracteres.
-3. Pedir a la IA el servicio completo y luego verificar que los tipos TypeScript coinciden con tu API real.
-
-**Prompt sugerido para con-ia:**
-
-> "Tengo una API NestJS en `localhost:3000` con endpoint `GET /restaurants` que devuelve un array de restaurantes con los campos: id, nombre, descripcion, direccion, imagen, categoria, lat, lng. Genera el servicio Angular con HttpClient, la interfaz TypeScript y el componente lista con buscador reactivo usando signals. Explica qué hace cada parte."
+1. Pedir a la IA una propuesta de estructura visual para las páginas creadas.
+2. Mantener la estructura de componentes trabajada en clase.
+3. Pedir a la IA una explicación de por qué `header` y `footer` deben quedar fuera del cambio de ruta.
+4. Reescribir esa explicación con palabras propias.
 
 ---
 
 ## Entregables mínimos del día
 
-- [ ] Router configurado con al menos 2 rutas funcionales.
-- [ ] Lista de restaurantes renderizada desde la API real.
-- [ ] Navegación al detalle (aunque esté vacío).
-- [ ] Gestión de estado cargando/error visible en pantalla.
-- [ ] Dudas registradas en `DUDAS.md`.
+- [ ] Componentes creados con CLI.
+- [ ] Router configurado.
+- [ ] Header y footer visibles.
+- [ ] Navegación funcional entre páginas principales.
+- [ ] Primer contenido hardcoded en pantalla.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] Entiendo para qué sirve `provideRouter` y `provideHttpClient`.
-- [ ] Sé la diferencia entre componente y servicio (y por qué importa).
-- [ ] Usé `@for` con `track` correctamente.
-- [ ] La app se comunica con mi API NestJS sin errores CORS.
-- [ ] Autoevaluación personal (1-5).
+- [ ] Sé diferenciar componente de página, layout y componente interno.
+- [ ] La app navega correctamente con el router.
+- [ ] Tengo claro que hoy todavía no usamos servicios.
+- [ ] Entiendo por qué primero montamos la estructura y luego conectamos la API.
+- [ ] Autoevaluación personal completada (1-5).
 
 ---
 
-## Predicción CLASE11
+## Predicción de la siguiente clase (CLASE11)
 
-1. Página de detalle completa: datos del restaurante + lista de recetas del restaurante.
-2. Child routes o rutas anidadas.
-3. `ActivatedRoute` para leer el parámetro `:id` de la URL.
+1. Crear bien el componente `RestauranteCard`.
+2. Consumirlo desde `HomeComponent`.
+3. Renderizar varias tarjetas hardcoded con `@for`.
+4. Mejorar la organización visual del home.

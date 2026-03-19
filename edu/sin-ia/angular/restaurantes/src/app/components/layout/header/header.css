@@ -4,21 +4,47 @@ header {
   align-items: center;            
   padding: 10px 20px;
   background-color: white;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .buscador {
   display: flex;
+  align-items: center; 
   border: 1px solid #ccc;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 5px 12px;
+  border-radius: 20px; 
+  background-color: #f9f9f9;
 }
 
 .buscador input {
   border: none;
   outline: none;
+  background: transparent;
+  padding: 5px;
+}
+
+.menu-derecha {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.link-texto {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.link-texto:hover {
+  color: #007bff; 
 }
 
 header img {
-  cursor: pointer; 
+  cursor: pointer;
+  transition: transform 0.2s; 
+}
+
+header img:hover {
+  transform: scale(1.1); 
 }

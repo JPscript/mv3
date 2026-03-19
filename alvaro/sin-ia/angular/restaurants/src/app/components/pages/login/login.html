@@ -1,13 +1,16 @@
-<p>Welcome to Login</p>
-
 <form action="login.ts" method="post">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br>
-    
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password"><br>
-    
-    <button type="submit">Login</button>
+  <h2>Welcome back</h2>
+
+  <label for="username">Username</label>
+  <input type="text" id="username" name="username">
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="password">
+
+  <button type="submit">Sign in</button>
+
+  <div class="register-footer">
+    <p>Don't have an account?</p>
+    <button type="button" (click)="register()">Register</button>
+  </div>
 </form>
-<p>or</p> <br>
-<button (click)="register()">Register</button>

@@ -1,0 +1,64 @@
+:root {
+  --bg: #0f1320;
+  --card: #171d2e;
+  --text: #eaf0ff;
+  --accent: #5ee6ff;
+  --accent-hover: #3cc9e6;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* CONTENEDOR */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+/* TARJETA */
+.card {
+  flex: 1 1 280px; /* mínimo 280px y crece */
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* HOVER TARJETA */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+/* TEXTO */
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* BOTÓN */
+.card button {
+  background: var(--accent);
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* HOVER BOTÓN */
+.card button:hover {
+  background: var(--accent-hover);
+}
