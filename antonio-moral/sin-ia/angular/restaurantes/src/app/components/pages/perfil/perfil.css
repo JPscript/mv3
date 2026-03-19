@@ -1,0 +1,20 @@
+.perfil-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    
+}
+
+.imagen-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,34 @@
+
+/* Fondo suave y centrado */
+body, :host {
+	background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+	min-height: 100vh;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Contenedor de cartas */
+div > div[ng-reflect-ng-for-of] {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+/* Título de la página */
+p {
+	text-align: center;
+	font-size: 2rem;
+	color: #3b4252;
+	margin-top: 1.5rem;
+	letter-spacing: 1px;
+}
+
+/* Responsive para cartas */
+@media (max-width: 800px) {
+	div > div[ng-reflect-ng-for-of] {
+		flex-direction: column;
+		align-items: center;
+		gap: 1.2rem;
+	}
+}
