@@ -8,8 +8,8 @@ import { Component, input } from '@angular/core';
 })
 export class RestauranteCard {
   nombre= input<string>();
-  direccion= input<string>();
-  telefono= input<string>();
-  email= input<string>();
-  image= input<string>();
+  descripcion= input<string>();
+  imagen= input<string>();
+  lat = input<number>();
+  lng = input<number>();
 }

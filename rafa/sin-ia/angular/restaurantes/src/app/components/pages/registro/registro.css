@@ -1,0 +1,118 @@
+/* Registro Container */
+.registro-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: #f5f5f5;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+}
+
+/* Formulario Container */
+.formulario {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin: 0 0 2rem 0;
+    text-align: center;
+    font-size: 1.75rem;
+    color: #202124;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+/* Formulario */
+.formularioDatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formularioDatos label {
+    font-size: 0.95rem;
+    color: #202124;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+}
+
+.formularioDatos input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #202124;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.formularioDatos input:focus {
+    outline: none;
+    border-color: #4285f4;
+    box-shadow: 0 1px 6px rgba(66, 133, 244, 0.15);
+}
+
+.formularioDatos button {
+    padding: 0.75rem 1.5rem;
+    background: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+    margin-top: 0.5rem;
+}
+
+.formularioDatos button:hover {
+    background: #3367d6;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+/* Link a login */
+.login {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login p {
+    margin: 0;
+    color: #5f6368;
+    font-size: 0.95rem;
+}
+
+.login a {
+    color: #4285f4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.login a:hover {
+    color: #3367d6;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .formulario {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .formularioDatos {
+        gap: 1.25rem;
+    }
+}
