@@ -67,5 +67,36 @@
   .suggestions li:hover {
     background: #f0f0f0;
   }
+
+  .logo {
+    color: white;
+    text-decoration: none;
+  }
   
+  .logo:visited {
+    color: white;
+  }
   
+  .logo:hover {
+    opacity: 0.8;
+  }
+  
+  .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.logo img {
+  height: 40px; /* ajusta el tamaño si quieres */
+  width: auto;
+  border-radius: 4px; /* opcional */
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
