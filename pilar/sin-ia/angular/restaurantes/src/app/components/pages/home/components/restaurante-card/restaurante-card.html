@@ -1,1 +1,25 @@
-<p>restaurante-card works!</p>
+<div class="restaurante-card">
+  <!-- LADO IZQUIERDO -->
+  <div class="card-image-wrapper">
+    <img [src]="imagen()" [alt]="nombre()">
+    <button class="fav-heart-icon">♥</button>
+  </div>
+
+  <!-- LADO DERECHO -->
+  <div class="card-data-wrapper">
+    <div class="header-info">
+      <h2 class="res-title">{{ nombre() }}</h2>
+      <p class="res-description">{{ descripcion() }}</p>
+    </div>
+
+    <!-- SEPARACIÓN CLARA AQUÍ -->
+    <div class="footer-actions">
+      <div class="location-info">
+        <span class="loc-icon">📍</span>
+        <span class="coords">{{ lat().toFixed(3) }}, {{ lng().toFixed(3) }}</span>
+      </div>
+      
+      <button class="btn-ver-mas">Ver más</button>
+    </div>
+  </div>
+</div>

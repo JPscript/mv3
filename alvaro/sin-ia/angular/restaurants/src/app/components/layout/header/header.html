@@ -1,1 +1,35 @@
-<h1>Restaurants</h1>
+<!-- Main Navigation Header -->
+<header class="header-shell">
+  <!-- Left Section: Brand Logo and Title -->
+  <div class="left">
+    <!-- Brand Link: navigates to home page -->
+    <!-- routerLink: Angular directive for client-side navigation -->
+    <!-- aria-label: accessibility text for screen readers -->
+    <a class="brand-link" routerLink="/restaurants" aria-label="Go to restaurants home">
+      <img class="brand-logo" src="/dogmeme.png" alt="Restaurants logo" />
+      <h1 class="brand">Restaurants</h1>
+    </a>
+  </div>
+
+  <!-- Center Section: Search Bar -->
+  <div class="center">
+    <!-- Search Form: role="search" and aria-label improve accessibility -->
+    <form class="search-bar" role="search" aria-label="Search restaurants">
+      <span class="search-icon" aria-hidden="true">🔎</span>
+      <input
+        type="search"
+        name="restaurantSearch"
+        placeholder="Search restaurants..."
+        aria-label="Search restaurants"
+      />
+    </form>
+  </div>
+
+  <!-- Right Section: Map and Profile Links -->
+  <div class="right">
+    <!-- Map Link -->
+    <a class="edge-link" routerLink="/map" aria-label="Go to map">🗺️</a>
+    <!-- Profile Link -->
+    <a class="edge-link" routerLink="/profile" aria-label="Go to profile">👤</a>
+  </div>
+</header>

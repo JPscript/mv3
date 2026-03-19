@@ -7,10 +7,11 @@
 }
 
 p {
-  color: #8b949e;
+  color: var(--text-secondary);
   font-size: 1rem;
-  background: #1a1d27;
-  padding: 24px 40px;
-  border-radius: 12px;
-  border: 1px dashed #30363d;
+  background: var(--surface-1);
+  padding: 28px 40px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-accent);
+  box-shadow: var(--shadow-soft);
 }

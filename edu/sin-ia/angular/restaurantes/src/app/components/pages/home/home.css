@@ -1,0 +1,17 @@
+
+.listado-restaurantes {
+    display: flex;
+    flex-wrap: wrap;         
+    justify-content: center;
+    gap: 30px;               
+    padding: 40px 20px;      
+    max-width: 1200px;       
+    margin: 0 auto;          
+}
+
+h1 {
+    text-align: center;     
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 30px;
+    color: #333;
+}

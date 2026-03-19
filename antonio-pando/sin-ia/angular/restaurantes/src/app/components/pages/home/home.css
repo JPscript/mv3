@@ -1,0 +1,11 @@
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+#contenedorTarjetas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

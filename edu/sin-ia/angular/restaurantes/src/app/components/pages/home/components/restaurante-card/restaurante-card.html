@@ -1,1 +1,19 @@
-<p>restaurante-card works!</p>
+<div class="restaurante-card">
+  <div class="imagen">
+    <img [src]="img" [alt]="nombre">
+  </div>
+  
+  <div class="info-container">
+    <div class="nombre">
+      <h3>{{ nombre }}</h3>
+    </div>
+    <div class="descripcion">
+      <p>{{ descripcion }}</p>
+    </div>
+    
+    <div class="coordenadas" *ngIf="coordenadas">
+      <span>Lat: {{ coordenadas.lat }}</span>
+      <span>Lng: {{ coordenadas.lng }}</span>
+    </div>
+  </div>
+</div>

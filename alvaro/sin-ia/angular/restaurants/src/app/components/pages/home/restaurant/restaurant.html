@@ -1,1 +1,59 @@
-<p>restaurant works!</p>
+@if (restaurant) {
+  <div class="detail">
+
+    <button class="back-btn" (click)="goBack()">← Back</button>
+
+    <!-- Top: name left, image right -->
+    <div class="detail__header">
+      <div class="detail__header-left">
+        <h1 class="detail__name">{{ restaurant.name }}</h1>
+
+        <div class="detail__meta">
+          <section class="detail__section">
+            <h2>About</h2>
+            <p>{{ restaurant.description }}</p>
+          </section>
+
+          <section class="detail__section">
+            <h2>Location</h2>
+            <p class="detail__coords">
+              📍 {{ restaurant.coordinates.lat | number:'1.4-4' }},
+                 {{ restaurant.coordinates.lng | number:'1.4-4' }}
+            </p>
+          </section>
+        </div>
+      </div>
+
+      <div class="detail__header-right">
+        <img [src]="restaurant.image" [alt]="restaurant.name" class="detail__img" />
+      </div>
+    </div>
+
+    <!-- Recipes placeholder -->
+    <section class="detail__block">
+      <h2 class="detail__block-title">Recipes</h2>
+      <div class="detail__recipes-grid">
+        @for (recipe of restaurant.recipes; track recipe.id) {
+          <app-recipe-card
+            [restaurantId]="restaurant.id"
+            [id]="recipe.id"
+            [name]="recipe.name"
+            [ingredients]="recipe.ingredients">
+          </app-recipe-card>
+        }
+      </div>
+    </section>
+
+    <!-- Comments placeholder -->
+    <section class="detail__block">
+      <h2 class="detail__block-title">Comments</h2>
+      <p class="detail__placeholder">No comments yet...</p>
+    </section>
+
+  </div>
+} @else {
+  <div class="not-found">
+    <p>Restaurant not found.</p>
+    <button class="back-btn" (click)="goBack()">← Back to list</button>
+  </div>
+}
