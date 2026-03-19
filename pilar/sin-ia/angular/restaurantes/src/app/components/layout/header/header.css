@@ -1,156 +1,107 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-}
-
-/* Header principal */
-.main-header {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Contenedor nav */
+/* 1. Contenedor principal: Flex y alineación correcta */
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 15px 40px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  align-items: center;       /* Centra verticalmente todo */
+  justify-content: flex-start;
+  gap: 25px;
+  background: #fff;
 }
 
-/* Botón hamburguesa */
+/* 2. Bloque Izquierdo: Menú + Logo */
 .boton-menu {
+  order: 1;
+  padding: 15px 40px;
   background: none;
   border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
 }
 
-.boton-menu:hover {
-  background: #f2f2f2;
-}
-
-/* Logo */
 .logo-container {
+  order: 2;
   display: flex;
   align-items: center;
-  filter: brightness(0);
-  gap: 8px;
 }
 
 .header-logo {
-  height: 42px;
+  height: 80px;             /* Logo más grande */
   width: auto;
-  object-fit: contain;
+  filter: brightness(0);     /* Logo negro */
 }
 
-/* Buscador */
+/* 3. Buscador centrado a la derecha */
 .search-form {
   flex: 1;
   display: flex;
-  justify-content: center;
-}
-
-.search-wrapper {
-  width: 100%;
-  max-width: 500px;
+  justify-content: flex-end;  /* Empuja a la derecha */
+  order: 3;
+  margin-left: auto;
+  max-width: 300px;
   position: relative;
 }
 
 .search-wrapper input {
+  border: none;
   width: 100%;
   padding: 10px 45px 10px 16px;
   border-radius: 999px;
-  border: 1px solid #ddd;
   background: #f7f7f7;
   font-size: 14px;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .search-wrapper input:focus {
   outline: none;
   background: #fff;
   border-color: #2D8A6B;
-  box-shadow: 0 0 0 3px rgba(52, 224, 161, 0.2);
+  box-shadow: 0 0 0 3px rgba(45, 138, 107, 0.2);
 }
 
-/* Botón lupa */
+/* Lupa con círculo verde al hover */
 .search-btn {
   position: absolute;
-  right: 6px;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  background: #2D8A6B;
-  border: none;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  background-color: #2D8A6B;
+  border: #2D8A6B;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.search-btn:hover {
-  background: #2D8A6B;
-}
+
 
 .search-btn svg {
-  fill: #000;
+  fill: #000;           /* Lupa blanca dentro del círculo */
+  width: 18px;
 }
 
-/* Iconos (mapa y usuario) */
-.world-icon,
-.user-menu {
+/* 4. Iconos de la derecha: Mundo y Usuario */
+.world-icon, .user-menu {
+  order: 4;
   display: flex;
-  align-items: center;
+  align-items: center;  /* Alinea verticalmente con el logo */
+  gap: 20px;
+  
 }
 
-.boton-icono,
-.user-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
+.boton-icono img, .user-link img {
+  
+  width: 28px;
+  height: 28px;
+  filter: grayscale(1) contrast(2);
+  transition: all 0.3s ease;
 }
 
-.boton-icono:hover,
-.user-link:hover {
-  background: #2D8A6B;
-}
-
-/* Imágenes iconos */
-.boton-icono img,
-.user-link img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-container {
-    gap: 10px;
-  }
-
-  .search-wrapper {
-    max-width: 250px;
-  }
-
-  .header-logo {
-    height: 26px;
-  }
+.boton-icono:hover, .user-link:hover {
+  background: transparent;
+  opacity: 0.6;
 }

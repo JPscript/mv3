@@ -1,8 +1,8 @@
-# CLASE12
+# CLASE13
 
 ## Tema y objetivo del día
 
-- **Tema:** 
+- **Tema:** Desarrollo de páginas principales en Angular.
 - **Fecha:** Miércoles 18 de marzo 2026.
 - **Horario:** 16:30 - 20:30.
 - **Objetivo:** Construir una página con Angular que consuma una API de restaurantes.
@@ -10,34 +10,32 @@
 
 ## Resultados de aprendizaje de la sesión
 
-- Configuración del Router en Angular.
-- Definición de la arquitectura de la aplicación.
-- Organización mediante componentes.
-- Creación de componentes con Angular CLI.
+- Creación y estructuración de páginas principales.
 
 ## Conocimientos adquiridos en con los ejercicios de la sesión
 
-Durante esta sesión dimos continuidad al trabajo iniciado con Angular tras el tutorial oficial, pasando de una comprensión teórica a una estructura real de proyecto.
+Durante esta sesión continuamos avanzando en el desarrollo de la aplicación en Angular, pasando de la estructura inicial a la implementación real de las páginas principales.
 
-En primer lugar, definimos las distintas páginas que formarán parte de la aplicación, lo que nos permitió tener una visión global del producto antes de seguir desarrollando. A partir de esto, configuramos el Router de Angular, estableciendo las rutas principales y comprendiendo cómo se conecta cada URL con su componente correspondiente.
+En primer lugar, se definieron y desarrollaron las distintas vistas que componen la aplicación, lo que permitió tener una estructura clara del flujo de navegación del usuario.
 
-Posteriormente comenzamos a trabajar en la estructura de carpetas, organizando los componentes según su función dentro de la aplicación. Se creó la carpeta layout, donde se desarrollaron componentes comunes a toda la app.
+Dentro de este proceso, se desarrollaron y dejaron funcionales las páginas principales de la aplicación:
 
-Dentro de esta estructura, se implementaron y finalizaron los componentes:
+- Home → página principal donde se mostrará el contenido inicial.
 
-- Header → encargado de la navegación principal.
+- Restaurante → vista donde se listarán 1 a 1los restaurantes.
 
-- Footer → elemento común en todas las páginas.
+- Login → acceso de usuarios a la aplicación.
 
-Además, se inició el desarrollo de un componente clave del proyecto: la card de restaurante, diseñada como un componente hijo reutilizable, que servirá para mostrar la información de cada restaurante dentro de listados.
+- Registro → creación de nuevos usuarios.
 
-Este enfoque permitió comprender la importancia de la reutilización de componentes en Angular y cómo dividir la interfaz en piezas pequeñas y mantenibles.
+- Perfil → página personal del usuario.
+
+Además, se continuó trabajando con componentes reutilizables como header y footer, asegurando una estructura consistente en toda la aplicación.
 
 # Predicción próxima clase
 
 - Implementar la petición GET /restaurants.
-- Mostrar el listado de restaurantes utilizando el componente restaurante-card.
-- Introducir renderizado dinámico con @for.
+- Conectar la API con el frontend.
 
 ## Entregables mínimos del día
 
@@ -50,9 +48,7 @@ Este enfoque permitió comprender la importancia de la reutilización de compone
 
 ## Autoevaluación y próximos pasos
 
-- [x] Entiendo cómo funciona el Router en Angular.
-- [x] Sé crear componentes utilizando Angular CLI.
-- [x] Comprendo la importancia de estructurar la aplicación en componentes.
+- [x] Páginas Home, Restaurantes, Login, Registro y Perfil creadas.
 - [x] Escribí cómo me sentí durante la clase.
-- [ ] Registré mis dudas en `DUDAS.md`.
+- [x] Registré mis dudas en `DUDAS.md`.
 - [x] Escribí mi predicción para la siguiente clase.
