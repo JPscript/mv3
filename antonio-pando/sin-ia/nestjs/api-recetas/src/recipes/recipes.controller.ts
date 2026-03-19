@@ -10,13 +10,12 @@ import {
   Patch,
   Post,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import { randomUUID } from 'crypto';
-import { extname, join } from 'path';
-import { mkdirSync } from 'fs';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { buildImageUploadOptions } from '../common/image-upload-options';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { UpdateRecipeDto } from './dto/update-recipe.dto';
 import { RecipesService } from './recipes.service';
@@ -26,6 +25,7 @@ export class RecipesController {
   constructor(private readonly recipesService: RecipesService) {}
 
   @Post()
+  @UseGuards(JwtAuthGuard)
   create(@Body() dto: CreateRecipeDto) {
     return this.recipesService.create(dto);
   }
@@ -35,45 +35,33 @@ export class RecipesController {
     return this.recipesService.findAll();
   }
 
+  @Get('restaurant/:restaurantId')
+  findByRestaurantId(@Param('restaurantId', ParseIntPipe) restaurantId: number) {
+    return this.recipesService.findByRestaurantId(restaurantId);
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.recipesService.findOne(id);
   }
 
   @Patch(':id')
+  @UseGuards(JwtAuthGuard)
   update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateRecipeDto) {
     return this.recipesService.update(id, dto);
   }
 
   @Delete(':id')
+  @UseGuards(JwtAuthGuard)
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.recipesService.remove(id);
   }
 
   @Post(':id/image')
   @HttpCode(200)
+  @UseGuards(JwtAuthGuard)
   @UseInterceptors(
-    FileInterceptor('image', {
-      storage: diskStorage({
-        destination: (_req, _file, cb) => {
-          const destinationPath = join(process.cwd(), 'files');
-          mkdirSync(destinationPath, { recursive: true });
-          cb(null, destinationPath);
-        },
-        filename: (_req, file, cb) => {
-          const safeExtension = extname(file.originalname).toLowerCase();
-          const uniqueName = `${Date.now()}-${randomUUID()}${safeExtension}`;
-          cb(null, uniqueName);
-        },
-      }),
-      fileFilter: (_req, file, cb) => {
-        if (!file.mimetype.startsWith('image/')) {
-          cb(new BadRequestException('Solo se permiten archivos de imagen'), false);
-          return;
-        }
-        cb(null, true);
-      },
-    }),
+    FileInterceptor('image', buildImageUploadOptions()),
   )
   uploadImage(
     @Param('id', ParseIntPipe) id: number,

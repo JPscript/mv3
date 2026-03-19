@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
+import { CommentsModule } from './comments/comments.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { RatingsModule } from './ratings/ratings.module';
+import { RestaurantsModule } from './restaurants/restaurants.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -19,12 +24,21 @@ import { RecipesModule } from './recipes/recipes.module';
           username: config.get<string>('DB_USER', 'postgres'),
           password: config.get<string>('DB_PASSWORD', ''),
           database: config.get<string>('DB_NAME', 'api_recetas_db'),
+          // Fuerza UTF-8 en el cliente para evitar texto corrupto con tildes.
+          extra: {
+            client_encoding: config.get<string>('DB_CLIENT_ENCODING', 'UTF8'),
+          },
           autoLoadEntities: true,
           synchronize: false,
           logging: dbLogging,
         };
       },
     }),
+    AuthModule,
+    UsersModule,
+    RestaurantsModule,
+    CommentsModule,
+    RatingsModule,
     RecipesModule,
   ],
 })

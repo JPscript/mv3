@@ -1,11 +1,27 @@
-INSERT INTO public.recipes (nombre, descripcion, ingredientes, tiempo_min, dificultad)
-VALUES ('Wrap veggie', 'Wrap con vegetales salteados', 'tortilla,pimiento,cebolla,zucchini', 18, 'facil');
+SELECT id, nombre, descripcion, latitud, longitud
+FROM public.restaurants
+ORDER BY id ASC;
 
-SELECT * FROM public.recipes ORDER BY id DESC;
-SELECT * FROM public.recipes WHERE id = 1;
+SELECT r.id, r.nombre, COUNT(rec.id) AS total_recetas
+FROM public.restaurants r
+LEFT JOIN public.recipes rec ON rec.restaurant_id = r.id
+GROUP BY r.id, r.nombre
+ORDER BY r.id ASC;
 
-UPDATE public.recipes
-SET nombre = 'Wrap veggie deluxe', updated_at = NOW()
-WHERE id = 1;
+SELECT r.id, r.nombre,
+	   ROUND(AVG(rt.calificacion)::numeric, 2) AS rating_promedio,
+	   COUNT(rt.id) AS total_valoraciones
+FROM public.restaurants r
+LEFT JOIN public.ratings rt ON rt.restaurant_id = r.id
+GROUP BY r.id, r.nombre
+ORDER BY r.id ASC;
 
-DELETE FROM public.recipes WHERE id = 1;
+INSERT INTO public.comments (restaurant_id, user_id, comentario)
+VALUES (1, 4, 'Comentario de prueba desde script SQL.');
+
+UPDATE public.restaurants
+SET descripcion = 'Descripcion actualizada desde script SQL.'
+WHERE id = 2;
+
+DELETE FROM public.comments
+WHERE comentario = 'Comentario de prueba desde script SQL.';
