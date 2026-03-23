@@ -1,1 +1,10 @@
-<p>login works!</p>
+<h1 class="title">Formulario de Inicio de Sesión</h1>
+<div class="form-container">
+    <form id="formulario" [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
+      <label for="fname">Nombre:</label><br>
+      <input type="text" formControlName="name" placeholder="Introduce tu nombre.." /><br><br>
+      <label for="fpassword">Contraseña:</label><br>
+      <input type="password" formControlName="password" placeholder="Introduce tu contraseña.." /><br>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+</div>

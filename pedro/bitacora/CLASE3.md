@@ -1,4 +1,4 @@
-# CLASE2
+# CLASE3
 
 ## Tema y objetivo del día
 

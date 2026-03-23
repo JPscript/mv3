@@ -1,71 +1,56 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #111;
-    color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .logo {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
-  
-  .nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #ccc;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .nav a:hover {
-    color: #fff;
-  }
-  
-  .active {
-    color: #fff;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 3px;
-  }
-  .search-container {
-    position: relative;
-    width: 300px;
-  }
-  
-  .search-container input {
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .suggestions {
-    position: absolute;
-    top: 38px;
-    left: 0;
-    width: 100%;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-  }
-  
-  .suggestions li {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .suggestions li:hover {
-    background: #f0f0f0;
-  }
-  
-  
+  display: flex;
+  align-items: center;
+  gap: 20px;              /* <-- CLAVE */
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;              
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ccc;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.active {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 3px;
+}

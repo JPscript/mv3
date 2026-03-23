@@ -1,0 +1,61 @@
+.mapa-page {
+    display: grid;
+    /* Definimos dos columnas: la lista (30%) y el mapa (70%) */
+    /* El header ocupará ambas columnas arriba */
+    grid-template-columns: 300px 1fr; 
+    gap: 1.5rem;
+    color: #000000;
+	margin: 0 auto;
+    padding: 40px 40px;
+    align-items: start;
+}
+
+.mapa-copy {
+    grid-column: 1 / -1; /* El título ocupa todo el ancho */
+    background: #ffffff;
+    text-align: center;
+}
+
+.mapa-lista {
+    grid-column: 1; /* Columna izquierda */
+    grid-row: 2;    /* Fila debajo del header */
+    order: 1;       /* Forzamos que aparezca primero visualmente */
+    
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Cambiado a vertical para que sea una lista real */
+    gap: 1.5rem;
+}
+
+.mapa-lista ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Items uno debajo de otro */
+    gap: 1rem;
+    list-style: none;
+    text-align: left; /* Alineación a la izquierda para la lista */
+}
+
+.mapa-lienzo {
+    grid-column: 2; /* Columna derecha */
+    grid-row: 2;    /* Fila debajo del header */
+    order: 2;       /* Aparece después de la lista */
+    
+    width: 100%;
+    height: clamp(420px, 70vh, 700px);
+    border: 2px solid #eee; 
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Ajuste para los items de la lista */
+.mapa-lista li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado a la izquierda */
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
