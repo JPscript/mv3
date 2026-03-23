@@ -4,8 +4,5 @@ footer{
     align-items: center;
     background-color: var(--verde-oscuro);
     margin-top: 4dvh;
-}
-
-footer p{
-    color: var(--blanco)
+    border-radius: 8px;
 }
