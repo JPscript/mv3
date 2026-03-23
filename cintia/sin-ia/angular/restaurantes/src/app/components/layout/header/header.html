@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<header class="header-container">
+    <div class="header">
+        <h1> <img [src]=" imagen" alt="Logo de la mama" class="logo-img">La cocina de la mama</h1>
+    </div>
+
+    <div class="header-content">
+        <form id="buscador" class="form-header">
+            <div class="search-row">
+                <input type="text" placeholder="Cotillear la web de la mama">
+                <button type="submit"> Buscar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="header-menu">
+        <button onclick="window.location.href='../../pages/home/home.html'" class="btn-header">
+            <i class="fas fa-home"></i>
+        </button>
+        <button onclick="window.location.href='../../pages/login/login.html'" class="btn-header">
+            <i class="fas fa-sign-in-alt"></i>
+        </button>
+        <button onclick="window.location.href='../../pages/mapa/mapa.html'" class="btn-header">
+            <i class="fas fa-map-marker-alt"></i>
+        </button>
+        <button onclick="window.location.href='../../pages/perfil/perfil.html'" class="btn-header">
+            <i class="fas fa-user"></i>
+        </button>
+    </div>
+
+</header>
+
+</html>
