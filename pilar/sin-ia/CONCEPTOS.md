@@ -22,6 +22,8 @@
 
 - **Metadatos**: Información sobre la página que no es visible directamente. Se colocan dentro de `<head>`.
 
+- **Microfrontends**: Es una estrategia arquitectónica donde una aplicación web grande se divide en piezas más pequeñas e independientes. Cada pieza puede ser desarrollada por un equipo distinto e incluso usar tecnologías diferentes, pero al final todas se juntan en una sola interfaz para el usuario. Es el equivalente a los "Microservicios" pero en el lado del cliente.
+
 ## CONCEPTOS HTML
 
 - **HTML**: Lenguaje de marcado estándar para crear páginas web. Sirve para estructurar el contenido (no para diseñarlo).
@@ -306,207 +308,182 @@
    - **Para qué sirve:** mostrar tarjetas dinámicas en pantalla.
    - **Qué problema resuelve:** pasar de datos en memoria a interfaz visible.
 
-   Angular
+##  JavaScript
 
-Framework de desarrollo web basado en TypeScript que permite crear aplicaciones frontend estructuradas mediante componentes, servicios y módulos.
+**1. Conceptos de Variables y Alcance**
 
-Angular CLI
+- **Variable** : Un contenedor para almacenar datos. En JS moderno, usamos let para valores que cambiarán y const para valores constantes.
 
-Herramienta de línea de comandos que permite crear, ejecutar, configurar y mantener proyectos Angular automáticamente mediante comandos.
+- **Scope (Ámbito)**: Es el "alcance" de una variable; determina desde qué parte del código es accesible.
 
-Ejemplos de uso:
+- **Global**: Accesible desde cualquier lugar.
 
-crear proyectos
+- **Local/Función**: Solo dentro de la función donde se creó.
 
-generar componentes
+- **Bloque**: Solo dentro de un { } (típico de if o for).
 
-ejecutar el servidor de desarrollo
 
-compilar la aplicación
+**2. Lógica Avanzada**
 
-ng new
+- **Closure (Clausura)**: Es cuando una función "atrapa" y recuerda las variables de su entorno exterior, incluso después de que la función externa haya terminado de ejecutarse. Es la base de la privacidad de datos en JS.
 
-Comando de Angular CLI que crea una nueva aplicación Angular con toda la estructura inicial del proyecto.
+- **Loop (Bucle de Eventos)**: El mecanismo que permite a JS realizar tareas no bloqueantes a pesar de ser "single-threaded" (un solo hilo). Gestiona qué funciones se ejecutan y cuándo, moviéndolas entre el Stack y la Callback Queue.
 
-Ejemplo:
+**3. Asincronía y Comunicación**
 
-ng new guia-restaurantes
-ng serve
+- **fetch()**:pedir datos
 
-Comando que inicia el servidor de desarrollo de Angular y permite visualizar la aplicación en el navegador mientras se trabaja.
+- **async/await**: esperar datos.
 
-Por defecto la aplicación se ejecuta en:
+- **Callback**: Una función que se pasa a otra función como argumento para ser ejecutada más tarde (cuando termine una tarea).
 
-http://localhost:4200
-ng generate (ng g)
+- **Promise**: Un objeto que representa el éxito o el fracaso de una operación asíncrona.
 
-Comando utilizado para crear automáticamente elementos de Angular como componentes, servicios, módulos o interfaces.
+- **Pending**: Estado inicial.
 
-Ejemplo:
+- **Fulfilled**: Operación terminada con éxito.
 
-ng g c restaurante-card
-Componente (Component)
+- **Rejected**: Operación fallida.
 
-Unidad básica de construcción de la interfaz en Angular.
+- **Async / Await**: Sintaxis moderna que hace que el código asíncrono parezca síncrono, facilitando su lectura y evitando el "Callback Hell".
 
-Un componente está formado por:
+- **JSON (JavaScript Object Notation)**: Formato ligero de intercambio de datos. Es básicamente un objeto de JS convertido en texto, usado para enviar información entre un servidor y una aplicación web.
 
-TypeScript → lógica
+**4. Interacción con el Navegador**
 
-HTML → estructura
+- **Document Object Model**: La estructura de árbol que representa el HTML de una página. JS usa el DOM para leer, añadir o cambiar elementos y estilos dinámicamente.
 
-CSS / SCSS → estilos
+- **Event Listener:** Un "escuchador" que se queda esperando a que ocurra algo (un clic, una tecla pulsada, un scroll) para ejecutar una función específica.
 
-Los componentes permiten dividir la aplicación en bloques reutilizables de interfaz.
+## TYPESCRIPT
 
-Template
+**1. Definición de Estructuras**
 
-Archivo HTML asociado a un componente donde se define cómo se muestra la información en la interfaz.
+- **Tipado fuerte (Typing)**: La capacidad de definir qué tipo de dato puede almacenar una variable (string, number, boolean, etc.). Esto evita que intentes, por ejemplo, multiplicar un texto por un número.
 
-Permite usar sintaxis propia de Angular para mostrar datos o controlar el flujo de renderizado.
+- **Interface (Interfaz)**: Es un "contrato" que define la forma que debe tener un objeto. Es ideal para definir la estructura de datos que recibes de una API.
 
-Interpolación
+- **(Alias de tipo)** Similar a la interfaz, pero más versátil. Permite crear Tipos de Unión (ej. una variable que sea string O number) o tipos primitivos personalizados.
 
-Mecanismo que permite mostrar datos del componente en el template HTML.
+**2. El Motor de TypeScript**
+- **Tipado Estático**: A diferencia de JS (donde las variables pueden cambiar de tipo en ejecución), en TS el tipo se define en el momento del desarrollo y no cambia. Si dices que es number, siempre será number.
 
-Se representa con:
+- **Inferencia de Tipo**s: TS es inteligente. Si escribes let x = 10;, aunque no le pongas : number, el lenguaje "infiere" automáticamente que x es un número y te protegerá igual.
 
-{{ variable }}
+- **Compilación (Transpilación)**: El navegador no entiende TypeScript. Por eso, el código debe pasar por un proceso de compilación donde se eliminan todos los tipos y decoradores para convertirse en JavaScript puro (.ts → .js).
 
-Ejemplo:
+## NestJS 
 
-<h1>{{ nombreRestaurante }}</h1>
-Directivas
+**1. La Puerta de Entrada y Lógica**
+- **Controller (Controlador)**: Su única misión es recibir las peticiones HTTP (GET, POST, PUT, DELETE) y devolver una respuesta. No debe tener lógica compleja, solo dirigir el tráfico.
 
-Instrucciones que Angular utiliza dentro del HTML para modificar el comportamiento o la estructura del DOM.
+- **Service (Servicio)**: Aquí es donde vive la "magia" o Lógica de Negocio. Es el encargado de procesar datos, hacer cálculos y comunicarse con la base de datos.
 
-Ejemplos:
+**2. Capas de Control (El "Pipeline")**
+Nest funciona como una tubería donde el dato pasa por varios filtros:
 
-@if → mostrar contenido condicionalmente
+- **Middleware**: Funciones que se ejecutan antes que cualquier otra cosa. Ideales para logs (saber quién entra) o tareas de bajo nivel.
 
-@for → iterar listas de datos
+- **Guard (Guardián)**: Determinan si una petición tiene permiso para continuar. Se usan principalmente para la Autenticación (¿está logueado?) y Autorización (¿es admin?).
 
-@Input
+- **Pipe**: Tienen dos usos: Transformación (ej. convertir un string a número) y Validación (asegurar que el DTO sea correcto).
 
-Decorador que permite pasar datos de un componente padre a un componente hijo.
+- **Interceptor**: Pueden "atrapar" la respuesta justo antes de enviarla al usuario para transformarla (ej. envolver todo en un objeto { data: ... }) o medir cuánto tardó la petición.
 
-Se utiliza para reutilizar componentes mostrando información diferente.
-
-@Output
-
-Decorador que permite enviar eventos desde un componente hijo hacia un componente padre.
-
-Se usa cuando un componente necesita comunicar una acción hacia arriba.
-
-Servicio (Service)
-
-Clase de Angular que contiene lógica reutilizable de la aplicación, especialmente para:
-
-comunicación con APIs
-
-manejo de datos
-
-lógica de negocio
-
-Los servicios suelen utilizarse junto con HttpClient.
-
-CRUD
-
-Modelo de operaciones básicas que se pueden realizar sobre datos en una aplicación:
-
-Create → crear datos
-
-Read → leer datos
-
-Update → actualizar datos
-
-Delete → eliminar datos
-
-API
+## API
 
 Interfaz que permite que una aplicación frontend se comunique con un backend mediante peticiones HTTP.
 
-En el proyecto se utiliza una API creada con NestJS.
+- **API REST**: Un estilo de arquitectura para sistemas distribuidos. Se basa en que cada "Recurso" (ej. /users) tenga una URL única y se manipule con verbos HTTP.
 
-Endpoint
+## CRUD
 
-Ruta específica dentro de una API que permite realizar una operación concreta.
+Acrónimo de Create, Read, Update, Delete. Son las cuatro operaciones básicas de cualquier aplicación de datos.
 
-Ejemplo:
+<table border="1">
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>CRUD</th>
+      <th>Uso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>Read</td>
+      <td>Obtener datos</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Create</td>
+      <td>Crear datos</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>Update</td>
+      <td>Actualizar TODO</td>
+    </tr>
+    <tr>
+      <td>PATCH</td>
+      <td>Update</td>
+      <td>Actualizar PARCIAL</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>Delete</td>
+      <td>Eliminar</td>
+    </tr>
+  </tbody>
+</table>
 
-GET /restaurants
-Interface (TypeScript)
+## ANGULAR
 
-Estructura que define la forma que deben tener los datos dentro de una aplicación.
+Framework de desarrollo web basado en TypeScript que permite crear aplicaciones frontend estructuradas mediante componentes, servicios y módulos.
 
-Permite tipar objetos para mejorar la organización y evitar errores.
+**1. Lenguaje Base**
 
-Ejemplo:
+- **TypeScript (Tipado Fuerte)**: Lenguaje principal de Angular que extiende JavaScript añadiendo tipado fuerte. Esto obliga a declarar si una variable es string, number, etc., permitiendo detectar errores antes de ejecutar el programa. Mejora la seguridad y legibilidad.
 
-export interface Restaurante {
-  id: number;
-  nombre: string;
-  direccion: string;
-}
-Router
+- **Interface**: Estructura que define la "forma" de los datos. Permite tipar objetos para evitar errores de propiedades inexistentes.
 
-Sistema de navegación de Angular que permite moverse entre diferentes páginas o vistas dentro de una aplicación sin recargar la página.
+**2. Arquitectura Base de Angular**
 
-Ejemplo de rutas:
+- **Angular CLI**: La herramienta de comandos (ng new, ng serve) para crear y mantener proyectos automáticamente.
 
-/restaurantes
-/restaurantes/:id
-ng build
+- **Módulo (NgModule)**: Contenedor que agrupa componentes, servicios y directivas relacionados. Es la "caja de herramientas" de una sección de la app.
 
-Comando que compila la aplicación Angular para producción, generando los archivos optimizados que se publicarán en un servidor.
+- **Componente (Component)**: La unidad básica de la interfaz.
 
-localhost
+- **Servicio (Service)**: Clase con lógica reutilizable (comunicación con APIs o manejo de datos). Se "inyectan" en los componentes mediante Inyección de Dependencias (DI), un patrón donde Angular entrega las herramientas necesarias al constructor de la clase.
 
-Dirección que apunta al servidor local del propio ordenador, utilizada para probar aplicaciones durante el desarrollo.
+- **Router**: El sistema que decide qué componente mostrar según la URL (ej: /home vs /profile) sin recargar la página.
 
-Ejemplo:
 
-http://localhost:4200
+**3. Comunicación y Flujo de Datos**
+- **Interpolación {{ variable }}**: Muestra datos del TypeScript directamente en el HTML.
 
-TypeScript (tipado fuerte)
+- **Property Binding [prop]**: Controla atributos de HTML (como [disabled]="true").
 
-Lenguaje de programación que extiende JavaScript añadiendo tipado fuerte (strong typing).
+- **Event Binding (click)** Captura acciones del usuario para ejecutar funciones.
 
-Esto significa que las variables, funciones y objetos deben declarar el tipo de dato que utilizan, lo que permite detectar errores durante el desarrollo antes de ejecutar el programa.
+- **Two-way Binding [(ngModel)]**: Sincroniza el input y la variable en ambas direcciones.
 
-Ejemplo:
+**Comunicación entre Componentes**
+- **@Input():** Decorador para pasar datos de un Padre a un Hijo.
 
-let nombre: string = "Restaurante Central";
-let puntuacion: number = 4.5;
+- **@Output():** Decorador para enviar eventos/mensajes de un Hijo hacia el Padre.
 
-El tipado fuerte mejora:
+**4. Transformación y Control (Lógica en Template)**
+- **Directivas**: Instrucciones que modifican el DOM.
 
-la seguridad del código
+- **Estructurales (@if, @for, *ngIf)**: Añaden o quitan elementos del HTML según condiciones o listas.
 
-la legibilidad
+- **De atributo**: Cambian el estilo o apariencia de un elemento existente.
 
-la detección temprana de errores
+- **Pipes**: Funciones que transforman visualmente un dato en el HTML sin cambiar su valor real (ej: {{ fecha | date }} o {{ precio | currency }}).
 
-Angular utiliza TypeScript como lenguaje principal de desarrollo.
+**5:. Desarrollo y Despliegue**
+- **localhost:** Dirección local (http://localhost:4200) para probar la app durante el desarrollo.
 
-DOM (Document Object Model)
-
-El DOM es la representación estructurada de una página web en forma de árbol de objetos que el navegador crea a partir del HTML.
-
-Gracias al DOM, JavaScript puede:
-
-leer el contenido de la página
-
-modificar elementos HTML
-
-cambiar estilos
-
-responder a eventos del usuario
-
-Ejemplo de interacción con el DOM en JavaScript:
-const titulo = document.querySelector("h1");
-titulo.textContent = "Nuevo título";
-
-En frameworks como Angular, la manipulación del DOM se realiza principalmente a través de templates y data binding, evitando modificarlo directamente con JavaScript.
-
-MICROFRONTEDNS
+- **ng build:** Comando que compila y optimiza la aplicación para producción, generando archivos listos para subir a un servidor real.

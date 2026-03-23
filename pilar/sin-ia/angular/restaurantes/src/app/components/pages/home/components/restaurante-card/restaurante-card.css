@@ -6,9 +6,9 @@
     gap: 2rem; /* Espacio generoso entre tarjetas */
     width: 100%;
     /* Muy importante: LIMITA el ancho total para que no se estiren */
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    max-width: 1200px;
+    padding: 40px 40px;
     box-sizing: border-box;
 }
 
@@ -19,17 +19,16 @@
     }
 }
 
-/* 2. LA TARJETA (ESTRUCTURA VERTICAL) */
+/* 2. LA TARJETA */
 .restaurante-card {
     display: flex;
     flex-direction: column; /* Estructura de arriba a abajo */
-    border-radius: 18px; /* Variable --radius */
+    border-radius: 18px;
    background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 100%);
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden; /* Asegura que la imagen respete los bordes redondeados */
-    width: 100%;
-    /* Altura constante para todas las tarjetas de una fila */
+    width: 80%; /* Altura constante para todas las tarjetas de una fila */
     height: 100%; 
 }
 
@@ -38,11 +37,11 @@
     box-shadow: 0 16px 28px rgba(0,0,0,0.12);
 }
 
-/* 3. LA IMAGEN (A LARGO COMPLETO Y SIN DEFORMARSE) */
+/* 3. LA IMAGEN */
 .card-image-wrapper {
     position: relative;
     width: 100%; /* Ocupa todo el ancho de la tarjeta */
-    /* Define una altura fija y proporcional para la imagen (ej: 200px) */
+    /* Define una altura fija y proporcional para la imagen */
     height: 200px; 
 }
 
@@ -69,7 +68,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 4. BLOQUE DE TEXTO (Ajustado) */
+/* 4. BLOQUE DE TEXTO */
 .card-data-wrapper {
     display: flex;
     flex-direction: column;
@@ -82,14 +81,14 @@
 /* TÍTULO */
 .res-title {
     margin: 0;
-    font-size: 1.3rem; /* Color oscuro var(--text) */
+    font-size: 1.3rem; /* Color oscuro */
     font-weight: 800;
 }
 
 /* DESCRIPCIÓN */
 .res-description {
     margin: 6px 0 0 0; /* Color var(--muted) */
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.4;
     /* Limita la descripción a 2 líneas para un diseño limpio */
     display: -webkit-box;
@@ -104,7 +103,7 @@
     justify-content: space-between; /* Coordenadas izquierda, botón derecha */
     align-items: center;
     margin-top: auto; /* Empuja el footer hacia abajo */
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
 /* UBICACIÓN */
@@ -112,7 +111,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.85rem;
+    font-size: 16;
     color: var(--muted);
 }
 
