@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Crear Restaurante</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="crear-restaurante.css">
+</head>
+
+<body>
+  <h1>Crear Restaurante</h1>
+
+  <section>
+    <form id="Formulario-Restaurante" [formGroup]="restauranteForm" (ngSubmit)="crearRestaurante()">
+      <div>
+        <label>Nombre:</label>
+        <br><br>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre del restaurante" />
+      </div>
+
+      <div>
+        <label>Descripción:</label>
+        <br><br>
+        <textarea id="descripcion" formControlName="descripcion" placeholder="Descripción del restaurante"></textarea>
+      </div>
+
+      <div>
+        <label>Imagen (URL):</label>
+        <br><br>
+        <input id="imagen" formControlName="imagen" type="text" placeholder="URL de la imagen del restaurante" />
+      </div>
+
+      <div>
+        <label>Latitud:</label>
+        <br><br>
+        <input id="latitud" formControlName="latitud" type="number" step="0.0001" placeholder="-34.6037" />
+      </div>
+
+      <div>
+        <label>Longitud:</label>
+        <br><br>
+        <input id="longitud" formControlName="longitud" type="number" step="0.0001" placeholder="-58.3816" />
+      </div>
+
+      <button type="submit">Crear restaurante</button>
+    </form>
+
+  </section>
+</body>
+
+</html>

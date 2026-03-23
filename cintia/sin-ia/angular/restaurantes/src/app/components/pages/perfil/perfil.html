@@ -1,0 +1,10 @@
+<div class="profile-container">
+  <img src="{{ user.profilePicture }}" alt="{{ user.name }}">
+  <h2>{{ user.name }}</h2>
+  <p>{{ user.location }}</p>
+  <p>{{ user.bio }}</p>
+  <h3>Intereses:</h3>
+  <ul>
+    <li *ngFor="let interest of user.interests">{{ interest }}</li>
+  </ul>
+</div>

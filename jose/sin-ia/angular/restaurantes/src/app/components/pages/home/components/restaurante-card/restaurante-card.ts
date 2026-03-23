@@ -16,8 +16,7 @@ export class RestauranteCard {
   @Input() direccion!: string; // Dirección física
   @Input() imagen!: string; // URL de la imagen*/
   nombre = input<string>();
-  telefono = input<string>();
-  direccion = input<string>();
+  descripcion = input<string>();
   imagen = input<string>();
 
 }
