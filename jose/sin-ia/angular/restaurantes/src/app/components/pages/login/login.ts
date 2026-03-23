@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; 
 import { UsuarioService } from '../../../services/usuario.service';
+import {LoginResponse} from '../../../models/login-response.model';
 @Component({
   selector: 'app-login',
   imports: [FormsModule], // Importa FormsModule para habilitar ngModel en el formulario
@@ -15,18 +16,22 @@ export class Login {
   password:string = ''; // Variable para almacenar la contraseña ingresada por el usuario
   message: string = ''; // Variable para mostrar mensajes de error o éxito al usuario
   onLogin() {
-    // Aquí se implementaría la lógica de autenticación, como llamar a un servicio de autenticación
-    console.log('Nombre:', this.nombre);
-    console.log('Password:', this.password);
-    // Depuración: mostrar usuarios actuales
-    console.log('Usuarios en login:', this.usuarioService.findUser(this.nombre, this.password));
-    const usuario = this.usuarioService.findUser(this.nombre, this.password);
-    if (usuario) {
-      this.message = 'Inicio de sesión exitoso'; // Ejemplo de mensaje de éxito
-      this.router.navigate(['/perfil']); // Redirige al usuario a la página de inicio después del login
-    } else {
-      this.message = 'Credenciales incorrectas'; // Ejemplo de mensaje de error (descomentar para probar)
-    }
+    // Lógica de autenticación usando la API real y manejo del token
+    this.usuarioService.findUser(this.nombre, this.password).subscribe(
+      (respuesta: LoginResponse) => {
+        // Guardar el token recibido en localStorage
+        if (respuesta && respuesta.access_token) {
+          localStorage.setItem('token', respuesta.access_token);
+          this.message = 'Inicio de sesión exitoso';
+          this.router.navigate(['/perfil']);
+        } else {
+          this.message = 'Respuesta inesperada de la API';
+        }
+      },
+      error => {
+        this.message = 'Credenciales incorrectas';
+      }
+    );
   }
   
 }
