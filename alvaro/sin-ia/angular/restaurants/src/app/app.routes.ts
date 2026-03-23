@@ -12,8 +12,8 @@ import { RecipeDetail } from './components/pages/home/restaurant/components/reci
 export const routes: Routes = [ 
     {path:'', redirectTo: '/restaurants', pathMatch: 'full'},
     {path: 'restaurants', title: 'Restaurants', component: Home},
-    {path: 'restaurants/restaurant/:id', title: 'Restaurant Detail', component: Restaurant},
-    {path: 'restaurants/restaurant/:restaurantId/recipe/:recipeId', title: 'Recipe Detail', component: RecipeDetail},
+    {path: 'restaurants/:id', title: 'Restaurant Detail', component: Restaurant},
+    {path: 'restaurants/:restaurantId/recipe/:recipeId', title: 'Recipe Detail', component: RecipeDetail},
     {path: 'restaurants/create-restaurant', title: 'Create Restaurant', component: CreateRestaurant},
     {path: 'restaurants/update-restaurant', title: 'Update Restaurant', component: UpdateRestaurant},
     {path: 'login', title: 'Login', component: Login},
