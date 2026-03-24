@@ -1,12 +1,13 @@
-import { ChangeDetectorRef, OnInit, Inject, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, OnInit, Inject, Component, inject, input } from '@angular/core';
 import { RestauranteService } from './services/restaurante';
 import { Restaurante } from '../../../../interfaces/restaurante';
 
 import { ActivatedRoute } from '@angular/router';
+import { Receta } from '../components/receta/receta';
 
 @Component({
   selector: 'app-single-restaurant',
-  imports: [],
+  imports: [Receta],
   templateUrl: './single-restaurant.html',
   styleUrl: './single-restaurant.css',
 })
@@ -27,20 +28,12 @@ export class SingleRestaurant implements OnInit{
     if (id) {
       this.getRestaurante(id);
     }
-
-    // ou, pour réagir aux changements dynamiques :
-    // this.route.paramMap.subscribe(params => { const id = params.get('id'); });
   }
 
 
   isLoading = false;
 
   errorMessage = '';
-
-  // ngOnInit(): void {
-  //   this.getRestaurante(id);
-  // }
-
 
 
   getRestaurante(id: number): void {
@@ -61,4 +54,27 @@ export class SingleRestaurant implements OnInit{
       }
     });
   }
+
+  recetas = [
+    {
+      id: 1,
+      restaurant_id: 1,
+      nombre: 'Receta 1',
+      descripcion: 'Descripción de la receta 1',
+      ingredientes: 'Ingredientes de la receta 1',
+      tiempo_min: 30,
+      dificultad: 'media',
+      image_url: 'algo',
+    },
+    {
+      id: 2,
+      restaurant_id: 1,
+      nombre: 'Receta 2',
+      descripcion: 'Descripción de la receta 2',
+      ingredientes: 'Ingredientes de la receta 2',
+      tiempo_min: 45,
+      dificultad: 'dificil',
+      image_url: 'algo',
+    }
+  ];
 }
