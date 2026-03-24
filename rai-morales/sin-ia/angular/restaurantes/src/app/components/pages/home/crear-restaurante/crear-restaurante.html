@@ -1,1 +1,26 @@
-<p>crear-restaurante works!</p>
+<h1>Crear restaurante</h1>
+<div id = "grandeCrearR" clas = "Padre">
+
+    <p>Rellena los siguientes campos para introducir un nuevo restaurante:</p>
+    <div id = "formCrearR" clas = "Hijo">
+
+        <form enctype = "multipart/form-data">
+
+            <label for = "nombreR">Nombre del restaurante: </label>
+            <input type = "text" id = "nombreR" name = "nombreR" placeholder = "Casa Ladrillo"><br><br>
+
+            <label for = "descripR">Descripción del restaurante: </label>
+            <textarea id = "descripR" name = "descripR" placeholder="Bonito lugar con comida deliciosa situado en..."></textarea><br><br>
+
+            <label for = "latitudR">Latidtud: </label>
+            <input type = "number" id = "latitudR" name = "latitudR" placeholder = "123">
+            <label for = "longitudR">Londitud: </label>
+            <input type = "number" id = "longitudR" name = "longitudR" placeholder = "98"><br><br>
+
+            <label for="imagenR">Imagen del restaurante:</label>
+            <input type="file" id="imagenR" name="imagenR" accept="image/*"><br><br>
+            
+        </form>
+    </div>
+</div> 
+
