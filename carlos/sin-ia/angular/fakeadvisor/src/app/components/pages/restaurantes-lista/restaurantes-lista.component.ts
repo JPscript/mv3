@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Restaurante } from '../../../models/restaurante.model';
+import { restaurantes } from '../../../data/restaurantes';
 
 @Component({
   selector: 'app-restaurantes-lista',
-  imports: [],
   templateUrl: './restaurantes-lista.component.html',
-  styleUrl: './restaurantes-lista.component.css'
+  styleUrls: ['./restaurantes-lista.component.css']
 })
-export class RestaurantesListaComponent {
+export class RestaurantesListaComponent implements OnInit {
 
+  restaurantesOrdenados: { nombre: string; puntuacion: number }[] = [];
+
+  ngOnInit(): void {
+    this.restaurantesOrdenados = restaurantes
+      .map((r: Restaurante) => ({
+        nombre: r.nombre,
+        puntuacion: r.puntuacion
+      }))
+      .sort((a, b) => a.nombre.localeCompare(b.nombre));
+  }
 }
