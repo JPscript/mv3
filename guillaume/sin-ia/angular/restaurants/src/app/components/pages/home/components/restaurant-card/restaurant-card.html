@@ -1,7 +1,9 @@
 <div class="restaurant-card">
     <div class="card-header">
-        <h2 class="name">{{ nombre() }}</h2>
-        <p class="description">{{ descripcion() }}</p>
+        <a [routerLink]="['/restaurants', id()]">
+            <h2 class="name">{{ nombre() }}</h2>
+            <p class="description">{{ descripcion() }}</p>
+        </a>
     </div>
     <div class="card-content">
         <img class="image" ngSrc="{{ fotografia_url() }}" alt="A super picture" width="400" height="200" priority>
