@@ -3,7 +3,7 @@
     <div class="right">
         <h2>{{ restaurante?.nombre }}</h2>
         <p>{{ restaurante?.descripcion }}</p>
-        @for (receta of recetas; track receta.id) {
+        @for (receta of recetas; track receta.nombre) {
         <app-receta
             [id]="receta.id"
             [restaurant_id]="receta.restaurant_id"

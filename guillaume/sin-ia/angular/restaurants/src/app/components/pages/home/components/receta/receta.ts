@@ -14,5 +14,5 @@ export class Receta {
   ingredientes = input<string>();
   tiempo_min = input<number>();
   dificultad = input<string>();
-  image_url = input<string>();
+  image_url = input<string | null>();
 }

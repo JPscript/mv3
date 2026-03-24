@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { HomeComponent } from './components/pages/home/home.component';
 import { RestauranteComponent } from './components/restaurante/restaurante.component';
 import { CrearRestauranteComponent } from './components/pages/home/components/crear-restaurante/crear-restaurante.component';
@@ -8,13 +9,16 @@ import { RegistroComponent } from './components/pages/registro/registro.componen
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { MapaComponent } from './components/pages/mapa/mapa.component';
 
+import { RestaurantesListaComponent } from './components/pages/restaurantes-lista/restaurantes-lista.component';
+
 export const routes: Routes = [
-  { path: '', redirectTo: '/restaurantes', pathMatch: 'full' },
+  // REDIRECCIÓN INICIAL
+  { path: '', redirectTo: 'restaurantes', pathMatch: 'full' },
 
-  // LISTA DE RESTAURANTES
-  { path: 'restaurantes', title: 'Restaurantes 🍽️', component: HomeComponent },
+  // LISTA DE RESTAURANTES (tu nueva página)
+  { path: 'restaurantes', title: 'Restaurantes 🍽️', component: RestaurantesListaComponent },
 
-  // DETALLE DE RESTAURANTE (RUTA DINÁMICA)
+  // DETALLE DE RESTAURANTE
   { path: 'restaurante/:id', title: 'Restaurante 🍽️', component: RestauranteComponent },
 
   // CRUD
@@ -28,5 +32,5 @@ export const routes: Routes = [
   { path: 'mapa', title: 'Mapa 🗺️', component: MapaComponent },
 
   // 404
-  { path: '**', redirectTo: '/restaurantes' }
+  { path: '**', redirectTo: 'restaurantes' }
 ];

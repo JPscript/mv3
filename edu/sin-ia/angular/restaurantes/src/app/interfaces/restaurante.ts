@@ -1,8 +1,9 @@
 export interface Restaurante {
+fotografia_url: string|undefined;
     id: number;
     nombre: string;
     descripcion: string;
-    fotogria_url?: string;
+    fotografia?: string;
     latitud: number;
     longitud: number;
     total_recetas?: number;
