@@ -3,19 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { RecipeCard } from './components/recipe-card/recipe-card';
+import { Comments } from './components/comments/comments';
 import { Restaurant as RestaurantInterface } from '../../../../interfaces/restaurant';
-import { Restaurants } from '../services/restaurants';
-
-interface Recipe {
-  id: number;
-  restaurant_id: number;
-  nombre: string;
-  descripcion: string;
-  ingredientes: string;
-  tiempo_min: number;
-  dificultad: string;
-  image_url: string;
-}
+import { Recipe } from '../../../../interfaces/recipe';
+import { Comment } from '../../../../interfaces/comment';
+import { RestaurantsService } from '../services/restaurants/restaurants-service';
+import { RecipesService } from '../services/recipes/recipes-service';
+import { CommentsService } from '../services/comments/comments-service';
 
 /**
  * Restaurant Component
@@ -29,12 +23,14 @@ interface Recipe {
  */
 @Component({
   selector: 'app-restaurant',
-  imports: [DecimalPipe, RecipeCard],
+  imports: [DecimalPipe, RecipeCard, Comments],
   templateUrl: './restaurant.html',
   styleUrl: './restaurant.css',
 })
 export class Restaurant implements OnInit {
-  private readonly restaurantsService = inject(Restaurants);
+  private readonly restaurantsService = inject(RestaurantsService);
+  private readonly recipesService = inject(RecipesService);
+  private readonly commentsService = inject(CommentsService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly titleService = inject(Title);
@@ -44,6 +40,7 @@ export class Restaurant implements OnInit {
   restaurant: RestaurantInterface | undefined;
   /** Array of recipes filtered by restaurant ID */
   recipes: Recipe[] = [];
+  comments: Comment[] = [];
   isLoading = false;
   errorMessage = '';
 
@@ -61,6 +58,7 @@ export class Restaurant implements OnInit {
     this.isLoading = true;
     this.getRestaurant(id);
     this.getRecipes(id);
+    this.getComments(id);
   }
 
   getRestaurant(id: number): void {
@@ -85,7 +83,7 @@ export class Restaurant implements OnInit {
   }
 
   getRecipes(restaurantId: number): void {
-    this.restaurantsService.getRecipes().subscribe({
+    this.recipesService.getRecipes().subscribe({
       next: (allRecipes) => {
         this.recipes = allRecipes.filter(r => r.restaurant_id === restaurantId);
         this.cdr.detectChanges();
@@ -96,6 +94,20 @@ export class Restaurant implements OnInit {
       }
     });
   }
+
+  getComments(restaurantId: number): void {
+    this.commentsService.getCommentsByRestaurantId(restaurantId).subscribe({
+      next: (comments) => {
+        this.comments = comments;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.error('Failed to load comments', error);
+        this.comments = [];
+      }
+    });
+  }
+
   /**
    * Navigate back to the restaurants list.
    * Called when user clicks the back button.
