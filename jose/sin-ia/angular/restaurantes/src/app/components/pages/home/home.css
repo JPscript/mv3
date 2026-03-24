@@ -1,13 +1,27 @@
-
-/* Fondo suave y centrado */
-body, :host {
-	background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
-	min-height: 100vh;
-	font-family: 'Segoe UI', Arial, sans-serif;
+.main-nav {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1.5rem;
+	background: #ff6f61;
+	padding: 1rem 2rem;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-link {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	background: #ffb347;
+	padding: 0.5rem 1.2rem;
+	border-radius: 20px;
+	transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover {
+	background: #ff6f61;
+	color: #fffde4;
 }
 
-/* Contenedor de cartas */
-div > div[ng-reflect-ng-for-of] {
+.tarjetas-container {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 2rem;
@@ -15,18 +29,8 @@ div > div[ng-reflect-ng-for-of] {
 	margin-top: 2rem;
 }
 
-/* Título de la página */
-p {
-	text-align: center;
-	font-size: 2rem;
-	color: #3b4252;
-	margin-top: 1.5rem;
-	letter-spacing: 1px;
-}
-
-/* Responsive para cartas */
 @media (max-width: 800px) {
-	div > div[ng-reflect-ng-for-of] {
+	.tarjetas-container {
 		flex-direction: column;
 		align-items: center;
 		gap: 1.2rem;

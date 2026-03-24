@@ -1,18 +1,15 @@
-  <div class="card">
-    <img [src]="restaurante.imagen" alt="{{ restaurante.nombre }}" />
-  
-    <h2>{{ restaurante.nombre }}</h2>
-  
-    <p>
-      <a 
-        [href]="'https://www.google.com/maps/search/?api=1&query=' + restaurante.direccion"
-        target="_blank"
-      >
-        {{ restaurante.direccion }}
-      </a>
-    </p>
-  
-    <p>Puntuación: {{ restaurante.puntuacion }}</p>
-  </div>
-  
-  
+<div class="card" [routerLink]="['/restaurante', restaurante.id]">
+
+  <img [src]="restaurante.imagen" [alt]="restaurante.nombre" />
+
+  <h2>{{ restaurante.nombre }}</h2>
+
+  <p class="direccion">
+    📍 {{ restaurante.direccion }}
+  </p>
+
+  <p class="puntuacion">
+    ⭐ {{ restaurante.puntuacion }}
+  </p>
+
+</div>

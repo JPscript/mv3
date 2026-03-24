@@ -1,17 +1,20 @@
 <header>
     <div class="header-content">
-        <button id = "btn-home" class = "btn-header">
+        <a id = "icon-home" class = "icon-header" routerLink = "restaurantes">
             <i class="fa-regular fa-house"></i>
-        </button>
+        </a>
         <form id = "buscador" class = "form-header">
             <input type = "text" placeholder = "Buscar restaurante...">
             <button type = "submit"> Buscar </button>
         </form>
-        <button id = "btn-mapa" class = "btn-header">
+        <a id = "icon-añadir" class = "icon-header" routerLink="restaurantes/crear-restaurante">
+            <i class="fa-regular fa-square-plus"></i>
+        </a>
+        <a id = "icon-mapa" class = "icon-header" routerLink = "mapa">
             <i class="fa-solid fa-earth-europe"></i>
-        </button>
-        <button id = "btn-login" class = "btn-header">
+        </a>
+        <a id = "icon-login" class = "icon-header" routerLink = "login">
             <i class="fa-regular fa-user"></i>
-        </button>
+        </a>
     </div>
 </header>

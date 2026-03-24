@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="right">
+            @if (fakeUser.image_url) {
+              <img [src]="fakeUser.image_url" alt="Profile" width="100" height="100" class="profile-picture">
+            } @else {
+            <img src="/svg/profile.svg" alt="">
+            }
+        </div>
+        <div class="left">
+            <span class="label">
+                Name :
+            </span>
+            <h2>{{ fakeUser.nombre }}</h2>
+        </div>
+    </div>
+    <div class="profile-content">
+        <div class="profile-element">
+            <span class="label">Email</span>
+            <p>user@email.com</p>
+        </div>
+        <div class="profile-element">
+            <span class="label">Email</span>
+            <p>user@email.com</p>
+        </div>
+        <div class="profile-element">
+            <span class="label">Email</span>
+            <p>user@email.com</p>
+        </div>
+    </div>
+</div>

@@ -7,10 +7,11 @@
     <!-- Properties passed via [...]: id, name, description, image, coordinates -->
     <app-restaurant-card
       [id]="restaurant.id"
-      [name]="restaurant.name"
-      [description]="restaurant.description"
-      [image]="restaurant.image"
-      [coordinates]="restaurant.coordinates">
+      [name]="restaurant.nombre"
+      [description]="restaurant.descripcion"
+      [image]="restaurant.fotografia_url"
+      [lat]="restaurant.latitud"
+      [lng]="restaurant.longitud">
     </app-restaurant-card>
   }
 </div>

@@ -1,1 +1,35 @@
-<p>restaurante works!</p>
+<div id = "inf-rest">
+
+    <div id = "txt-rest">
+        <h2>{{contenedorRestaurante?.nombre}}</h2>
+        <p>{{contenedorRestaurante?.descripcion}}</p>
+    </div>
+    <div id = "img-rest">
+        <img src='{{contenedorRestaurante?.fotografia_url}}' alt="Imagen del restaurante">
+    </div>
+</div>
+<div id = "recetas-rest">
+
+    <h2>Recetas estrella del restaurante</h2>
+    @for (receta of contenedorRestaurante?.recipes; track receta.id){
+        <app-receta-card
+            [nombre]="receta.nombre"
+            [descripcion]="receta.descripcion"
+            [image_url]="receta.image_url"
+        ></app-receta-card>
+    }
+
+</div>
+<div id = "comentarios-rest">
+
+    <h2>Comentarios de clientes</h2>
+    @for (comentario of contenedorRestaurante?.comments; track comentario.id) {
+        <app-comentario-card
+            [nombre]="comentario.user.nombre"
+            [comentario]="comentario.comentario"
+        ></app-comentario-card>
+    }
+
+</div>
+
+
