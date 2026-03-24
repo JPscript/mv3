@@ -1,8 +1,10 @@
 .header {
   display: flex;
-  align-items: center;
-  gap: 20px;              /* <-- CLAVE */
+  align-items: center;   
   padding: 10px 20px;
+  justify-content: space-between;
+  color: white;
+  background: #222; 
 }
 
 .logo {
@@ -28,9 +30,10 @@
 .search-container input {
   width: 100%;
   padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
+
 
 .nav {
   display: flex;
