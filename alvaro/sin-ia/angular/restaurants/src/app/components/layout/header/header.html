@@ -14,14 +14,36 @@
   <!-- Center Section: Search Bar -->
   <div class="center">
     <!-- Search Form: role="search" and aria-label improve accessibility -->
-    <form class="search-bar" role="search" aria-label="Search restaurants">
+    <form class="search-wrapper" role="search" aria-label="Search restaurants" (submit)="$event.preventDefault()">
+      <div class="search-bar">
       <span class="search-icon" aria-hidden="true">🔎</span>
       <input
         type="search"
         name="restaurantSearch"
         placeholder="Search restaurants..."
         aria-label="Search restaurants"
+        [value]="searchTerm"
+        (input)="onSearchInput($event)"
+        (keydown)="onSearchKeydown($event)"
       />
+      </div>
+
+      @if (searchTerm.trim()) {
+        <ul class="search-results" aria-label="Restaurant suggestions">
+          @for (restaurant of filteredRestaurants; track restaurant.id; let index = $index) {
+            <li>
+              <a
+                class="result-link"
+                [class.active]="selectedResultIndex === index"
+                [routerLink]="['/restaurants', restaurant.id]"
+                (mouseenter)="selectedResultIndex = index"
+                (click)="clearSearch()">
+                {{ restaurant.nombre }}
+              </a>
+            </li>
+          }
+        </ul>
+      }
     </form>
   </div>
 
