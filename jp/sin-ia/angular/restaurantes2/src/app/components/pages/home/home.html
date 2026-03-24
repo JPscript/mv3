@@ -1,0 +1,24 @@
+<!-- Mostramos un mensaje breve mientras esperamos la respuesta del backend. -->
+@if (isLoading) {
+  <p>Cargando restaurantes...</p>
+}
+
+<!-- `@if` es la sintaxis moderna de Angular para mostrar algo solo si una condicion se cumple. -->
+<!-- Aqui el mensaje solo aparece cuando `errorMessage` contiene texto. -->
+@if (errorMessage) {
+  <p>{{ errorMessage }}</p>
+  <button (click)="getRestaurantes()">Reintentar carga</button>
+}
+
+<!-- `@for` recorre el array `restaurantes` y crea una tarjeta por cada elemento. -->
+<!-- `track restaurante.id` ayuda a Angular a identificar cada item de forma estable. -->
+@for (restaurante of restaurantes; track restaurante.id) {
+  <!-- Enviamos al componente hijo los datos dinamicos con property binding `[ ... ]`. -->
+  <app-restaurante-card
+    [nombre]="restaurante.nombre"
+    [descripcion]="restaurante.descripcion"
+    [imagen]="restaurante.fotografia_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
+  ></app-restaurante-card>
+}

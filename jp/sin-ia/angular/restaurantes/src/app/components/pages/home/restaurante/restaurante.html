@@ -1,1 +1,15 @@
-<p>restaurante works!</p>
+@if (errorMessage) {
+	<p>{{ errorMessage }}</p>
+}
+
+@if (restaurante) {
+	<h1>{{ restaurante.nombre }}</h1>
+	<p>{{ restaurante.descripcion }}</p>
+
+	@if (restaurante.fotografia_url) {
+		<img [src]="restaurante.fotografia_url" [alt]="restaurante.nombre">
+	}
+
+	<p>Latitud: {{ restaurante.latitud }}</p>
+	<p>Longitud: {{ restaurante.longitud }}</p>
+}
