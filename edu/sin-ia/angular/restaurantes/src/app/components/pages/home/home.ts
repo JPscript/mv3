@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
+import { Restaurante } from '../../../interfaces/restaurante';
+import { Restaurantes } from './services/restaurantes';
 
 @Component({
   selector: 'app-home',
@@ -8,42 +10,31 @@ import { RestauranteCard } from './components/restaurante-card/restaurante-card'
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
+
+
 export class Home {
-  listadoRestaurantes = [
-    {
-      id: 1,
-      nombre: 'Restaurante A',
-      descripcion: 'Descripción del Restaurante A',
-      img: 'https://placehold.co/300x200',
-      coordenadas: { lat: 40.7128, lng: -74.0060 }
-    },
-    {
-      id: 2,
-      nombre: 'Restaurante B',
-      descripcion: 'Descripción del Restaurante B',
-      img: 'https://placehold.co/300x200',
-      coordenadas: { lat: 40.7128, lng: -74.0060 }
-    },
-    {
-      id: 3,
-      nombre: 'Restaurante C',
-      descripcion: 'Descripción del Restaurante C',
-      img: 'https://placehold.co/300x200',
-      coordenadas: { lat: 40.7128, lng: -74.0060 }
-    },
-    {
-      id: 4,
-      nombre: 'Restaurante D',
-      descripcion: 'Descripción del Restaurante D',
-      img: 'https://placehold.co/300x200',
-      coordenadas: { lat: 40.7128, lng: -74.0060 }
-    },
-    {
-      id: 5, // Asegúrate de que el ID sea 5
-      nombre: 'Restaurante E',
-      descripcion: 'Descripción del Restaurante E',
-      img: 'https://placehold.co/300x200',
-      coordenadas: { lat: 40.7128, lng: -74.0060 }
-    }
-  ];
+  private readonly restaurantesService = inject(Restaurantes);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  restaurantes: Restaurante[] = [];
+  isLoading = false;
+  errorMessage = '';
+  ngOnInit(): void {
+    this.getRestaurantes();
+  };
+  getRestaurantes(): void {
+    this.isLoading = true;
+    this.restaurantesService.getAllRestaurants().subscribe({
+      next: (restaurantes) => {
+        this.restaurantes = restaurantes;
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+      error: () => {
+        this.errorMessage = 'Error al cargar los restaurantes. Por favor, inténtalo de nuevo más tarde.';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+
+      }
+    });
+  }
 }

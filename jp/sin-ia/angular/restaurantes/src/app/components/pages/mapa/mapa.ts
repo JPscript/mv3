@@ -1,20 +1,17 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
+  OnInit,
   OnDestroy,
   ViewChild,
+  inject,
 } from '@angular/core';
 import * as L from 'leaflet';
-
-interface RestauranteMapa {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  lat: number;
-  lng: number;
-}
+import { Restaurante } from '../../../interfaces/restaurante';
+import { Restaurantes } from '../home/services/restaurantes';
 
 @Component({
   selector: 'app-mapa',
@@ -23,42 +20,23 @@ interface RestauranteMapa {
   styleUrl: './mapa.css',
 })
 export class Mapa implements AfterViewInit, OnDestroy {
+  private readonly restaurantesService = inject(Restaurantes);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+
   @ViewChild('mapContainer')
   private mapContainer?: ElementRef<HTMLDivElement>;
 
   private map?: L.Map;
+  private markersLayer = L.layerGroup();
   private resizeObserver?: ResizeObserver;
 
-  protected readonly restaurantesHardcoded: RestauranteMapa[] = [
-    {
-      id: 1,
-      nombre: 'La Esquina de Senior Cat',
-      descripcion: 'Brunch tranquilo para arrancar el dia.',
-      lat: 40.4168,
-      lng: -3.7038,
-    },
-    {
-      id: 2,
-      nombre: 'Bistro Ladrillos',
-      descripcion: 'Cocina mediterranea para compartir.',
-      lat: 41.3874,
-      lng: 2.1686,
-    },
-    {
-      id: 3,
-      nombre: 'Mapa y Mesa',
-      descripcion: 'Bowls y platos ligeros en el centro.',
-      lat: 39.4699,
-      lng: -0.3763,
-    },
-    {
-      id: 4,
-      nombre: 'Puerto Sabor',
-      descripcion: 'Arroces y producto de costa.',
-      lat: 36.7213,
-      lng: -4.4214,
-    },
-  ];
+  protected restaurantes: Restaurante[] = [];
+  protected isLoading = false;
+  protected errorMessage = '';
+
+  ngOnInit(): void {
+    this.loadRestaurantes();
+  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -81,33 +59,9 @@ export class Mapa implements AfterViewInit, OnDestroy {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(this.map);
 
-    const bounds = L.latLngBounds([] as L.LatLngTuple[]);
+    this.markersLayer.addTo(this.map);
 
-    this.restaurantesHardcoded.forEach((restaurante, index) => {
-      const marker = L.circleMarker([restaurante.lat, restaurante.lng], {
-        radius: 10,
-        color: '#c54377',
-        fillColor: '#8443c5',
-        fillOpacity: 0.85,
-        weight: 3,
-      });
-
-      marker
-        .addTo(this.map!)
-        .bindPopup(
-          `<strong>${restaurante.nombre}</strong><br>${restaurante.descripcion}`,
-        );
-
-      if (index === 0) {
-        marker.openPopup();
-      }
-
-      bounds.extend([restaurante.lat, restaurante.lng]);
-    });
-
-    if (bounds.isValid()) {
-      this.map.fitBounds(bounds, { padding: [40, 40] });
-    }
+    this.renderMarkers();
 
     if (typeof ResizeObserver !== 'undefined') {
       this.resizeObserver = new ResizeObserver(() => {
@@ -124,6 +78,61 @@ export class Mapa implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.map?.invalidateSize();
     }, 300);
+  }
+
+  private loadRestaurantes(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.restaurantesService.getAllRestaurants().subscribe({
+      next: (restaurantes) => {
+        this.restaurantes = restaurantes;
+        this.isLoading = false;
+        this.renderMarkers();
+        this.changeDetectorRef.detectChanges();
+      },
+      error: () => {
+        this.errorMessage = 'No se pudo cargar el mapa de restaurantes.';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+    });
+  }
+
+  private renderMarkers(): void {
+    if (!this.map) {
+      return;
+    }
+
+    const bounds = L.latLngBounds([] as L.LatLngTuple[]);
+
+    this.markersLayer.clearLayers();
+
+    this.restaurantes.forEach((restaurante, index) => {
+      const marker = L.circleMarker([restaurante.latitud, restaurante.longitud], {
+        radius: 10,
+        color: '#c54377',
+        fillColor: '#8443c5',
+        fillOpacity: 0.85,
+        weight: 3,
+      });
+
+      marker
+        .addTo(this.markersLayer)
+        .bindPopup(
+          `<strong>${restaurante.nombre}</strong><br>${restaurante.descripcion}`,
+        );
+
+      if (index === 0) {
+        marker.openPopup();
+      }
+
+      bounds.extend([restaurante.latitud, restaurante.longitud]);
+    });
+
+    if (bounds.isValid()) {
+      this.map.fitBounds(bounds, { padding: [40, 40] });
+    }
   }
 
   @HostListener('window:resize')

@@ -1,0 +1,12 @@
+<div class="restaurante-card">
+<!-- Interpolacion: `{{ ... }}` inserta en el HTML el valor actual de una expresion. -->
+<p>Nombre: {{ nombre() }}</p>
+<p>Descripción: {{ descripcion() }}</p>
+<!-- Solo mostramos la imagen si realmente existe una URL. -->
+@if (imagen()) {
+	<!-- `[src]` y `[alt]` son property bindings. -->
+	<!-- `??` significa: si no hay nombre, usa el texto de reserva 'Restaurante'. -->
+	<img [src]="imagen()" [alt]="nombre() ?? 'Restaurante'">
+}
+<!-- Mostramos las coordenadas para comprobar que llegan bien desde la API. -->
+<p>Coordenadas: {{ lat() }}, {{ lng() }}</p></div>

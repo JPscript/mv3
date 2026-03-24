@@ -1,5 +1,5 @@
-# CLASE1
+# CLASE8
 
 ## Tema y objetivo del día
 
-Repaso del CRUD
+Repaso general del CRUD y seguimos trabajando en el mismo agregando las últimas funcionalidades.

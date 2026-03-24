@@ -1,19 +1,20 @@
 <div class="restaurant-card">
     <div class="card-header">
-        <h2 class="name">{{ name() }}</h2>
-        <p class="description">{{ description() }}</p>
+        <a [routerLink]="['/restaurants', id()]">
+            <h2 class="name">{{ nombre() }}</h2>
+            <p class="description">{{ descripcion() }}</p>
+        </a>
     </div>
     <div class="card-content">
-        <img class="image" ngSrc="{{ picture() }}" alt="A super restaurant" width="400" height="200" priority>
+        <img class="image" ngSrc="{{ fotografia_url() }}" alt="A super picture" width="400" height="200" priority>
         <div class="coordo">
-            <p>{{ lat() }}</p>
-            <p>{{ lng() }}</p>
+            <p>{{ latitud() }}</p>
+            <p>{{ longitud() }}</p>
         </div>
         <div class="rating">
 <div class="rating">
-    <!-- <span>{{ (rating() ?? 0) - 1 }}</span> -->
     @for (star of [1,2,3,4,5]; track star) {
-      <span>{{ star <= (rating() ?? 0) ? '★' : '☆' }}</span>
+      <!-- <span>{{ star <= (rating() ?? 0) ? '★' : '☆' }}</span> -->
     }
   </div>
         </div>

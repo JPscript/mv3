@@ -1,4 +1,4 @@
-# CLASE14 - Sustituir hardcodeado por datos reales y avanzar la integración
+# CLASE14 - Quitar hardcode y llevar la app lo más lejos posible con datos reales
 
 **Fecha:** 2026-03-24  
 **Horario:** 16:30 - 20:30  
@@ -12,7 +12,18 @@
 
 ## Contexto y continuidad con CLASE13
 
-En CLASE13 se abrieron los servicios, la sesión y el primer mapa. CLASE14 debe quitar más cartón piedra del proyecto: menos hardcoded, más datos reales del backend.
+En CLASE13 colocamos los primeros ladrillos reales: `provideHttpClient()`, un servicio HTTP, una `interface` y `Home` consumiendo `GET /restaurants`. Ahora CLASE14 debe convertir esa prueba inicial en una integración seria: quitar hardcodeado, conectar más pantallas y llevar la app lo más lejos posible con datos reales del backend.
+
+## Referencia visual del wireframe
+
+El wireframe de `jp/bitacora/CLASE 13-16/` deja una idea bastante clara del flujo que queremos levantar:
+
+- `Home` con listado y búsqueda,
+- tarjeta o acceso a detalle de restaurante,
+- detalle con imagen, descripción, recetas y comentarios,
+- iconos o accesos a mapa/perfil.
+
+Eso convierte CLASE14 en una sesión de traducción entre boceto y datos reales. Senior Cat no quiere una maqueta bonita pero hueca: quiere que el `Home` y el detalle se parezcan cada vez más al plano del pizarrón, pero sostenidos por la API y no por cartón piedra.
 
 ---
 
@@ -20,14 +31,14 @@ En CLASE13 se abrieron los servicios, la sesión y el primer mapa. CLASE14 debe 
 
 ### Tema central
 
-Conectar las pantallas principales con la API real y avanzar la experiencia autenticada.
+Eliminar la mayor cantidad posible de hardcode y conectar el frontend a la API real en los flujos principales.
 
 ### Objetivo general
 
-1. Cargar detalle de restaurante desde backend.
-2. Mostrar comentarios y resumen de ratings reales.
-3. Preparar o conectar formularios de creación, actualización y borrado.
-4. Consolidar el uso del token en peticiones protegidas.
+1. Reemplazar arrays, textos y datos fake por respuestas reales del backend.
+2. Conectar listado, detalle y, si el tiempo lo permite, comentarios, recetas y ratings.
+3. Adaptar componentes e interfaces al shape real de la API.
+4. Dejar preparada la app para que la siguiente clase se concentre en login y sesión real.
 
 ---
 
@@ -37,53 +48,69 @@ Conectar las pantallas principales con la API real y avanzar la experiencia aute
 
 - `GET /restaurants`
 - `GET /restaurants/:id`
-- `GET /restaurants/:id/comments`
-- `GET /restaurants/:id/ratings/summary`
+- `GET /restaurants/:restaurantId/comments`
+- `GET /restaurants/:restaurantId/ratings/summary`
 - `GET /recipes/restaurant/:restaurantId`
 
-### Protegidos
+### Según avance de la clase
 
-- `GET /auth/profile`
-- `POST /restaurants`
-- `PATCH /restaurants/:id`
-- `DELETE /restaurants/:id`
-- `POST /restaurants/:id/comments`
-- `POST /restaurants/:id/ratings`
+- `POST /restaurants/:restaurantId/comments`
+- `POST /restaurants/:restaurantId/ratings`
+
+La prioridad real de hoy no es auth todavía. La prioridad es desmontar el cartón piedra y dejar la mayor parte de la interfaz conectada a datos reales.
+
+---
+
+## Qué debe quedar trabajado al final de la clase
+
+- `Home` consumiendo restaurantes reales sin hardcode.
+- `RestauranteCard` recibiendo campos reales del backend.
+- Detalle de restaurante consumiendo `GET /restaurants/:id` si da tiempo.
+- Primer aterrizaje de recetas y comentarios en la vista de detalle, porque el wireframe ya los anticipa como partes visibles de la pantalla.
+- Menos placeholders, menos imágenes falsas y menos coordenadas inventadas donde ya existan datos reales.
+- Lista clara de lo que aún sigue hardcodeado y por qué.
 
 ---
 
 ## Plan por bloques de tiempo
 
-### 16:30 - 16:50 | Repaso de CLASE13
+### 16:30 - 16:50 | Repaso de CLASE13 y auditoría de hardcode
 
-- Ver qué partes ya están conectadas.
-- Detectar qué sigue hardcodeado por prioridad.
+- Revisar qué ya funciona contra la API.
+- Detectar qué sigue siendo fake en Home, detalle, tarjetas, mapa y componentes auxiliares.
+- Ordenar prioridades para no dispersarse.
 
-### 16:50 - 17:30 | Detalle real de restaurante
+### 16:50 - 17:30 | Consolidar listado real
 
-- Cargar datos desde la API.
-- Mostrar recetas y estructura agregada del detalle.
+- Revisar `interface Restaurante`.
+- Revisar `getAll()` y consumo desde `Home`.
+- Asegurar que la UI pinta datos reales y no mezcla shapes falsos con reales.
 
-### 17:30 - 18:00 | Comentarios y ratings
+### 17:30 - 18:00 | Empezar detalle real
 
-- Mostrar comentarios reales.
-- Mostrar resumen de calificaciones.
-- Preparar el envío si el tiempo lo permite.
+- Preparar o conectar `getById(id)`.
+- Mostrar más datos del restaurante desde la API.
+- Adaptar componentes a la respuesta agregada del backend.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | CRUD protegido
+### 18:30 - 19:15 | Comentarios, recetas y ratings según prioridad
 
-- Revisar creación, edición y borrado de restaurante.
-- Relacionar cada formulario con su endpoint real.
-- Probar las peticiones con el token de sesión.
+- Conectar comentarios si el detalle ya está levantado.
+- Mostrar resumen de ratings si el endpoint ya encaja con la UI.
+- Traer recetas relacionadas si aporta valor visual y no rompe el ritmo de la clase.
 
-### 19:15 - 20:00 | Limpieza de hardcoded restante
+### 19:15 - 20:00 | Limpieza agresiva de hardcode restante
 
-- Identificar arrays falsos, placeholders y texto temporal.
-- Sustituir lo prioritario.
+- Quitar placeholders evidentes.
+- Sustituir texto temporal por datos reales o mensajes de estado adecuados.
+- Dejar por escrito qué sigue pendiente para la siguiente sesión.
 
 ### 20:00 - 20:30 | Cierre
+
+- Revisión rápida del avance.
+- Lista de pendientes reales.
+- Preparación conceptual de la siguiente clase: login y sesión real.
 
 ---
 
@@ -91,42 +118,43 @@ Conectar las pantallas principales con la API real y avanzar la experiencia aute
 
 ### sin-ia
 
-1. Conectar el detalle de restaurante con `GET /restaurants/:id`.
-2. Mostrar comentarios reales.
-3. Añadir la puntuación media al detalle.
-4. Probar al menos una acción protegida con sesión activa.
+1. Revisar qué propiedades reales devuelve el backend y ajustar la `interface`.
+2. Conectar `Home` y, si da tiempo, el detalle del restaurante.
+3. Quitar manualmente hardcode innecesario en la UI.
+4. Escribir en `DUDAS.md` qué piezas del frontend siguen desacopladas de la API.
 
 ### con-ia
 
-1. Pedir a la IA una propuesta de adaptación del modelo de detalle del backend al frontend.
-2. Pedir ayuda para organizar observables o promesas de forma limpia.
-3. Pedir a la IA una estrategia para reemplazar arrays hardcoded sin romper la UI.
-4. Explicar luego por qué se mantiene o elimina cada dato falso.
+1. Pedir a la IA ayuda para adaptar componentes al shape real del backend.
+2. Pedir a la IA una estrategia para eliminar hardcode sin romper la UI.
+3. Pedir revisión de interfaces y servicios para detectar inconsistencias.
+4. Explicar después con palabras propias qué se quitó y qué aún se dejó hardcoded.
 
 ---
 
 ## Entregables mínimos del día
 
-- [ ] Detalle conectado a backend.
-- [ ] Comentarios y ratings visibles en la UI.
-- [ ] Al menos una acción protegida probada con token.
-- [ ] Menos contenido hardcoded que en CLASE13.
+- [ ] Menos hardcode que en CLASE13.
+- [ ] Listado real estable.
+- [ ] Avance claro en detalle o componentes secundarios.
+- [ ] Inventario breve de hardcode restante.
 - [ ] Dudas en `DUDAS.md`.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] Sé diferenciar endpoint público de protegido en la práctica.
-- [ ] Entiendo qué datos devuelve el detalle agregado de restaurante.
-- [ ] Mi sesión se reutiliza para acciones autenticadas.
-- [ ] Tengo identificado qué piezas siguen pendientes para cerrar la app.
+- [ ] Sé identificar qué parte de la UI sigue dependiendo de datos falsos.
+- [ ] Entiendo mejor cómo adaptar el frontend al shape real del backend.
+- [ ] Puedo explicar por qué una interface a veces tiene que cambiar al conectar una API real.
+- [ ] La app está mucho más cerca de funcionar con datos reales.
 - [ ] Autoevaluación personal completada (1-5).
 
 ---
 
 ## Predicción de la siguiente clase (CLASE15)
 
-1. Integrar mapa con coordenadas reales.
-2. Quitar más hardcoded de la app.
-3. Dejar casi todo el proyecto terminado funcionalmente.
+1. Hacer login real contra la API.
+2. Guardar el JWT en una cookie.
+3. Usar esa sesión para peticiones protegidas.
+

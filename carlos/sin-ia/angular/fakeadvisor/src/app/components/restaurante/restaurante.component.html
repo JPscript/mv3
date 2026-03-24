@@ -1,8 +1,34 @@
-<p>restaurante works!</p>
-<h2>Restaurantes disponibles</h2>
+<div class="restaurante-detalle-container">
 
-<app-restaurante-card
-  *ngFor="let r of restaurantes"
-  [restaurante]="r">
-</app-restaurante-card>
- 
+  <div class="restaurante-card">
+
+    <img class="restaurante-img" [src]="restaurante.imagen" [alt]="restaurante.nombre" />
+
+    <div class="restaurante-info">
+      <h2>{{ restaurante.nombre }}</h2>
+
+      <p class="direccion">
+        📍 {{ restaurante.direccion }}
+      </p>
+
+      <p class="puntuacion">
+        ⭐ {{ restaurante.puntuacion }}
+      </p>
+
+      <p class="descripcion">
+        {{ restaurante.descripcion }}
+      </p>
+      <p class="maps-link">
+        <a 
+          [href]="'https://www.google.com/maps/search/?api=1&query=' + restaurante.direccion"
+          target="_blank"
+        >
+          Ver en Google Maps
+        </a>
+      </p>
+      
+    </div>
+
+  </div>
+
+</div>

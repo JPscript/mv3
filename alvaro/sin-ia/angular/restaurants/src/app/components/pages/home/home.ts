@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestaurantCard } from './components/restaurant-card/restaurant-card';
+import { Restaurant } from '../../../interfaces/restaurant';
+import { RestaurantsService } from './services/restaurants/restaurants-service';
 
 /**
  * Home Component
@@ -15,7 +17,34 @@ import { RestaurantCard } from './components/restaurant-card/restaurant-card';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
+export class Home implements OnInit {
+  private readonly restaurantsService = inject(RestaurantsService);
+  private readonly cdr = inject(ChangeDetectorRef);
+
+  restaurants: Restaurant[] = [];
+  isLoading = false;
+  errorMessage = '';
+  
+  ngOnInit() :void {
+    this.getRestaurants();
+  }
+
+  getRestaurants(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.restaurantsService.getAllRestaurants().subscribe({
+      next: (restaurants) => {
+        this.restaurants = restaurants;
+        this.isLoading = false;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to load restaurants';
+        this.isLoading = false;
+        this.cdr.detectChanges();
+      }
+    });
+  }
   /**
    * Array of restaurants to display in the grid.
    * 
@@ -26,7 +55,7 @@ export class Home {
    * - image: URL to restaurant image
    * - coordinates: { lat, lng } for map location
    */
-  restaurants = [
+  /**restaurants = [
     {
       id: 1,
       name: 'Brick Oven Table',
@@ -128,4 +157,5 @@ export class Home {
       },
     },
   ];
+  */
 }

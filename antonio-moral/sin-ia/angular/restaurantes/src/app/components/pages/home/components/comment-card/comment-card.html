@@ -1,1 +1,6 @@
-<p>comment-card works!</p>
+<div class="comentario-card">
+  <h2>Usuario: {{ usuario() }}</h2>
+  <p>Comentario:{{ comentario() }}</p>
+  <img [src]="imagen()" [alt]="usuario()">
+</div>
+

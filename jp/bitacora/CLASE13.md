@@ -1,4 +1,4 @@
-# CLASE13 - Servicios HTTP, sesión de usuario y primer mapa en Angular
+# CLASE13 - Primer servicio HTTP real en Angular 21
 
 **Fecha:** 2026-03-23  
 **Horario:** 16:30 - 20:30  
@@ -12,7 +12,19 @@
 
 ## Contexto y continuidad con CLASE12
 
-CLASE12 cerró la maqueta hardcodeada y dejó el plano de conexión con `api-recetas`. Ahora llega el momento de poner tuberías reales: servicios HTTP, sesión de usuario y una primera introducción al mapa con datos todavía controlados.
+CLASE12 cerró la maqueta hardcodeada y dejó preparado el terreno para empezar a reemplazar datos falsos por datos reales. En esta sesión, Senior Cat nos hizo dar el primer paso importante: conectar `Home` con la API usando Angular 21 y entender con detalle qué hace cada pieza técnica.
+
+## Referencia visual del wireframe
+
+En la carpeta `jp/bitacora/CLASE 13-16/` hay un boceto que nos sirve como plano de obra. Ese wireframe deja ver cinco piezas muy claras del proyecto:
+
+- una página principal de restaurantes (`Home`),
+- una vista de detalle de restaurante,
+- una pantalla de `Login`,
+- una pantalla de `Registro`,
+- una pantalla de `Perfil`.
+
+Para CLASE13, el foco no era construir todo ese edificio todavía, sino colocar el primer ladrillo técnico que sostiene el resto: traer el listado real de restaurantes para que la página principal dejara de depender de datos inventados.
 
 ---
 
@@ -20,105 +32,140 @@ CLASE12 cerró la maqueta hardcodeada y dejó el plano de conexión con `api-rec
 
 ### Tema central
 
-Conectar Angular con la API mediante servicios, abrir una sesión de usuario y entender cómo integrar Leaflet en Angular.
+Crear el primer servicio HTTP real en Angular 21, registrarlo correctamente en `app.config.ts`, definir una `interface` para tipar la respuesta y consumir `GET /restaurants` desde `Home`.
 
 ### Objetivo general
 
-1. Configurar `provideHttpClient` y crear servicios Angular.
-2. Conectar login, perfil y listados principales a `api-recetas`.
-3. Guardar sesión de usuario de forma sencilla.
-4. Instalar Leaflet e implementar un mapa inicial con coordenadas hardcodeadas.
+1. Entender cómo Angular 21 configura HTTP con `provideHttpClient()`.
+2. Generar un servicio con `ng g s` y observar el cambio de naming del CLI moderno.
+3. Crear y comprender una `interface` TypeScript para la respuesta de restaurantes.
+4. Consumir `GET /restaurants` desde `Home` con `Observable` y `subscribe`.
+5. Diferenciar claramente `interface`, `type` y la idea de contrato de forma.
 
 ---
 
-## Servicios prioritarios del día
+## Qué hicimos realmente en esta clase
 
-- `AuthService`
-- `RestaurantesService`
-- `RecipesService` si hace falta apoyo para detalle
+Si miramos el wireframe, esta clase corresponde sobre todo al primer bloque visual del proyecto: la pantalla de restaurantes. Ahí aparecen una cabecera, un buscador, una lista de tarjetas y la entrada hacia una vista más detallada. Por eso tuvo sentido empezar por `GET /restaurants`: antes de pensar en login, mapa o perfil, Senior Cat nos hizo asegurar que la base del listado estuviera viva con datos reales.
 
-Comandos recomendados para generarlos con Angular moderno:
+### 1. Configuración global de HTTP en Angular 21
+
+En `restaurantes2`, añadimos `provideHttpClient()` dentro de `app.config.ts` para que Angular pudiera inyectar `HttpClient` en los servicios.
+
+Idea clave:
+
+- `app.config.ts` concentra infraestructura global,
+- `provideRouter(routes)` activa rutas,
+- `provideHttpClient()` activa el cliente HTTP.
+
+Sin ese paso, el servicio podía estar bien escrito, pero Angular no sabría entregar una instancia de `HttpClient`.
+
+### 2. Generación del servicio con Angular 21
+
+Generamos el servicio con CLI moderno:
 
 ```bash
-ng g s services/auth
-ng g s services/restaurantes
-ng g s services/recipes
-ng g i interfaces/auth/login-response
-ng g i interfaces/restaurante
-ng g i interfaces/recipe
+ng g s restaurantes
 ```
 
-Primeras llamadas recomendadas:
+Primeras llamadas trabajadas en clase:
 
-- `POST /auth/login`
-- `GET /auth/profile`
 - `GET /restaurants`
 - `GET /restaurants/:id`
 
----
+Angular 21 ya no obliga a generar nombres como `RestaurantesService` o archivos `restaurantes.service.ts` por defecto. El CLI moderno reduce boilerplate y genera nombres más cortos. Aun así, se explicó que seguir usando el sufijo `Service` puede ser una convención válida si el equipo quiere más claridad.
 
-## Sesión de usuario
+### 3. Creación de la interface `Restaurante`
 
-La sesión de hoy no busca sofisticación máxima. Busca que el alumnado entienda el flujo completo:
+Definimos una `interface` para describir la forma de los datos que devuelve la API.
 
-1. el usuario hace login,
-2. el backend devuelve token,
-3. Angular guarda token y datos mínimos del usuario,
-4. el header cambia según haya sesión,
-5. algunas vistas empiezan a comportarse distinto según el estado del usuario.
+Puntos explicados en clase:
+
+- una `interface` no crea objetos,
+- una `interface` no existe en runtime,
+- una `interface` describe la forma esperada de un objeto,
+- funciona como contrato entre backend, servicio y componente.
+
+También se aclaró por qué muchas veces se usa `interface` para objetos de dominio y no `type`:
+
+- `interface` expresa muy bien un contrato de objeto,
+- `type` es más general y flexible,
+- `type` se reserva mejor para uniones, intersecciones, tuplas o alias más complejos,
+- para un modelo como `Restaurante`, `interface` se entiende muy bien en una primera etapa de aprendizaje.
+
+### 4. Creación del servicio HTTP real
+
+El servicio generado quedó responsable de hablar con la API y no de pintar nada en pantalla.
+
+Conceptos trabajados:
+
+- `@Injectable({ providedIn: 'root' })`,
+- `inject(HttpClient)` como forma moderna de pedir dependencias,
+- `private readonly` para expresar intención,
+- `Observable<Restaurante[]>` como tipo de retorno de una petición HTTP,
+- métodos `getAll()` y `getById(id)`.
+
+Se insistió mucho en esta separación:
+
+- el componente muestra datos,
+- el servicio llama a la API,
+- la interface tipa la respuesta.
+
+### 5. Uso del servicio dentro de `Home`
+
+En `Home` dejamos de usar datos hardcodeados y pasamos a consumir `getAll()`.
+
+Puntos explicados paso a paso:
+
+- inyección del servicio con `inject(Restaurantes)`,
+- creación del estado local `restaurantes: Restaurante[] = []`,
+- uso de `errorMessage` para mostrar fallos de carga,
+- carga automática dentro de `ngOnInit()`,
+- uso de `subscribe({ next, error })` para reaccionar a la respuesta.
+
+Aquí apareció uno de los conceptos clave de la clase:
+
+- `Observable` no es el dato en sí,
+- `Observable` es el flujo por el que el dato llegará,
+- `subscribe()` es el lugar donde reaccionamos cuando la respuesta llega o falla.
 
 ---
 
 ## Configuración base de servicios en Angular moderno
 
-La idea en Angular moderno, incluyendo proyectos recientes con enfoque standalone, es esta:
+La idea en Angular moderno, incluyendo Angular 21 con enfoque standalone, quedó así:
 
 1. `main.ts` arranca la aplicación,
-2. `app.config.ts` registra router, cliente HTTP e interceptores,
+2. `app.config.ts` registra router y cliente HTTP,
 3. cada servicio se genera con `ng g s`,
-4. cada servicio usa `inject(HttpClient)` o inyección por constructor,
+4. cada servicio puede usar `inject(HttpClient)` como forma moderna,
 5. los componentes consumen los servicios y ya no guardan la lógica HTTP dentro de ellos.
 
 ### `app.config.ts`
 
 ```ts
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
-import { authInterceptor } from './interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
 	providers: [
 		provideBrowserGlobalErrorListeners(),
-		provideZonelessChangeDetection(),
 		provideRouter(routes),
-		provideHttpClient(withInterceptors([authInterceptor])),
+		provideHttpClient(),
 	],
 };
-```
-
-Si el proyecto no usa interceptores todavía, el mínimo sería:
-
-```ts
-provideHttpClient()
 ```
 
 ### Estructura sugerida para servicios
 
 ```text
 src/app/
-├─ services/
-│  ├─ auth.service.ts
-│  ├─ restaurantes.service.ts
-│  └─ recipes.service.ts
+├─ components/pages/home/services/
+│  └─ restaurantes.ts
 ├─ interfaces/
-│  ├─ restaurante.ts
-│  ├─ recipe.ts
-│  └─ auth/
-│     └─ login-response.ts
-├─ interceptors/
-│  └─ auth.interceptor.ts
+│  └─ restaurante.ts
 └─ app.config.ts
 ```
 
@@ -131,7 +178,7 @@ import { Observable } from 'rxjs';
 import { Restaurante } from '../interfaces/restaurante';
 
 @Injectable({ providedIn: 'root' })
-export class RestaurantesService {
+export class Restaurantes {
 	private readonly http = inject(HttpClient);
 	private readonly apiUrl = 'http://127.0.0.1:3000';
 
@@ -144,87 +191,12 @@ export class RestaurantesService {
 	}
 }
 ```
-
-### Ejemplo mínimo de `AuthService`
-
-```ts
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
-import { LoginResponse } from '../interfaces/auth/login-response';
-
-@Injectable({ providedIn: 'root' })
-export class AuthService {
-	private readonly http = inject(HttpClient);
-	private readonly apiUrl = 'http://127.0.0.1:3000';
-
-	login(nombre: string, password: string) {
-		return this.http
-			.post<LoginResponse>(`${this.apiUrl}/auth/login`, { nombre, password })
-			.pipe(
-				tap((response) => {
-					localStorage.setItem('token', response.access_token);
-					localStorage.setItem('user', JSON.stringify(response.user));
-				}),
-			);
-	}
-
-	logout() {
-		localStorage.removeItem('token');
-		localStorage.removeItem('user');
-	}
-
-	getToken() {
-		return localStorage.getItem('token');
-	}
-}
-```
-
-### Interceptor recomendado desde el primer día de auth
-
-```bash
-mkdir src/app/interceptors
-```
-
-```ts
-import { HttpInterceptorFn } from '@angular/common/http';
-
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
-	const token = localStorage.getItem('token');
-
-	if (!token) {
-		return next(req);
-	}
-
-	return next(
-		req.clone({
-			setHeaders: {
-				Authorization: `Bearer ${token}`,
-			},
-		}),
-	);
-};
-```
-
-### Regla práctica para clase
+### Regla práctica consolidada en esta clase
 
 - componentes muestran y reaccionan,
 - servicios llaman a la API,
 - interfaces tipan respuestas,
-- interceptor evita repetir headers,
 - `app.config.ts` concentra la infraestructura global.
-
----
-
-## Introducción a Leaflet en Angular
-
-El objetivo del mapa hoy es pedagógico, no final:
-
-- instalar Leaflet,
-- entender dónde importar sus estilos,
-- montar un componente de mapa,
-- renderizar un mapa con coordenadas hardcodeadas,
-- preparar el componente para que en CLASE15 use coordenadas reales.
 
 ---
 
@@ -235,32 +207,35 @@ El objetivo del mapa hoy es pedagógico, no final:
 - Revisar qué pantallas van primero a datos reales.
 - Presentar el orden lógico de conexión.
 
-### 16:50 - 17:30 | `provideHttpClient` y primeros servicios
+### 16:50 - 17:30 | `provideHttpClient` y primer servicio real
 
 - Configurar cliente HTTP.
-- Crear servicios Angular.
+- Crear servicio Angular con CLI moderno.
 - Hacer la primera llamada a `GET /restaurants`.
-- Dejar preparadas las interfaces mínimas y la URL base de la API.
+- Dejar preparada la `interface Restaurante` y la URL base de la API.
 
-### 17:30 - 18:00 | Login y sesión
+### 17:30 - 18:00 | Entender la teoría detrás del código
 
-- Conectar formulario de login.
-- Guardar token y usuario básico.
-- Reflejar sesión en la interfaz.
+- Explicar qué es un servicio.
+- Explicar qué es `inject(HttpClient)`.
+- Explicar qué es un `Observable`.
+- Explicar qué hacen `next` y `error` dentro de `subscribe()`.
+- Explicar por qué se usó `interface` y no `type` para `Restaurante`.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | Leaflet en Angular
+### 18:30 - 19:15 | `Home` consumiendo el servicio
 
-- Instalar la librería.
-- Añadir estilos.
-- Crear el primer mapa con coordenadas hardcodeadas.
+- Reemplazar datos fake por datos reales.
+- Cargar restaurantes en `ngOnInit()`.
+- Mostrar errores de carga en pantalla.
+- Enviar datos reales al componente `RestauranteCard`.
 
-### 19:15 - 20:00 | Integración mínima visible
+### 19:15 - 20:00 | Lectura comentada del código
 
-- Ver restaurantes reales en home.
-- Mantener algunas pantallas todavía con apoyo hardcoded si hace falta.
-- Revisar qué queda por quitar en las siguientes clases.
+- Comentar `app.config.ts`, `restaurantes.ts`, `home.ts`, `home.html` e `interface`.
+- Explicar cada import y cada concepto nuevo con detalle.
+- Dejar la base lista para que en la siguiente clase se consuma también `getById()`.
 
 ### 20:00 - 20:30 | Cierre
 
@@ -271,28 +246,29 @@ El objetivo del mapa hoy es pedagógico, no final:
 ### sin-ia
 
 1. Conectar `HomeComponent` con `GET /restaurants`.
-2. Hacer login funcional y guardar token.
-3. Mostrar el nombre del usuario logueado en header o perfil.
-4. Crear un mapa básico con coordenadas hardcodeadas.
-5. Generar al menos dos servicios con CLI y explicar qué responsabilidad tiene cada uno.
+2. Crear la `interface Restaurante` según la respuesta del backend.
+3. Explicar por escrito qué significa `private readonly`, `Observable` y `subscribe()`.
+4. Diferenciar con sus palabras cuándo usar `interface` y cuándo usar `type`.
+5. Dejar `Home` cargando restaurantes reales al iniciar.
 
 ### con-ia
 
-1. Pedir a la IA ayuda para definir los modelos TypeScript del login y de restaurantes.
-2. Pedir a la IA una propuesta de `AuthService` simple y revisarla línea a línea.
-3. Pedir a la IA un componente de mapa básico con Leaflet y adaptarlo al proyecto.
-4. Explicar luego qué parte sigue siendo hardcoded y qué parte ya viene de la API.
-5. Pedir a la IA una propuesta de interceptor de auth y justificar si conviene usarlo ya en esta clase.
+1. Pedir a la IA ayuda para definir la `interface Restaurante` y revisar si coincide con el backend real.
+2. Pedir a la IA una propuesta de servicio HTTP moderno con `inject(HttpClient)` y justificar cada línea.
+3. Pedir a la IA explicación de `Observable`, `next`, `error` y `subscribe()` y reformularla con palabras propias.
+4. Pedir a la IA la diferencia entre `interface` y `type` y resumirla con un ejemplo del proyecto.
+5. Pedir a la IA comentarios pedagógicos dentro del código y revisar que no cambien la lógica.
 
 ---
 
 ## Entregables mínimos del día
 
 - [ ] Servicio HTTP configurado.
-- [ ] Al menos dos servicios generados con CLI y organizados en `services/`.
-- [ ] Home consumiendo restaurantes reales o en transición clara.
-- [ ] Login funcional con sesión guardada.
-- [ ] Primer mapa visible en Angular.
+- [ ] `provideHttpClient()` añadido en `app.config.ts`.
+- [ ] `interface Restaurante` creada y explicada.
+- [ ] Home consumiendo restaurantes reales con `getAll()`.
+- [ ] Explicación escrita de `Observable`, `subscribe`, `next` y `error`.
+- [ ] Explicación escrita de `interface` frente a `type`.
 - [ ] Dudas en `DUDAS.md`.
 
 ---
@@ -301,15 +277,16 @@ El objetivo del mapa hoy es pedagógico, no final:
 
 - [ ] Sé crear un servicio Angular para llamar a la API.
 - [ ] Entiendo qué se configura en `app.config.ts` y qué se deja dentro de cada servicio.
-- [ ] Entiendo el flujo login → token → sesión.
-- [ ] Sé dónde se están guardando los datos de sesión.
-- [ ] Logré mostrar un mapa básico con Leaflet.
+- [ ] Entiendo qué es una `interface` y por qué la usamos con objetos de API.
+- [ ] Entiendo qué es un `Observable` y por qué una petición HTTP no devuelve el dato al instante.
+- [ ] Entiendo qué hace `subscribe()`.
+- [ ] Distingo razonablemente entre `interface` y `type`.
 - [ ] Autoevaluación personal completada (1-5).
 
 ---
 
 ## Predicción de la siguiente clase (CLASE14)
 
-1. Quitar más datos hardcoded.
-2. Conectar detalle, comentarios y ratings.
-3. Empezar a dejar la app apoyada ya casi por completo en la API real.
+1. Consumir `getById(id)` para el detalle de restaurante.
+2. Empezar a mostrar `total_recetas` y `rating_summary` en la interfaz.
+3. Seguir quitando hardcoded y acercar más la app a `api-recetas`.

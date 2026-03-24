@@ -27,7 +27,7 @@
     <!-- '1.4-4': format pattern = at least 1 digit, max 4 decimal places -->
     <div class="card__coords">
       <span class="card__coords-icon">📍</span>
-      <span>{{ coordinates()?.lat | number:'1.4-4' }}, {{ coordinates()?.lng | number:'1.4-4' }}</span>
+      <span>{{ lat() | number:'1.4-4' }}, {{ lng() | number:'1.4-4' }}</span>
     </div>
   </div>
 </article>

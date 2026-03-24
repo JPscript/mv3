@@ -1,16 +1,20 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-restaurante-card',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterLink], 
   templateUrl: './restaurante-card.html',
-  styleUrl: './restaurante-card.css',
+  styleUrl: './restaurante-card.css'
 })
-
 export class RestauranteCard {
+
+  id = input<number>(); 
   nombre = input<string>();
   descripcion = input<string>();
-  imagen = input<string>();
-  lat = input.required<number>();
-lng = input.required<number>();
+  fotogria_url = input<string>();
+  lat = input<number>();
+  lng = input<number>();
 }

@@ -1,9 +1,8 @@
 <header class="header">
   <a class="logo" routerLink="/">
-    <img src="assets/logo.png" alt="FakeAdvisor Logo" />
+    <img src="/logo.png" alt="FakeAdvisor" />
+    <p>FakeAdvisor</p>
   </a>
-  
-  
     <div class="search-container">
       <input 
         type="text" 
@@ -11,7 +10,6 @@
         [(ngModel)]="searchText"
         (input)="buscar()"
       />
-  
       <ul class="suggestions" *ngIf="sugerencias.length > 0">
         <li 
           *ngFor="let item of sugerencias"
@@ -21,7 +19,6 @@
         </li>
       </ul>
     </div>
-  
     <nav class="nav">
       <a routerLink="/" routerLinkActive="active">Inicio</a>
       <a routerLink="/restaurantes" routerLinkActive="active">Restaurantes</a>

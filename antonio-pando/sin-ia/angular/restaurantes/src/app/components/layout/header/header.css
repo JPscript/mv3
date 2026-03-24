@@ -4,6 +4,7 @@ header{
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
+    position: relative;
 }
 
 header img{
@@ -13,6 +14,9 @@ header img{
 
 header h1{
     color: var(--blanco);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 header input{
@@ -27,4 +31,9 @@ header button{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1.5dvw;
+}
+
+#iconoLogo{
+    margin-left: 1.5dvw;
 }

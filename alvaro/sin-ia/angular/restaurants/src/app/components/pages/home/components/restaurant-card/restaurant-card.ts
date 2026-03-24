@@ -33,7 +33,9 @@ export class RestaurantCard {
   image = input<string>();
 
   /** Geographic coordinates (latitude and longitude) */
-  coordinates = input<{ lat: number; lng: number }>();
+  //coordinates = input<{ lat: number; lng: number }>();
+  lat = input<number>();
+  lng = input<number>();
 
   constructor(private router: Router) {}
 
@@ -47,6 +49,6 @@ export class RestaurantCard {
     // router.navigate takes an array:
     // ['/restaurants/restaurant'] is the route
     // this.id() is the route parameter (the restaurant's id)
-    this.router.navigate(['/restaurants/restaurant', this.id()]);
+    this.router.navigate(['/restaurants/', this.id()]);
   }
 }

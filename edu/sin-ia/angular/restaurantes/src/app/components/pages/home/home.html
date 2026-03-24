@@ -1,11 +1,10 @@
-<div class="listado-restaurantes">
-  @for (item of listadoRestaurantes; track item.id) {
-    <app-restaurante-card 
-      [id]="item.id"
-      [nombre]="item.nombre"
-      [descripcion]="item.descripcion"
-      [img]="item.img"
-      [coordenadas]="item.coordenadas">
-    </app-restaurante-card>
-  }
-</div>
+@for (restaurante of restaurantes; track restaurante.id) {
+  <app-restaurante-card 
+    [id]="restaurante.id" 
+    [nombre]="restaurante.nombre"
+    [descripcion]="restaurante.descripcion" 
+    [fotogria_url]="restaurante.fotogria_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
+  ></app-restaurante-card>
+}

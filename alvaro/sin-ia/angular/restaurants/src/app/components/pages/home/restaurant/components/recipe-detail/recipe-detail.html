@@ -1,19 +1,19 @@
 @if (recipe && restaurant) {
   <div class="recipe-detail">
-    <button class="back-btn" (click)="goBackToRestaurant()">← Back to {{ restaurant.name }}</button>
+    <button class="back-btn" (click)="goBackToRestaurant()">← Back to {{ restaurant.nombre }}</button>
 
     <section class="recipe-detail__card">
-      <p class="recipe-detail__restaurant">{{ restaurant.name }}</p>
-      <h1 class="recipe-detail__title">{{ recipe.name }}</h1>
+      <p class="recipe-detail__restaurant">{{ restaurant.nombre }}</p>
+      <h1 class="recipe-detail__title">{{ recipe.nombre }}</h1>
 
       <div class="recipe-detail__section">
         <h2>Ingredients</h2>
-        <p>{{ recipe.ingredients }}</p>
+        <p>{{ recipe.ingredientes }}</p>
       </div>
 
       <div class="recipe-detail__section">
-        <h2>Instructions</h2>
-        <p>{{ recipe.instructions }}</p>
+        <h2>Description</h2>
+        <p>{{ recipe.descripcion }}</p>
       </div>
     </section>
   </div>

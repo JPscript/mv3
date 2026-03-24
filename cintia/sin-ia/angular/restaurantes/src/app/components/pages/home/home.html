@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+  <div class="container1">
+    <h2>Crear Restaurante</h2>
+    <div class="button-container">
+      <button routerLink="/restaurantes/crear-restaurante">Ir</button>
+    </div>
+  </div>
+
+
+  <div class="container2">
+    <h2>Lista de Restaurantes</h2>
+    @for (restaurante of restaurantesFake; track restaurante.id){
+    <app-restaurante-card [id]="restaurante.id" [nombre]="restaurante.nombre" [descripcion]="restaurante.descripcion"
+      [imagen]="restaurante.imagen" [latitud]="restaurante.coordenadas.latitud"
+      [longitud]="restaurante.coordenadas.longitud" (actualizar)="actualizarRestaurante(restaurante.id)"
+      (eliminar)="eliminarRestaurante(restaurante.id)"></app-restaurante-card>
+    }
+  </div>
+
+
+</body>
+
+</html>
