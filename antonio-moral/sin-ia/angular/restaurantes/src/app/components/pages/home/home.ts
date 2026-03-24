@@ -1,43 +1,41 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
 import { RecetaCard } from './components/receta-card/receta-card';
+import { CommentCard } from './components/comment-card/comment-card';
+import { Restaurantes } from './services/restaurantes';
+import { Restaurante } from '../../../interfaces/restaurante';
 
 @Component({
   selector: 'app-home',
-  imports: [RestauranteCard, RecetaCard],
+  imports: [RestauranteCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-  restaurantesFake = [
-    {
-      id: 1,
-      nombre: 'Restaurante A',
-      descripcion: 'Descripción del Restaurante A',
-      imagen: '/sushi-svgrepo-com.svg',
-      coordenadas: { lat: 40.7128, lng: -74.0060 },
-    },
-    {
-      id: 2,
-      nombre: 'Restaurante B',
-      descripcion: 'Descripción del Restaurante B',
-      imagen: '/lobster-svgrepo-com.svg',
-      coordenadas: { lat: 34.0522, lng: -118.2437 },
-    },
-  ];
-  recetasFake = [
-    {
-      id: 1,
-      nombre: 'Receta A',
-      descripcion: 'Descripción de la Receta A',
-      imagen: '/sushi-svgrepo-com.svg',
-    },
-    {
-      id: 2,
-      nombre: 'Receta B',
-      descripcion: 'Descripción de la Receta B',
-      imagen: '/lobster-svgrepo-com.svg',
-    },
-  ];
 
+  private readonly restaurantesService = inject(Restaurantes);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  restaurantes: Restaurante[] = [];
+  isLoading = false;
+  errorMessage = '';
+
+  ngOnInit(): void {
+    this.getRestaurantes();
+  };
+
+  getRestaurantes(): void {
+    this.isLoading = true;
+    this.restaurantesService.getAllRestaurantes().subscribe({
+      next: (restaurantes) => {
+        this.restaurantes = restaurantes;
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+      error: () => {
+        this.errorMessage = 'Error al cargar los restaurantes';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+    });
+  }
 }

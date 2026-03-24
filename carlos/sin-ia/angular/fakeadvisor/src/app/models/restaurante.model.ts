@@ -1,8 +1,10 @@
 export interface Restaurante {
-    id: number;
-    nombre: string;
-    direccion: string;
-    puntuacion: number;
-    imagen: string;
-  }
-  
+  id: number;
+  nombre: string;
+  direccion: string;
+  puntuacion: number;
+  imagen: string;
+  descripcion: string;
+  lat: number;   
+  lng: number;   
+}

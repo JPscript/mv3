@@ -32,3 +32,8 @@ img,
     height: 100px;
     width: 100px;
 }
+
+.card-header > a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+}

@@ -1,10 +1,14 @@
-<div class="cards">
-  @for (restaurante of restaurantesFake; track restaurante.id) {
-    <app-restaurante-card
-      [nombre]="restaurante.nombre"
-      [descripcion]="restaurante.descripcion"
-      [imagen]="restaurante.imagen"
-      [ubicacion]="restaurante.ubicacion">
-    </app-restaurante-card>
-  }
+<div class="home-wrapper">
+  <div class="grid-container">
+   @for (restaurante of restaurantes; track restaurante.id) {
+  <app-restaurante-card
+    [id]="restaurante.id"
+    [nombre]="restaurante.nombre"
+    [descripcion]="restaurante.descripcion"
+    [imagen]="restaurante.fotografia_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
+  ></app-restaurante-card>
+}
+  </div>
 </div>

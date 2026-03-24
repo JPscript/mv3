@@ -12,7 +12,7 @@ import { Map } from './components/pages/map/map';
 export const routes: Routes = [
     { path: '', redirectTo: '/restaurants', pathMatch: 'full' },
     { path: 'restaurants', title: '🍽️ Restaurants', component: Home },
-    { path: 'restaurant', title: '🍴 Restaurant', component: SingleRestaurant },
+    { path: 'restaurants/:id', title: '🍴 Restaurant', component: SingleRestaurant },
     { path: 'create-restaurant', title: '➕🍽️ Create Restaurant', component: CreateRestaurant },
     { path: 'delete-restaurant', title: '🗑️ Delete Restaurant', component: DeleteRestaurant },
     { path: 'update-restaurant', title: '✏️ Update Restaurant', component: UpdateRestaurant },

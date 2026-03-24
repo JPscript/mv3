@@ -52,3 +52,24 @@ form:hover {
   color: #0087ff;
   transform: scale(1.05);
 }
+
+.registro {
+  font-family: verdana;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Contenedor centrado vertical y horizontal */
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.registro {
+  cursor: pointer;
+  pointer-events: auto;
+  color: blue; 
+  text-decoration: underline; 
+}

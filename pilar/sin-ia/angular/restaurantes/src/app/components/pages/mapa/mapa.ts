@@ -1,20 +1,17 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
+  OnInit,
   OnDestroy,
   ViewChild,
+  inject,
 } from '@angular/core';
 import * as L from 'leaflet';
-
-interface RestauranteMapa {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  lat: number;
-  lng: number;
-}
+import { Restaurante } from '../../../interfaces/restaurante';
+import { Restaurantes } from '../home/services/restaurantes';
 
 @Component({
   selector: 'app-mapa',
@@ -23,57 +20,24 @@ interface RestauranteMapa {
   styleUrl: './mapa.css',
 })
 export class Mapa implements AfterViewInit, OnDestroy {
+  private readonly restaurantesService = inject(Restaurantes);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+
   @ViewChild('mapContainer')
   private mapContainer?: ElementRef<HTMLDivElement>;
 
   private map?: L.Map;
+  private markersLayer = L.layerGroup();
   private resizeObserver?: ResizeObserver;
 
-  protected readonly restaurantesHardcoded: RestauranteMapa[] = [
-  {
-    id: 1,
-    nombre: 'DiverXO',
-    descripcion: 'Cocina vanguardista y creativa del chef Dabiz Muñoz. Una experiencia surrealista única.',
-    lat: 40.4583,
-    lng: -3.6860,
-  },
-  {
-    id: 2,
-    nombre: 'Central Restaurante',
-    descripcion: 'Exploración de los ecosistemas peruanos a través de diferentes altitudes.',
-    lat: -12.1301,
-    lng: -77.0229,
-  },
-  {
-    id: 3,
-    nombre: 'Osteria Francescana',
-    descripcion: 'El arte de la cocina italiana reinventado por Massimo Bottura en Módena.',
-    lat: 44.6448,
-    lng: 10.9216,
-  },
-  {
-    id: 4,
-    nombre: 'Eleven Madison Park',
-    descripcion: 'Cocina de alta gama basada en plantas con vistas icónicas a Madison Park.',
-    lat: 40.7416,
-    lng: -73.9872,
-  },
-  {
-    id: 5,
-    nombre: 'Noma',
-    descripcion: 'Pionero de la nueva cocina nórdica, enfocado en ingredientes locales y fermentación.',
-    lat: 55.6828,
-    lng: 12.6105,
-  },
-  {
-    id: 6,
-    nombre: 'Azurmendi',
-    descripcion: 'Sostenibilidad y alta gastronomía vasca integradas en un edificio bioclimático.',
-    lat: 43.2641,
-    lng: -2.8123,
+  protected restaurantes: Restaurante[] = [];
+  protected isLoading = false;
+  protected errorMessage = '';
 
+  ngOnInit(): void {
+    this.loadRestaurantes();
   }
-];
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.initializeMap();
@@ -95,33 +59,9 @@ export class Mapa implements AfterViewInit, OnDestroy {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(this.map);
 
-    const bounds = L.latLngBounds([] as L.LatLngTuple[]);
+    this.markersLayer.addTo(this.map);
 
-    this.restaurantesHardcoded.forEach((restaurante, index) => {
-      const marker = L.circleMarker([restaurante.lat, restaurante.lng], {
-        radius: 10,
-        color: '#c54377',
-        fillColor: '#8443c5',
-        fillOpacity: 0.85,
-        weight: 3,
-      });
-
-      marker
-        .addTo(this.map!)
-        .bindPopup(
-          `<strong>${restaurante.nombre}</strong><br>${restaurante.descripcion}`,
-        );
-
-      if (index === 0) {
-        marker.openPopup();
-      }
-
-      bounds.extend([restaurante.lat, restaurante.lng]);
-    });
-
-    if (bounds.isValid()) {
-      this.map.fitBounds(bounds, { padding: [40, 40] });
-    }
+    this.renderMarkers();
 
     if (typeof ResizeObserver !== 'undefined') {
       this.resizeObserver = new ResizeObserver(() => {
@@ -138,6 +78,61 @@ export class Mapa implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.map?.invalidateSize();
     }, 300);
+  }
+
+  private loadRestaurantes(): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.restaurantesService.getAllRestaurants().subscribe({
+      next: (restaurantes) => {
+        this.restaurantes = restaurantes;
+        this.isLoading = false;
+        this.renderMarkers();
+        this.changeDetectorRef.detectChanges();
+      },
+      error: () => {
+        this.errorMessage = 'No se pudo cargar el mapa de restaurantes.';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+    });
+  }
+
+  private renderMarkers(): void {
+    if (!this.map) {
+      return;
+    }
+
+    const bounds = L.latLngBounds([] as L.LatLngTuple[]);
+
+    this.markersLayer.clearLayers();
+
+    this.restaurantes.forEach((restaurante, index) => {
+      const marker = L.circleMarker([restaurante.latitud, restaurante.longitud], {
+        radius: 10,
+        color: '#c54377',
+        fillColor: '#8443c5',
+        fillOpacity: 0.85,
+        weight: 3,
+      });
+
+      marker
+        .addTo(this.markersLayer)
+        .bindPopup(
+          `<strong>${restaurante.nombre}</strong><br>${restaurante.descripcion}`,
+        );
+
+      if (index === 0) {
+        marker.openPopup();
+      }
+
+      bounds.extend([restaurante.latitud, restaurante.longitud]);
+    });
+
+    if (bounds.isValid()) {
+      this.map.fitBounds(bounds, { padding: [40, 40] });
+    }
   }
 
   @HostListener('window:resize')

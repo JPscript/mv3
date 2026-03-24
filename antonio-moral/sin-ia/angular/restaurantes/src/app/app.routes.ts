@@ -11,6 +11,7 @@ import { CrearRestaurante } from './components/pages/home/crear-restaurante/crea
 export const routes: Routes = [
     {path: '', redirectTo: '/restaurantes', pathMatch: 'full'},
     {path: 'restaurantes', title: "🍽️ Restaurantes", component: Home},
+    {path: 'restaurantes/:id', title: "🍽️ Restaurante", component: Restaurante},
     {path: 'restaurantes/restaurante', title: "🍽️ Restaurante", component: Restaurante},
     {path: 'restaurantes/crear-restaurante', title: "➕ Crear Restaurante", component: CrearRestaurante},
     {path: 'restaurantes/actualizar-restaurante', title: "✏️ Actualizar Restaurante", component: ActualizarRestaurante},
