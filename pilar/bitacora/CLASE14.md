@@ -3,7 +3,7 @@
 ## Tema y objetivo del día
 
 - **Tema:** Conexión con API de restaurantes.
-- **Fecha:** ueves 19 de marzo 2026.
+- **Fecha:** Jueves 19 de marzo 2026.
 - **Horario:** 16:30 - 18:30.
 - **Objetivo:** Construir una página con Angular que consuma una API de restaurantes.
 

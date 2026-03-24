@@ -6,40 +6,44 @@
     <!-- Top: name left, image right -->
     <div class="detail__header">
       <div class="detail__header-left">
-        <h1 class="detail__name">{{ restaurant.name }}</h1>
+        <h1 class="detail__name">{{ restaurant.nombre }}</h1>
 
         <div class="detail__meta">
           <section class="detail__section">
             <h2>About</h2>
-            <p>{{ restaurant.description }}</p>
+            <p>{{ restaurant.descripcion }}</p>
           </section>
 
           <section class="detail__section">
             <h2>Location</h2>
             <p class="detail__coords">
-              📍 {{ restaurant.coordinates.lat | number:'1.4-4' }},
-                 {{ restaurant.coordinates.lng | number:'1.4-4' }}
+              📍 {{ restaurant.latitud | number:'1.4-4' }},
+                 {{ restaurant.longitud | number:'1.4-4' }}
             </p>
           </section>
         </div>
       </div>
 
       <div class="detail__header-right">
-        <img [src]="restaurant.image" [alt]="restaurant.name" class="detail__img" />
+        <img [src]="restaurant.fotografia_url" [alt]="restaurant.nombre" class="detail__img" />
       </div>
     </div>
 
-    <!-- Recipes placeholder -->
+    <!-- Recipes section -->
     <section class="detail__block">
       <h2 class="detail__block-title">Recipes</h2>
       <div class="detail__recipes-grid">
-        @for (recipe of restaurant.recipes; track recipe.id) {
-          <app-recipe-card
-            [restaurantId]="restaurant.id"
-            [id]="recipe.id"
-            [name]="recipe.name"
-            [ingredients]="recipe.ingredients">
-          </app-recipe-card>
+        @if (recipes.length > 0) {
+          @for (recipe of recipes; track recipe.id) {
+            <app-recipe-card
+              [restaurantId]="restaurant.id"
+              [id]="recipe.id"
+              [name]="recipe.nombre"
+              [ingredients]="recipe.ingredientes">
+            </app-recipe-card>
+          }
+        } @else {
+          <p class="detail__placeholder">No recipes available for this restaurant.</p>
         }
       </div>
     </section>

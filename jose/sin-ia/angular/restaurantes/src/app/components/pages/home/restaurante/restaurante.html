@@ -1,1 +1,20 @@
-<p>restaurante works!</p>
+<!--
+	Vista detalle del restaurante
+	Senior Cat dice: Aquí se muestra toda la información del restaurante seleccionado.
+	Si no se ha cargado, aparece un mensaje de carga.
+-->
+<ng-container *ngIf="restaurante() as r; else cargando">
+	<div class="detalle-restaurante">
+		<!-- Nombre del restaurante -->
+		<h1>{{ r.nombre }}</h1>
+		<!-- Imagen principal -->
+		<img [src]="r.fotografia_url" alt="Foto de {{ r.nombre }}" style="max-width:300px;">
+		<!-- Descripción -->
+		<p>{{ r.descripcion }}</p>
+		<!-- Puedes añadir más campos aquí si tu modelo los tiene -->
+	</div>
+</ng-container>
+<ng-template #cargando>
+	<!-- Mensaje mientras se cargan los datos -->
+	<p>Cargando restaurante...</p>
+</ng-template>

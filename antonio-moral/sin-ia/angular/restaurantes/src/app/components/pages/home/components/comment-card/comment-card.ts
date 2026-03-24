@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-comment-card',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './comment-card.html',
   styleUrl: './comment-card.css',
 })
-export class CommentCard {}
+export class CommentCard {
+  usuario = input<string>();
+  comentario = input<string>();
+  imagen = input<string>();
+}

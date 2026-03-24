@@ -1,1 +1,14 @@
-<p>restaurante-card works!</p>
+<a routerLink = "{{id()}}" class = "restaurante-card">
+    <p>EL ID ESTA AQUI!!!! -- {{id()}}</p>
+    <p>Nombre: {{nombre()}}</p>
+    <p>Descripción: {{descripcion()}}</p>
+    <img src = "{{fotografia_url()}}" alt="{{nombre()}}">
+    <p>Dirección: {{lat()}}, {{lng()}} 
+        <button id = "btn-ubi" class = "btn-card" (click) = "ubicacionClick($event)">
+            <i class="fa-solid fa-location-dot"></i>
+        </button>
+    </p>
+</a>
+<button id = "btnjiji" class = "btn-card" (click) = "llamoConsola()">
+            <i class="fa-solid fa-location-dot"></i>
+        </button>

@@ -17,7 +17,7 @@ export class RecipeCard {
 
   goToRecipe() {
     this.router.navigate([
-      '/restaurants/restaurant',
+      '/restaurants',
       this.restaurantId(),
       'recipe',
       this.id(),

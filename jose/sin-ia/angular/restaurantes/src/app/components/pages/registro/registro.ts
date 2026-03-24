@@ -1,23 +1,26 @@
+// Componente Registro: gestiona el formulario y la lógica de registro de usuario.
+// Aquí se conecta el formulario visual con la lógica para crear un nuevo usuario en la API.
+
 import { Component } from '@angular/core';
-import { UsuarioService } from '../../../services/usuario.service';
-import { FormsModule } from '@angular/forms';
+import { UsuarioService } from '../../../services/usuario.service'; // Servicio para registrar usuarios
+import { FormsModule } from '@angular/forms'; // Necesario para usar [(ngModel)] en el formulario
+
 @Component({
-  selector: 'app-registro',
+  selector: 'app-registro', // Nombre de la etiqueta personalizada para este componente
   imports: [FormsModule], // Importa FormsModule para habilitar ngModel en el formulario
-  templateUrl: './registro.html',
-  styleUrl: './registro.css',
+  templateUrl: './registro.html', // HTML asociado al formulario de registro
+  styleUrl: './registro.css', // CSS para estilos del registro
 })
 export class Registro {
-  // Inyecta el servicio de usuarios para acceder a la API
+  // Constructor: inyecta el servicio de usuario para registrar y acceder a la API
   constructor(private usuarioService: UsuarioService) {}
-  // Variable para almacenar el nombre ingresado por el usuario
-  nombre: string = '';
-  // Variable para almacenar la contraseña ingresada por el usuario
-  password:string = '';
-  // Variable para mostrar mensajes de error o éxito al usuario
-  message: string = '';
 
-  // Método que se ejecuta al pulsar el botón de registro
+  // Variables enlazadas al formulario visual mediante [(ngModel)]
+  nombre: string = ''; // Almacena el nombre de usuario ingresado
+  password: string = ''; // Almacena la contraseña ingresada
+  message: string = ''; // Mensaje para mostrar errores o éxito
+
+  // Método que se ejecuta al enviar el formulario de registro
   onRegister() {
     // Llama al método addUser del servicio, que hace POST a la API
     // Nos suscribimos al Observable para manejar la respuesta asíncrona
