@@ -4,7 +4,7 @@ import { Restaurante } from '../../../../interfaces/restaurante';
 
 import { ActivatedRoute } from '@angular/router';
 import { Receta } from '../components/receta/receta';
-import { Receta as IReceta} from '../../../../interfaces/receta';
+import { Receta as IReceta} from '../../../../interfaces/receta.interface';
 import { RecetaService } from '../components/receta/services/receta.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class SingleRestaurant implements OnInit{
 
   public restaurante?: Restaurante | null = null;
 
-  public recetas?: Receta[] = [];
+  public recetas?: IReceta[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
