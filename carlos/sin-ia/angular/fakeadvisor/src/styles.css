@@ -1,11 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-.content {
-    padding: 1.5rem;
-  }
-  
-  header, footer {
-    padding: 1rem;
-    background: #222;
-    color: white;
-  }
-  
+@import "leaflet/dist/leaflet.css";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: cadetblue;;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}

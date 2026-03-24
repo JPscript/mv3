@@ -2,7 +2,7 @@ export interface Restaurante {
     id: number;
     nombre: string;
     descripcion: string;
-    fotogria_url?: string;
+    fotografia_url: string;
     latitud: number;
     longitud: number;
     total_recetas?: number;

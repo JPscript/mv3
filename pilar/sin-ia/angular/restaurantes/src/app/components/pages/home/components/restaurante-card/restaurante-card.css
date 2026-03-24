@@ -1,135 +1,107 @@
-/* 1. EL CONTENEDOR (Rejilla de 2 columnas) */
-.cards-container {
-    display: grid;
-    /* Fuerza 2 columnas iguales siempre que quepan */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 2rem; /* Espacio generoso entre tarjetas */
-    width: 100%;
-    /* Muy importante: LIMITA el ancho total para que no se estiren */
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 40px 40px;
-    box-sizing: border-box;
+/* Quitamos el subrayado por defecto del enlace */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-/* Responsive: Una sola columna en móviles */
-@media (max-width: 768px) {
-    .cards-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* 2. LA TARJETA */
 .restaurante-card {
-    display: flex;
-    flex-direction: column; /* Estructura de arriba a abajo */
-    border-radius: 18px;
-   background: linear-gradient(135deg, #ffffff 0%, #f6f6f6 100%);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Asegura que la imagen respete los bordes redondeados */
-    width: 80%; /* Altura constante para todas las tarjetas de una fila */
-    height: 100%; 
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Para que todas las tarjetas midan lo mismo */
 }
 
 .restaurante-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 28px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* 3. LA IMAGEN */
-.card-image-wrapper {
-    position: relative;
-    width: 100%; /* Ocupa todo el ancho de la tarjeta */
-    /* Define una altura fija y proporcional para la imagen */
-    height: 200px; 
+/* Contenedor de la imagen */
+.imagen img {
+  width: 100%;
+  height: 200px; /* Altura fija para que el grid sea uniforme */
+  object-fit: cover;
 }
 
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    /* ESTA ES LA CLAVE: llena el espacio cortando el exceso */
-    object-fit: cover; 
-    object-position: center; /* Centra la parte importante de la foto */
+.info-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* CORAZÓN DE FAVORITO */
-.fav-heart-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: white;
-    border: none;
-    border-radius: 50%;
-    padding: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+.nombre h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800; /* Extra bold como en la imagen */
+  color: #1a1a1a;
 }
 
-/* 4. BLOQUE DE TEXTO */
-.card-data-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Empuja el botón al final */
-    flex: 1; /* Ocupa el espacio restante de la tarjeta */
-    padding: 1.2rem;
-    text-align: left; /* Texto alineado a la izquierda */
+.descripcion p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+  /* Limitamos a 2 líneas para que todas las tarjetas midan lo mismo */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* TÍTULO */
-.res-title {
-    margin: 0;
-    font-size: 1.3rem; /* Color oscuro */
-    font-weight: 800;
+.coordenadas {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-/* DESCRIPCIÓN */
-.res-description {
-    margin: 6px 0 0 0; /* Color var(--muted) */
-    font-size: 16px;
-    line-height: 1.4;
-    /* Limita la descripción a 2 líneas para un diseño limpio */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+/* Icono de pin antes de las coordenadas */
+.coordenadas::before {
+  content: '📍';
+  font-size: 0.9rem;
 }
 
-/* 5. FOOTER DENTRO DE TARJETA (coordenadas + botón) */
-.footer-actions {
-    display: flex;
-    justify-content: space-between; /* Coordenadas izquierda, botón derecha */
-    align-items: center;
-    margin-top: auto; /* Empuja el footer hacia abajo */
-    padding-top: 20px;
+/* El "Botón" Ver más simulado */
+/* Como tu <a> envuelve todo, el botón es realmente un elemento visual */
+.info-container::after {
+  content: 'Ver más';
+  display: block;
+  width: 100%;
+  background-color: #52b788; 
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.3s ease;
 }
 
-/* UBICACIÓN */
-.location-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 16;
-    color: var(--muted);
-}
-
-/* BOTÓN CENTRADO AL FINAL */
 .btn-ver-mas {
-    padding: 0.5rem 1.3rem;
-    border: none;
-    border-radius: 10px;
-    /* Degradado var(--primary) a var(--primary-2) */
-    background: linear-gradient(135deg, #2D8A6B 0%, #4EBA96 100%);
-    color: white;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s;
+  background-color: #52b788;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto; /* Empuja el botón siempre al fondo de la tarjeta */
 }
 
-.btn-ver-mas:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+.restaurante-card:hover .info-container::after {
+  background-color: #40916c;
 }
+
+:host {
+  display: block; /* Permite que el componente se comporte como un elemento del grid */
+  height: 100%;
+}
+

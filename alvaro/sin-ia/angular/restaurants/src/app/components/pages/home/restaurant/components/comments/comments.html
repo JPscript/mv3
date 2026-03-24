@@ -1,1 +1,21 @@
-<p>comments works!</p>
+@if (comments().length > 0) {
+	<div class="comments-list">
+		@for (comment of comments(); track comment.id) {
+			<article class="comment-item">
+				<header class="comment-item__header">
+					<div class="comment-item__author-wrap">
+						@if (comment.user.image_url) {
+							<img [src]="comment.user.image_url" [alt]="comment.user.nombre" class="comment-item__avatar" />
+						}
+						<h3 class="comment-item__author">{{ comment.user.nombre }}</h3>
+					</div>
+					<time class="comment-item__date">{{ comment.created_at | date:'mediumDate' }}</time>
+				</header>
+
+				<p class="comment-item__text">{{ comment.comentario }}</p>
+			</article>
+		}
+	</div>
+} @else {
+	<p class="comments-empty">No comments yet...</p>
+}

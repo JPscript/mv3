@@ -36,6 +36,7 @@ export class RestaurantCard {
   //coordinates = input<{ lat: number; lng: number }>();
   lat = input<number>();
   lng = input<number>();
+  ratingAverage = input<number | null | undefined>();
 
   constructor(private router: Router) {}
 

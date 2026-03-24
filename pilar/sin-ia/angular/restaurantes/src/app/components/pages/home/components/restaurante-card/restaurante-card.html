@@ -1,26 +1,7 @@
-<a [routerLink]="['/restaurantes', id(), 'recipes', '1']" class="card-link">
-  <div class="restaurante-card">
-    <div class="imagen">
-      <img [src]="fotogria_url()" alt="{{nombre()}}">
-    </div>
-    
-    <div class="info-container">
-      <div class="nombre">
-        <h3>{{ nombre() }}</h3> </div>
-      <div class="descripcion">
-        <p>{{ descripcion() }}</p>
-      </div>
-      
-      <div class="coordenadas" *ngIf="lat() && lng()">
-        <span>Lat: {{ lat() }}</span>
-        <span>Lng: {{ lng() }}</span>
-      </div>
-    </div>
-  </div>
+<a [routerLink]="['/restaurantes/restaurante', id()]" class="restaurante-card">
+	<p>Nombre: {{ nombre() }}</p>
+	<p>Descripción: {{ descripcion() }}</p>
+	<img src="{{ imagen() }}" alt="{{ nombre() }}">
+	<p>Coordenadas: {{ lat() }}, {{ lng() }}</p>
+	<span>Ver detalle</span>
 </a>
-      
-
-<!-- <button class="btn-ver-mas">Ver más</button>
-    </div>
-  </div>
-</div> --->  

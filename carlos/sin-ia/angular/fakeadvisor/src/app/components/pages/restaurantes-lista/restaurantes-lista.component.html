@@ -1,0 +1,8 @@
+<h2>Restaurantes</h2>
+
+<ul class="lista-restaurantes">
+  <li *ngFor="let r of restaurantesOrdenados">
+    <span class="nombre">{{ r.nombre }}</span>
+    <span class="puntuacion">⭐ {{ r.puntuacion }}</span>
+  </li>
+</ul>
