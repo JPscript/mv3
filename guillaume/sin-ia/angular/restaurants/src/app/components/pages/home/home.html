@@ -2,6 +2,7 @@
     @for (restaurante of restaurantes; track restaurante.nombre) {
         <div class="restaurant-card-container">
             <app-restaurant-card
+                [id]="restaurante.id"
                 [nombre]="restaurante.nombre"
                 [descripcion]="restaurante.descripcion"
                 [fotografia_url]="restaurante.fotografia_url"
