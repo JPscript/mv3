@@ -6,5 +6,5 @@ export interface Receta {
     ingredientes: string;
     tiempo_min: number;
     dificultad: 'facil' | 'media' | 'dificil';
-    image_url: string | null;
+    image_url?: string | null;
 }
