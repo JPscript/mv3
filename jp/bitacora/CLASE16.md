@@ -1,4 +1,4 @@
-# CLASE16 - UX/UI, página de perfil y cierre final del proyecto Angular
+# CLASE16 - Leaflet con sentido y cierre final de la aplicación Angular
 
 **Fecha:** 2026-03-26  
 **Horario:** 16:30 - 20:30  
@@ -12,7 +12,13 @@
 
 ## Contexto y continuidad con CLASE15
 
-La estructura, la integración y el mapa ya deberían estar levantados. La última clase no trata de añadir ladrillos nuevos sin control, sino de rematar bien el edificio: UX/UI, perfil y calidad final del producto.
+Si CLASE15 salió bien, la app ya debería poder autenticarse y usar sesión real. La última sesión se centra en entender bien Leaflet, integrarlo con sentido dentro de la app y cerrar el proyecto Angular con el mayor nivel posible de coherencia funcional.
+
+## Referencia visual del wireframe
+
+En el wireframe aparece un icono de ubicación en la cabecera del `Home` y también una relación visual entre listado, detalle y navegación superior. Eso sugiere que el mapa no debe entrar como pantalla aislada o adorno final: debe sentirse como una extensión natural del flujo principal.
+
+Senior Cat puede usar este boceto para remarcar una idea importante: el mapa aporta valor cuando ayuda a entender dónde está el restaurante, cómo se relaciona con el listado y cómo completa la experiencia general del proyecto.
 
 ---
 
@@ -20,69 +26,65 @@ La estructura, la integración y el mapa ya deberían estar levantados. La últi
 
 ### Tema central
 
-Pulido visual, mejora de experiencia de usuario y cierre final de la app de restaurantes.
+Comprender Leaflet dentro del proyecto, conectar el mapa con el frontend real y rematar la aplicación completa.
 
 ### Objetivo general
 
-1. Revisar la experiencia completa de navegación.
-2. Mejorar la página de perfil para que tenga intención visual y funcional.
-3. Corregir incoherencias de diseño, textos, espaciados y feedback.
-4. Dejar la app lista para mostrar, evaluar y cerrar el bloque.
+1. Entender qué hace Leaflet y qué necesita para funcionar bien en Angular.
+2. Integrar el mapa como parte real de la app y no como pantalla aislada.
+3. Aprovechar latitud y longitud reales del backend cuando sea posible.
+4. Terminar la aplicación con revisión funcional, visual y de navegación.
 
 ---
 
-## Foco UX/UI del día
+## Qué debe quedar claro en esta clase
 
-- claridad visual del header,
-- consistencia entre tarjetas, formularios y botones,
-- mensajes de carga, error y éxito,
-- jerarquía tipográfica,
-- página de perfil que se sienta parte importante de la app y no una pantalla relleno.
-
----
-
-## Qué debe mejorar la página de perfil
-
-- mostrar identidad del usuario logueado,
-- resumir acciones o datos útiles,
-- cuidar la composición visual,
-- transmitir que el usuario está dentro de una app completa y no en una demo fragmentada.
+- Qué papel cumple Leaflet en la app.
+- Qué necesita un mapa para renderizar bien: contenedor, tamaño, estilos y datos.
+- Cómo se relacionan `latitud` y `longitud` del backend con la vista de mapa.
+- Cómo encajar mapa, listado y detalle en un recorrido lógico de usuario.
+- Cómo el resultado final se parece al wireframe original, pero con comportamiento real y no solo con cajas dibujadas.
 
 ---
 
 ## Plan por bloques de tiempo
 
-### 16:30 - 16:50 | Revisión del estado final
+### 16:30 - 16:50 | Repaso del estado final tras CLASE15
 
-- Recorrer la app de punta a punta.
-- Anotar fallos visuales, funcionales y de coherencia.
+- Confirmar si login y sesión ya funcionan.
+- Detectar qué queda pendiente antes del cierre.
 
-### 16:50 - 17:30 | Perfil y sesión
+### 16:50 - 17:30 | Entender Leaflet dentro de Angular
 
-- Mejorar `PerfilComponent`.
-- Mostrar información útil del usuario.
-- Revisar si el header refleja bien la sesión activa.
+- Revisar la estructura del componente `mapa`.
+- Explicar estilos globales, contenedor y renderización.
+- Explicar por qué a veces Leaflet falla si el tamaño del mapa no está bien resuelto.
 
-### 17:30 - 18:00 | UX/UI transversal
+### 17:30 - 18:00 | Conectar mapa con datos reales o semi-reales
 
-- Revisar espaciados, botones, textos y llamadas a la acción.
-- Unificar criterios visuales básicos.
+- Usar coordenadas reales si ya están disponibles en el flujo actual.
+- Revisar uno o varios marcadores.
+- Enlazar el mapa con el resto de la navegación.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | Ajustes finales de producto
+### 18:30 - 19:15 | Cierre funcional de la app
 
-- Corregir bugs pequeños.
-- Revisar responsive básico.
-- Pulir experiencia en login, home, detalle, mapa y perfil.
+- Revisar home, detalle, login, perfil y mapa.
+- Corregir incoherencias visibles.
+- Quitar restos de hardcode que todavía desentonen.
 
-### 19:15 - 20:00 | Demo y revisión final
+### 19:15 - 20:00 | Prueba integral y demo final
 
-- Mostrar el recorrido completo de la app.
-- Explicar qué partes conectan con la API real.
-- Identificar qué mejoras quedarían para una segunda versión.
+- Recorrido completo de la app.
+- Verificación de errores.
+- Explicación del flujo frontend-backend-mapa.
 
 ### 20:00 - 20:30 | Cierre del bloque Angular
+
+- Balance final.
+- Qué quedó bien.
+- Qué quedaría para una versión 2.
 
 ---
 
@@ -90,40 +92,40 @@ Pulido visual, mejora de experiencia de usuario y cierre final de la app de rest
 
 ### sin-ia
 
-1. Mejorar la página de perfil con estructura clara y visual limpia.
-2. Revisar textos y navegación de toda la app.
-3. Corregir detalles de diseño repetidos.
-4. Preparar una mini demo de 2 minutos del proyecto.
+1. Revisar el componente `mapa` y explicar qué necesita Leaflet para renderizar bien.
+2. Mostrar el mapa con datos coherentes con la app.
+3. Corregir restos de hardcode o incoherencias visuales finales.
+4. Preparar una mini demo del proyecto completo.
 
 ### con-ia
 
-1. Pedir a la IA una auditoría rápida de UX/UI basada en capturas o descripción de pantallas.
-2. Pedir ideas para mejorar el perfil sin romper la estructura actual.
-3. Pedir mejoras concretas de copy y feedback visual.
-4. Justificar después qué sugerencias se aceptan y cuáles no.
+1. Pedir a la IA una explicación de por qué Leaflet puede fallar en Angular si el contenedor no tiene tamaño correcto.
+2. Pedir ayuda para conectar el mapa con los datos del backend o del flujo real de la app.
+3. Pedir una lista de chequeo final del proyecto y seguirla.
+4. Justificar después qué arreglos finales se aplicaron y por qué.
 
 ---
 
 ## Entregables mínimos del día
 
-- [ ] Página de perfil mejorada.
-- [ ] Revisión UX/UI aplicada al conjunto de la app.
-- [ ] Flujo completo funcionando y listo para mostrar.
+- [ ] Mapa comprendido y funcional dentro de la app.
+- [ ] Flujo principal de la app revisado de extremo a extremo.
+- [ ] Restos duros de hardcode minimizados.
+- [ ] Demo final preparada.
 - [ ] Autoevaluación final del bloque Angular.
-- [ ] Predicción o ideas para una versión 2 del proyecto.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] La app tiene coherencia visual básica.
-- [ ] El perfil aporta valor real al proyecto.
-- [ ] Sé explicar qué partes siguen hardcoded y cuáles ya usan backend.
-- [ ] Puedo hacer una demo breve del proyecto sin perderme.
+- [ ] Entiendo mejor cómo integrar Leaflet en Angular.
+- [ ] La app tiene un flujo principal funcional.
+- [ ] Puedo explicar cómo se conectan frontend, API y mapa.
+- [ ] Puedo mostrar el proyecto de principio a fin sin perderme.
 - [ ] Autoevaluación final completada (1-5).
 
 ### Autoevaluación sugerida
 
 - ¿Qué parte del proyecto quedó mejor resuelta?
-- ¿Qué me costó más: Angular, integración con backend o diseño?
+- ¿Qué me costó más: Angular, integración con backend, auth o mapa?
 - ¿Qué mejoraría si tuviera una semana más?
