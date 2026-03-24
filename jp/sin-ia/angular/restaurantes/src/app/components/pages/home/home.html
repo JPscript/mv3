@@ -1,10 +1,10 @@
-@for (restaurante of restaurantesFake; track restaurante.id) {
+@for (restaurante of restaurantes; track restaurante.id) {
   <app-restaurante-card
+    [id]="restaurante.id"
     [nombre]="restaurante.nombre"
     [descripcion]="restaurante.descripcion"
-    [imagen]="restaurante.imagen"
-    [lat]="restaurante.coordenadas.lat"
-    [lng]="restaurante.coordenadas.lng"
+    [imagen]="restaurante.fotografia_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
   ></app-restaurante-card>
 }
-<button (click)="getRestaurantes()">Ver Restaurantes</button>
