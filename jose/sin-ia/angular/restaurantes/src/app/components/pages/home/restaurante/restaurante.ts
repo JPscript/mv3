@@ -1,7 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestauranteService } from '../../../../services/restaurante.service';
-import { Restaurante as RestauranteModel } from '../../../../models/restaurante.model';
+import { Restaurant as RestauranteModel } from '../../../../models/restaurante.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-restaurante',
@@ -19,7 +20,13 @@ export class RestaurantePage implements OnInit {
   // Cuando se actualiza, la vista se refresca automáticamente.
   public restaurante = signal<RestauranteModel | null>(null)
 
-  constructor( private route: ActivatedRoute, private restauranteService: RestauranteService ){}
+  constructor( private route: ActivatedRoute, private restauranteService: RestauranteService, private router: Router ){}
+
+  // Devuelve las claves de la distribución de ratings, o array vacío si no hay datos
+  getDistributionKeys(): string[] {
+    const dist = this.restaurante()?.rating_summary?.distribution;
+    return dist ? Object.keys(dist) : [];
+  }
   
 
   ngOnInit(): void {
@@ -39,7 +46,13 @@ export class RestaurantePage implements OnInit {
       });
    
    
-    
-    
+   
+  
   }
-}
+   verRecetas(): void {
+        const restauranteId = this.restaurante()?.id;
+        if (restauranteId !== undefined) {
+            this.router.navigate([`/restaurantes/${restauranteId}/recetas`]);
+        }
+      }
+    }

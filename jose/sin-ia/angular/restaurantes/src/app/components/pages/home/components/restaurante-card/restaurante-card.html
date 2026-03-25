@@ -17,11 +17,13 @@
         <li><strong>Rating promedio:</strong> {{ rating_summary()?.average }}</li>
         <li><strong>Votos:</strong> {{ rating_summary()?.count }}</li>
         <li><strong>Distribución:</strong>
-                <span *ngIf="rating_summary()?.distribution">
-                    <span *ngFor="let key of getDistributionKeys()">
-                        {{key}}: {{rating_summary()?.distribution?.[key]}}&nbsp;
-                    </span>
-                </span>
+                @if (rating_summary()?.distribution) {
+                    @for (key of getDistributionKeys(); track key) {
+                        <span>
+                            {{key}}: {{rating_summary()?.distribution?.[key]}}&nbsp;
+                        </span>
+                    }
+                }
         </li>
     </ul>
 </div>
