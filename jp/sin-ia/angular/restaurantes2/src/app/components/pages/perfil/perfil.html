@@ -1,1 +1,18 @@
-<p>perfil works!</p>
+<section>
+	<h1>Perfil</h1>
+
+	@if (errorMessage) {
+		<p>{{ errorMessage }}</p>
+	}
+
+	@if (currentUser()) {
+		<p><strong>Id:</strong> {{ currentUser()?.id }}</p>
+		<p><strong>Nombre:</strong> {{ currentUser()?.nombre }}</p>
+		<p><strong>Imagen:</strong> {{ currentUser()?.image_url || 'Sin imagen todavía' }}</p>
+		<button (click)="logout()">Cerrar sesión</button>
+	} @else {
+		<p>Cargando perfil...</p>
+	}
+
+	<p><a routerLink="/restaurantes">Volver al listado</a></p>
+</section>

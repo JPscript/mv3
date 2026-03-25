@@ -9,7 +9,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 // `provideHttpClient` habilita HttpClient para toda la aplicacion.
 // Sin esto, los servicios no podrian hacer peticiones HTTP con Angular.
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 // Esta es la configuracion principal de la aplicacion standalone.
 // Piensa en este archivo como el lugar donde conectamos los servicios globales
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     // Registra las rutas definidas en `app.routes.ts`.
     provideRouter(routes),
     // Registra el cliente HTTP global de Angular.
-    provideHttpClient(),
+    // `withInterceptors` nos permite anadir el Bearer token automaticamente.
+    provideHttpClient(withInterceptors([authInterceptor])),
   ]
 };

@@ -1,4 +1,4 @@
-<div class="restaurante-card">
+<a class="restaurante-card" [routerLink]="['/restaurantes/restaurante', id()]">
 <!-- Interpolacion: `{{ ... }}` inserta en el HTML el valor actual de una expresion. -->
 <p>Nombre: {{ nombre() }}</p>
 <p>Descripción: {{ descripcion() }}</p>
@@ -9,4 +9,5 @@
 	<img [src]="imagen()" [alt]="nombre() ?? 'Restaurante'">
 }
 <!-- Mostramos las coordenadas para comprobar que llegan bien desde la API. -->
-<p>Coordenadas: {{ lat() }}, {{ lng() }}</p></div>
+<p>Coordenadas: {{ lat() }}, {{ lng() }}</p>
+</a>

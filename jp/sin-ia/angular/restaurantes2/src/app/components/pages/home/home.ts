@@ -4,14 +4,16 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 // Importamos el componente hijo que mostrara cada restaurante.
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
+import { RouterLink } from '@angular/router';
 // Importamos la interface para tipar correctamente el array de restaurantes.
 import { Restaurante } from '../../../interfaces/restaurante';
 // Importamos el servicio que contiene las llamadas HTTP.
 import { Restaurantes } from './services/restaurantes';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-home',
-  imports: [RestauranteCard],
+  imports: [RestauranteCard, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -19,6 +21,7 @@ export class Home implements OnInit {
   // Inyectamos el servicio de restaurantes para poder reutilizar sus metodos.
   // `private readonly` indica que es de uso interno y que no deberia reasignarse.
   private readonly restaurantesService = inject(Restaurantes);
+  private readonly authService = inject(AuthService);
   // En algunos flujos asincronos necesitamos avisar manualmente a Angular
   // para que repinte la pantalla cuando llegan los datos.
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -29,6 +32,7 @@ export class Home implements OnInit {
   isLoading = false;
   // Mensaje de error simple para mostrar en la plantilla si falla la carga.
   errorMessage = '';
+  readonly isLoggedIn = this.authService.isLoggedIn;
 
   // Angular llama a `ngOnInit` cuando el componente ya esta inicializado.
   // Aqui aprovechamos para cargar los restaurantes nada mas entrar en la pagina.
