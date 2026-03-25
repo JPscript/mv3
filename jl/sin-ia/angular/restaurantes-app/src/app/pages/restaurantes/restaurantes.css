@@ -28,3 +28,16 @@
   width: 100%;
   border-radius: 4px;
 }
+.img-container {
+  width: 100%;
+  height: 200px; /* Altura fija para que todas las cards midan lo mismo */
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen al hueco sin deformarla */
+  display: block;
+}
