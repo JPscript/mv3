@@ -141,20 +141,16 @@ Notas:
 ## 7. Preparar la base de datos
 
 ```powershell
-$env:PGPASSWORD='1234'
-psql -h localhost -U postgres -f .\scripts\00_create_database.sql
-psql -h localhost -U postgres -d api_recetas_db -f .\scripts\01_create_tables.sql
-psql -h localhost -U postgres -d api_recetas_db -f .\scripts\02_seed_recipes.sql
-Remove-Item Env:PGPASSWORD
+powershell -ExecutionPolicy Bypass -File .\scripts\run-psql-utf8.ps1 -ScriptPath .\scripts\00_create_database.sql -Password 1234
+powershell -ExecutionPolicy Bypass -File .\scripts\run-psql-utf8.ps1 -ScriptPath .\scripts\01_create_tables.sql -Database api_recetas_db -Password 1234
+powershell -ExecutionPolicy Bypass -File .\scripts\run-psql-utf8.ps1 -ScriptPath .\scripts\02_seed_recipes.sql -Database api_recetas_db -Password 1234
 ```
 
 Si ya existía una versión anterior de la base:
 
 ```powershell
-$env:PGPASSWORD='1234'
-psql -h localhost -U postgres -d api_recetas_db -f .\scripts\06_upgrade_restaurant_domain.sql
-psql -h localhost -U postgres -d api_recetas_db -f .\scripts\02_seed_recipes.sql
-Remove-Item Env:PGPASSWORD
+powershell -ExecutionPolicy Bypass -File .\scripts\run-psql-utf8.ps1 -ScriptPath .\scripts\06_upgrade_restaurant_domain.sql -Database api_recetas_db -Password 1234
+powershell -ExecutionPolicy Bypass -File .\scripts\run-psql-utf8.ps1 -ScriptPath .\scripts\02_seed_recipes.sql -Database api_recetas_db -Password 1234
 ```
 
 ---
@@ -178,6 +174,12 @@ Si un alumno ya tenía la versión vieja de `api-recetas`, estos son los pasos m
 2. crear tablas con `01_create_tables.sql`,
 3. poblar datos con `02_seed_recipes.sql`,
 4. arrancar la API con `npm run start:dev`.
+
+### Recomendación para evitar mojibake en Windows
+
+- usar `run-psql-utf8.ps1` para ejecutar cualquier `.sql` del proyecto,
+- no abrir ni guardar los scripts con codificación ANSI o Windows-1252,
+- si la base ya quedó con textos rotos como `cÃ­trica`, correr `05_fix_mojibake_tildes.sql` con el mismo lanzador seguro.
 
 ### Qué cambia respecto a la versión vieja
 

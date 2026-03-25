@@ -1,3 +1,7 @@
+\set ON_ERROR_STOP on
+\encoding UTF8
+SET client_encoding = 'UTF8';
+
 -- Script de reparación de texto mojibake (ej: limÃ³n -> limón)
 -- Proyecto: api-recetas | Grupo Ladrillos
 -- Uso recomendado:

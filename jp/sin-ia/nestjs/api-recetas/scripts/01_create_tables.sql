@@ -1,3 +1,7 @@
+\set ON_ERROR_STOP on
+\encoding UTF8
+SET client_encoding = 'UTF8';
+
 CREATE OR REPLACE FUNCTION public.set_updated_at()
 RETURNS TRIGGER AS $$
 BEGIN
