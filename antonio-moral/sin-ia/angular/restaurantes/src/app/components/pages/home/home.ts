@@ -11,7 +11,7 @@ import { Restaurante } from '../../../interfaces/restaurante';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
+export class Home implements OnInit {
 
   private readonly restaurantesService = inject(Restaurantes);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Pasta al Pesto Casero",
+    "dificultad": "Fácil",
+    "tiempo": "15 min",
+    "ingredientes": ["Albahaca", "Piñones", "AOVE"]
+  },
+  {
+    "id": 2,
+    "nombre": "Risotto de Setas",
+    "dificultad": "Media",
+    "tiempo": "30 min",
+    "ingredientes": ["Arroz Arborio", "Boletus", "Caldo"]
+  },
+  {
+    "id": 3,
+    "nombre": "Ensalada de Quinoa",
+    "dificultad": "Fácil",
+    "tiempo": "10 min",
+    "ingredientes": ["Quinoa", "Aguacate", "Tomate"]
+  }
+]

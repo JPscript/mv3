@@ -7,16 +7,25 @@
 .comentario-card {
     display: inline-flex;
     flex-direction: column;
+    text-align: center;
     border: 1px solid #0c75dd;
     border-radius: 8px;
     padding: 1rem;
-    background-color: #8bbedb;
+    background-color: #8bdb96;
     margin: 0.5rem;
     text-align: center;
+    width: 450px;      /* ancho fijo */
+    height: 450px;     /* alto fijo para todas */
+    box-sizing: border-box;
+
 
 }
 
-img {
+.receta-card img {
     width: 300px;
-    height: 300px;
+    height: 300px;    
+    object-fit: cover; 
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
+

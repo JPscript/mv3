@@ -6,7 +6,7 @@
 	  <img [src]="restaurante()?.fotografia_url" alt="Foto de {{ restaurante()?.nombre }}" style="max-width:300px;">
 	}
 	<ul class="detalle-datos">
-		<li><strong>ID:</strong> {{ restaurante()?.id }}</li>
+		
 		<li><strong>Latitud:</strong> {{ restaurante()?.latitud }}</li>
 		<li><strong>Longitud:</strong> {{ restaurante()?.longitud }}</li>
 		<li><strong>Fecha creación:</strong> {{ restaurante()?.created_at }}</li>
@@ -19,14 +19,6 @@
 			Senior Cat dice: Usamos getDistributionKeys() porque en Angular 17+ no se puede acceder a Object.keys directamente desde la plantilla.
 			Así evitamos el error y mantenemos la lógica en el componente.
 		-->
-		<li><strong>Distribución:</strong>
-			@if (restaurante()?.rating_summary?.distribution) {
-				@for (key of getDistributionKeys(); track key) {
-					<span>
-						{{key}}: {{restaurante()?.rating_summary?.distribution?.[key]}}&nbsp;
-					</span>
-				}
-			}
-		</li>
 	</ul>
+	<button type="button" (click)="goBack()">Volver</button>
 </div>
