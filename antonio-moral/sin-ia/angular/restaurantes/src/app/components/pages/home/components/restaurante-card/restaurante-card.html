@@ -1,5 +1,5 @@
   <div class="restaurante-card" [routerLink]="['/restaurantes', id()]">
-    <h2>Nombre: {{ nombre() }}</h2>
+    <h2>{{ nombre() }}</h2>
     <p>Descripción: {{ descripcion() }}</p>
     <img [src]="imagen()" [alt]="nombre()">
     <p>Coordenadas: {{ lat() }}, {{ lng() }}</p>
