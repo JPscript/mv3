@@ -1,23 +1,15 @@
 <header class="main-header">
     <nav class="nav-container" aria-label="Menú principal">
 
-        <!-- 1. Menú Hamburguesa -->
-        <!-- Si quieres que este botón haga algo, necesitarás un (click)="tuFuncion()" -->
-        <button type="button" class="boton-menu" aria-label="Menú">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-            </svg>
-        </button>
-
-        <!-- 2. Logo -->
+       
+        <!-- Logo -->
         <div class="logo-container">
-            <!-- Eliminamos el "/" inicial si es una ruta interna de Angular -->
             <a class="logo" [routerLink]="['/restaurantes']">
                 <img class="header-logo" src="recetalia.svg" alt="Recetalia" />
             </a>
         </div>
 
-        <!-- 3. Buscador -->
+        <!-- Buscador -->
         <form class="search-form" (submit)="$event.preventDefault()"> 
             <div class="search-wrapper">
                 <input type="search" name="q" placeholder="Buscar..." aria-label="Buscar">
@@ -29,14 +21,14 @@
             </div>
         </form>
 
-        <!-- 4. Icono del Mundo -->
+        <!-- Icono del Mundo -->
         <div class="world-icon">
             <a [routerLink]="['/mapa']" class="boton-icono" title="Ver Mapa">
                 <img src="map.svg" alt="Mapa" width="24" height="24">
             </a>
         </div>
 
-        <!-- 5. Usuario -->
+        <!-- Usuario -->
         <div class="user-menu">
             <a [routerLink]="['/login']" class="user-link" aria-label="Iniciar sesión">
                 <img src="user.svg" alt="Usuario" width="24" height="24">

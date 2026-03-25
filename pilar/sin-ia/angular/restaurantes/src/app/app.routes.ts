@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
 import { map } from 'rxjs';
 import { Home } from './components/pages/home/home';
-import { Restaurante } from './components/pages/home/restaurante/restaurante';
+import { RestauranteComponent } from './components/pages/home/restaurante/restaurante';
 import { CrearRestaurante } from './components/pages/home/crear-restaurante/crear-restaurante';
 import { ActualizarRestaurante } from './components/pages/home/actualizar-restaurante/actualizar-restaurante';
 import { Login } from './components/pages/login/login';
@@ -13,7 +13,7 @@ import { Restaurantes } from './components/pages/home/services/restaurantes';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/restaurantes', pathMatch: 'full' },
-    { path: 'restaurantes', title: "Restaurantes 🍽️",component: Home},
+    { path: 'restaurantes', title: "Restaurantes 🍽️", component: Home },
     {
         path: 'restaurantes/restaurante/:id',
         title: (route) => {
@@ -28,10 +28,10 @@ export const routes: Routes = [
                 map((restaurante) => `${restaurante.nombre} | Restaurantes`),
             );
         },
-        component: Restaurante,
+        component: RestauranteComponent,
     },
-    { path: 'restaurantes/crear-restaurante', title: "Restaurantes 🍽️",component: CrearRestaurante},
-    { path: 'restaurantes/actualizar-restaurante', title: "Restaurantes 🍽️",component: ActualizarRestaurante},
+    { path: 'restaurantes/crear-restaurante', title: "Restaurantes 🍽️", component: CrearRestaurante },
+    { path: 'restaurantes/actualizar-restaurante', title: "Restaurantes 🍽️", component: ActualizarRestaurante },
     { path: 'login', title: "Login 🔐", component: Login },
     { path: 'registro', title: "Registro 📝", component: Registro },
     { path: 'perfil', title: "Perfil 👤", component: Perfil },

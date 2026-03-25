@@ -1,19 +1,39 @@
-<div class="restaurant-container">
-    <img src="{{ restaurante?.fotografia_url }}" alt="A picture of the restaurant" class="restaurant-picture">
-    <div class="right">
-        <h2>{{ restaurante?.nombre }}</h2>
-        <p>{{ restaurante?.descripcion }}</p>
-        @for (receta of recetas; track receta.id) {
+<div class="main-wrapper">
+  
+  @if (restaurante) {
+    <section class="restaurant-header">
+      <div class="image-box">
+        <img [src]="restaurante.fotografia_url" 
+             [alt]="'Imagen de ' + restaurante.nombre" 
+             class="restaurant-picture">
+      </div>
+      
+      <div class="info-box">
+        <h1>{{ restaurante.nombre }}</h1>
+        <p class="description">{{ restaurante.descripcion }}</p>
+      </div>
+    </section>
+  }
+
+  <hr class="separator">
+
+  <section class="recipes-grid">
+    @for (receta of recetas; track receta.id) {
+      <div class="recipe-card-wrapper">
         <app-receta
-            [id]="receta.id"
-            [restaurant_id]="receta.restaurant_id"
-            [nombre]="receta.nombre"
-            [descripcion]="receta.descripcion"
-            [ingredientes]="receta.ingredientes"
-            [tiempo_min]="receta.tiempo_min"
-            [dificultad]="receta.dificultad"
-            [image_url]="receta.image_url"
-        />
-        }
-    </div>
+          [id]="receta.id"
+          [restaurant_id]="receta.restaurant_id"
+          [nombre]="receta.nombre"
+          [descripcion]="receta.descripcion"
+          [ingredientes]="receta.ingredientes"
+          [tiempo_min]="receta.tiempo_min"
+          [dificultad]="receta.dificultad"
+          [image_url]="receta.image_url">
+        </app-receta>
+      </div>
+    } @empty {
+      <p class="no-recipes">Este restaurante aún no tiene recetas publicadas.</p>
+    }
+  </section>
+
 </div>
