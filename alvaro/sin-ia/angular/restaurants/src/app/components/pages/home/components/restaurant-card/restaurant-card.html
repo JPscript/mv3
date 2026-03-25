@@ -1,16 +1,36 @@
-<article class="card">
+<!-- Restaurant Card: semantic <article> element for accessibility -->
+<!-- (click): triggers goToDetail() navigation when clicked -->
+<article class="card" (click)="goToDetail()">
+  
+  <!-- Image Container -->
   <div class="card__cover">
+    <!-- img: displays the restaurant image -->
+    <!-- [src]: binding to the image() input signal -->
+    <!-- [alt]: accessibility alternative text (important for screen readers) -->
     <img [src]="image()" [alt]="name()" class="card__img" />
+    @if (ratingAverage() !== null && ratingAverage() !== undefined) {
+      <div class="card__rating">★ {{ ratingAverage() | number:'1.1-1' }}</div>
+    }
+    <!-- Overlay: decorative gradient or hover effect (styled in CSS) -->
     <div class="card__overlay"></div>
   </div>
 
+  <!-- Content Container -->
   <div class="card__body">
+    <!-- Restaurant Name -->
+    <!-- {{ }}: interpolation to display the name() signal value -->
     <h2 class="card__title">{{ name() }}</h2>
+    
+    <!-- Restaurant Description -->
     <p class="card__description">{{ description() }}</p>
 
+    <!-- Location Coordinates -->
+    <!-- ?. (optional chaining): safely access coordinates if it exists -->
+    <!-- | number: pipe to format numbers nicely (e.g., 40.4168 instead of 40.416800000) -->
+    <!-- '1.4-4': format pattern = at least 1 digit, max 4 decimal places -->
     <div class="card__coords">
       <span class="card__coords-icon">📍</span>
-      <span>{{ coordinates()?.lat | number:'1.4-4' }}, {{ coordinates()?.lng | number:'1.4-4' }}</span>
+      <span>{{ lat() | number:'1.4-4' }}, {{ lng() | number:'1.4-4' }}</span>
     </div>
   </div>
 </article>

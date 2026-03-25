@@ -1,10 +1,18 @@
+<!-- Container for all restaurant cards in a grid layout -->
 <div class="cards-grid">
-  @for (restaurant of fakeRestaurants; track restaurant.id) {
+  <!-- Loop through each restaurant from the 'restaurants' array -->
+  <!-- track: tells Angular how to identify each item (by id) for better performance -->
+  @for (restaurant of restaurants; track restaurant.id) {
+    <!-- Restaurant Card Component: displays each restaurant as a clickable card -->
+    <!-- Properties passed via [...]: id, name, description, image, coordinates -->
     <app-restaurant-card
-      [name]="restaurant.name"
-      [description]="restaurant.description"
-      [image]="restaurant.image"
-      [coordinates]="restaurant.coordinates">
+      [id]="restaurant.id"
+      [name]="restaurant.nombre"
+      [description]="restaurant.descripcion"
+      [image]="restaurant.fotografia_url"
+      [lat]="restaurant.latitud"
+      [lng]="restaurant.longitud"
+      [ratingAverage]="restaurant.rating_summary?.average">
     </app-restaurant-card>
   }
 </div>

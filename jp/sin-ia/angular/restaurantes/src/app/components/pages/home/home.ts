@@ -1,44 +1,35 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
-import { Header } from '../../layout/header/header';
-import { Footer } from '../../layout/footer/footer';
-
-interface Restaurante {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string;
-  coordenadas: {
-    lat: number;
-    lng: number;
-  };
-}
-
+import { Restaurante } from '../../../interfaces/restaurante';
+import { Restaurantes } from './services/restaurantes';
 @Component({
   selector: 'app-home',
   imports: [RestauranteCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-
-
-export class Home {
-   restaurantesFake: Restaurante[] = [];
-   getRestaurantes() {
-    this.restaurantesFake = [
-    {
-      id: 1,
-      nombre: 'Restaurante AB',
-      descripcion: 'Descripción del Restaurante A',
-      imagen: 'https://via.placeholder.com/150',
-      coordenadas: { lat: 40.7128, lng: -74.0060 },
-    },
-    {
-      id: 2,
-      nombre: 'Restaurante BA',
-      descripcion: 'Descripción del Restaurante B',
-      imagen: 'https://via.placeholder.com/150',
-      coordenadas: { lat: 34.0522, lng: -118.2437 },
-    }
-]  }
+export class Home implements OnInit {
+  private readonly restaurantesService = inject(Restaurantes);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+   restaurantes: Restaurante[] = [];
+  isLoading = false;
+  errorMessage = '';
+    ngOnInit(): void {
+    this.getRestaurantes();
+  };
+  getRestaurantes(): void {
+    this.isLoading = true;
+    this.restaurantesService.getAllRestaurants().subscribe({
+      next: (resRestaurantes) => {
+        this.restaurantes = resRestaurantes;
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      },
+      error: () => {
+        this.errorMessage = 'No se pudieron cargar los restaurantes.';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      }
+    });
+  }
 }

@@ -1,30 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { restaurantes } from '../../data/restaurantes';
 import { CommonModule } from '@angular/common';
 import { RestauranteCardComponent } from '../pages/home/components/restaurante-card/restaurante-card.component';
 
 @Component({
   selector: 'app-restaurante',
   standalone: true,
-  imports: [CommonModule, RestauranteCardComponent],  templateUrl: './restaurante.component.html',
+  imports: [CommonModule, RouterModule, RestauranteCardComponent],
+  templateUrl: './restaurante.component.html',
   styleUrl: './restaurante.component.css'
 })
-export class RestauranteComponent {
+export class RestauranteComponent implements OnInit {
 
-  restaurantes = [
-    {
-      id: 0,
-      nombre: 'Casa Paco',
-      direccion: 'Calle del Pulpo 15',
-      puntuacion: 3.4,
-      imagen: 'https://picsum.photos/300/200?1'
-    },
-    {
-      id: 1,
-      nombre: 'Casa Pepe',
-      direccion: 'Calle del Agua 30',
-      puntuacion: 4.2,
-      imagen: 'https://picsum.photos/300/200?2'
-    }
-  ];
+  restaurante: any;
 
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.restaurante = restaurantes.find(r => r.id === id);
+  }
 }

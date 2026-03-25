@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'leaflet/dist/leaflet.css';
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	color-scheme: dark;
+	--bg-950: #120b19;
+	--bg-900: #1a1023;
+	--bg-850: #22132d;
+	--surface-1: rgba(49, 28, 62, 0.82);
+	--surface-2: rgba(61, 36, 75, 0.92);
+	--surface-3: rgba(33, 20, 43, 0.94);
+	--border-soft: rgba(255, 255, 255, 0.09);
+	--border-accent: rgba(244, 114, 182, 0.28);
+	--text-primary: #fff2fb;
+	--text-secondary: #e9d5e9;
+	--text-muted: #c9b4cc;
+	--text-faint: #9f8aa5;
+	--accent: #f472b6;
+	--accent-strong: #c084fc;
+	--accent-soft: #f9a8d4;
+	--shadow-soft: 0 18px 44px rgba(10, 5, 17, 0.34);
+	--shadow-strong: 0 26px 60px rgba(14, 7, 23, 0.46);
+	--ring: 0 0 0 3px rgba(244, 114, 182, 0.16);
+	--radius-lg: 20px;
+	--radius-md: 14px;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
+body {
+	background:
+		radial-gradient(circle at top left, rgba(244, 114, 182, 0.16), transparent 28%),
+		radial-gradient(circle at top right, rgba(192, 132, 252, 0.16), transparent 24%),
+		linear-gradient(180deg, var(--bg-900) 0%, var(--bg-950) 100%);
+	background-attachment: fixed;
+	color: var(--text-secondary);
+	font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+	letter-spacing: 0.01em;
+}
+
+a {
+	color: var(--accent-soft);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+::selection {
+	background: rgba(244, 114, 182, 0.3);
+	color: var(--text-primary);
+}

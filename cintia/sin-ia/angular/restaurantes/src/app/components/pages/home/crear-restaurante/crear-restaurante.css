@@ -1,0 +1,69 @@
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003366;
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#Formulario-Restaurante {
+    background-color: #f5f8fc;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    width: 500px;
+}
+
+#Formulario-Restaurante label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003366;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#Formulario-Restaurante input,
+#Formulario-Restaurante textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#Formulario-Restaurante input:focus,
+#Formulario-Restaurante textarea:focus {
+    border-color: #003366;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.4);
+}
+
+#Formulario-Restaurante button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #003366;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+#Formulario-Restaurante button:hover {
+    background-color: #0055aa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#Formulario-Restaurante button:active {
+    transform: scale(0.95);
+}

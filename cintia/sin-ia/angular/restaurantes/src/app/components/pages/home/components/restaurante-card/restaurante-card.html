@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-content">
+        <h2 class="card-title">{{ nombre }}</h2>
+        <p>{{ descripcion }}</p>
+        <img [src]="imagen" alt="{{ nombre }}" />
+    </div>
+    <div class="card-footer">
+        <span>Lat: {{ latitud }}</span>
+        <span>Lng: {{ longitud }}</span>
+    </div>
+    <div class="footer-buttons">
+       <button (click)="verRecetas.emit(id)">Ver recetas</button>
+        <button (click)="verCalificacion.emit(id)">Ver calificacion</button>
+    </div>
+
+           <!--<button (click)="actualizar.emit(id)">Actualizar Restaurante</button>
+        <button (click)="eliminar.emit(id)">Eliminar Restaurante</button>
+    </div>-->
+
+</div>

@@ -11,7 +11,7 @@ import { Restaurante } from './components/pages/home/restaurante/restaurante';
 export const routes: Routes = [
     { path: '', redirectTo: 'restaurantes', pathMatch: 'full' },
     { path: 'restaurantes', title: "Restaurantes", component: Home},
-    { path: 'restaurantes/restaurante', title: "Restaurantes", component: Restaurante},
+    { path: 'restaurantes/:id/recipes/:recipeId', title: "Restaurantes", component: Restaurante},
     { path: 'restaurantes/crear-restaurante', title: "Restaurantes", component: CrearRestaurante},
     { path: 'restaurantes/actualizar-restaurante', title: "Restaurantes", component: ActualizarRestaurante},
     { path: 'login' , title: "Login", component: Login},

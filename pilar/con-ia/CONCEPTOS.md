@@ -35,8 +35,6 @@ En el desarrollo web existen términos que se utilizan con frecuencia. A continu
 - **Metadatos**  
   Información sobre la página web que no aparece en el cuerpo visible. Se colocan dentro de la etiqueta `<head>` e incluyen título, descripción, palabras clave, charset, enlaces a hojas de estilo, meta para redes sociales, etc. Ayudan a buscadores y navegadores a interpretar el contenido.
 
----
-
 ## CONCEPTOS HTML
 
 ### Definiciones básicas
@@ -107,8 +105,6 @@ En el desarrollo web existen términos que se utilizan con frecuencia. A continu
 - `<select>`: lista desplegable.
 - `<option>`: opción dentro de un `<select>`.
 
----
-
 ## CONCEPTOS CSS
 
 - **CSS (Cascading Style Sheets)**: lenguaje que define la presentación visual de un documento HTML. Se usa para controlar colores, tipografías, tamaños, espacios, alineaciones, distribución (layout) y efectos visuales. CSS se aplica al DOM del navegador y se rige por reglas de cascada y especificidad.
@@ -116,12 +112,11 @@ En el desarrollo web existen términos que se utilizan con frecuencia. A continu
 ### 1. Sintaxis básica
 
 - Una regla CSS se compone de **selector** + **declaraciones**:
-  ```css
+
   selector {
     propiedad: valor;
     propiedad: valor;
   }
-  ```
 
 ### 2. Selectores y especificidad
 
@@ -199,11 +194,11 @@ Cada elemento es una “caja” compuesta por:
 ### 12. Responsividad
 
 - **Media queries**:
-  ```css
+
   @media (max-width: 768px) {
     /* estilos para dispositivos pequeños */
   }
-  ```
+
 - Uso de unidades relativas (`%, em, rem, vw, vh`) y enfoque mobile-first.
 
 ### 13. Pseudo-clases y pseudo-elementos

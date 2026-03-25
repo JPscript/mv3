@@ -1,1 +1,26 @@
-<p>mapa works!</p>
+<section class="mapa-page">
+	<header class="mapa-copy">
+		<h1>Mapa de restaurantes</h1>
+	</header>
+
+	@if (isLoading) {
+		<p>Cargando mapa de restaurantes...</p>
+	}
+		@if (errorMessage) {
+		<p>{{ errorMessage }}</p>
+	}
+	
+	<div #mapContainer class="mapa-lienzo" aria-label="Mapa interactivo de restaurantes"></div>
+
+	<section class="mapa-lista">
+		<h2>Lista de restaurantes</h2>
+		<ul>
+			@for (restaurante of restaurantes; track restaurante.id) {
+				<li>
+					<strong>{{ restaurante.nombre }}</strong>
+					<span>{{ restaurante.latitud }}, {{ restaurante.longitud }}</span>
+				</li>
+			}
+		</ul>
+	</section>
+</section>

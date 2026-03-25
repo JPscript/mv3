@@ -1,1 +1,32 @@
-<p>restaurante works!</p>
+<!-- Vista mínima y funcional del detalle del restaurante -->
+<div class="detalle-restaurante">
+	<h1>{{ restaurante()?.nombre }}</h1>
+	<p>{{ restaurante()?.descripcion }}</p>
+	@if (restaurante()?.fotografia_url) {
+	  <img [src]="restaurante()?.fotografia_url" alt="Foto de {{ restaurante()?.nombre }}" style="max-width:300px;">
+	}
+	<ul class="detalle-datos">
+		<li><strong>ID:</strong> {{ restaurante()?.id }}</li>
+		<li><strong>Latitud:</strong> {{ restaurante()?.latitud }}</li>
+		<li><strong>Longitud:</strong> {{ restaurante()?.longitud }}</li>
+		<li><strong>Fecha creación:</strong> {{ restaurante()?.created_at }}</li>
+		<li><strong>Fecha actualización:</strong> {{ restaurante()?.updated_at }}</li>
+		<li><strong>Total recetas:</strong> {{ restaurante()?.total_recetas }}</li>
+		<li><button (click)="verRecetas()">Mostrar recetas</button></li>
+		<li><strong>Rating promedio:</strong> {{ restaurante()?.rating_summary?.average }}</li>
+		<li><strong>Votos:</strong> {{ restaurante()?.rating_summary?.count }}</li>
+		<!--
+			Senior Cat dice: Usamos getDistributionKeys() porque en Angular 17+ no se puede acceder a Object.keys directamente desde la plantilla.
+			Así evitamos el error y mantenemos la lógica en el componente.
+		-->
+		<li><strong>Distribución:</strong>
+			@if (restaurante()?.rating_summary?.distribution) {
+				@for (key of getDistributionKeys(); track key) {
+					<span>
+						{{key}}: {{restaurante()?.rating_summary?.distribution?.[key]}}&nbsp;
+					</span>
+				}
+			}
+		</li>
+	</ul>
+</div>

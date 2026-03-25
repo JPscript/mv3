@@ -1,13 +1,13 @@
 <div class="home-container">
-    @for (restaurant of fakeRestaurants; track restaurant.name) {
+    @for (restaurante of restaurantes; track restaurante.nombre) {
         <div class="restaurant-card-container">
             <app-restaurant-card
-                [name]="restaurant.name"
-                [description]="restaurant.description"
-                [picture]="restaurant.picture"
-                [lat]="restaurant.lat"
-                [lng]="restaurant.lng"
-                [rating]="restaurant.rating"
+                [id]="restaurante.id"
+                [nombre]="restaurante.nombre"
+                [descripcion]="restaurante.descripcion"
+                [fotografia_url]="restaurante.fotografia_url"
+                [latitud]="restaurante.latitud"
+                [longitud]="restaurante.longitud"
             />
         </div>
     }

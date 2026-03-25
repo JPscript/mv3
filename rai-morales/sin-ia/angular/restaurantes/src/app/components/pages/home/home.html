@@ -1,1 +1,10 @@
-<p>home works!</p>
+@for (restaurante of allRestaurantes; track restaurante.id) {
+    <app-restaurante-card
+        [id] = "restaurante.id"
+        [nombre] = "restaurante.nombre"
+        [descripcion] = "restaurante.descripcion"
+        [fotografia_url] = "restaurante.fotografia_url"
+        [lat] = "restaurante.latitud"
+        [lng] = "restaurante.longitud"
+    ></app-restaurante-card>
+}

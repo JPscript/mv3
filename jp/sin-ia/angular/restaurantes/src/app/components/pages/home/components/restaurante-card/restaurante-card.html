@@ -1,5 +1,12 @@
-<div class="restaurante-card">
-<p>Nombre: {{ nombre() }}</p>
-<p>Descripción: {{ descripcion() }}</p>
-<img src="{{ imagen() }}" alt="{{ nombre() }}">
-<p>Coordenadas: {{ lat() }}, {{ lng() }}</p></div>
+<!--
+	`routerLink` recibe un array con los fragmentos de la URL.
+	El ultimo fragmento es `id()`, o sea, el id dinamico del restaurante actual.
+	Resultado final de ejemplo: `/restaurantes/restaurante/3`
+-->
+<a [routerLink]="['/restaurantes/restaurante', id()]" class="restaurante-card">
+	<p>Nombre: {{ nombre() }}</p>
+	<p>Descripción: {{ descripcion() }}</p>
+	<img src="{{ imagen() }}" alt="{{ nombre() }}">
+	<p>Coordenadas: {{ lat() }}, {{ lng() }}</p>
+	<span>Ver detalle</span>
+</a>

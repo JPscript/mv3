@@ -1,0 +1,1 @@
+Hoy avanzamos en nuestro proyecto Restaurantes en Angular. Comenzamos repasando conceptos importantes, luego exploramos la API y aclaramos dudas sobre el proyecto. Posteriormente, dedicamos el resto del tiempo a trabajar de manera individual en cada uno de nuestros proyectos.

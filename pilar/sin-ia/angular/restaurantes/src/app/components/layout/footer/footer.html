@@ -3,21 +3,29 @@
 
         <div class="footer-top">
             <div class="footer-column">
-                <h4>Sobre nosotros</h4>
-                <a href="#">Quiénes somos</a>
-                <a href="#">Trabaja con nosotros</a>
+                <h4>Cuenta</h4>
+                <a [routerLink]="['/login']">Iniciar sesión</a>
+                <a [routerLink]="['/registro']">Registrarse</a>
             </div>
 
             <div class="footer-column">
                 <h4>Explorar</h4>
-                <a href="#">Recetas</a>
-                <a href="/restaurantes">Restaurantes</a>
+                <a [routerLink]="['/recetas']">Recetas</a>
+                <a [routerLink]="['/mapa']">Mapa</a>
+                <a [routerLink]="['/restaurantes']">Restaurantes</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>¿Qué quieres hacer?</h4>
+                <a [routerLink]="['/añadir-restaurante']">Añadir restaurantes</a>
+                <a [routerLink]="['/actualizar-restaurante']">Actualizar restaurantes</a>
+                <a [routerLink]="['/borrar-restaurante']">Borrar restaurantes</a>
             </div>
 
             <div class="footer-column">
                 <h4>Legal</h4>
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
+                <a [routerLink]="['/privacidad']">Privacidad</a>
+                <a [routerLink]="['/terminos']">Términos</a>
             </div>
         </div>
 
@@ -25,6 +33,7 @@
 
         <div class="footer-bottom">
             <div class="footer-social">
+                <!-- Los enlaces externos SIEMPRE mantienen href -->
                 <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                     <img src="/facebook.svg" alt="Facebook" width="24" height="24">
                 </a>
@@ -37,10 +46,11 @@
             </div>
 
             <div class="footer-copy">
-                <p>&copy; 2026 <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank"
-                        rel="noreferrer">
+                <p>&copy; 2026 
+                    <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank" rel="noreferrer">
                         Pilar Salvador
-                    </a></p>
+                    </a>
+                </p>
             </div>
         </div>
 

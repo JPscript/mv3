@@ -1,20 +1,30 @@
-# CLASE13 - Autenticación: Registro, Login, Guards e Interceptor JWT
+# CLASE13 - Primer servicio HTTP real en Angular 21
 
-**Fecha:** 2026-03-20 (estimada)
-**Horario:** 16:30 - 20:30
-**Receso:** 18:00 - 18:30
-**Nivel:** intermedio
-**Clase anterior de referencia:** jp/bitacora/CLASE12.md
-**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.
+**Fecha:** 2026-03-23  
+**Horario:** 16:30 - 20:30  
+**Receso:** 18:00 - 18:30  
+**Nivel:** intermedio  
+**Clase anterior de referencia:** jp/bitacora/CLASE12.md  
+**Lema del grupo Ladrillos:** Construyendo el futuro del desarrollo web, un ladrillo a la vez.  
 **Mentor de la sesión:** Senior Cat 🐱
 
 ---
 
 ## Contexto y continuidad con CLASE12
 
-En CLASE12 dimos escritura al proyecto: formularios, validaciones, POST y PATCH.
-Hoy instalamos la **puerta de seguridad del edificio**: solo usuarios autenticados pueden crear, editar y ver favoritos.
-Los tres pilares de hoy: `AuthService` (gestiona sesión), `AuthGuard` (controla acceso), `Interceptor` (automatiza el token).
+CLASE12 cerró la maqueta hardcodeada y dejó preparado el terreno para empezar a reemplazar datos falsos por datos reales. En esta sesión, Senior Cat nos hizo dar el primer paso importante: conectar `Home` con la API usando Angular 21 y entender con detalle qué hace cada pieza técnica.
+
+## Referencia visual del wireframe
+
+En la carpeta `jp/bitacora/CLASE 13-16/` hay un boceto que nos sirve como plano de obra. Ese wireframe deja ver cinco piezas muy claras del proyecto:
+
+- una página principal de restaurantes (`Home`),
+- una vista de detalle de restaurante,
+- una pantalla de `Login`,
+- una pantalla de `Registro`,
+- una pantalla de `Perfil`.
+
+Para CLASE13, el foco no era construir todo ese edificio todavía, sino colocar el primer ladrillo técnico que sostiene el resto: traer el listado real de restaurantes para que la página principal dejara de depender de datos inventados.
 
 ---
 
@@ -22,273 +32,212 @@ Los tres pilares de hoy: `AuthService` (gestiona sesión), `AuthGuard` (controla
 
 ### Tema central
 
-JWT, `AuthService` con signals, `CanActivateFn` guard y `HttpInterceptorFn` para envío automático del token.
+Crear el primer servicio HTTP real en Angular 21, registrarlo correctamente en `app.config.ts`, definir una `interface` para tipar la respuesta y consumir `GET /restaurants` desde `Home`.
 
 ### Objetivo general
 
-1. Formularios de registro y login conectados con la API.
-2. Token JWT guardado en `localStorage`.
-3. Guard que bloquea rutas privadas si no hay sesión.
-4. Interceptor que añade el header `Authorization: Bearer <token>` automáticamente.
-5. Menú que cambia según si hay sesión activa o no.
+1. Entender cómo Angular 21 configura HTTP con `provideHttpClient()`.
+2. Generar un servicio con `ng g s` y observar el cambio de naming del CLI moderno.
+3. Crear y comprender una `interface` TypeScript para la respuesta de restaurantes.
+4. Consumir `GET /restaurants` desde `Home` con `Observable` y `subscribe`.
+5. Diferenciar claramente `interface`, `type` y la idea de contrato de forma.
 
 ---
 
-## Conceptos clave del día
+## Qué hicimos realmente en esta clase
 
-### ¿Qué es JWT?
+Si miramos el wireframe, esta clase corresponde sobre todo al primer bloque visual del proyecto: la pantalla de restaurantes. Ahí aparecen una cabecera, un buscador, una lista de tarjetas y la entrada hacia una vista más detallada. Por eso tuvo sentido empezar por `GET /restaurants`: antes de pensar en login, mapa o perfil, Senior Cat nos hizo asegurar que la base del listado estuviera viva con datos reales.
 
-```
-JSON Web Token — un token firmado que el servidor entrega al loguearse.
-Estructura: HEADER.PAYLOAD.SIGNATURE (tres partes separadas por punto)
+### 1. Configuración global de HTTP en Angular 21
 
-- HEADER: algoritmo de firma
-- PAYLOAD: datos del usuario (id, email, rol) — NO guardes contraseñas aquí
-- SIGNATURE: garantiza que el token no fue alterado
+En `restaurantes2`, añadimos `provideHttpClient()` dentro de `app.config.ts` para que Angular pudiera inyectar `HttpClient` en los servicios.
 
-El cliente guarda el token y lo envía en cada petición:
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+Idea clave:
 
-El servidor verifica la firma y sabe quién eres sin consultar la DB cada vez.
-```
+- `app.config.ts` concentra infraestructura global,
+- `provideRouter(routes)` activa rutas,
+- `provideHttpClient()` activa el cliente HTTP.
 
-### AuthService — gestión de sesión con signals
+Sin ese paso, el servicio podía estar bien escrito, pero Angular no sabría entregar una instancia de `HttpClient`.
 
-```typescript
-// servicios/auth.service.ts
-import { Injectable, inject, signal, computed } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { tap } from "rxjs/operators";
+### 2. Generación del servicio con Angular 21
 
-interface LoginResponse {
-  access_token: string;
-  usuario: { id: number; email: string; nombre: string };
-}
-
-@Injectable({ providedIn: "root" })
-export class AuthService {
-  private http = inject(HttpClient);
-  private apiUrl = "http://localhost:3000";
-
-  // signal = valor reactivo. Cuando cambia, Angular actualiza el template automáticamente.
-  // Diferencia con una variable normal: Angular "escucha" el signal.
-  private _usuario = signal<LoginResponse["usuario"] | null>(null);
-
-  // computed = valor calculado que depende de otro signal
-  usuario = this._usuario.asReadonly();
-  estaLogueado = computed(() => this._usuario() !== null);
-
-  constructor() {
-    // Al iniciar la app, restaurar sesión si hay token guardado
-    this.restaurarSesion();
-  }
-
-  registro(datos: { nombre: string; email: string; password: string }) {
-    return this.http.post(`${this.apiUrl}/users/register`, datos);
-  }
-
-  login(email: string, password: string) {
-    return this.http
-      .post<LoginResponse>(`${this.apiUrl}/users/login`, { email, password })
-      .pipe(
-        // tap ejecuta un efecto secundario sin modificar el valor del Observable
-        tap((res) => {
-          localStorage.setItem("token", res.access_token);
-          this._usuario.set(res.usuario);
-        }),
-      );
-  }
-
-  logout() {
-    localStorage.removeItem("token");
-    this._usuario.set(null);
-  }
-
-  getToken(): string | null {
-    return localStorage.getItem("token");
-  }
-
-  private restaurarSesion() {
-    const token = this.getToken();
-    if (token) {
-      // Opcional: decodificar el payload del JWT para restaurar el usuario
-      // Sin llamar a la API (el token ya tiene los datos del usuario en el payload)
-      try {
-        const payload = JSON.parse(atob(token.split(".")[1]));
-        // Verificar que el token no ha expirado
-        if (payload.exp * 1000 > Date.now()) {
-          this._usuario.set({
-            id: payload.sub,
-            email: payload.email,
-            nombre: payload.nombre,
-          });
-        } else {
-          // Token expirado: limpiar
-          this.logout();
-        }
-      } catch {
-        this.logout();
-      }
-    }
-  }
-}
-```
-
-### AuthGuard — proteger rutas
-
-```typescript
-// guards/auth.guard.ts
-// CanActivateFn es la forma moderna (funcional) de los guards en Angular 16+
-// No necesita clase, es solo una función.
-import { inject } from "@angular/core";
-import { CanActivateFn, Router } from "@angular/router";
-import { AuthService } from "../servicios/auth.service";
-
-export const authGuard: CanActivateFn = () => {
-  const auth = inject(AuthService);
-  const router = inject(Router);
-
-  if (auth.estaLogueado()) {
-    return true; // permite el acceso
-  }
-
-  // Si no está logueado, redirige al login
-  return router.createUrlTree(["/login"]);
-};
-
-// Cómo usarlo en las rutas:
-// { path: 'favoritos', component: FavoritosComponent, canActivate: [authGuard] }
-```
-
-### HttpInterceptor — enviar el token automáticamente
-
-```typescript
-// interceptors/auth.interceptor.ts
-// El interceptor es como un guardia en la puerta de salida:
-// revisa CADA petición HTTP y añade el token si existe.
-// Así no tienes que añadirlo manualmente en cada servicio.
-import { HttpInterceptorFn } from "@angular/common/http";
-import { inject } from "@angular/core";
-import { AuthService } from "../servicios/auth.service";
-
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const auth = inject(AuthService);
-  const token = auth.getToken();
-
-  if (token) {
-    // clone() crea una copia inmutable de la petición con las modificaciones
-    // Las peticiones HTTP son inmutables — no se pueden modificar directamente
-    const reqConToken = req.clone({
-      setHeaders: { Authorization: `Bearer ${token}` },
-    });
-    return next(reqConToken);
-  }
-
-  // Sin token: pasa la petición original sin modificar
-  return next(req);
-};
-
-// Registrarlo en app.config.ts:
-// provideHttpClient(withInterceptors([authInterceptor]))
-```
-
----
-
-## Referencia rápida: comandos del día
+Generamos el servicio con CLI moderno:
 
 ```bash
-# Guard funcional
-ng g guard guards/auth
-
-# Los interceptores se crean manualmente (no hay schematic oficial para funcionales)
-# Crear el archivo: interceptors/auth.interceptor.ts
+ng g s restaurantes
 ```
+
+Primeras llamadas trabajadas en clase:
+
+- `GET /restaurants`
+- `GET /restaurants/:id`
+
+Angular 21 ya no obliga a generar nombres como `RestaurantesService` o archivos `restaurantes.service.ts` por defecto. El CLI moderno reduce boilerplate y genera nombres más cortos. Aun así, se explicó que seguir usando el sufijo `Service` puede ser una convención válida si el equipo quiere más claridad.
+
+### 3. Creación de la interface `Restaurante`
+
+Definimos una `interface` para describir la forma de los datos que devuelve la API.
+
+Puntos explicados en clase:
+
+- una `interface` no crea objetos,
+- una `interface` no existe en runtime,
+- una `interface` describe la forma esperada de un objeto,
+- funciona como contrato entre backend, servicio y componente.
+
+También se aclaró por qué muchas veces se usa `interface` para objetos de dominio y no `type`:
+
+- `interface` expresa muy bien un contrato de objeto,
+- `type` es más general y flexible,
+- `type` se reserva mejor para uniones, intersecciones, tuplas o alias más complejos,
+- para un modelo como `Restaurante`, `interface` se entiende muy bien en una primera etapa de aprendizaje.
+
+### 4. Creación del servicio HTTP real
+
+El servicio generado quedó responsable de hablar con la API y no de pintar nada en pantalla.
+
+Conceptos trabajados:
+
+- `@Injectable({ providedIn: 'root' })`,
+- `inject(HttpClient)` como forma moderna de pedir dependencias,
+- `private readonly` para expresar intención,
+- `Observable<Restaurante[]>` como tipo de retorno de una petición HTTP,
+- métodos `getAll()` y `getById(id)`.
+
+Se insistió mucho en esta separación:
+
+- el componente muestra datos,
+- el servicio llama a la API,
+- la interface tipa la respuesta.
+
+### 5. Uso del servicio dentro de `Home`
+
+En `Home` dejamos de usar datos hardcodeados y pasamos a consumir `getAll()`.
+
+Puntos explicados paso a paso:
+
+- inyección del servicio con `inject(Restaurantes)`,
+- creación del estado local `restaurantes: Restaurante[] = []`,
+- uso de `errorMessage` para mostrar fallos de carga,
+- carga automática dentro de `ngOnInit()`,
+- uso de `subscribe({ next, error })` para reaccionar a la respuesta.
+
+Aquí apareció uno de los conceptos clave de la clase:
+
+- `Observable` no es el dato en sí,
+- `Observable` es el flujo por el que el dato llegará,
+- `subscribe()` es el lugar donde reaccionamos cuando la respuesta llega o falla.
 
 ---
 
-## Código guiado: rutas protegidas y menú dinámico
+## Configuración base de servicios en Angular moderno
 
-### Rutas con guard en app.routes.ts
+La idea en Angular moderno, incluyendo Angular 21 con enfoque standalone, quedó así:
 
-```typescript
-import { authGuard } from "./guards/auth.guard";
+1. `main.ts` arranca la aplicación,
+2. `app.config.ts` registra router y cliente HTTP,
+3. cada servicio se genera con `ng g s`,
+4. cada servicio puede usar `inject(HttpClient)` como forma moderna,
+5. los componentes consumen los servicios y ya no guardan la lógica HTTP dentro de ellos.
 
-export const routes: Routes = [
-  { path: "restaurantes", component: RestauranteListaComponent },
-  { path: "restaurantes/:id", component: RestauranteDetalleComponent },
-  {
-    path: "restaurantes/nuevo",
-    component: RestauranteFormComponent,
-    canActivate: [authGuard],
-  },
-  {
-    path: "favoritos",
-    component: FavoritosComponent,
-    canActivate: [authGuard],
-  },
-  { path: "login", component: LoginComponent },
-  { path: "registro", component: RegistroComponent },
-  { path: "", redirectTo: "restaurantes", pathMatch: "full" },
-  { path: "**", redirectTo: "restaurantes" },
-];
+### `app.config.ts`
+
+```ts
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+	providers: [
+		provideBrowserGlobalErrorListeners(),
+		provideRouter(routes),
+		provideHttpClient(),
+	],
+};
 ```
 
-### Menú dinámico según sesión
+### Estructura sugerida para servicios
 
-```html
-<!-- nav.component.html -->
-<nav>
-  <a [routerLink]="['/restaurantes']">Restaurantes</a>
-
-  @if (auth.estaLogueado()) {
-  <!-- Solo visible si hay sesión -->
-  <a [routerLink]="['/favoritos']">Mis favoritos</a>
-  <a [routerLink]="['/restaurantes/nuevo']">+ Añadir</a>
-  <span>Hola, {{ auth.usuario()?.nombre }}</span>
-  <button (click)="auth.logout()">Cerrar sesión</button>
-  } @else {
-  <a [routerLink]="['/login']">Iniciar sesión</a>
-  <a [routerLink]="['/registro']">Registrarse</a>
-  }
-</nav>
+```text
+src/app/
+├─ components/pages/home/services/
+│  └─ restaurantes.ts
+├─ interfaces/
+│  └─ restaurante.ts
+└─ app.config.ts
 ```
+
+### Ejemplo de servicio en Angular moderno
+
+```ts
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Restaurante } from '../interfaces/restaurante';
+
+@Injectable({ providedIn: 'root' })
+export class Restaurantes {
+	private readonly http = inject(HttpClient);
+	private readonly apiUrl = 'http://127.0.0.1:3000';
+
+	getAll(): Observable<Restaurante[]> {
+		return this.http.get<Restaurante[]>(`${this.apiUrl}/restaurants`);
+	}
+
+	getById(id: number): Observable<Restaurante> {
+		return this.http.get<Restaurante>(`${this.apiUrl}/restaurants/${id}`);
+	}
+}
+```
+### Regla práctica consolidada en esta clase
+
+- componentes muestran y reaccionan,
+- servicios llaman a la API,
+- interfaces tipan respuestas,
+- `app.config.ts` concentra la infraestructura global.
 
 ---
 
 ## Plan por bloques de tiempo
 
-### 16:30 - 16:50 | Repaso CLASE12 + concepto JWT
+### 16:30 - 16:50 | Repaso de CLASE12 y estrategia de conexión
 
-- ¿Qué problema resuelve JWT?
-- Estructura del token (mostrar un token real en jwt.io).
-- Flujo completo: registro → login → token → peticiones autenticadas.
+- Revisar qué pantallas van primero a datos reales.
+- Presentar el orden lógico de conexión.
 
-### 16:50 - 17:30 | AuthService + formularios de login/registro
+### 16:50 - 17:30 | `provideHttpClient` y primer servicio real
 
-- `AuthService` con signals.
-- Componentes `LoginComponent` y `RegistroComponent` con Reactive Forms.
-- Probar login: token en `localStorage`.
+- Configurar cliente HTTP.
+- Crear servicio Angular con CLI moderno.
+- Hacer la primera llamada a `GET /restaurants`.
+- Dejar preparada la `interface Restaurante` y la URL base de la API.
 
-### 17:30 - 18:00 | AuthGuard
+### 17:30 - 18:00 | Entender la teoría detrás del código
 
-- Crear y configurar `authGuard`.
-- Probar: intentar acceder a `/restaurantes/nuevo` sin estar logueado.
+- Explicar qué es un servicio.
+- Explicar qué es `inject(HttpClient)`.
+- Explicar qué es un `Observable`.
+- Explicar qué hacen `next` y `error` dentro de `subscribe()`.
+- Explicar por qué se usó `interface` y no `type` para `Restaurante`.
 
 ### 18:00 - 18:30 | ⏸ RECESO
 
-### 18:30 - 19:15 | Interceptor JWT
+### 18:30 - 19:15 | `Home` consumiendo el servicio
 
-- Crear `authInterceptor`.
-- Registrarlo con `withInterceptors([authInterceptor])`.
-- Verificar en DevTools → Network que el header llega a la API.
+- Reemplazar datos fake por datos reales.
+- Cargar restaurantes en `ngOnInit()`.
+- Mostrar errores de carga en pantalla.
+- Enviar datos reales al componente `RestauranteCard`.
 
-### 19:15 - 20:00 | Práctica autónoma
+### 19:15 - 20:00 | Lectura comentada del código
 
-- Menú dinámico (logueado / sin sesión).
-- Redirigir al login al cerrar sesión.
-- sin-ia: menú estático con condición; con-ia: signal de sesión reactivo.
+- Comentar `app.config.ts`, `restaurantes.ts`, `home.ts`, `home.html` e `interface`.
+- Explicar cada import y cada concepto nuevo con detalle.
+- Dejar la base lista para que en la siguiente clase se consuma también `getById()`.
 
-### 20:00 - 20:30 | Revisión + cierre
+### 20:00 - 20:30 | Cierre
 
 ---
 
@@ -296,46 +245,48 @@ export const routes: Routes = [
 
 ### sin-ia
 
-1. Formulario de login conectado a la API que guarda el token en `localStorage`.
-2. Guard que redirige a `/login` si no hay token.
-3. Menú con `@if (auth.estaLogueado())` para mostrar opciones según sesión.
-4. Probar el interceptor viendo el header en DevTools → Network.
+1. Conectar `HomeComponent` con `GET /restaurants`.
+2. Crear la `interface Restaurante` según la respuesta del backend.
+3. Explicar por escrito qué significa `private readonly`, `Observable` y `subscribe()`.
+4. Diferenciar con sus palabras cuándo usar `interface` y cuándo usar `type`.
+5. Dejar `Home` cargando restaurantes reales al iniciar.
 
 ### con-ia
 
-1. Todo lo anterior + `AuthService` con signal reactivo.
-2. Pedir a la IA que implemente el refresco automático del token cuando expira.
-3. Añadir un guard de rol: solo usuarios con `rol: 'admin'` pueden crear restaurantes.
-
-**Prompt sugerido para con-ia:**
-
-> "Tengo un AuthService en Angular con signals que guarda el JWT en localStorage. Genera un interceptor que detecte respuestas con error 401 (token expirado) y llame automáticamente a un endpoint de refresh token antes de reintentar la petición original. Explica el operador RxJS que necesitas."
+1. Pedir a la IA ayuda para definir la `interface Restaurante` y revisar si coincide con el backend real.
+2. Pedir a la IA una propuesta de servicio HTTP moderno con `inject(HttpClient)` y justificar cada línea.
+3. Pedir a la IA explicación de `Observable`, `next`, `error` y `subscribe()` y reformularla con palabras propias.
+4. Pedir a la IA la diferencia entre `interface` y `type` y resumirla con un ejemplo del proyecto.
+5. Pedir a la IA comentarios pedagógicos dentro del código y revisar que no cambien la lógica.
 
 ---
 
 ## Entregables mínimos del día
 
-- [ ] Login funcional guardando JWT en `localStorage`.
-- [ ] Rutas privadas bloqueadas sin sesión.
-- [ ] Interceptor añadiendo `Authorization: Bearer` en cada petición.
-- [ ] Menú que cambia según estado de sesión.
+- [ ] Servicio HTTP configurado.
+- [ ] `provideHttpClient()` añadido en `app.config.ts`.
+- [ ] `interface Restaurante` creada y explicada.
+- [ ] Home consumiendo restaurantes reales con `getAll()`.
+- [ ] Explicación escrita de `Observable`, `subscribe`, `next` y `error`.
+- [ ] Explicación escrita de `interface` frente a `type`.
 - [ ] Dudas en `DUDAS.md`.
 
 ---
 
 ## Checklist de cierre
 
-- [ ] Entiendo qué es un JWT y qué contiene el payload.
-- [ ] Sé cuándo usar `signal()` vs una variable normal.
-- [ ] Mi guard redirige correctamente a `/login` cuando no hay sesión.
-- [ ] Comprobé en DevTools que el header `Authorization` llega a la API.
-- [ ] Autoevaluación personal (1-5).
+- [ ] Sé crear un servicio Angular para llamar a la API.
+- [ ] Entiendo qué se configura en `app.config.ts` y qué se deja dentro de cada servicio.
+- [ ] Entiendo qué es una `interface` y por qué la usamos con objetos de API.
+- [ ] Entiendo qué es un `Observable` y por qué una petición HTTP no devuelve el dato al instante.
+- [ ] Entiendo qué hace `subscribe()`.
+- [ ] Distingo razonablemente entre `interface` y `type`.
+- [ ] Autoevaluación personal completada (1-5).
 
 ---
 
-## Predicción CLASE14
+## Predicción de la siguiente clase (CLASE14)
 
-1. Comentarios por restaurante: listar, crear y moderar.
-2. Sistema de puntuación de estrellas (1-5) por usuario.
-3. Favoritos: añadir y quitar restaurantes de la lista personal.
-4. Integrar todo con el estado de sesión del `AuthService`.
+1. Consumir `getById(id)` para el detalle de restaurante.
+2. Empezar a mostrar `total_recetas` y `rating_summary` en la interfaz.
+3. Seguir quitando hardcoded y acercar más la app a `api-recetas`.

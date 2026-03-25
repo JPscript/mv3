@@ -11,9 +11,9 @@ import { Mapa } from './components/pages/mapa/mapa';
 export const routes: Routes = [
     { path: '', redirectTo: 'restaurantes', pathMatch: 'full' },
     { path: 'restaurantes', title: 'Restaurantes', component: Home},
-    { path: 'restaurantes/restaurante', title: 'Restaurantes', component: Restaurante},
-    { path: 'restaurantes/crear-restaurante', title: 'Restaurantes', component: CrearRestaurante},
-    { path: 'restaurantes/actualizar-restaurante', title: 'Restaurantes', component: ActualizarRestaurante},
+    { path: 'restaurantes/crear-restaurante', title: 'CrearRestaurantes', component: CrearRestaurante},
+    { path: 'restaurantes/actualizar-restaurante', title: 'ActualizarRestaurantes', component: ActualizarRestaurante},
+    { path: 'restaurantes/:id', title: 'UnicoRestaurante', component: Restaurante},
     { path: 'login', title: 'Login', component: Login},
     { path: 'registro', title: 'Registro', component: Registro},
     { path: 'perfil', title: 'Perfil', component: Perfil},

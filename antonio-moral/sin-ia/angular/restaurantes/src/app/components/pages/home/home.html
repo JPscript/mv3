@@ -1,10 +1,24 @@
-<p>home works!</p>
-@for (restaurante of restaurantesFake; track restaurante.id) {
+<h1>Restaurantes</h1>
+<div class="cards-container">
+@for (restaurante of restaurantes; track restaurante.id) {
     <app-restaurante-card
+      [id]="restaurante.id"
     [nombre]="restaurante.nombre"
     [descripcion]="restaurante.descripcion"
-    [imagen]="restaurante.imagen"
-    [lat]="restaurante.coordenadas.lat"
-    [lng]="restaurante.coordenadas.lng">
+    [imagen]="restaurante.fotografia_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
+    >
     </app-restaurante-card>
 }
+</div>
+
+
+
+<hr>
+<h1>Recetas</h1>
+
+
+<hr>
+<h1>Comentarios</h1>
+

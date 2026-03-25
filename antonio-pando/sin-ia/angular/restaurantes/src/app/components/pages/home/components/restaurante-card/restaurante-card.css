@@ -9,6 +9,7 @@
     width: 30dvw;
     height: 50dvh;
     box-shadow: 10px 10px 5px lightsteelblue;
+    max-width: 600px;
 }
 
 .tarjetaRestaurante p{

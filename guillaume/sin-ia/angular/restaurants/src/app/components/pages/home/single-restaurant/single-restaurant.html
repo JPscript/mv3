@@ -1,1 +1,19 @@
-<p>single-restaurant works!</p>
+<div class="restaurant-container">
+    <img src="{{ restaurante?.fotografia_url }}" alt="A picture of the restaurant" class="restaurant-picture">
+    <div class="right">
+        <h2>{{ restaurante?.nombre }}</h2>
+        <p>{{ restaurante?.descripcion }}</p>
+        @for (receta of recetas; track receta.nombre) {
+        <app-receta
+            [id]="receta.id"
+            [restaurant_id]="receta.restaurant_id"
+            [nombre]="receta.nombre"
+            [descripcion]="receta.descripcion"
+            [ingredientes]="receta.ingredientes"
+            [tiempo_min]="receta.tiempo_min"
+            [dificultad]="receta.dificultad"
+            [image_url]="receta.image_url"
+        />
+        }
+    </div>
+</div>

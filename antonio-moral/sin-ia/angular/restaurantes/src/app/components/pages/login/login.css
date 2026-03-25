@@ -1,0 +1,75 @@
+/* Título */
+h1 {
+  font-family: verdana;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Contenedor centrado vertical y horizontal */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+/* Formulario */
+form {
+  border-radius: 10px;
+  border: 3px solid #1a1a2e; 
+  background: white;
+  width: 300px;
+  padding: 50px;
+  text-align: center;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+form:hover {
+  border-color: #00ff41; 
+  box-shadow: 0 0 10px #00ff41,
+              0 0 20px #00ff41;
+}
+
+/* Botón de submit */
+#formulario button[type="submit"] {
+  width: 150px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 3px solid #1a1a2e; 
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+#formulario button[type="submit"]:hover {
+  border-color: #0087ff; 
+  box-shadow: 0 0 10px #0087ff,
+              0 0 20px #0087ff;
+  color: #0087ff;
+  transform: scale(1.05);
+}
+
+.registro {
+  font-family: verdana;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Contenedor centrado vertical y horizontal */
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.registro {
+  cursor: pointer;
+  pointer-events: auto;
+  color: blue; 
+  text-decoration: underline; 
+}

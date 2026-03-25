@@ -1,7 +1,30 @@
-<div class="card">
-    <img [src]="imagen" class="card-img-top" alt="Imagen del restaurante">
-    <h2 class="card-title">{{ nombre }}</h2>
-    <p class="card-direccion">{{ direccion }}</p>
-    <p class="card-telefono">{{ telefono }}</p>
+<!--
+    Componente visual para mostrar la información de un restaurante.
+    Senior Cat dice: Cada tarjeta es un ladrillo visual que muestra los datos recibidos.
+    Al hacer click, se avisa al padre para navegar al detalle.
+-->
+<div class="card" (click)="onCardClick()">
+    <img [src]="imagen()" class="card-img-top" alt="Imagen del restaurante">
+    <h2 class="card-title">{{ nombre() }}</h2>
+    <p class="card-descripcion">{{ descripcion() }}</p>
+    <ul class="card-datos">
+        <li><strong>ID:</strong> {{ id() }}</li>
+        <li><strong>Latitud:</strong> {{ latitud() }}</li>
+        <li><strong>Longitud:</strong> {{ longitud() }}</li>
+        <li><strong>Fecha creación:</strong> {{ created_at() }}</li>
+        <li><strong>Fecha actualización:</strong> {{ updated_at() }}</li>
+        <li><strong>Total recetas:</strong> {{ total_recetas() }}</li>
+        <li><strong>Rating promedio:</strong> {{ rating_summary()?.average }}</li>
+        <li><strong>Votos:</strong> {{ rating_summary()?.count }}</li>
+        <li><strong>Distribución:</strong>
+                @if (rating_summary()?.distribution) {
+                    @for (key of getDistributionKeys(); track key) {
+                        <span>
+                            {{key}}: {{rating_summary()?.distribution?.[key]}}&nbsp;
+                        </span>
+                    }
+                }
+        </li>
+    </ul>
 </div>
 

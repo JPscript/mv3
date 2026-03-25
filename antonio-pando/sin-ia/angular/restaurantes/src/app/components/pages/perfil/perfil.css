@@ -1,0 +1,19 @@
+#contenedorPerfil{
+    display: flex;
+    align-items: center;
+    margin: 10dvw;
+    background-color: #80ced2;
+    width: 45dvw;
+    padding: 1dvw;
+    border-radius: 8px;
+}
+
+#informacion{
+    margin: 3dvw;
+}
+
+#imagenPerfil{
+    border-radius: 100%;
+    width: 15dvw;
+    margin-left: 1dvw;
+}

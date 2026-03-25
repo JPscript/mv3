@@ -1,16 +1,20 @@
 :host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   min-height: calc(100vh - 120px);
-  padding: 32px;
+  padding: 24px;
 }
 
-p {
-  color: #8b949e;
-  font-size: 1rem;
-  background: #1a1d27;
-  padding: 24px 40px;
-  border-radius: 12px;
-  border: 1px dashed #30363d;
+.map-page {
+  height: calc(100vh - 168px);
+  min-height: 420px;
+  background: var(--surface-1);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
 }

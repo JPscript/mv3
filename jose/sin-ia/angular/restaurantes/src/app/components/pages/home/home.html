@@ -1,12 +1,49 @@
-<p>home works!</p>
-<div>
-<div *ngFor="let restaurante of restaurantes; trackBy: trackId">
+
+<!--
+  Página principal que muestra la lista de restaurantes.
+  Senior Cat dice: Aquí se construye la vista principal, mostrando todas las tarjetas.
+  Cada sección está comentada para explicar su propósito y funcionamiento.
+-->
+
+<!-- Título principal de la página (como el letrero de la obra) -->
+<h1>Lista de Restaurantes</h1>
+
+<!-- Barra de navegación principal (puedes ir a login o registro) -->
+<nav class="main-nav">
+  <!-- Enlace para ir a la página de inicio de sesión -->
+  <a routerLink="/login" class="nav-link">Iniciar sesión</a>
+  <!-- Enlace para ir a la página de registro de usuario -->
+  <a routerLink="/registro" class="nav-link">Registrarse</a>
+</nav>
+
+<!-- Contenedor de las tarjetas de restaurantes (cada una es un ladrillo visual) -->
+<div class="tarjetas-container">
+  <!--
+    Bucle reactivo con la directiva @for de Angular:
+    - Recorre la lista de restaurantes obtenida desde el componente TypeScript.
+    - track restaurante.id: ayuda a Angular a identificar cada elemento de forma única para optimizar el renderizado.
+  -->
+  @for (restaurante of listaRestaurantes(); track restaurante.id) {
+    <!--
+      Componente personalizado para mostrar la información de cada restaurante.
+      Se pasan los datos como propiedades:
+        - nombre: nombre del restaurante
+        - descripcion: breve descripción
+        - imagen: URL de la fotografía
+    -->
+    <!-- Cada tarjeta representa un restaurante. Al hacer click, navega al detalle -->
     <app-restaurante-card
-        [nombre]="restaurante.nombre"
-        [telefono]="restaurante.telefono"
-        [direccion]="restaurante.direccion"
-        [imagen]="restaurante.imagen">
+      [id]="restaurante.id"
+      [nombre]="restaurante.nombre"
+      [descripcion]="restaurante.descripcion"
+      [imagen]="restaurante.fotografia_url"
+      [latitud]="restaurante.latitud"
+      [longitud]="restaurante.longitud"
+      [created_at]="restaurante.created_at"
+      [updated_at]="restaurante.updated_at"
+      [total_recetas]="restaurante.total_recetas"
+      [rating_summary]="restaurante.rating_summary"
+      (verDetalle)="irADetalle($event)">
     </app-restaurante-card>
+  }
 </div>
-</div>
- 

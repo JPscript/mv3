@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="home-wrapper">
+  <div class="grid-container">
+   @for (restaurante of restaurantes; track restaurante.id) {
+  <app-restaurante-card
+    [id]="restaurante.id"
+    [nombre]="restaurante.nombre"
+    [descripcion]="restaurante.descripcion"
+    [imagen]="restaurante.fotografia_url"
+    [lat]="restaurante.latitud"
+    [lng]="restaurante.longitud"
+  ></app-restaurante-card>
+}
+  </div>
+</div>
