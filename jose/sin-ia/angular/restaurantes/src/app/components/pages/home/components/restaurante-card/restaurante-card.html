@@ -4,11 +4,25 @@
     Al hacer click, se avisa al padre para navegar al detalle.
 -->
 <div class="card" (click)="onCardClick()">
-    <!-- Imagen principal del restaurante. El atributo [src] enlaza dinámicamente la URL recibida como input. -->
-    <img [src]="imagen" class="card-img-top" alt="Imagen del restaurante">
-    <!-- Título con el nombre del restaurante. Se muestra usando la función nombre() para obtener el valor reactivo. -->
+    <img [src]="imagen()" class="card-img-top" alt="Imagen del restaurante">
     <h2 class="card-title">{{ nombre() }}</h2>
-    <!-- Descripción breve del restaurante. También se obtiene de forma reactiva. -->
     <p class="card-descripcion">{{ descripcion() }}</p>
+    <ul class="card-datos">
+        <li><strong>ID:</strong> {{ id() }}</li>
+        <li><strong>Latitud:</strong> {{ latitud() }}</li>
+        <li><strong>Longitud:</strong> {{ longitud() }}</li>
+        <li><strong>Fecha creación:</strong> {{ created_at() }}</li>
+        <li><strong>Fecha actualización:</strong> {{ updated_at() }}</li>
+        <li><strong>Total recetas:</strong> {{ total_recetas() }}</li>
+        <li><strong>Rating promedio:</strong> {{ rating_summary()?.average }}</li>
+        <li><strong>Votos:</strong> {{ rating_summary()?.count }}</li>
+        <li><strong>Distribución:</strong>
+                <span *ngIf="rating_summary()?.distribution">
+                    <span *ngFor="let key of getDistributionKeys()">
+                        {{key}}: {{rating_summary()?.distribution?.[key]}}&nbsp;
+                    </span>
+                </span>
+        </li>
+    </ul>
 </div>
 

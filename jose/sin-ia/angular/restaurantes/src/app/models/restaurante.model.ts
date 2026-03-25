@@ -6,5 +6,16 @@ export interface Restaurante {
   nombre: string;
   descripcion: string;
   fotografia_url: string;
-  // Agrega aquí otros campos si tu API los devuelve (por ejemplo: direccion, telefono, etc.)
+  latitud: number;
+  longitud: number;
+  created_at: string;
+  updated_at: string;
+  total_recetas: number;
+  rating_summary: {
+    average: number;
+    count: number;
+    distribution: {
+      [key: string]: number; // Ejemplo: "1": 0, "2": 0, ...
+    };
+  };
 }

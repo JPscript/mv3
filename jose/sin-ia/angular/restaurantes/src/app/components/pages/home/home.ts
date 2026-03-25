@@ -40,8 +40,8 @@ export class Home implements OnInit {
   // Método especial de Angular que se ejecuta al iniciar el componente.
   ngOnInit() {
     // Al iniciar el componente, pide la lista de restaurantes al servicio.
-    this.restauranteService.getRestaurantes().subscribe(
-      (data) => {
+    this.restauranteService.getRestaurantes().subscribe({
+      next: (data) => {
         // Cuando llegan los datos, se muestran en consola para depuración.
         console.log('Restaurantes recibidos:', data);
         if (Array.isArray(data)) {
@@ -57,11 +57,11 @@ export class Home implements OnInit {
         // Actualiza el signal para que la vista se refresque con los nuevos datos.
         this.listaRestaurantes.set(data);
       },
-      (error) => {
+      error: (error) => {
         // Si hay un error al pedir los datos, se muestra en consola.
         console.error('Error al cargar restaurantes', error);
       }
-    );
+    });
   }
 
   // trackId: función que ayuda a Angular a identificar cada restaurante de forma única en la lista.

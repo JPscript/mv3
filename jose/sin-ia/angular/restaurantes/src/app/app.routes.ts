@@ -7,7 +7,7 @@ import { Login } from './components/pages/login/login';
 import { Registro } from './components/pages/registro/registro';
 import { Perfil } from './components/pages/perfil/perfil';
 import { Mapa } from './components/pages/mapa/mapa';
-
+import { RecetasPorRestaurante } from './components/pages/recetas-por-restaurante/recetas-por-restaurante';
 export const routes: Routes = [
     {path: '', redirectTo: '/restaurantes', pathMatch: 'full'},
     {path: "restaurantes", title: "Restaurantes", component: Home},
@@ -18,5 +18,6 @@ export const routes: Routes = [
     {path: 'registro', title: "Registro", component: Registro},
     {path: 'perfil', title: "Perfil", component: Perfil},
     {path: 'mapa', title:"Mapa", component: Mapa},
-    {path: '**', redirectTo: '/restaurantes'}
+    {path: '**', redirectTo: '/restaurantes'},
+    { path: 'restaurantes/:id/recetas', title: 'Recetas', component: RecetasPorRestaurante }
 ];

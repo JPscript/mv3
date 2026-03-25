@@ -1,0 +1,7 @@
+<h2>Recetas de este restaurante</h2>
+<ul>
+  <li *ngFor="let receta of recetas()">
+    <strong>{{ receta.nombre }}</strong> - {{ receta.tiempo_min }} min<br>
+    {{ receta.descripcion }}
+  </li>
+</ul>
