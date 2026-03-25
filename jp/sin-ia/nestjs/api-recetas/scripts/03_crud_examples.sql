@@ -1,3 +1,7 @@
+\set ON_ERROR_STOP on
+\encoding UTF8
+SET client_encoding = 'UTF8';
+
 SELECT id, nombre, descripcion, latitud, longitud
 FROM public.restaurants
 ORDER BY id ASC;

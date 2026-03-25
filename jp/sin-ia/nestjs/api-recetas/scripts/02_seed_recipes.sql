@@ -1,3 +1,7 @@
+\set ON_ERROR_STOP on
+\encoding UTF8
+SET client_encoding = 'UTF8';
+
 TRUNCATE TABLE public.ratings, public.comments, public.recipes, public.restaurants, public.users RESTART IDENTITY CASCADE;
 
 -- Todos los usuarios seed usan la misma clave de clase: seniorcat123

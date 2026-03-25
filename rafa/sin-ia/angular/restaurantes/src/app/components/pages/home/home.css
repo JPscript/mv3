@@ -1,0 +1,21 @@
+/* Home Container - Grid de restaurantes */
+.home-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    padding: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        gap: 1rem;
+    }
+}

@@ -1,3 +1,7 @@
+\set ON_ERROR_STOP on
+\encoding UTF8
+SET client_encoding = 'UTF8';
+
 CREATE TABLE IF NOT EXISTS public.users (
   id SERIAL PRIMARY KEY,
   nombre VARCHAR(80) NOT NULL UNIQUE,
