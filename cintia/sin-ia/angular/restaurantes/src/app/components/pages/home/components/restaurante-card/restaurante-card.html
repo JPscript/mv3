@@ -9,8 +9,12 @@
         <span>Lng: {{ longitud }}</span>
     </div>
     <div class="footer-buttons">
-        <button (click)="actualizar.emit(id)">Actualizar restaurante</button>
-        <button (click)="eliminar.emit(id)">Eliminar restaurante</button>
+       <button (click)="verRecetas.emit(id)">Ver recetas</button>
+        <button (click)="verCalificacion.emit(id)">Ver calificacion</button>
     </div>
+
+           <!--<button (click)="actualizar.emit(id)">Actualizar Restaurante</button>
+        <button (click)="eliminar.emit(id)">Eliminar Restaurante</button>
+    </div>-->
 
 </div>

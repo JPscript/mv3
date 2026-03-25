@@ -4,10 +4,11 @@
 // Cuando se hace click en la tarjeta, emite el id al padre para navegar al detalle.
 
 import { Component, input, output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-restaurante-card', // Nombre de la etiqueta personalizada para usar este componente en el HTML
-  imports: [], // No necesita importar otros módulos
+  imports: [CommonModule], // Importa CommonModule para directivas estructurales
   standalone: true, // Permite usar el componente sin necesidad de declararlo en un módulo
   templateUrl: './restaurante-card.html', // HTML asociado a la carta (vista)
   styleUrl: './restaurante-card.css', // CSS para estilos visuales de la carta
@@ -17,19 +18,25 @@ export class RestauranteCard {
   // Estas propiedades permiten que el componente sea flexible y reutilizable para cualquier restaurante.
   // input<string>() es la forma moderna de declarar inputs en Angular standalone.
   // Recibe el id del restaurante desde el padre (Home)
-  id = input<number>(); // ID único del restaurante
-  // Recibe el nombre del restaurante
+  id = input<number>();
   nombre = input<string>();
-  // Recibe la descripción breve
   descripcion = input<string>();
-  // Recibe la URL de la imagen
   imagen = input<string>();
+  latitud = input<number>();
+  longitud = input<number>();
+  created_at = input<string>();
+  updated_at = input<string>();
+  total_recetas = input<number>();
+  rating_summary = input<any>();
 
-  // Output: avisa al padre cuando se hace click en la tarjeta
   verDetalle = output<number>();
 
-  // Cuando se hace click, emite el id al padre para que navegue al detalle
   onCardClick() {
     this.verDetalle.emit(this.id() ?? -1);
+  }
+
+  // Devuelve las claves de la distribución de ratings, o array vacío si no existe
+  getDistributionKeys(): string[] {
+    return Object.keys(this.rating_summary()?.distribution || {});
   }
 }

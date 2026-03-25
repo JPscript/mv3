@@ -13,6 +13,10 @@ export class RestauranteCard {
   @Input() latitud!: number;
   @Input() longitud!: number;
 
-  @Output() actualizar = new EventEmitter<number>();
-  @Output() eliminar = new EventEmitter<number>();
+  @Output() verRecetas = new EventEmitter<number>();
+  @Output() verCalificacion = new EventEmitter<number>();
 }
+
+// Aqui tenia los output de actualizar y eliminar
+  //@Output() actualizar = new EventEmitter<number>();
+  //@Output() eliminar = new EventEmitter<number>();

@@ -54,11 +54,23 @@ export class Restaurant implements OnInit {
    * 4. Update the page title
    */
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.isLoading = true;
-    this.getRestaurant(id);
-    this.getRecipes(id);
-    this.getComments(id);
+    this.route.paramMap.subscribe((params) => {
+      const id = Number(params.get('id'));
+      if (!Number.isFinite(id) || id <= 0) {
+        this.errorMessage = 'Invalid restaurant id';
+        this.isLoading = false;
+        this.restaurant = undefined;
+        this.recipes = [];
+        this.comments = [];
+        this.cdr.detectChanges();
+        return;
+      }
+
+      this.isLoading = true;
+      this.getRestaurant(id);
+      this.getRecipes(id);
+      this.getComments(id);
+    });
   }
 
   getRestaurant(id: number): void {
@@ -114,5 +126,17 @@ export class Restaurant implements OnInit {
    */
   goBack() {
     this.router.navigate(['/restaurants']);
+  }
+
+  getRatingDistribution(): Array<{ stars: number; count: number }> {
+    const distribution = this.restaurant?.rating_summary?.distribution;
+    if (!distribution) {
+      return [];
+    }
+
+    return Object.entries(distribution)
+      .map(([stars, count]) => ({ stars: Number(stars), count }))
+      .filter((entry) => Number.isFinite(entry.stars))
+      .sort((a, b) => b.stars - a.stars);
   }
 }

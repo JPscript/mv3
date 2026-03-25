@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
 import { RouterModule, Router } from '@angular/router'; // Importa Router
 import { RestauranteService } from '../../../services/restaurante.service';
-import { Restaurante } from '../../../models/restaurante.model';
+import { Restaurant } from '../../../models/restaurante.model';
 @Component({
   selector: 'app-home', // Nombre de la etiqueta personalizada para usar este componente en el HTML (como <app-home>)
   imports: [CommonModule, RestauranteCard, RouterModule], // Importa módulos y componentes necesarios para la vista
@@ -23,7 +23,7 @@ export class Home implements OnInit {
   // Permite que la vista se actualice automáticamente cuando cambian los datos.
   // Signal reactivo que almacena la lista de restaurantes.
   // Permite que la vista se actualice automáticamente cuando cambian los datos.
-  listaRestaurantes = signal<Restaurante[]>([]);
+  listaRestaurantes = signal<Restaurant[]>([]);
 
   // Inyecta el servicio RestauranteService para poder pedir los datos a la "API".
   constructor(private restauranteService: RestauranteService, private router: Router) {
@@ -40,8 +40,8 @@ export class Home implements OnInit {
   // Método especial de Angular que se ejecuta al iniciar el componente.
   ngOnInit() {
     // Al iniciar el componente, pide la lista de restaurantes al servicio.
-    this.restauranteService.getRestaurantes().subscribe(
-      (data) => {
+    this.restauranteService.getRestaurantes().subscribe({
+      next: (data) => {
         // Cuando llegan los datos, se muestran en consola para depuración.
         console.log('Restaurantes recibidos:', data);
         if (Array.isArray(data)) {
@@ -57,14 +57,14 @@ export class Home implements OnInit {
         // Actualiza el signal para que la vista se refresque con los nuevos datos.
         this.listaRestaurantes.set(data);
       },
-      (error) => {
+      error: (error) => {
         // Si hay un error al pedir los datos, se muestra en consola.
         console.error('Error al cargar restaurantes', error);
       }
-    );
+    });
   }
 
   // trackId: función que ayuda a Angular a identificar cada restaurante de forma única en la lista.
   // Esto mejora el rendimiento al renderizar listas grandes.
-  trackId = (index: number, restaurante: Restaurante) => restaurante.id;
+  trackId = (index: number, restaurante: Restaurant) => restaurante.id;
 }

@@ -1,0 +1,12 @@
+.mapa-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mapa-lienzo {
+  height: 500px;
+  background: red;
+}
+
+@import 'leaflet/dist/leaflet.css';

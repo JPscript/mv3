@@ -8,23 +8,58 @@
 </head>
 
 <body>
-  <div class="container1">
+  <!--<div class="container1">
     <h2>Crear Restaurante</h2>
     <div class="button-container">
       <button routerLink="/restaurantes/crear-restaurante">Ir</button>
     </div>
-  </div>
+  </div>-->
 
 
-  <div class="container2">
+  <div class="container">
     <h2>Lista de Restaurantes</h2>
-    @for (restaurante of restaurantesFake; track restaurante.id){
-    <app-restaurante-card [id]="restaurante.id" [nombre]="restaurante.nombre" [descripcion]="restaurante.descripcion"
-      [imagen]="restaurante.imagen" [latitud]="restaurante.coordenadas.latitud"
-      [longitud]="restaurante.coordenadas.longitud" (actualizar)="actualizarRestaurante(restaurante.id)"
-      (eliminar)="eliminarRestaurante(restaurante.id)"></app-restaurante-card>
+    @for (restaurante of restaurantes; track restaurante.id){
+    <app-restaurante-card 
+    [id]="restaurante.id" 
+    [nombre]="restaurante.nombre" 
+    [descripcion]="restaurante.descripcion"
+    [imagen]="restaurante.fotografia_url" 
+    [latitud]="restaurante.latitud"
+    [longitud]="restaurante.longitud"
+    (verRecetas)="verRecetas($event)"
+    (verCalificacion)="verCalificaciones($event)"
+    ></app-restaurante-card>
     }
   </div>
+
+  @if (restauranteSeleccionado){
+  <div class="container-recetas">
+    <h2>Recetas de {{ restauranteSeleccionado.nombre }}</h2>
+    <div class="recetas-list">
+      @for (receta of recetas; track receta.id) {
+      <div class="receta-card">
+        <h3>{{ receta.nombre }}</h3>
+        <p>{{ receta.descripcion }}</p>
+      </div>
+      }
+    </div>
+  </div>
+  }
+
+   @if (restauranteSeleccionadoCal){
+  <div class="container-calificaciones">
+    <h2>Calificación de {{ restauranteSeleccionadoCal.nombre }}</h2>
+    <div class="calificaciones-list">
+      @for (calificacion of calificaciones; track calificacion.id) {
+      <div class="calificacion-card">
+        <h3> average: {{ calificacion.rating_summary.average }}</h3>
+        <h3> count: {{ calificacion.rating_summary.count }}</h3>
+        <!-- <h3>{{ calificacion.rating_summary.distribution }}</h3> -->
+      </div>
+      }
+    </div>
+  </div>
+  }
 
 
 </body>
