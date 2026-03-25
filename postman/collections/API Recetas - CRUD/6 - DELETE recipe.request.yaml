@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/recipes/{{recipeId}}"
+method: DELETE
+order: 6000

@@ -9,14 +9,15 @@ import { CrearRestaurante } from './components/pages/home/crear-restaurante/crea
 import { Registro } from './components/pages/registro/registro';
 
 export const routes: Routes = [
-    {path: '', redirectTo: '/restaurantes', pathMatch: 'full'},
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', title: "La mama opina 🍴", component: Home},
+    {path: 'restaurantes/restaurante', title: "La mama opina 🍴", component: Restaurante},
     {path: 'restaurantes', title: "La cocina de la mama 🍴", component: Home},
-    {path: 'restaurantes/restaurante', title: "La cocina de la mama 🍴", component: Restaurante},
-    {path: 'restaurantes/crear-restaurante', title: "La cocina de la mama 🍴", component: CrearRestaurante},
-    {path: 'restaurantes/actualizar-restaurante', title: "La cocina de la mama 🍴", component: ActualizarRestaurante},
+    {path: 'restaurantes/crear-restaurante', title: "La mama opina 🍴", component: CrearRestaurante},
+    {path: 'restaurantes/actualizar-restaurante', title: "La mama opina 🍴", component: ActualizarRestaurante},
     {path: 'login', title: "Login 🔐", component: Login},
     {path: 'registro', title: "Registro 📝", component: Registro},
     {path: 'perfil', title: "Perfil 🤓", component: Perfil},
     {path: 'mapa', title: "Mapa 🌎", component: Mapa},
-    {path: '**', redirectTo: '/restaurantes'},
+    {path: '**', redirectTo: '/home'},
 ];

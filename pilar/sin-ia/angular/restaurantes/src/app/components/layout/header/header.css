@@ -10,7 +10,7 @@
   background: #fff;
 }
 
-/* 2. Bloque Izquierdo: Menú + Logo */
+/* 2. Bloque Izquierdo: Logo */
 .boton-menu {
   order: 1;
   padding: 15px 40px;
@@ -25,7 +25,7 @@
 }
 
 .header-logo {
-  height: 80px;             /* Logo más grande */
+  height: 75px;           
   width: auto;
   filter: brightness(0);     /* Logo negro */
 }

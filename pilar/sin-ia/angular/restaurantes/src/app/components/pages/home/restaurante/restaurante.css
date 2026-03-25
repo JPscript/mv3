@@ -1,0 +1,185 @@
+/* El contenedor principal */
+.main-wrapper {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 30px;
+  background-color: #ffffff; 
+  border-radius: 15px;
+}
+
+/* La línea divisoria */
+.separator {
+  border: 0;
+  border-top: 1px dashed #ccc; 
+  margin: 40px 0;
+}
+
+/* GRID:  tamaño igual */
+.recipes-grid {
+  display: grid;
+  /* Crea columnas de mínimo 300px que se estiran proporcionalmente */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px; /* Espacio de separación entre tarjetas */
+}
+
+/* El envoltorio de cada receta */
+.recipe-card-wrapper {
+  background-color: #f5f5f5; 
+  border: 1px solid #e0e0e0; /* Un borde apenas visible */
+  border-radius: 12px;
+  padding: 15px;
+  transition: transform 0.2s ease;
+  
+  /* Esto obliga a que todas las tarjetas pesen lo mismo visualmente */
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+/* Efecto al pasar el ratón para darle vida */
+.recipe-card-wrapper:hover {
+  transform: translateY(-5px);
+  background-color: #eeeeee; /* Un gris un pelín más oscuro al tocarlo */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+/* Estilos para la cabecera (Foto lateral) */
+.restaurant-header {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.image-box {
+  flex: 0 0 350px;
+}
+
+.restaurant-picture {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+
+/* Variables de color para personalizar fácilmente */
+:root {
+  --primary-color: #ff6b6b; /* Un rojo coral para detalles */
+  --text-dark: #333;
+  --text-light: #777;
+  --bg-card: #ffffff;
+}
+
+/* El contenedor principal de la tarjeta */
+.recipe-card-wrapper {
+  background-color: var(--bg-card);
+  border-radius: 12px; /* Bordes más redondeados y modernos */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); /* Sombra suave para dar profundidad */
+  overflow: hidden; /* Para que la imagen respete los bordes redondeados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación al pasar el ratón */
+  display: flex;
+  flex-direction: column;
+  max-width: 350px; /* Ancho máximo sugerido */
+}
+
+/* Efecto visual al pasar el ratón sobre la tarjeta */
+.recipe-card-wrapper:hover {
+  transform: translateY(-5px); /* Se eleva un poco */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Sombra más fuerte */
+}
+
+/* Estilo para la imagen principal */
+.recipe-picture {
+  width: 100%;
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* La imagen se recorta para llenar el espacio sin deformarse */
+  border-bottom: 2px solid #eaeaea; /* Línea separadora sutil */
+}
+
+/* El cuerpo del texto de la tarjeta */
+.card-content {
+  padding: 20px;
+}
+
+/* Título de la receta */
+.card-content h1 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Descripción de la receta */
+.recipe-description {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de las etiquetas de info (Tiempo y Dificultad) */
+.info-tags {
+  display: flex;
+  gap: 10px; /* Espacio entre etiquetas */
+  margin-bottom: 20px;
+}
+
+/* Estilo base para las etiquetas */
+.tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase; /* Todo en mayúsculas */
+  letter-spacing: 0.5px;
+}
+
+/* Etiqueta de tiempo */
+.time-tag {
+  background-color: #f0fdf4; /* Verde muy clarito */
+  color: #166534; /* Verde oscuro */
+}
+
+/* Etiqueta de dificultad (color según la dificultad) */
+.difficulty-tag {
+  background-color: #fffbeb; /* Amarillo clarito */
+  color: #92400e; /* Marrón/Oro */
+}
+
+/* Ajustes para las etiquetas si cambias de color de fondo/texto */
+.difficulty-tag.facil { background-color: #d1fae5; color: #065f46; } /* Verde para fácil */
+.difficulty-tag.media { background-color: #fffbeb; color: #92400e; } /* Amarillo para media */
+.difficulty-tag.dificil { background-color: #fee2e2; color: #991b1b; } /* Rojo para difícil */
+
+/* Contenedor de ingredientes */
+.ingredients-section {
+  border-top: 1px solid #eaeaea; /* Línea divisoria */
+  padding-top: 15px;
+}
+
+/* Título de ingredientes */
+.ingredients-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Lista de ingredientes */
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap; /* Para que bajen de línea si no caben */
+  gap: 8px; /* Espacio entre ingredientes */
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Cada ingrediente individual */
+.ingredient-item {
+  background-color: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 4px;
+}

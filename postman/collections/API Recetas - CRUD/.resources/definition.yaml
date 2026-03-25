@@ -1,0 +1,6 @@
+$kind: collection
+description: Colección CRUD de recetas para api-recetas (NestJS + PostgreSQL).
+variables:
+  baseUrl: http://localhost:3000
+  recipeId: "1"
+  imagePath: C:/ruta/a/tu/imagen.jpg

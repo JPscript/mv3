@@ -25,7 +25,39 @@
       </div>
 
       <div class="detail__header-right">
-        <img [src]="restaurant.fotografia_url" [alt]="restaurant.nombre" class="detail__img" />
+        <div class="detail__media-wrapper">
+          <img [src]="restaurant.fotografia_url" [alt]="restaurant.nombre" class="detail__img" />
+        </div>
+
+        @if (restaurant.rating_summary) {
+          <details class="detail__rating-overlay">
+            <summary class="detail__rating-summary">
+              ★ {{ restaurant.rating_summary.average | number:'1.1-1' }} · {{ restaurant.rating_summary.count }} ratings
+            </summary>
+
+            <div class="detail__rating-popover">
+              <div class="detail__rating-grid">
+                <div class="detail__rating-card">
+                  <p class="detail__rating-label">Average</p>
+                  <p class="detail__rating-value">{{ restaurant.rating_summary.average | number:'1.1-1' }}</p>
+                </div>
+                <div class="detail__rating-card">
+                  <p class="detail__rating-label">Count</p>
+                  <p class="detail__rating-value">{{ restaurant.rating_summary.count }}</p>
+                </div>
+              </div>
+
+              <div class="detail__distribution">
+                @for (item of getRatingDistribution(); track item.stars) {
+                  <div class="detail__distribution-row">
+                    <span class="detail__distribution-stars">{{ item.stars }}★</span>
+                    <span class="detail__distribution-count">{{ item.count }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          </details>
+        }
       </div>
     </div>
 
@@ -51,7 +83,7 @@
     <!-- Comments placeholder -->
     <section class="detail__block">
       <h2 class="detail__block-title">Comments</h2>
-      <p class="detail__placeholder">No comments yet...</p>
+      <app-comments [comments]="comments"></app-comments>
     </section>
 
   </div>

@@ -4,5 +4,7 @@ export interface Restaurante {
   direccion: string;
   puntuacion: number;
   imagen: string;
-  descripcion?: string;
+  descripcion: string;
+  lat: number;   
+  lng: number;   
 }

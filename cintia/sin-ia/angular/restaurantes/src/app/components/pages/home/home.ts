@@ -1,18 +1,22 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
-import { HeaderComponent } from '../../layout/header/header.component';
-import { FooterComponent } from '../../layout/footer/footer.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {RouterLink} from "@angular/router";
+import { RouterLink } from "@angular/router";
+import { Restaurante } from '../../../interfaces/restaurante';
+import { Restaurantes } from './servicios/restaurantes-servicios';
+import { Receta } from '../../../interfaces/receta';
+import { Recetas } from './servicios/recetas-servicios';
+import { Calificaciones } from './servicios/calificacion-servicios';
+import { Calificacion } from '../../../interfaces/calificacion';
 
 @Component({
   selector: 'app-home',
-  imports: [RestauranteCard, HeaderComponent, FooterComponent, RouterLink],
+  imports: [RestauranteCard, RouterLink],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
-export class Home {
-  restaurantesFake = [
+/*export class Home {
+  restaurantes = [
     {
       id: 1,
       nombre: 'Restaurante A',
@@ -95,6 +99,89 @@ export class Home {
 
   trackById(index: number, restaurante: any) {
     return restaurante.id;
+  }
+}*/
+
+export class Home {
+  private readonly restaurantesService = inject(Restaurantes); //Usas inject() para obtener una instancia del servicio Restaurantes.
+  private readonly changeDetectorRef = inject(ChangeDetectorRef); //Inyectas ChangeDetectorRef, que sirve para forzar la actualización de la vista.
+  restaurantes: Restaurante[] = []; //Array donde guardarás los restaurantes obtenidos.
+  isLoading = true;
+  errorRestaurante = '';
+
+  private readonly recetasService = inject(Recetas);
+  recetas: Receta[] = []; // Array donde guardaré las recetas obtenidas. 
+  restauranteSeleccionado: Restaurante | null = null;
+  isLoadingRecetas = true;
+  errorRecetas = '';
+
+  private readonly calificacionService = inject(Calificaciones);
+  calificaciones: Calificacion[] = [];
+  restauranteSeleccionadoCal: Restaurante | null = null;
+  isLoadingCalificaciones = true;
+  errorCalificaciones = '';
+  
+  ngOnInit(): void { //ngOnInit se ejecuta cuando el componente se inicializa, es decir, en cuanto levanto ng serve!!!
+    this.getRestaurantes(); //ngOnInit llama a getRestaurantes() para cargar datos al inicio.
+  }
+  getRestaurantes(): void {
+    this.isLoading = true;
+    this.restaurantesService.getAllRestaurants().subscribe({ //.subscribe() se usa porque es un Observable (Angular usa RxJS).
+      next: (restaurantes) => {
+        this.restaurantes = restaurantes;
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      }, 
+      error: () => {
+        this.errorRestaurante = 'Error al cargar los restaurantes';
+        this.isLoading = false;
+        this.changeDetectorRef.detectChanges();
+      }
+    });
+  }
+  verRecetas(id: number): void {
+    const restaurante = this.restaurantes.find(r => r.id === id);
+    if (!restaurante) {
+      return;
+    } this.restauranteSeleccionado = restaurante; 
+      this.isLoadingRecetas = true;
+      this.errorRecetas = '';
+      this.recetas = [];
+      this.recetasService.getRecetasByRestaurante(id).subscribe({
+        next: (recetas) => {
+          this.recetas = recetas;
+          this.isLoadingRecetas = false;
+          this.changeDetectorRef.detectChanges();
+        },
+        error: () => {
+          this.errorRecetas = 'Error al cargar las recetas';
+          this.isLoadingRecetas = false;
+          this.changeDetectorRef.detectChanges();
+        }
+      })
+  }
+
+  verCalificaciones(id: number): void {
+    const restaurante = this.restaurantes.find(r => r.id === id);
+    if (!restaurante) {
+      return;
+    } this.restauranteSeleccionadoCal = restaurante; 
+      this.isLoadingCalificaciones = true;
+      this.errorCalificaciones = '';
+      this.calificaciones = [];
+      this.calificacionService.getCalificacionByRestaurante(id).subscribe({
+        next: (calificaciones) => {
+          this.calificaciones = calificaciones;
+          this.isLoadingCalificaciones = false;
+          this.changeDetectorRef.detectChanges();
+        },
+        error: () => {
+          this.errorRecetas = 'Error al cargar las calificaciones';
+          this.isLoadingCalificaciones = false;
+          this.changeDetectorRef.detectChanges();
+        }
+      })
+
   }
 }
 

@@ -1,16 +1,29 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+export interface Restaurante {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  fotografia_url: string;
+  latitud: number;
+  longitud: number;
+  total_recetas: number;
+  rating_summary?: {
+    average: number;
+    count: number;
+    distribution: Record<string, number>;
+  };
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class RestauranteService {
-  private lista = signal([
-    { id: 1, nombre: 'Pizzería Roma', tipo: 'Italiano', imagen: '🍕', rating: 4.5 },
-    { id: 2, nombre: 'Sushi Zen', tipo: 'Japonés', imagen: '🍣', rating: 4.8 },
-  ]);
+export class RestaurantesService {
+  private readonly http = inject(HttpClient);
+  private readonly apiUrl = 'http://localhost:3000';
 
-  // Este nombre debe coincidir con el que llamas en el componente
-  getRestaurantes() {
-    return this.lista;
+  getAllRestaurantes() {
+    return this.http.get<Restaurante[]>(`${this.apiUrl}/restaurants`); // ✅ en inglés
   }
 }

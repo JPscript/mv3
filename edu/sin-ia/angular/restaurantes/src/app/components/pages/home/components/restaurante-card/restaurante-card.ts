@@ -14,7 +14,7 @@ export class RestauranteCard {
   id = input<number>(); 
   nombre = input<string>();
   descripcion = input<string>();
-  fotogria_url = input<string>();
+  fotografia_url = input<string>();
   lat = input<number>();
   lng = input<number>();
 }

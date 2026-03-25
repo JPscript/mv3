@@ -1,1 +1,39 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <h1>Crear Usuario</h1>
+
+    <section>
+        <form id="Formulario-Restaurante" [formGroup]="usuarioForm" (ngSubmit)="crearUsuario()">
+            <div>
+                <label>Nombre:</label>
+                <br><br>
+                <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre usuario" />
+            </div>
+
+            <div>
+                <label>Intereses:</label>
+                <br><br>
+                <textarea id="intereses" formControlName="intereses" placeholder="Dinos tus intereses"></textarea>
+            </div>
+
+            <div>
+                <label>Foto (URL):</label>
+                <br><br>
+                <input id="foto" formControlName="foto" type="text" placeholder="Sube una foto tuya" />
+            </div>
+
+            <button type="submit">Crear usuario</button>
+        </form>
+
+    </section>
+</body>
+
+</html>

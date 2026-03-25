@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RestaurantCard } from './components/restaurant-card/restaurant-card';
 import { Restaurant } from '../../../interfaces/restaurant';
-import { Restaurants } from './services/restaurants';
+import { RestaurantsService } from './services/restaurants/restaurants-service';
 
 /**
  * Home Component
@@ -17,8 +17,8 @@ import { Restaurants } from './services/restaurants';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
-  private readonly restaurantsService = inject(Restaurants);
+export class Home implements OnInit {
+  private readonly restaurantsService = inject(RestaurantsService);
   private readonly cdr = inject(ChangeDetectorRef);
 
   restaurants: Restaurant[] = [];

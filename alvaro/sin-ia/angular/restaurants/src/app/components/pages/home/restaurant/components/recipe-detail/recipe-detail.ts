@@ -1,23 +1,10 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { Restaurants } from '../../../services/restaurants';
-
-interface RecipeData {
-  id: number;
-  restaurant_id: number;
-  nombre: string;
-  descripcion: string;
-  ingredientes: string;
-  tiempo_min: number;
-  dificultad: string;
-  image_url: string;
-}
-
-interface RestaurantData {
-  id: number;
-  nombre: string;
-}
+import { RestaurantsService } from '../../../services/restaurants/restaurants-service';
+import { RecipesService } from '../../../services/recipes/recipes-service';
+import { Recipe } from '../../../../../../interfaces/recipe';
+import { Restaurant } from '../../../../../../interfaces/restaurant';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -26,7 +13,8 @@ interface RestaurantData {
   styleUrl: './recipe-detail.css',
 })
 export class RecipeDetail implements OnInit {
-  private readonly restaurantsService = inject(Restaurants);
+  private readonly restaurantsService = inject(RestaurantsService);
+  private readonly recipesService = inject(RecipesService);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly titleService = inject(Title);
@@ -35,8 +23,8 @@ export class RecipeDetail implements OnInit {
   isLoading = false;
   errorMessage = '';
 
-  restaurant: RestaurantData | undefined;
-  recipe: RecipeData | undefined;
+  restaurant: Restaurant | undefined;
+  recipe: Recipe | undefined;
 
   ngOnInit(): void {
     const restaurantId = Number(this.route.snapshot.paramMap.get('restaurantId'));
@@ -52,7 +40,7 @@ export class RecipeDetail implements OnInit {
       next: (restaurants) => {
         this.restaurant = restaurants.find((item) => item.id === restaurantId);
 
-        this.restaurantsService.getRecipes().subscribe({
+        this.recipesService.getRecipes().subscribe({
           next: (recipes) => {
             this.recipe = recipes.find(
               (item) => item.id === recipeId && item.restaurant_id === restaurantId

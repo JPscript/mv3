@@ -1,3 +1,5 @@
+<p>Total: {{ restaurantes().length }}</p>
+
 <section>
   <div class="header-section">
     <h1>Explora Restaurantes</h1>
@@ -7,10 +9,15 @@
   <div class="restaurantes-grid">
     @for (res of restaurantes(); track res.id) {
       <div class="res-card" [routerLink]="['/restaurantes', res.id]">
-        <div class="img-placeholder">{{ res.imagen }}</div>
+        <div class="img-container">
+          <img [src]="res.fotografia_url" [alt]="res.nombre" />
+        </div>
         <div class="res-info">
           <h3>{{ res.nombre }}</h3>
-          <p>{{ res.tipo }} • ⭐ {{ res.rating }}</p>
+          <p>{{ res.descripcion }}</p>
+          @if (res.rating_summary) {
+            <p>⭐ {{ res.rating_summary.average }} ({{ res.rating_summary.count }} valoraciones)</p>
+          }
         </div>
       </div>
     }
