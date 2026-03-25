@@ -10,11 +10,13 @@
     height: 50dvh;
     box-shadow: 10px 10px 5px lightsteelblue;
     max-width: 600px;
+    text-decoration: none;
 }
 
 .tarjetaRestaurante p{
     margin: 1vh;
     text-align: center;
+    color: black;
 }
 
 .nombreRestaurante{
