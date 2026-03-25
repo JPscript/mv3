@@ -1,7 +1,29 @@
 <h2>Recetas de este restaurante</h2>
+
 <ul>
-  <li *ngFor="let receta of recetas()">
-    <strong>{{ receta.nombre }}</strong> - {{ receta.tiempo_min }} min<br>
-    {{ receta.descripcion }}
-  </li>
-</ul>
+  <li>Prueba de render</li>
+@if (cargando) {
+  <p>Cargando recetas...</p>
+} @else if (recetas.length === 0) {
+  <p>Este restaurante aún no tiene recetas registradas.</p>
+  <button type="button" (click)="goBack()">Volver</button>
+} @else {
+  <ul>
+    @for (receta of recetas; track receta.id) {
+      <li>
+        <strong>{{ receta.nombre }}</strong> <br>
+        <em>Dificultad:</em> {{ receta.dificultad }}<br>
+        <em>Tiempo:</em> {{ receta.tiempo_min }} min<br>
+        <em>Ingredientes:</em> {{ receta.ingredientes }}<br>
+        <span>{{ receta.descripcion }}</span>
+        @if (receta.image_url) {
+          <div>
+            <img [src]="receta.image_url" alt="Imagen de {{ receta.nombre }}" width="150">
+          </div>
+        }
+        <hr>
+      </li>
+    }
+  </ul>
+  <button type="button" (click)="goBack()">Volver</button>
+}
