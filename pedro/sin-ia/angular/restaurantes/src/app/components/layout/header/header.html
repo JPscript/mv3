@@ -2,10 +2,45 @@
   <h1>TOP RESTAURANTS</h1>
   <p>La mejor guía sobre restaurantes</p>
 
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Carta</a>
-    <a href="#">Reservas</a>
-    <a href="#">Contacto</a>
+  <nav class="header-nav" aria-label="Accesos principales">
+    <a class="header-nav__item" routerLink="/restaurantes" aria-label="Ir a inicio">
+      <span class="header-nav__icon">🏠</span>
+      <span class="header-nav__label">Inicio</span>
+    </a>
+    <button
+      type="button"
+      class="header-nav__item"
+      aria-label="Mostrar barra de buscador"
+      (click)="toggleBarraBuscador()"
+    >
+      <span class="header-nav__icon">🔎</span>
+      <span class="header-nav__label">Buscador</span>
+    </button>
+    <a class="header-nav__item" routerLink="/login" aria-label="Ir a login">
+      <span class="header-nav__icon">🔐</span>
+      <span class="header-nav__label">Login</span>
+    </a>
+    <a class="header-nav__item" routerLink="/mapa" aria-label="Ir a mapas">
+      <span class="header-nav__icon">🗺️</span>
+      <span class="header-nav__label">Mapas</span>
+    </a>
+    <a class="header-nav__item" routerLink="/perfil" aria-label="Ir a perfil">
+      <span class="header-nav__icon">👤</span>
+      <span class="header-nav__label">Perfil</span>
+    </a>
   </nav>
+
+  @if (mostrarBarraBuscador) {
+    <form class="header-search" role="search" aria-label="Buscar restaurantes">
+      <input
+        class="header-search__input"
+        type="search"
+        name="busqueda"
+        placeholder="Busca un restaurante..."
+      />
+      <button class="header-search__button" type="button" (click)="cerrarBarraBuscador()">
+        Cerrar
+      </button>
+    </form>
+  }
 </header>

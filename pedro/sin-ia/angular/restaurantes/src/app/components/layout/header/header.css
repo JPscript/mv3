@@ -14,13 +14,88 @@ header p {
   margin: 8px 0 16px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
+.header-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.header-nav__item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  min-height: 72px;
+  padding: 8px;
+  border-radius: 16px;
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.14);
+  transition: transform 0.2s ease, background 0.2s ease;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.header-nav__item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.header-nav__icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.header-nav__label {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.header-search {
+  margin: 14px auto 0;
+  max-width: 520px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+.header-search__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+.header-search__button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #ffffff;
+  color: #1f6ea5;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .header-nav {
+    gap: 8px;
+  }
+
+  .header-nav__item {
+    width: 64px;
+    min-height: 64px;
+  }
+
+  .header-search {
+    max-width: 100%;
+    margin-top: 10px;
+  }
 }

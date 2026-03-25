@@ -1,0 +1,36 @@
+:host {
+	display: block;
+	padding: 24px 16px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.volver {
+	display: inline-block;
+	margin-bottom: 16px;
+	color: #1a1a2e;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+h1 {
+	margin: 0 0 10px;
+	color: #1a1a2e;
+}
+
+h2 {
+	margin: 26px 0 14px;
+	color: #1a1a2e;
+}
+
+.restaurante-descripcion {
+	margin: 0;
+	color: #5f6474;
+}
+
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	align-items: stretch;
+	gap: 24px;
+}

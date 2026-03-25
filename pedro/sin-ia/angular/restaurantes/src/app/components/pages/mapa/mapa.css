@@ -1,0 +1,34 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	padding: 32px 16px;
+	background: #f5f7fb;
+}
+
+.mapa-simple {
+	max-width: 720px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.mapa-simple h1 {
+	margin: 0 0 16px;
+	color: #1a1a2e;
+}
+
+.mapa-simple__box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 280px;
+	border: 2px dashed #9fb0c7;
+	border-radius: 16px;
+	background: #ffffff;
+	color: #1a1a2e;
+	font-weight: 700;
+}
+
+.mapa-simple p {
+	margin: 14px 0 0;
+	color: #5f6474;
+}

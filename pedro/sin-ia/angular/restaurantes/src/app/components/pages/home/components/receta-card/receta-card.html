@@ -1,1 +1,8 @@
-<p>receta-card works!</p>
+<div class="receta-card">
+	<img [src]="imagen()" [alt]="nombre()" />
+	<h2>receta: {{nombre()}}</h2>
+	<p>descripcion: {{descripcion()}}</p>
+	<p>ingredientes: {{ingredientes()}}</p>
+	<p>tiempo: {{tiempo()}} min</p>
+	<p>dificultad: {{dificultad()}}</p>
+</div>

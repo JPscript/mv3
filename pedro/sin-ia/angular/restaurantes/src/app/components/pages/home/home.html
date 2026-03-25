@@ -1,10 +1,15 @@
 <h1>Restaurantes</h1>
-@for (restaurante of restaurantesFake; track restaurante.id) {
-    <app-restaurante-card
-    [nombre]="restaurante.nombre"
-    [descripcion]="restaurante.descripcion"
-    [imagen]="restaurante.imagen"
-    [lat]="restaurante.coordenadas.lat"
-    [lng]="restaurante.coordenadas.lng">
-    </app-restaurante-card>
-}
+<div class="cards-grid">
+  @for (restaurante of restaurantes; track restaurante.id) {
+    <a class="restaurante-link" [routerLink]="['/restaurantes/restaurante', restaurante.id]">
+      <app-restaurante-card
+        [nombre]="restaurante.nombre"
+        [descripcion]="restaurante.descripcion"
+        [imagen]="restaurante.fotografia_url"
+        [lat]="restaurante.latitud"
+        [lng]="restaurante.longitud"
+      >
+      </app-restaurante-card>
+    </a>
+  }
+</div>

@@ -1,1 +1,31 @@
-<p>restaurante works!</p>
+<a class="volver" routerLink="/restaurantes">← Volver a restaurantes</a>
+
+<h1>{{ restaurante?.nombre ?? 'Restaurante' }}</h1>
+<p class="restaurante-descripcion">{{ restaurante?.descripcion ?? 'Sin descripcion disponible.' }}</p>
+
+<h2>Recetas</h2>
+<div class="cards-grid">
+	@for (receta of recetas; track receta.id) {
+		<app-receta-card
+			[nombre]="receta.nombre"
+			[descripcion]="receta.descripcion"
+			[imagen]="receta.image_url ?? ''"
+			[ingredientes]="receta.ingredientes"
+			[tiempo]="receta.tiempo_min"
+			[dificultad]="receta.dificultad"
+		>
+		</app-receta-card>
+	}
+</div>
+
+<h2>Comentarios</h2>
+<div class="cards-grid">
+	@for (comment of comentarios; track comment.id) {
+		<app-comment-card
+			[usuario]="comment.user?.nombre ?? 'Usuario sin nombre'"
+			[comentario]="comment.comentario"
+			[fecha]="comment.created_at"
+		>
+		</app-comment-card>
+	}
+</div>
