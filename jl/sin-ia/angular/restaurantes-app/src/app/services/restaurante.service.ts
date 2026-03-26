@@ -8,22 +8,15 @@ export interface Restaurante {
   fotografia_url: string;
   latitud: number;
   longitud: number;
-  total_recetas: number;
-  rating_summary?: {
-    average: number;
-    count: number;
-    distribution: Record<string, number>;
-  };
+  rating_summary?: { average: number; count: number };
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class RestaurantesService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000';
+  private readonly apiUrl = 'http://localhost:3000/restaurants';
 
   getAllRestaurantes() {
-    return this.http.get<Restaurante[]>(`${this.apiUrl}/restaurants`); // ✅ en inglés
+    return this.http.get<Restaurante[]>(this.apiUrl);
   }
 }

@@ -13,7 +13,6 @@ export class AppComponent {
   buscar(texto: string) {
     if (texto.trim().length > 0) {
       alert('Has buscado: ' + texto);
-      // Más adelante aquí filtraremos la lista de verdad
     } else {
       alert('Escribe algo para buscar');
     }
