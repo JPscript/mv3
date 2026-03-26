@@ -8,15 +8,16 @@ import { Profile } from './components/pages/profile/profile';
 import { Login } from './components/pages/login/login';
 import { Signup } from './components/pages/signup/signup';
 import { Map } from './components/pages/map/map';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/restaurants', pathMatch: 'full' },
     { path: 'restaurants', title: '🍽️ Restaurants', component: Home },
     { path: 'restaurants/:id', title: '🍴 Restaurant', component: SingleRestaurant },
-    { path: 'create-restaurant', title: '➕🍽️ Create Restaurant', component: CreateRestaurant },
-    { path: 'delete-restaurant', title: '🗑️ Delete Restaurant', component: DeleteRestaurant },
-    { path: 'update-restaurant', title: '✏️ Update Restaurant', component: UpdateRestaurant },
-    { path: 'profile', title: '👤 Profile', component: Profile },
+    { path: 'create-restaurant', title: '➕🍽️ Create Restaurant', component: CreateRestaurant, canActivate: [authGuard] },
+    { path: 'delete-restaurant', title: '🗑️ Delete Restaurant', component: DeleteRestaurant, canActivate: [authGuard] },
+    { path: 'update-restaurant', title: '✏️ Update Restaurant', component: UpdateRestaurant, canActivate: [authGuard] },
+    { path: 'profile', title: '👤 Profile', component: Profile, canActivate: [authGuard] },
     { path: 'login', title: '🔑 Login', component: Login },
     { path: 'signup', title: '📝 Signup', component: Signup },
     { path: 'map', title: '🗺️ Map', component: Map },

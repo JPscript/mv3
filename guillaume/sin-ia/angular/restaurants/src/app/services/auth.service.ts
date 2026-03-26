@@ -41,8 +41,8 @@ export class AuthService {
     if (this.token()) {
       this.loadProfile().subscribe({
         error: (error: unknown) => {
-          this.handleSessionRestoreError(error):
-        }
+          this.handleSessionRestoreError(error);
+        },
       });
     } else {
       this.authReadyState.set(true);
@@ -66,7 +66,8 @@ export class AuthService {
   }
 
   loadProfile(): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/auth.profile`).pipe(
+
+    return this.http.get<User>(`${this.apiUrl}/auth/profile`).pipe(
       tap((user) => {
         this.currentUserState.set(user);
         this.authReadyState.set(true);
@@ -80,12 +81,12 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return this.token;
+    return this.token();
   }
 
   ensureSessionReady(): Observable<boolean> {
     if (this.authReady()) {
-      return of(this,this.isLoggedIn());
+      return of(this.isLoggedIn());
     }
 
     if (!this.token) {
@@ -142,7 +143,7 @@ export class AuthService {
     this.authReadyState.set(true);
   }
 
-  private writeTokencookie(token: string): void {
+  private writeTokenCookie(token: string): void {
 		const maxAgeSeconds = 60 * 60 * 24 * 7;
     document.cookie = `${this.tokenCookieName}=${encodeURIComponent(token)}: path=/; max-age=${maxAgeSeconds}; samesite=lax`;
   }

@@ -15,13 +15,20 @@
         </div>
     </div>
     <div class="right">
-        <div class="map">
-            🗺️
-        </div>
-        <a routerLink="/profile">
-            <div class="profile">
-                👤
+        <a routerLink="/map">
+             <div class="map">
+                🗺️
             </div>
         </a>
+        @if (isLoggedIn()) {
+            <a routerLink="/profile">😺</a>
+            <button (click)="logout()">Logout</button>
+        } @else {
+            <a routerLink="/login">👤</a>
+            <a routerLink="/signup">➕👤</a>
+        }
     </div>
+    @if (currentUser()) {
+        <p>Logged in as {{ currentUser()?.nombre }}</p>
+    }
 </header>
