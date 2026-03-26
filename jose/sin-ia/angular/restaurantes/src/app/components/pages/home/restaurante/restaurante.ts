@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RestauranteService } from '../../../../services/restaurante.service';
 import { Restaurant as RestauranteModel } from '../../../../models/restaurante.model';
 import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-restaurante',
@@ -20,7 +21,7 @@ export class RestaurantePage implements OnInit {
   // Cuando se actualiza, la vista se refresca automáticamente.
   public restaurante = signal<RestauranteModel | null>(null)
 
-  constructor( private route: ActivatedRoute, private restauranteService: RestauranteService, private router: Router ){}
+  constructor( private route: ActivatedRoute, private restauranteService: RestauranteService, private router: Router,private location: Location ){}
 
   // Devuelve las claves de la distribución de ratings, o array vacío si no hay datos
   getDistributionKeys(): string[] {
@@ -55,4 +56,8 @@ export class RestaurantePage implements OnInit {
             this.router.navigate([`/restaurantes/${restauranteId}/recetas`]);
         }
       }
+      goBack(): void {
+    this.location.back();
+  }
     }
+   

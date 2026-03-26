@@ -2,6 +2,11 @@
 workspace:
   id: fe1d7400-1a9f-4cfd-89f0-ebc503a7590e
 
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+cloudResources:
+  collections:
+    ..\postman\collections\API Recetas - CRUD: 40eb566f-e080-42c7-9dd8-58423ee2aa02
+
 # All resources in the `postman/` folder are automatically registered in Local View.
 # Point to additional files outside the `postman/` folder to register them individually. Example:
 #localResources:

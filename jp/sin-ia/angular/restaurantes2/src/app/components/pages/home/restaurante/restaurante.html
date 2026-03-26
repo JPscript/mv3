@@ -1,1 +1,86 @@
-<p>restaurante works!</p>
+<section>
+	@if (isLoading) {
+		<p>Cargando restaurante...</p>
+	}
+
+	@if (errorMessage) {
+		<p>{{ errorMessage }}</p>
+	}
+
+	@if (restaurante) {
+		<h1>{{ restaurante.nombre }}</h1>
+		<p>{{ restaurante.descripcion }}</p>
+
+		@if (restaurante.fotografia_url) {
+			<img [src]="restaurante.fotografia_url" [alt]="restaurante.nombre">
+		}
+
+		<p><strong>Latitud:</strong> {{ restaurante.latitud }}</p>
+		<p><strong>Longitud:</strong> {{ restaurante.longitud }}</p>
+
+		@if (isLoggedIn()) {
+			<p>
+				<a [routerLink]="['/restaurantes/actualizar-restaurante', restaurante.id]">Editar restaurante</a>
+				|
+				<a [routerLink]="['/restaurantes/borrar-restaurante', restaurante.id]">Borrar restaurante</a>
+			</p>
+		}
+
+		<section>
+			<h2>Valoraciones</h2>
+
+			@if (ratingSummary) {
+				<p>Promedio: {{ ratingSummary.average }}</p>
+				<p>Total de votos: {{ ratingSummary.count }}</p>
+			}
+
+			@if (isLoggedIn()) {
+				<label for="ratingValue">Tu puntuación</label>
+				<input id="ratingValue" name="ratingValue" type="number" min="1" max="5" [(ngModel)]="ratingValue">
+				<button type="button" (click)="submitRating()" [disabled]="isSubmittingRating">
+					@if (isSubmittingRating) {
+						Guardando puntuación...
+					} @else {
+						Guardar puntuación
+					}
+				</button>
+
+				@if (myRating) {
+					<p>Tu puntuación actual es {{ myRating.calificacion }}</p>
+				}
+			} @else {
+				<p>Debes iniciar sesión para puntuar este restaurante.</p>
+			}
+		</section>
+
+		<section>
+			<h2>Comentarios</h2>
+
+			@if (isLoggedIn()) {
+				<label for="commentText">Tu comentario</label>
+				<textarea id="commentText" name="commentText" [(ngModel)]="commentText"></textarea>
+				<button type="button" (click)="submitComment()" [disabled]="isSubmittingComment">
+					@if (isSubmittingComment) {
+						Publicando comentario...
+					} @else {
+						Publicar comentario
+					}
+				</button>
+			} @else {
+				<p>Debes iniciar sesión para comentar.</p>
+			}
+
+			@if (comments.length === 0) {
+				<p>Todavía no hay comentarios.</p>
+			}
+
+			@for (comment of comments; track comment.id) {
+				<article>
+					<p><strong>{{ comment.user?.nombre || 'Usuario' }}</strong></p>
+					<p>{{ comment.comentario }}</p>
+					<p>{{ comment.created_at }}</p>
+				</article>
+			}
+		</section>
+	}
+</section>

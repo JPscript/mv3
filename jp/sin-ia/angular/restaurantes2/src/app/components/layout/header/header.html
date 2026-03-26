@@ -1,3 +1,20 @@
 <header>
-    <h1>Restaurantes</h1>
+    <h1><a routerLink="/restaurantes">Restaurantes</a></h1>
+
+    <nav>
+        <a routerLink="/restaurantes">Home</a>
+        <a routerLink="/mapa">Mapa</a>
+
+        @if (isLoggedIn()) {
+            <a routerLink="/perfil">Perfil</a>
+            <button type="button" (click)="logout()">Logout</button>
+        } @else {
+            <a routerLink="/login">Login</a>
+            <a routerLink="/registro">Registro</a>
+        }
+    </nav>
+
+    @if (currentUser()) {
+        <p>Sesión iniciada como {{ currentUser()?.nombre }}</p>
+    }
 </header>

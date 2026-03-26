@@ -8,14 +8,15 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegistroComponent } from './components/pages/registro/registro.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { MapaComponent } from './components/pages/mapa/mapa.component';
-
 import { RestaurantesListaComponent } from './components/pages/restaurantes-lista/restaurantes-lista.component';
 
-export const routes: Routes = [
-  // REDIRECCIÓN INICIAL
-  { path: '', redirectTo: 'restaurantes', pathMatch: 'full' },
+import { AuthGuard } from './guards/auth.guard';
 
-  // LISTA DE RESTAURANTES (tu nueva página)
+export const routes: Routes = [
+  // PÁGINA PRINCIPAL
+  { path: '', title: 'Inicio', component: HomeComponent },
+
+  // LISTA ORDENADA DE RESTAURANTES
   { path: 'restaurantes', title: 'Restaurantes 🍽️', component: RestaurantesListaComponent },
 
   // DETALLE DE RESTAURANTE
@@ -25,12 +26,16 @@ export const routes: Routes = [
   { path: 'restaurantes/crear-restaurante', title: 'Crear restaurante', component: CrearRestauranteComponent },
   { path: 'restaurantes/actualizar-restaurante', title: 'Actualizar restaurante', component: ActualizarRestauranteComponent },
 
-  // PÁGINAS EXTRA
+  // LOGIN / REGISTRO
   { path: 'login', title: 'Login 🔐', component: LoginComponent },
   { path: 'registro', title: 'Registro 📝', component: RegistroComponent },
-  { path: 'perfil', title: 'Perfil 🧑', component: PerfilComponent },
+
+  // PERFIL (PROTEGIDO)
+  { path: 'perfil', title: 'Perfil 🧑', canActivate: [AuthGuard], component: PerfilComponent },
+
+  // MAPA
   { path: 'mapa', title: 'Mapa 🗺️', component: MapaComponent },
 
   // 404
-  { path: '**', redirectTo: 'restaurantes' }
+  { path: '**', redirectTo: '' }
 ];

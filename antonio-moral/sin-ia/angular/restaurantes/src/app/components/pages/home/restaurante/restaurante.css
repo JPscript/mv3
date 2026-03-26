@@ -2,5 +2,36 @@
     display: flex;           
     justify-content: center; 
     align-items: center;    
-    height: 80vh;           
 }
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recetas-container {
+  display: flex;           /* Poner tarjetas en fila */
+  gap: 1rem;   
+  justify-content:center;          
+  overflow-x: auto;        
+  padding: 1rem;
+}
+
+
+.receta-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comentarios-container {
+  display: flex;              
+  justify-content: center;    
+  align-items: center;        
+  flex-wrap: wrap;            /* que las tarjetas se vayan a otra línea si no caben */
+  gap: 1rem;                  /* separación entre tarjetas */
+  margin-top: 1rem;
+
+}
+

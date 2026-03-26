@@ -10,11 +10,16 @@
   <button (click)="getRestaurantes()">Reintentar carga</button>
 }
 
+@if (isLoggedIn()) {
+  <p><a routerLink="/restaurantes/crear-restaurante">+ Crear restaurante</a></p>
+}
+
 <!-- `@for` recorre el array `restaurantes` y crea una tarjeta por cada elemento. -->
 <!-- `track restaurante.id` ayuda a Angular a identificar cada item de forma estable. -->
 @for (restaurante of restaurantes; track restaurante.id) {
   <!-- Enviamos al componente hijo los datos dinamicos con property binding `[ ... ]`. -->
   <app-restaurante-card
+    [id]="restaurante.id"
     [nombre]="restaurante.nombre"
     [descripcion]="restaurante.descripcion"
     [imagen]="restaurante.fotografia_url"

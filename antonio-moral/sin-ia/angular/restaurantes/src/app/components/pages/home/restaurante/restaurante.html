@@ -1,3 +1,5 @@
+<h1>{{ restaurante?.nombre }}</h1>
+
 <div class="restaurante-container">
 <app-restaurante-card
   [id]="restaurante?.id"
@@ -7,4 +9,29 @@
   [lat]="restaurante?.latitud"
   [lng]="restaurante?.longitud">
 </app-restaurante-card>
+</div>
+
+<h1>Recetas del {{ restaurante?.nombre }}</h1>
+
+<div class="recetas-container">
+  <app-receta-card
+    *ngFor="let receta of recetas"
+    [nombre]="receta.nombre"
+    [descripcion]="receta.descripcion"
+    [ingredientes]="receta.ingredientes"
+    [tiempo_min]="receta.tiempo_min"
+    [dificultad]="receta.dificultad"
+    [imagen]="receta.image_url">
+  </app-receta-card>
+</div>
+
+
+<h1>Comentarios de {{ restaurante?.nombre }}</h1>
+<div class="comentarios-container">
+<app-comment-card
+  *ngFor="let c of comentarios"
+  [usuario]="c.user.nombre"
+  [comentario]="c.comentario"
+  [imagen]="c.user.image_url">
+</app-comment-card>
 </div>

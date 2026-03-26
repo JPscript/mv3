@@ -1,0 +1,29 @@
+/* App Container */
+div.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* App Content - ocupa espacio disponible */
+main.app-content {
+    flex: 1;
+    padding: 2rem;
+    background: #f5f5f5;
+}
+
+/* Header y Footer no se encogen */
+app-header {
+    flex-shrink: 0;
+}
+
+app-footer {
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main.app-content {
+        padding: 1rem;
+    }
+}
