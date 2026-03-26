@@ -16,19 +16,70 @@
 	color: #1a1a2e;
 }
 
-.mapa-simple__box {
+.mapa-simple__list {
 	display: flex;
-	align-items: center;
+	flex-wrap: wrap;
 	justify-content: center;
-	min-height: 280px;
-	border: 2px dashed #9fb0c7;
-	border-radius: 16px;
+	gap: 10px;
+	margin: 0 0 14px;
+}
+
+.mapa-simple__chip {
+	border: 1px solid #c9d5e8;
 	background: #ffffff;
 	color: #1a1a2e;
+	padding: 8px 12px;
+	border-radius: 999px;
+	font: inherit;
+	font-size: 0.92rem;
 	font-weight: 700;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.mapa-simple__chip:hover {
+	border-color: #7ea2d4;
+	background: #eef4fc;
+}
+
+.mapa-simple__chip--active {
+	border-color: #1f6ea5;
+	background: #1f6ea5;
+	color: #ffffff;
+}
+
+.mapa-simple__box {
+	overflow: hidden;
+	min-height: 320px;
+	border: 1px solid #d7deea;
+	border-radius: 16px;
+	background: #ffffff;
+	box-shadow: 0 10px 24px rgba(26, 26, 46, 0.08);
+}
+
+.mapa-simple__iframe {
+	display: block;
+	width: 100%;
+	height: 440px;
+	border: 0;
 }
 
 .mapa-simple p {
 	margin: 14px 0 0;
 	color: #5f6474;
+}
+
+.mapa-simple__error {
+	color: #b42318;
+	font-weight: 600;
+}
+
+@media (max-width: 720px) {
+	.mapa-simple__list {
+		justify-content: flex-start;
+	}
+
+	.mapa-simple__iframe {
+		height: 360px;
+	}
 }

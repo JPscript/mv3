@@ -16,19 +16,41 @@
       <span class="header-nav__icon">🔎</span>
       <span class="header-nav__label">Buscador</span>
     </button>
-    <a class="header-nav__item" routerLink="/login" aria-label="Ir a login">
-      <span class="header-nav__icon">🔐</span>
-      <span class="header-nav__label">Login</span>
-    </a>
+
+    @if (isLoggedIn()) {
+      <a class="header-nav__item" routerLink="/perfil" aria-label="Ir a perfil">
+        <span class="header-nav__icon">👤</span>
+        <span class="header-nav__label">Perfil</span>
+      </a>
+      <button
+        type="button"
+        class="header-nav__item"
+        aria-label="Cerrar sesión"
+        (click)="logout()"
+      >
+        <span class="header-nav__icon">🚪</span>
+        <span class="header-nav__label">Logout</span>
+      </button>
+    } @else {
+      <a class="header-nav__item" routerLink="/login" aria-label="Ir a login">
+        <span class="header-nav__icon">🔐</span>
+        <span class="header-nav__label">Login</span>
+      </a>
+      <a class="header-nav__item" routerLink="/registro" aria-label="Ir a registro">
+        <span class="header-nav__icon">📝</span>
+        <span class="header-nav__label">Registro</span>
+      </a>
+    }
+
     <a class="header-nav__item" routerLink="/mapa" aria-label="Ir a mapas">
       <span class="header-nav__icon">🗺️</span>
       <span class="header-nav__label">Mapas</span>
     </a>
-    <a class="header-nav__item" routerLink="/perfil" aria-label="Ir a perfil">
-      <span class="header-nav__icon">👤</span>
-      <span class="header-nav__label">Perfil</span>
-    </a>
   </nav>
+
+  @if (currentUser()) {
+    <p>Sesión iniciada como {{ currentUser()?.nombre }}</p>
+  }
 
   @if (mostrarBarraBuscador) {
     <form class="header-search" role="search" aria-label="Buscar restaurantes">

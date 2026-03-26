@@ -3,6 +3,14 @@
 <h1>{{ restaurante?.nombre ?? 'Restaurante' }}</h1>
 <p class="restaurante-descripcion">{{ restaurante?.descripcion ?? 'Sin descripcion disponible.' }}</p>
 
+@if (restaurante && isLoggedIn()) {
+	<p>
+		<a [routerLink]="['/restaurantes/actualizar-restaurante', restaurante.id]">Editar restaurante</a>
+		|
+		<a [routerLink]="['/restaurantes/borrar-restaurante', restaurante.id]">Borrar restaurante</a>
+	</p>
+}
+
 <h2>Recetas</h2>
 <div class="cards-grid">
 	@for (receta of recetas; track receta.id) {

@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RestauranteCard } from './components/restaurante-card/restaurante-card';
 import { Restaurantes } from './services/restaurantes';
+import { AuthService } from '../../../services/auth.service';
 import type { Restaurante } from '../../../interfaces/restaurante';
 
 @Component({
@@ -13,10 +14,12 @@ import type { Restaurante } from '../../../interfaces/restaurante';
 export class Home {
 
   private readonly restaurantesService = inject(Restaurantes);
+  private readonly authService = inject(AuthService);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   restaurantes: Restaurante[] = [];
   isLoading = false;
   errorMessage = '';
+  readonly isLoggedIn = this.authService.isLoggedIn;
 
   ngOnInit(): void {
     this.getRestaurantes();

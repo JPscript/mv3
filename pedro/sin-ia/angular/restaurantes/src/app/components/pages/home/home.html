@@ -1,4 +1,9 @@
 <h1>Restaurantes</h1>
+
+@if (isLoggedIn()) {
+  <p><a routerLink="/restaurantes/crear-restaurante">+ Crear restaurante</a></p>
+}
+
 <div class="cards-grid">
   @for (restaurante of restaurantes; track restaurante.id) {
     <a class="restaurante-link" [routerLink]="['/restaurantes/restaurante', restaurante.id]">

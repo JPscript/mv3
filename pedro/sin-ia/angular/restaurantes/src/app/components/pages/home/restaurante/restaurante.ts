@@ -5,6 +5,7 @@ import { CommentCard } from '../components/comment-card/comment-card';
 import { Restaurantes } from '../services/restaurantes';
 import { Recetas } from '../services/recetas';
 import { Comentarios } from '../services/comentarios';
+import { AuthService } from '../../../../services/auth.service';
 import type { Restaurante as RestauranteModel } from '../../../../interfaces/restaurante';
 import type { Receta } from '../../../../interfaces/receta';
 import type { Comentario } from '../../../../interfaces/comentario';
@@ -20,12 +21,14 @@ export class Restaurante implements OnInit {
   private readonly restaurantesService = inject(Restaurantes);
   private readonly recetasService = inject(Recetas);
   private readonly comentariosService = inject(Comentarios);
+  private readonly authService = inject(AuthService);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   restauranteId = 0;
   restaurante: RestauranteModel | null = null;
   recetas: Receta[] = [];
   comentarios: Comentario[] = [];
+  readonly isLoggedIn = this.authService.isLoggedIn;
 
   ngOnInit(): void {
     this.restauranteId = Number(this.route.snapshot.paramMap.get('id'));
