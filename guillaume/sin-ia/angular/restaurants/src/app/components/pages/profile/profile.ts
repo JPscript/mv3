@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,11 +8,25 @@ import { Component } from '@angular/core';
   styleUrl: './profile.css',
 })
 export class Profile {
-    fakeUser = {
-      'id': 1,
-      'nombre': 'John Doe',
-      "image_url": "",
-      "created_at": "2026-03-19T16:15:45.176Z",
-      "updated_at": "2026-03-19T16:15:45.176Z"
-    }
+
+  private readonly authService = inject(AuthService);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+
+  errorMessage = '';
+
+  readonly currentUser = this.authService.currentUser;
+
+  ngOnInit(): void {
+    this.authService.loadProfile().subscribe({
+      error: () => {
+        this.errorMessage = 'Failed to load profile.';
+        this.changeDetectorRef.detectChanges();
+      },
+    });
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
+
 }

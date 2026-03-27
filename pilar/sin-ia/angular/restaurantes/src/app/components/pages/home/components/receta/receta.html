@@ -1,21 +1,25 @@
 <div class="receta-container">
-    <h2>{{ nombre() }}</h2>
-    <div class="description">
-        <h3>Descripcion:</h3>
-        <p>{{ descripcion() }}</p>
+    
+    <div class="receta-card">
+        <img [src]="image_url()" alt="{{ nombre() }}" class="receta-img"/>
+
+        <div class="receta-content">
+            <h2>{{ nombre() }}</h2>
+
+            <p class="descripcion">{{ descripcion() }}</p>
+
+            <div class="receta-info">
+                <div>
+                    <h4>Ingredientes</h4>
+                    <p>{{ ingredientes() }}</p>
+                </div>
+
+                <div class="meta">
+                    <span>⏱ {{ tiempo_min() }} min</span>
+                    <span>🔥 {{ dificultad() }}</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="ingredientes">
-        <h3>ingredientes</h3>
-        <p>{{ ingredientes() }}</p>
-    </div>
-    <div class="tiempo_min">
-        <h3>Tiempo minio</h3>
-        <p>{{ tiempo_min() }}</p>
-    </div>
-    <div class="dificultad">
-        <h3>Dificultad</h3>
-        <p>{{ dificultad() }}</p>
-    </div>
-    <h4>Image: {{ image_url() }}</h4>
+
 </div>
-<p>{{ id() }}</p>

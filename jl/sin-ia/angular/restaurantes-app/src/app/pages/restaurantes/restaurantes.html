@@ -1,10 +1,6 @@
-<p>Total: {{ restaurantes().length }}</p>
-
-<section>
-  <div class="header-section">
-    <h1>Explora Restaurantes</h1>
-    <p>Mostrando {{ restaurantes().length }} sitios disponibles</p>
-  </div>
+<section class="container">
+  <h1>Explora Restaurantes</h1>
+  <p>Mostrando {{ restaurantes().length }} sitios disponibles</p>
 
   <div class="restaurantes-grid">
     @for (res of restaurantes(); track res.id) {

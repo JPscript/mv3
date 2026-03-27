@@ -325,27 +325,11 @@
 
 **2. Lógica Avanzada**
 
-- **Closure (Clausura)**: Es cuando una función "atrapa" y recuerda las variables de su entorno exterior, incluso después de que la función externa haya terminado de ejecutarse. Es la base de la privacidad de datos en JS.
-
-- **Loop (Bucle de Eventos)**: El mecanismo que permite a JS realizar tareas no bloqueantes a pesar de ser "single-threaded" (un solo hilo). Gestiona qué funciones se ejecutan y cuándo, moviéndolas entre el Stack y la Callback Queue.
-
 **3. Asincronía y Comunicación**
 
 - **fetch()**:pedir datos
 
 - **async/await**: esperar datos.
-
-- **Callback**: Una función que se pasa a otra función como argumento para ser ejecutada más tarde (cuando termine una tarea).
-
-- **Promise**: Un objeto que representa el éxito o el fracaso de una operación asíncrona.
-
-- **Pending**: Estado inicial.
-
-- **Fulfilled**: Operación terminada con éxito.
-
-- **Rejected**: Operación fallida.
-
-- **Async / Await**: Sintaxis moderna que hace que el código asíncrono parezca síncrono, facilitando su lectura y evitando el "Callback Hell".
 
 - **JSON (JavaScript Object Notation)**: Formato ligero de intercambio de datos. Es básicamente un objeto de JS convertido en texto, usado para enviar información entre un servidor y una aplicación web.
 
@@ -458,16 +442,6 @@ Framework de desarrollo web basado en TypeScript que permite crear aplicaciones 
 - **Servicio (Service)**: Clase con lógica reutilizable (comunicación con APIs o manejo de datos). Se "inyectan" en los componentes mediante Inyección de Dependencias (DI), un patrón donde Angular entrega las herramientas necesarias al constructor de la clase.
 
 - **Router**: El sistema que decide qué componente mostrar según la URL (ej: /home vs /profile) sin recargar la página.
-
-
-**3. Comunicación y Flujo de Datos**
-- **Interpolación {{ variable }}**: Muestra datos del TypeScript directamente en el HTML.
-
-- **Property Binding [prop]**: Controla atributos de HTML (como [disabled]="true").
-
-- **Event Binding (click)** Captura acciones del usuario para ejecutar funciones.
-
-- **Two-way Binding [(ngModel)]**: Sincroniza el input y la variable en ambas direcciones.
 
 **Comunicación entre Componentes**
 - **@Input():** Decorador para pasar datos de un Padre a un Hijo.

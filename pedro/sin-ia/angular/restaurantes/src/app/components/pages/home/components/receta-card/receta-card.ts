@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-receta-card',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './receta-card.html',
   styleUrl: './receta-card.css',
 })
-export class RecetaCard {}
+export class RecetaCard {
+  nombre = input<string>();
+  descripcion = input<string>();
+  imagen = input<string>();
+  ingredientes = input<string>();
+  tiempo = input<number>();
+  dificultad = input<string>();
+}

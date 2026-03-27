@@ -1,1 +1,49 @@
-<p>mapa works!</p>
+<section class="mapa-simple">
+	<h1>Mapa</h1>
+
+	@if (isLoading) {
+		<p>Cargando restaurantes...</p>
+	}
+
+	@if (errorMessage) {
+		<p class="mapa-simple__error">{{ errorMessage }}</p>
+	}
+
+	@if (!isLoading && !errorMessage && restaurantes.length === 0) {
+		<p class="mapa-simple__error">No hay restaurantes para pintar en el mapa.</p>
+	}
+
+	@if (restaurantes.length > 0) {
+		<div class="mapa-simple__list" role="list" aria-label="Restaurantes del mapa">
+			@for (restaurante of restaurantes; track restaurante.id) {
+				<button
+					type="button"
+					class="mapa-simple__chip"
+					[class.mapa-simple__chip--active]="selectedRestaurante?.id === restaurante.id"
+					(click)="selectRestaurante(restaurante)"
+				>
+					{{ restaurante.nombre }}
+				</button>
+			}
+		</div>
+	}
+
+	<div class="mapa-simple__box">
+		<iframe
+			title="Mapa de restaurantes"
+			class="mapa-simple__iframe"
+			[src]="mapUrl"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+		></iframe>
+	</div>
+
+	@if (selectedRestaurante) {
+		<p>
+			Mostrando: <strong>{{ selectedRestaurante.nombre }}</strong>
+			({{ selectedRestaurante.latitud }}, {{ selectedRestaurante.longitud }})
+		</p>
+	}
+
+	<p>Mapa conectado con OpenStreetMap y con los 4 restaurantes del home.</p>
+</section>

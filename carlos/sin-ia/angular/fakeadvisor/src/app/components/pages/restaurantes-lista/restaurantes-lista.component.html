@@ -2,7 +2,14 @@
 
 <ul class="lista-restaurantes">
   <li *ngFor="let r of restaurantesOrdenados">
-    <span class="nombre">{{ r.nombre }}</span>
-    <span class="puntuacion">⭐ {{ r.puntuacion }}</span>
+    <a
+  class="nombre"
+  [href]="'https://www.google.com/maps/search/?api=1&query=' + encode(r.direccion)"
+  target="_blank"
+>
+  {{ r.nombre }}
+</a>
+<span class="puntuacion">⭐ {{ r.puntuacion }}</span>
+
   </li>
 </ul>

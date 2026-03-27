@@ -1,1 +1,22 @@
-<p>borrar-restaurante works!</p>
+<section>
+	<h1>Borrar restaurante</h1>
+
+	@if (errorMessage) {
+		<p class="error-message">{{ errorMessage }}</p>
+	}
+
+	@if (restaurante) {
+		<p>Vas a borrar <strong>{{ restaurante.nombre }}</strong>.</p>
+		<p>Esta acción no se puede deshacer.</p>
+
+		<button class="danger-button" type="button" (click)="confirmDelete()" [disabled]="isDeleting">
+			@if (isDeleting) {
+				Borrando restaurante...
+			} @else {
+				Confirmar borrado
+			}
+		</button>
+	}
+
+	<p><a class="back-link" routerLink="/restaurantes">Cancelar y volver</a></p>
+</section>

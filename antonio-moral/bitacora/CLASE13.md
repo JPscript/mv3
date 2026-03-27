@@ -1,0 +1,1 @@
+Implementé el login y el registro de usuarios. Para ello, creé un servicio de autenticación en Angular que se encarga de hacer las peticiones al backend, como el registro (/auth/register) y el login (/auth/login). En el registro, envío el nombre y la contraseña para crear un nuevo usuario, y en el login se validan esas credenciales.

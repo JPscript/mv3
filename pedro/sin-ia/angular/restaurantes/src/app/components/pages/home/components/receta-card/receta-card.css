@@ -1,0 +1,47 @@
+:host {
+	display: flex;
+}
+
+.receta-card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	overflow: hidden;
+	background: #ffffff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.receta-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.receta-card img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+	display: block;
+}
+
+.receta-card h2 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 12px 16px 4px;
+	color: #1a1a2e;
+}
+
+.receta-card p {
+	font-size: 0.88rem;
+	margin: 4px 16px;
+	color: #555;
+	line-height: 1.5;
+}
+
+.receta-card p:last-child {
+	margin-bottom: 16px;
+	font-size: 0.78rem;
+	color: #999;
+}

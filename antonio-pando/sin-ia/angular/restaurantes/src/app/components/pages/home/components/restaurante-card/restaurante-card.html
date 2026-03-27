@@ -1,6 +1,6 @@
-<div class="tarjetaRestaurante">
+<a routerLink="{{id()}}" class="tarjetaRestaurante">
     <h2>{{ nombre() }}</h2>
-    <p>Descripcion: {{ descripcion() }}</p>
+    <p>Descripción: {{ descripcion() }}</p>
     <img src="{{ imagen() }}" alt="Foto de {{ nombre() }}" class="imagenTarjeta"/>
     <p>Coordenadas: {{ lat() }}, {{ lng() }}</p>
-</div>
+</a>

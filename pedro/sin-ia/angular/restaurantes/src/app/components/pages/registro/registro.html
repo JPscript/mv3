@@ -1,1 +1,28 @@
-<p>registro works!</p>
+<section class="login-simple">
+	<form class="login-simple__card" (ngSubmit)="submitRegister()">
+		<h1>Registro</h1>
+
+		<label for="nombre">Nombre</label>
+		<input id="nombre" type="text" name="nombre" [(ngModel)]="nombre" required />
+
+		<label for="password">Contraseña</label>
+		<input id="password" type="password" name="password" [(ngModel)]="password" required />
+
+		<label for="confirmPassword">Repetir contraseña</label>
+		<input id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+
+		@if (errorMessage) {
+			<p>{{ errorMessage }}</p>
+		}
+
+		<button type="submit" [disabled]="isSubmitting">
+			@if (isSubmitting) {
+				Registrando...
+			} @else {
+				Crear cuenta
+			}
+		</button>
+
+		<p>¿Ya tienes cuenta? <a routerLink="/login">Ir al login</a></p>
+	</form>
+</section>

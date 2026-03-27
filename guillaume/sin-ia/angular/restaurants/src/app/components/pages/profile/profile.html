@@ -1,8 +1,21 @@
-<div class="profile-container">
-    <div class="profile-header">
+<section>
+    <h1>Profile</h1>
+    @if (errorMessage) {
+        <p>{{ errorMessage }}</p>
+    }
+
+    @if (currentUser()) {
+        <p><strong>Id:</strong> {{ currentUser()?.id }}</p>
+        <p><strong>Name:</strong> {{ currentUser()?.nombre }}</p>
+        <p><strong>Image:</strong> {{ currentUser()?.image_url || 'No image yet' }}</p>
+        <button (click)="logout()">Logout</button>
+    } @else {
+        <p>Loading profile...</p>
+    }
+    <!-- <div class="profile-header">
         <div class="right">
             @if (fakeUser.image_url) {
-              <img [src]="fakeUser.image_url" alt="Profile" width="100" height="100" class="profile-picture">
+                <img [src]="fakeUser.image_url" alt="Profile" width="100" height="100" class="profile-picture">
             } @else {
             <img src="/svg/profile.svg" alt="">
             }
@@ -19,5 +32,6 @@
             <span class="label">Email</span>
             <p>user@email.com</p>
         </div>
-    </div>
-</div>
+    </div> -->
+    <p><a routerLink="/restaurants">Back to list</a></p>
+</section>

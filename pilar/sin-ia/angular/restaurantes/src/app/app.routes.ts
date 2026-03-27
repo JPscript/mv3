@@ -5,6 +5,7 @@ import { Home } from './components/pages/home/home';
 import { RestauranteComponent } from './components/pages/home/restaurante/restaurante';
 import { CrearRestaurante } from './components/pages/home/crear-restaurante/crear-restaurante';
 import { ActualizarRestaurante } from './components/pages/home/actualizar-restaurante/actualizar-restaurante';
+import { BorrarRestaurante } from './components/pages/home/borrar-restaurante/borrar-restaurante';
 import { Login } from './components/pages/login/login';
 import { Registro } from './components/pages/registro/registro';
 import { Perfil } from './components/pages/perfil/perfil';
@@ -30,11 +31,11 @@ export const routes: Routes = [
         },
         component: RestauranteComponent,
     },
-    { path: 'restaurantes/crear-restaurante', title: "Restaurantes 🍽️", component: CrearRestaurante },
-    { path: 'restaurantes/actualizar-restaurante', title: "Restaurantes 🍽️", component: ActualizarRestaurante },
-    { path: 'login', title: "Login 🔐", component: Login },
+    { path: 'restaurantes/crear-restaurante', title: "Restaurantes 🍽️", component: CrearRestaurante, canActivate: [authGuard] },
+    { path: 'restaurantes/actualizar-restaurante/:id', title: "Restaurantes 🍽️", component: ActualizarRestaurante, canActivate: [authGuard] },
+    { path: 'restaurantes/borrar-restaurante/:id', title: "Restaurantes 🍽️", component: BorrarRestaurante, canActivate: [authGuard] }, { path: 'login', title: "Login 🔐", component: Login },
     { path: 'registro', title: "Registro 📝", component: Registro },
-    { path: 'perfil', title: "Perfil 👤", component: Perfil },
+    { path: 'perfil', title: "Perfil 👤", component: Perfil, canActivate: [authGuard] },
     { path: 'mapa', title: "Mapa 🗺️", component: Mapa },
     { path: '**', redirectTo: '/restaurantes' }
 ];
