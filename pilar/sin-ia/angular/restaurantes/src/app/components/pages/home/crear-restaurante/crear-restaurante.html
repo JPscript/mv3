@@ -1,0 +1,40 @@
+<section>
+	<h1>Crear restaurante</h1>
+
+	<form (ngSubmit)="submitCreate()">
+		<label for="nombre">Nombre</label>
+		<input id="nombre" name="nombre" [(ngModel)]="nombre" required>
+
+		<label for="descripcion">Descripción</label>
+		<textarea id="descripcion" name="descripcion" [(ngModel)]="descripcion" required></textarea>
+
+		<label for="latitud">Latitud</label>
+		<input id="latitud" name="latitud" type="number" step="0.000001" [(ngModel)]="latitud" required>
+
+		<label for="longitud">Longitud</label>
+		<input id="longitud" name="longitud" type="number" step="0.000001" [(ngModel)]="longitud" required>
+
+		<label for="imagen">Imagen del restaurante</label>
+		<input id="imagen" name="imagen" type="file" accept="image/*" (change)="onFileSelected($event)">
+		@if (previewUrl) {
+			<div class="preview-container">
+				<p>Previsualización:</p>
+				<img [src]="previewUrl" alt="Previsualización" class="preview-image">
+			</div>
+		}
+
+		@if (errorMessage) {
+			<p class="error">{{ errorMessage }}</p>
+		}
+
+		<button type="submit" [disabled]="isSubmitting">
+			@if (isSubmitting) {
+				Creando restaurante...
+			} @else {
+				Crear restaurante
+			}
+		</button>
+	</form>
+
+	<p><a routerLink="/restaurantes">Volver al listado</a></p>
+</section>

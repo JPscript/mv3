@@ -1,8 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject, computed } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-receta',
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './receta.html',
   styleUrl: './receta.css',
 })
@@ -15,4 +17,5 @@ export class Receta {
   tiempo_min = input<number>();
   dificultad = input<string>();
   image_url = input<string | null>();
+  isOwner = input<boolean>(false);
 }

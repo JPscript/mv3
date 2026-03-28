@@ -1,42 +1,122 @@
-<div class="profile-container">
+<div class="main-wrapper">
+	<div class="profile-container">
+		<!-- Header del Perfil -->
+		@if (currentUser()) {
+			<div class="profile-header">
+				<div class="profile-avatar">
+					<img src="user.svg" alt="{{ currentUser()?.nombre }}" class="avatar">
+				</div>
+				<div class="profile-info">
+					<h1>{{ currentUser()?.nombre }}</h1>
+					<p class="user-id">ID: {{ currentUser()?.id }}</p>
+					@if (currentUser()?.image_url) {
+						<p class="user-image">
+							<strong>Imagen:</strong> {{ currentUser()?.image_url }}
+						</p>
+					}
+				</div>
+			</div>
 
-  <!-- CABECERA -->
-  <div class="profile-header">
-    <img class="avatar" [src]="user.avatar" alt="Foto perfil">
+			<!-- Cargar imagen de perfil -->
+			<div class="profile-image-upload">
+				<h3>Actualizar imagen de perfil</h3>
+				<div class="upload-form">
+					<input type="file" id="profileImage" accept="image/*" (change)="onProfileImageSelected($event)" class="file-input">
+					<label for="profileImage" class="file-label">Seleccionar imagen</label>
+					
+					@if (profilePreviewUrl) {
+						<div class="preview-container">
+							<p>Previsualización:</p>
+							<img [src]="profilePreviewUrl" alt="Previsualización" class="preview-image-profile">
+						</div>
+					}
 
-    <div class="info">
-      <h2>{{ user.name }}</h2>
-      <p class="location">📍 {{ user.location }}</p>
-      <p class="bio">{{ user.bio }}</p>
+					@if (selectedProfileFile) {
+						<button (click)="uploadProfileImage()" [disabled]="isUploadingProfile" class="btn-primary">
+							@if (isUploadingProfile) {
+								Subiendo...
+							} @else {
+								Subir imagen
+							}
+						</button>
+					}
+				</div>
+			</div>
 
-      <button>Seguir</button>
-    </div>
-  </div>
+			<!-- Acciones -->
+			<div class="profile-actions">
+				<button [routerLink]="['/restaurantes']" class="btn-secondary">
+					← Volver al listado
+				</button>
+				<button (click)="logout()" class="btn-danger">
+					Cerrar sesión ✕
+				</button>
+			</div>
 
-  <!-- INTERESES -->
-  <div class="section">
-    <h3>Intereses</h3>
-    <div class="tags">
-      @for (interest of user.interests; track interest) {
-        <span >
-          {{ interest }}
-        </span>
-      }
-    </div>
-  </div>
+			<!-- Mis Restaurantes -->
+			<div class="section">
+				<h2 class="section-title">Mis Restaurantes</h2>
+				@if (isLoadingRestaurantes) {
+					<p class="loading">Cargando restaurantes...</p>
+				} @else if (userRestaurantes.length > 0) {
+					<div class="restaurants-grid">
+						@for (restaurante of userRestaurantes; track restaurante.id) {
+							<div class="restaurant-card">
+								<img [src]="restaurante.fotografia_url" [alt]="restaurante.nombre" class="restaurant-image">
+								<div class="restaurant-content">
+									<h3>{{ restaurante.nombre }}</h3>
+									<p class="description">{{ restaurante.descripcion }}</p>
+									@if (restaurante.rating_summary) {
+										<div class="rating">
+											<span class="stars">★ {{ restaurante.rating_summary.average.toFixed(1) }}</span>
+											<span class="count">({{ restaurante.rating_summary.count }} valoraciones)</span>
+										</div>
+									}
+									<a [routerLink]="['/restaurantes/restaurante', restaurante.id]" class="btn-link">Ver detalles →</a>
+								</div>
+							</div>
+						}
+					</div>
+				} @else {
+					<p class="empty-state">No tienes restaurantes registrados</p>
+				}
+			</div>
 
-  <!-- VALORACIONES -->
-  <div class="section">
-    <h3>Valoraciones</h3>
+			<!-- Mis Comentarios -->
+			<div class="section">
+				<h2 class="section-title">Mis Comentarios</h2>
+				@if (isLoadingComentarios) {
+					<p class="loading">Cargando comentarios...</p>
+				} @else if (userComentarios.length > 0) {
+					<div class="comments-list">
+						@for (comentario of userComentarios; track comentario.id) {
+							<div class="comment-card">
+								<div class="comment-header">
+									<h3>{{ comentario.restaurant_nombre || 'Restaurante' }}</h3>
+									<div class="rating-badge">
+										<span class="stars">★ {{ comentario.rating }}</span>
+									</div>
+								</div>
+								<p class="comment-text">{{ comentario.mensaje }}</p>
+								<p class="comment-date">{{ comentario.fecha_creacion | date:'short' }}</p>
+							</div>
+						}
+					</div>
+				} @else {
+					<p class="empty-state">No tienes comentarios registrados</p>
+				}
+			</div>
 
-    <div class="review">
-      @for (review of user.reviews; track review) {
-      <h4>{{ review.title }}</h4>
-      <p class="stars">⭐ {{ review.rating }}/5</p>
-      <p>{{ review.comment }}</p>
-      }
-    </div>
+		} @else {
+			<div class="loading-state">
+				<p>Cargando perfil...</p>
+			</div>
+		}
 
-  </div>
-
+		@if (errorMessage) {
+			<div class="error-message">
+				<p>{{ errorMessage }}</p>
+			</div>
+		}
+	</div>
 </div>

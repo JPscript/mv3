@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, OnInit, Inject, Component, inject, input } from '@angular/core';
+import { ChangeDetectorRef, OnInit, Inject, Component, inject, input, computed } from '@angular/core';
 import { RestauranteService } from './services/restaurante';
 import { Restaurante } from '../../../../interfaces/restaurante';
 
@@ -6,10 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Receta } from '../components/receta/receta';
 import { Receta as IReceta} from '../../../../interfaces/receta-interface';
 import { RecetaService } from '../components/receta/services/receta.service';
+import { AuthService } from '../../../../services/auth.service/auth.service';
+import { Comentarios } from '../components/comentarios/comentarios';
 
 @Component({
   selector: 'app-restaurante',
-  imports: [Receta],
+  imports: [Receta, Comentarios],
   templateUrl: './restaurante.html',
   styleUrl: './restaurante.css',
 })
@@ -21,9 +23,16 @@ export class RestauranteComponent implements OnInit{
 
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
+  private readonly authService = inject(AuthService);
+
   public restaurante?: Restaurante | null = null;
 
   public recetas?: IReceta[] = [];
+
+  public isOwner = computed(() => {
+    const user = this.authService.currentUser();
+    return user && this.restaurante ? user.id === this.restaurante.user_id : false;
+  });
 
   constructor(private route: ActivatedRoute) {}
 

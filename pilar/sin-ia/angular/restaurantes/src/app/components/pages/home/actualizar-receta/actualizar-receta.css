@@ -1,0 +1,304 @@
+/* Centramos el bloque gris en la página */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+/* El recuadro gris compacto */
+.auth-container {
+    background-color: #f6f6f6;
+    width: 100%;
+    max-width: 500px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* Título en negrita y mayúsculas */
+h1 {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    color: #2D8A6B;
+}
+
+/* Texto de instrucción */
+.instruction-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.loading-text {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Formulario */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Lista de selección */
+.selection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.selection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.selection-item:hover {
+    border-color: #2D8A6B;
+    background: #f9fdf9;
+    transform: translateX(4px);
+}
+
+.selection-content h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.selection-content p {
+    margin: 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.arrow {
+    color: #2D8A6B;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.btn-secondary {
+    width: 100%;
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 18px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+    transform: translateY(-2px);
+}
+
+/* Etiquetas y campos */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 10px 0;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-bottom-color: #2D8A6B;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.input-group select {
+    background: transparent url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat;
+    background-position: right;
+    background-size: 20px;
+    appearance: none;
+    padding-right: 25px;
+}
+
+/* Input row (para dos campos en una fila) */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Imagen actual */
+.current-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #e8f5f0;
+    border: 2px dashed #2D8A6B;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+.current-image p {
+    margin: 0;
+    font-size: 12px;
+    color: #2D8A6B;
+    font-weight: 600;
+}
+
+.current-image-img {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Preview de imagen */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.preview-container p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+}
+
+.preview-image {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Error message */
+.error-text {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin: 10px 0;
+    border-left: 3px solid #d32f2f;
+}
+
+/* Botón con flecha */
+.btn-main {
+    width: 100%;
+    background: #2D8A6B;
+    color: #fff;
+    border: none;
+    padding: 18px 25px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-main:hover:not(:disabled) {
+    background: #1f6b4f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 138, 107, 0.3);
+}
+
+.btn-main:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Link de volver */
+p a {
+    color: #2D8A6B;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+p a:hover {
+    color: #1f6b4f;
+    transform: translateX(-4px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+}
+    
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .current-image-img,
+    .preview-image {
+        max-width: 200px;
+        max-height: 200px;
+    }

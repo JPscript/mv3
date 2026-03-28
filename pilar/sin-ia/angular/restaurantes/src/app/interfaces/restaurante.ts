@@ -5,6 +5,7 @@ export interface Restaurante {
     fotografia_url: string;
     latitud: number;
     longitud: number;
+    user_id?: number;
     total_recetas?: number;
     rating_summary?: {
         average: number;

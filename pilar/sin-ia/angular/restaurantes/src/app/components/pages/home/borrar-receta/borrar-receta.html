@@ -1,0 +1,103 @@
+<div class="main-wrapper">
+	<div class="auth-container">
+
+		<!-- VISTA DE SELECCIÓN DE RESTAURANTE -->
+		@if (!showConfirmation && !isLoadingRestaurantes) {
+			<div>
+				<h1>Eliminar Receta</h1>
+				<p class="instruction-text">Selecciona un restaurante para ver sus recetas</p>
+				
+				@if (errorMessage) {
+					<p class="error-text" style="margin-bottom: 20px;">{{ errorMessage }}</p>
+				}
+				
+				<div class="selection-list">
+					@for (resto of userRestaurantes; track resto.id) {
+						<button 
+							type="button"
+							(click)="selectRestaurante(resto.id)"
+							class="selection-item">
+							<div class="selection-content">
+								<h3>{{ resto.nombre }}</h3>
+								<p>{{ resto.descripcion }}</p>
+							</div>
+							<span class="arrow">→</span>
+						</button>
+					}
+				</div>
+
+				<p><a routerLink="/restaurantes">← Volver</a></p>
+			</div>
+		}
+
+		<!-- VISTA DE SELECCIÓN DE RECETA -->
+		@if (!showConfirmation && isLoadingRestaurantes === false && selectedRestaurantId !== null && !isLoadingRecetas) {
+			<div>
+				<h1>Selecciona una receta</h1>
+				<p class="instruction-text">Elige la receta que deseas eliminar</p>
+				
+				@if (errorMessage) {
+					<p class="error-text" style="margin-bottom: 20px;">{{ errorMessage }}</p>
+				}
+				
+				<div class="selection-list">
+					@for (receta of restaurantRecetas; track receta.id) {
+						<button 
+							type="button"
+							(click)="selectReceta(receta.id)"
+							class="selection-item">
+							<div class="selection-content">
+								<h3>{{ receta.nombre }}</h3>
+								<p>{{ receta.descripcion }}</p>
+							</div>
+							<span class="arrow">→</span>
+						</button>
+					}
+				</div>
+
+				<button 
+					type="button"
+					(click)="selectedRestaurantId = null"
+					class="btn-secondary">
+					← Volver a restaurantes
+				</button>
+			</div>
+		}
+
+		<!-- VISTA DE CONFIRMACIÓN DE BORRADO -->
+		@if (showConfirmation) {
+			<div class="delete-confirmation">
+				<h1>⚠ Borrar Receta</h1>
+
+				@if (errorMessage) {
+					<p class="error-text">{{ errorMessage }}</p>
+				}
+
+				@if (image_url) {
+					<img [src]="image_url" [alt]="nombre" class="confirmation-image">
+				}
+
+				<p class="warning-message">Vas a borrar <strong>{{ nombre }}</strong></p>
+				<p class="warning-detail">Esta acción no se puede deshacer.</p>
+
+				<div class="button-group">
+					<button type="button" (click)="confirmDelete()" [disabled]="isDeleting" class="btn-danger">
+						@if (isDeleting) {
+							Borrando receta...
+						} @else {
+							✕ Confirmar borrado
+						}
+						<span class="arrow">→</span>
+					</button>
+					<a routerLink="/restaurantes" class="btn-secondary">Cancelar</a>
+				</div>
+			</div>
+		}
+
+		<!-- ESTADO DE CARGA -->
+		@if (isLoadingRestaurantes || isLoadingRecetas) {
+			<p class="loading-text">Cargando...</p>
+		}
+
+	</div>
+</div>

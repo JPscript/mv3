@@ -2,38 +2,59 @@
     <div class="footer-container">
 
         <div class="footer-top">
+
+            <!-- Cuenta -->
             <div class="footer-column">
                 <h4>Cuenta</h4>
-                <a [routerLink]="['/login']">Iniciar sesión</a>
-                <a [routerLink]="['/registro']">Registrarse</a>
+
+                @if (isLoggedIn()) {
+                    <a [routerLink]="['/perfil']">Mi perfil</a>
+                    <button (click)="logout()" class="footer-logout">
+                        Cerrar sesión
+                    </button>
+                } @else {
+                    <a [routerLink]="['/login']">Iniciar sesión</a>
+                    <a [routerLink]="['/registro']">Registrarse</a>
+                }
+
             </div>
 
+            <!-- Explorar -->
             <div class="footer-column">
                 <h4>Explorar</h4>
-                <a [routerLink]="['/recetas']">Recetas</a>
-                <a [routerLink]="['/mapa']">Mapa</a>
                 <a [routerLink]="['/restaurantes']">Restaurantes</a>
+                <a [routerLink]="['/mapa']">Mapa</a>
             </div>
 
+            <!-- Acciones -->
             <div class="footer-column">
                 <h4>¿Qué quieres hacer?</h4>
-                <a [routerLink]="['/añadir-restaurante']">Añadir restaurantes</a>
-                <a [routerLink]="['/actualizar-restaurante']">Actualizar restaurantes</a>
-                <a [routerLink]="['/borrar-restaurante']">Borrar restaurantes</a>
+
+                @if (isLoggedIn()) {
+                    <a [routerLink]="['/restaurantes/crear-restaurante']">Añadir restaurantes</a>
+                    <a [routerLink]="['/restaurantes/actualizar-restaurante']">Actualizar restaurantes</a>
+                    <a [routerLink]="['/restaurantes/borrar-restaurante']">Borrar restaurantes</a>
+                } @else {
+                    <p class="footer-hint">Inicia sesión para gestionar restaurantes</p>
+                }
+
             </div>
 
+            <!-- Legal -->
             <div class="footer-column">
                 <h4>Legal</h4>
                 <a [routerLink]="['/privacidad']">Privacidad</a>
                 <a [routerLink]="['/terminos']">Términos</a>
             </div>
+
         </div>
 
         <div class="footer-divider"></div>
 
         <div class="footer-bottom">
+
+            <!-- Redes -->
             <div class="footer-social">
-                <!-- Los enlaces externos SIEMPRE mantienen href -->
                 <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                     <img src="/facebook.svg" alt="Facebook" width="24" height="24">
                 </a>
@@ -45,6 +66,7 @@
                 </a>
             </div>
 
+            <!-- Copyright -->
             <div class="footer-copy">
                 <p>&copy; 2026 
                     <a href="https://www.linkedin.com/in/pilar-salvador-arenas/" target="_blank" rel="noreferrer">
@@ -52,6 +74,7 @@
                     </a>
                 </p>
             </div>
+
         </div>
 
     </div>

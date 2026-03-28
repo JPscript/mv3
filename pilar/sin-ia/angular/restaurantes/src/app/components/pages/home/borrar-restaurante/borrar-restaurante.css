@@ -1,0 +1,234 @@
+/* Borrar Restaurante */
+section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #d32f2f;
+    font-size: 28px;
+    margin: 0 0 30px 0;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* Lista de restaurantes */
+.restaurants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.restaurant-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restaurant-item.warning:hover {
+    background: #ffebee;
+    border-color: #d32f2f;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+    transform: translateX(4px);
+}
+
+.restaurant-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.restaurant-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.restaurant-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.restaurant-info .description {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.warning-text {
+    margin: 0;
+    font-size: 12px;
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+/* Confirmación de borrado */
+.delete-confirmation {
+    background: #ffebee;
+    border: 2px solid #d32f2f;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.confirmation-image {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+}
+
+.warning-message {
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+    color: #d32f2f;
+    font-weight: 700;
+}
+
+.warning-detail {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    color: #c62828;
+    font-style: italic;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button,
+.btn-danger,
+.btn-secondary {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-danger {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensajes */
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #d32f2f;
+    font-size: 14px;
+    margin: 20px 0 10px 0;
+}
+
+.loading {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+/* Link de volver */
+p a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+p a:hover {
+    color: #b71c1c;
+    transform: translateX(-4px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    section {
+        margin: 20px;
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .restaurant-thumb {
+        width: 60px;
+        height: 60px;
+    }
+
+    .confirmation-image {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button,
+    .btn-danger,
+    .btn-secondary {
+        width: 100%;
+    }
+}

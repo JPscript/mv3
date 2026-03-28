@@ -1,1 +1,97 @@
-<p>comentarios works!</p>
+<section class="comments-section">
+  <h2>💬 Comentarios</h2>
+
+  @if (currentUser()) {
+    <div class="comment-form-container">
+      <h3>Deja tu comentario</h3>
+      
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+      
+      @if (successMessage) {
+        <div class="success-message">{{ successMessage }}</div>
+      }
+
+      <div class="form-group">
+        <label for="rating">Calificación:</label>
+        <select [(ngModel)]="rating" id="rating" class="rating-select">
+          <option value="1">⭐ 1 - Malo</option>
+          <option value="2">⭐⭐ 2</option>
+          <option value="3">⭐⭐⭐ 3 - Regular</option>
+          <option value="4">⭐⭐⭐⭐ 4</option>
+          <option value="5">⭐⭐⭐⭐⭐ 5 - Excelente</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="comentario">Comentario:</label>
+        <textarea
+          [(ngModel)]="nuevoComentario"
+          id="comentario"
+          placeholder="Cuéntanos tu experiencia..."
+          class="comment-textarea"
+          rows="4">
+        </textarea>
+      </div>
+
+      <button 
+        (click)="submitComment()" 
+        [disabled]="isSubmitting"
+        class="btn-submit">
+        {{ isSubmitting ? 'Enviando...' : '📤 Enviar Comentario' }}
+      </button>
+    </div>
+  } @else {
+    <div class="login-prompt">
+      <p>Inicia sesión para dejar un comentario</p>
+    </div>
+  }
+
+  <div class="comments-list">
+    <h3>Comentarios de usuarios ({{ comentarios.length }})</h3>
+    
+    @if (isLoading) {
+      <p class="loading">Cargando comentarios...</p>
+    } @else if (comentarios.length === 0) {
+      <p class="no-comments">Aún no hay comentarios. ¡Sé el primero!</p>
+    } @else {
+      @for (comentario of comentarios; track comentario.id) {
+        <div class="comment-card">
+          <div class="comment-header">
+            <div class="user-info">
+              <img 
+                *ngIf="comentario.user_image_url"
+                [src]="comentario.user_image_url" 
+                [alt]="comentario.user_nombre" 
+                class="user-avatar">
+              <div class="user-details">
+                <h4>{{ comentario.user_nombre }}</h4>
+                <span class="rating-stars">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <span [class.filled]="star <= comentario.rating">⭐</span>
+                  }
+                </span>
+              </div>
+            </div>
+            
+            @if (canDeleteComment(comentario.user_id || 0)) {
+              <button 
+                (click)="deleteComment(comentario.id)" 
+                class="btn-delete-comment"
+                title="Eliminar comentario">
+                🗑️
+              </button>
+            }
+          </div>
+          
+          <p class="comment-text">{{ comentario.mensaje }}</p>
+          
+          <span class="comment-date">
+            {{ comentario.fecha_creacion | date: 'short' }}
+          </span>
+        </div>
+      }
+    }
+  </div>
+</section>

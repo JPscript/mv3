@@ -4,6 +4,7 @@
     <form class="login-form" (ngSubmit)="submitLogin()" #loginForm="ngForm">
       <h1>Inicia sesión</h1>
 
+      <!-- Nombre -->
       <div class="input-group">
         <label for="nombre">Nombre</label>
         <input 
@@ -15,6 +16,7 @@
           required>
       </div>
 
+      <!-- Password -->
       <div class="input-group">
         <label for="password">Contraseña</label>
         <input 
@@ -24,6 +26,13 @@
           [(ngModel)]="password" 
           placeholder="Contraseña" 
           required>
+
+          <!-- Error -->
+      @if (errorMessage) {
+        <p class="error-text">
+          {{ errorMessage }}
+        </p>
+      }
         
         <div class="links-helper">
           <a href="#">¿Has olvidado tu contraseña?</a>
@@ -33,29 +42,39 @@
         </div>
       </div>
 
-      @if (errorMessage) {
-        <p class="error-text" style="color: red; font-size: 0.9rem; margin-bottom: 1rem;">
-          {{ errorMessage }}
-        </p>
-      }
 
-      <button type="submit" class="btn-main" [disabled]="isSubmitting || !loginForm.valid">
-        <span>
-          @if (isSubmitting) { Entrando... } @else { CONTINUAR }
-        </span>
+      <!-- Botón -->
+      <button 
+        type="submit" 
+        class="btn-main" 
+        [disabled]="isSubmitting"
+      >
+        @if (isSubmitting) { 
+          <span>Entrando...</span>
+        } @else { 
+          <span>Iniciar sesión</span>
+        }
         <span>→</span>
       </button>
+
     </form>
 
     <div class="separator">O también</div>
 
+    <!-- Social -->
     <section class="social-auth">
       <div class="social-buttons">
-        <button type="button" class="btn-social">CONTINUAR CON GOOGLE</button>
-        <button type="button" class="btn-social">CONTINUAR CON APPLE</button>
+        <button type="button" class="btn-social">
+          CONTINUAR CON GOOGLE
+        </button>
+        <button type="button" class="btn-social">
+          CONTINUAR CON APPLE
+        </button>
       </div>
+
       <p class="legal">
-        Al iniciar sesión, aceptas nuestra <strong>Política de Privacidad</strong>.
+        Al iniciar sesión, aceptas nuestra 
+        <strong>Política de Privacidad</strong>.
       </p>
     </section>
 

@@ -19,6 +19,17 @@
                     <span>🔥 {{ dificultad() }}</span>
                 </div>
             </div>
+
+            @if (isOwner()) {
+                <div class="action-buttons">
+                    <a [routerLink]="['/recetas/actualizar-receta', id()]" class="btn-edit">
+                        ✏️ Editar
+                    </a>
+                    <a [routerLink]="['/recetas/borrar-receta', id()]" class="btn-delete">
+                        🗑️ Eliminar
+                    </a>
+                </div>
+            }
         </div>
     </div>
 

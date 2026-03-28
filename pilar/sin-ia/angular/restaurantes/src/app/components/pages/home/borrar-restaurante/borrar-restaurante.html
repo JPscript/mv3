@@ -1,1 +1,57 @@
-<p>borrar-restaurante works!</p>
+<section>
+	@if (!showConfirm) {
+		<h1>Selecciona un restaurante para borrar</h1>
+
+		@if (isLoadingList) {
+			<p class="loading">Cargando tus restaurantes...</p>
+		} @else if (userRestaurantes.length > 0) {
+			<div class="restaurants-list">
+				@for (restaurante of userRestaurantes; track restaurante.id) {
+					<div class="restaurant-item warning" (click)="selectRestaurante(restaurante.id)">
+						@if (restaurante.fotografia_url) {
+							<img [src]="restaurante.fotografia_url" [alt]="restaurante.nombre" class="restaurant-thumb">
+						}
+						<div class="restaurant-info">
+							<h3>{{ restaurante.nombre }}</h3>
+							<p class="description">{{ restaurante.descripcion }}</p>
+							<p class="warning-text">⚠ Click para borrar este restaurante</p>
+						</div>
+					</div>
+				}
+			</div>
+		} @else {
+			@if (errorMessage) {
+				<p class="error">{{ errorMessage }}</p>
+			}
+		}
+
+		<p><a routerLink="/restaurantes">← Volver al listado</a></p>
+	} @else {
+		<h1>Borrar restaurante</h1>
+
+		@if (errorMessage) {
+			<p class="error">{{ errorMessage }}</p>
+		}
+
+		@if (restaurante) {
+			<div class="delete-confirmation">
+				@if (restaurante.fotografia_url) {
+					<img [src]="restaurante.fotografia_url" [alt]="restaurante.nombre" class="confirmation-image">
+				}
+				<p class="warning-message">⚠ Vas a borrar <strong>{{ restaurante.nombre }}</strong></p>
+				<p class="warning-detail">Esta acción no se puede deshacer y se borrarán todos los datos asociados.</p>
+
+				<div class="button-group">
+					<button type="button" (click)="confirmDelete()" [disabled]="isDeleting" class="btn-danger">
+						@if (isDeleting) {
+							Borrando restaurante...
+						} @else {
+							✕ Confirmar borrado
+						}
+					</button>
+					<a routerLink="/restaurantes" class="btn-secondary">Cancelar</a>
+				</div>
+			</div>
+		}
+	}
+</section>

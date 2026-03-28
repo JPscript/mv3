@@ -1,46 +1,51 @@
-<div class="main-wrapper"> <!-- Este contenedor ayuda a centrarlo todo -->
+<div class="main-wrapper">
     <div class="auth-container">
 
-        <form class="login-form">
+        <form class="login-form" (ngSubmit)="submitRegister()">
             <h1> Registro </h1>
 
             <div class="input-group">
                 <label>Nombre</label>
-                <input type="text" placeholder="Nombre">
-            </div>
-
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" placeholder="Correo electrónico">
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" required placeholder="Nombre">
             </div>
 
             <div class="input-group">
                 <label>Contraseña</label>
-                <input type="password" placeholder="Contraseña">
+                <input type="password" id="password" name="password" [(ngModel)]="password" required
+                    placeholder="Contraseña">
             </div>
 
             <div class="input-group">
                 <label>Repite Contraseña</label>
-                <input type="password" placeholder="Repite contraseña">
-
+                <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword"
+                    required placeholder="Repite contraseña">
             </div>
 
-            <button type="submit" class="btn-main">
-                <span>CONTINUAR</span>
+            @if (errorMessage) {
+            <p>{{ errorMessage }}</p>
+            }
+
+            <button type="submit" class="btn-main" [disabled]="isSubmitting">
+                @if (isSubmitting) {
+                  <span>Registrando...</span>
+                } @else {
+                  <span>Crear cuenta</span>
+                }
                 <span>→</span>
             </button>
         </form>
 
+        <p>¿Ya tienes cuenta? <a routerLink="/login">Ir al login</a></p>
+
         <div class="separator">O también</div>
 
         <section class="social-auth">
-         
             <div class="social-buttons">
-                <button class="btn-social">CONTINUAR CON GOOGLE</button>
-                <button class="btn-social">CONTINUAR CON APPLE</button>
+                <button type="button" class="btn-social">CONTINUAR CON GOOGLE</button>
+                <button type="button" class="btn-social">CONTINUAR CON APPLE</button>
             </div>
             <p class="legal">
-                Al iniciar sesión, aceptas nuestra <strong>Política de Privacidad</strong>.
+                Al crear cuenta, aceptas nuestra <strong>Política de Privacidad</strong>.
             </p>
         </section>
 

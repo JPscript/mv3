@@ -1,7 +1,6 @@
 <header class="main-header">
     <nav class="nav-container" aria-label="Menú principal">
 
-       
         <!-- Logo -->
         <div class="logo-container">
             <a class="logo" [routerLink]="['/restaurantes']">
@@ -21,7 +20,7 @@
             </div>
         </form>
 
-        <!-- Icono del Mundo -->
+        <!-- Icono del Mapa -->
         <div class="world-icon">
             <a [routerLink]="['/mapa']" class="boton-icono" title="Ver Mapa">
                 <img src="map.svg" alt="Mapa" width="24" height="24">
@@ -30,9 +29,36 @@
 
         <!-- Usuario -->
         <div class="user-menu">
-            <a [routerLink]="['/login']" class="user-link" aria-label="Iniciar sesión">
-                <img src="user.svg" alt="Usuario" width="24" height="24">
-            </a>
+            @if (isLoggedIn()) {
+
+                <!-- Usuario logueado -->
+                <div class="user-menu-container">
+                    <button (click)="toggleMenu()" class="user-link" aria-label="Menú de usuario" type="button">
+                        <img src="user.svg" alt="Usuario" width="24" height="24">
+                    </button>
+
+                    <!-- Desplegable -->
+                    @if (isMenuOpen()) {
+                        <div class="user-dropdown">
+                            <div class="user-info">
+                                <p>{{ currentUser()?.nombre }}</p>
+                            </div>
+                            <a [routerLink]="['/perfil']" (click)="closeMenu()" class="dropdown-link">Mi perfil</a>
+                            <button (click)="logout()" class="logout-btn">
+                                Cerrar sesión
+                            </button>
+                        </div>
+                    }
+                </div>
+
+            } @else {
+
+                <!-- Usuario no logueado -->
+                <a [routerLink]="['/login']" class="user-link" aria-label="Iniciar sesión">
+                    <img src="user.svg" alt="Login" width="24" height="24">
+                </a>
+
+            }
         </div>
 
     </nav>

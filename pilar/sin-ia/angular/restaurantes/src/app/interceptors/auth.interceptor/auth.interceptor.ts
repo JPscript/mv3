@@ -1,13 +1,11 @@
 import { inject } from '@angular/core';
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service/auth.service';
 
 const AUTH_LOGIN_URL = '/auth/login';
 const AUTH_REGISTER_URL = '/auth/register';
 
-// Un interceptor puede modificar peticiones antes de que salgan al backend.
-// Aqui añadimos el header Authorization si existe un token guardado.
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
 	const authService = inject(AuthService);
 	const token = authService.getToken();

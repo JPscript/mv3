@@ -1,0 +1,235 @@
+/* Centramos el bloque gris en la página */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+/* El recuadro gris compacto */
+.auth-container {
+    background-color: #f6f6f6;
+    width: 100%;
+    max-width: 500px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+/* Título en negrita y mayúsculas */
+h1 {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;
+    color: #d32f2f;
+}
+
+/* Texto de instrucción */
+.instruction-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.loading-text {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Lista de selección */
+.selection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.selection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.selection-item:hover {
+    border-color: #d32f2f;
+    background: #fff5f5;
+    transform: translateX(4px);
+}
+
+.selection-content h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.selection-content p {
+    margin: 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.arrow {
+    color: #d32f2f;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Confirmación de borrado */
+.delete-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Imagen */
+.confirmation-image {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+}
+
+/* Mensajes */
+.warning-message {
+    margin: 10px 0 5px 0;
+    font-size: 16px;
+    color: #d32f2f;
+    font-weight: 700;
+    text-align: center;
+}
+
+.warning-detail {
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    color: #c62828;
+    font-style: italic;
+    text-align: center;
+}
+
+.error-text {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    border-left: 3px solid #d32f2f;
+    width: 100%;
+}
+
+/* Botones */
+.button-group {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    flex-direction: column;
+}
+
+button,
+.btn-danger,
+.btn-secondary {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.btn-danger {
+    background: #d32f2f;
+    color: white;
+    width: 100%;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.btn-danger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Link de volver */
+p a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+p a:hover {
+    color: #b71c1c;
+    transform: translateX(-4px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .confirmation-image {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button,
+    .btn-danger,
+    .btn-secondary {
+        width: 100%;
+    }
+}
