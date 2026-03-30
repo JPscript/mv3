@@ -11,10 +11,10 @@ export class Registro {
   profileForm = new FormGroup({
     name: new FormControl(''),
     password: new FormControl(''),
+    confirmPassword: new FormControl(''),
   });
 
-    handleSubmit() {
-    alert('El usuario ' + this.profileForm.value.name + ' ha sido registrado con exito! ');
-  }
+
+
 
 }
